@@ -3,6 +3,21 @@
 All notable changes to the **Burhani Enterprise Website** will be documented in this file.
 The project adheres to sprint-based versioning aligned with project tickets.
 
+## [Sprint BE-004.2] — 2026-09-08
+
+### Added
+- **Global Theme Tokens (`src/styles/theme.css`):** Comprehensive CSS custom properties for Navy + Gold palette, luxury gold gradients, dark navy radial gradients, radius scale (`sm` to `2xl`), and shadow scale (`soft`, `glass`, `gold-glow`).
+- **Fluid Typography System (`src/styles/typography.css`):** Clamp-based responsive typography scale featuring Poppins for headings, Inter Variable for body, and Noto Sans Gujarati, plus typography utility classes.
+- **Global Stylesheet Enhancements (`src/styles/global.css`):** Full modern CSS reset, smooth scrolling, gold text selection styling, dark luxury custom scrollbars, high-visibility `:focus-visible` keyboard rings, and `prefers-reduced-motion` compliance.
+- **Base Layout (`src/layouts/BaseLayout.astro`):** Root HTML5 shell with Open Graph and Twitter metadata, Google Fonts preconnect, skip-to-content accessibility link, ambient glow background layer, and gold monogram favicon placeholder.
+- **Accessible UI Component Primitives (`src/components/ui/`):**
+  - `Button.astro`: Polymorphic button/link supporting `primary`, `secondary`, `outline`, and `ghost` variants with responsive sizing.
+  - `Badge.astro`: Luxury status badges with glowing pulses and multi-variant support.
+  - `GlassCard.astro`: Dark glassmorphism card container with backdrop blur, hover elevations, and gold hairline glints.
+  - `Container.astro`: Responsive horizontal constraint wrapper with multi-size options.
+  - `Section.astro`: Semantic layout section with vertical rhythm and background options.
+  - `ThemeToggle.astro`: Accessible toggle element permanently locked to Dark Luxury theme.
+
 ---
 
 ## [Sprint BE-004.1] — 2026-09-08

@@ -1,35 +1,112 @@
+/* ==========================================================================
+   Burhani Enterprise — Global Stylesheet
+   ========================================================================== */
+
 @import "tailwindcss";
+@import "./theme.css";
+@import "./typography.css";
 
-@theme {
-  --color-navy-950: #030712;
-  --color-navy-900: #0A1128;
-  --color-navy-800: #001F54;
-  --color-navy-700: #0A2558;
-  --color-navy-600: #123472;
-
-  --color-gold-300: #F5E6BE;
-  --color-gold-400: #E6CA65;
-  --color-gold-500: #D4AF37;
-  --color-gold-600: #AA7C11;
-  --color-gold-700: #85610D;
-
-  --color-surface-dark: #0A1128;
-  --color-surface-card: #0F172A;
-  --color-surface-border: #1E293B;
-
-  --font-serif: "Cinzel", "Playfair Display", Georgia, serif;
-  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+/* --------------------------------------------------------------------------
+   CSS Reset & Base Rules
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-:root {
+html {
+  scroll-behavior: smooth;
   color-scheme: dark;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background-color: var(--color-navy-950, #030712);
-  color: #f8fafc;
-  font-family: var(--font-sans);
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
   min-height: 100vh;
+  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   Selection Color
+   -------------------------------------------------------------------------- */
+::selection {
+  background-color: var(--color-primary);
+  color: #030712;
+}
+
+::-moz-selection {
+  background-color: var(--color-primary);
+  color: #030712;
+}
+
+/* --------------------------------------------------------------------------
+   Scrollbar Styling
+   -------------------------------------------------------------------------- */
+/* WebKit / Chromium / Safari */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #030712;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #111f44;
+  border: 2px solid #030712;
+  border-radius: var(--radius-full);
+  transition: background-color var(--transition-fast);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #111f44 #030712;
+}
+
+/* --------------------------------------------------------------------------
+   Focus-Visible Styling (WCAG 2.1 AA Compliance)
+   -------------------------------------------------------------------------- */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Remove default focus for non-keyboard events */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* --------------------------------------------------------------------------
+   Reduced-Motion Accessibility Support
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

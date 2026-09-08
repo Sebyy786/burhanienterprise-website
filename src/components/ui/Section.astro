@@ -1,0 +1,44 @@
+---
+interface Props {
+  id?: string;
+  class?: string;
+  spacing?: 'sm' | 'md' | 'lg' | 'none';
+  background?: 'default' | 'surface' | 'radial' | 'transparent';
+  ariaLabel?: string;
+}
+
+const {
+  id,
+  class: className = '',
+  spacing = 'lg',
+  background = 'default',
+  ariaLabel,
+} = Astro.props as Props;
+
+const spacings: Record<'none' | 'sm' | 'md' | 'lg', string> = {
+  none: '',
+  sm: 'py-8 sm:py-12',
+  md: 'py-12 sm:py-16 lg:py-20',
+  lg: 'py-16 sm:py-24 lg:py-28',
+};
+
+const backgrounds: Record<'default' | 'surface' | 'radial' | 'transparent', string> = {
+  default: 'bg-background',
+  surface: 'bg-surface/60 border-y border-border-subtle backdrop-blur-xs',
+  radial: 'bg-[radial-gradient(ellipse_at_center,_var(--color-surface-soft)_0%,_var(--color-background)_75%)]',
+  transparent: 'bg-transparent',
+};
+
+const combinedClasses = [
+  'relative w-full overflow-hidden',
+  spacings[spacing],
+  backgrounds[background],
+  className,
+]
+  .filter(Boolean)
+  .join(' ');
+---
+
+<section id={id} class={combinedClasses} aria-label={ariaLabel}>
+  <slot />
+</section>

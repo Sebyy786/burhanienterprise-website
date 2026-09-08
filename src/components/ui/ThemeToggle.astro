@@ -1,0 +1,41 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+---
+
+<!-- 
+  ThemeToggle Component
+  Note: Burhani Enterprise uses a dedicated, brand-enforced Premium Dark Luxury theme.
+  This control is created per design system specifications but locked/disabled.
+-->
+<div class={`inline-flex items-center gap-2 ${className}`}>
+  <button
+    type="button"
+    disabled
+    aria-disabled="true"
+    aria-label="Theme selection locked to Dark Luxury"
+    title="Dark Luxury is the required brand theme"
+    class="relative inline-flex h-9 w-9 items-center justify-center rounded-[var(--radius-md)] border border-border bg-surface-soft text-text-gold opacity-80 cursor-not-allowed transition-colors"
+  >
+    <!-- Moon icon representing permanent dark luxury mode -->
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="h-4 w-4 text-primary"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      stroke-width="2"
+      aria-hidden="true"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+      />
+    </svg>
+    <span class="sr-only">Dark Luxury theme active (permanent)</span>
+  </button>
+</div>

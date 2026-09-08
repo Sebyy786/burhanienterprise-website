@@ -1,0 +1,29 @@
+---
+interface Props {
+  size?: 'sm' | 'md' | 'lg' | 'xl' | 'full';
+  as?: 'div' | 'section' | 'header' | 'footer' | 'main';
+  class?: string;
+}
+
+const { size = 'xl', as: Element = 'div', class: className = '' } = Astro.props as Props;
+
+const sizes: Record<'sm' | 'md' | 'lg' | 'xl' | 'full', string> = {
+  sm: 'max-w-3xl',
+  md: 'max-w-5xl',
+  lg: 'max-w-6xl',
+  xl: 'max-w-7xl',
+  full: 'max-w-full',
+};
+
+const combinedClasses = [
+  'w-full mx-auto px-4 sm:px-6 lg:px-8',
+  sizes[size],
+  className,
+]
+  .filter(Boolean)
+  .join(' ');
+---
+
+<Element class={combinedClasses}>
+  <slot />
+</Element>

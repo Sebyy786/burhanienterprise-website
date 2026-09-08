@@ -1,0 +1,33 @@
+---
+interface Props {
+  variant?: 'gold' | 'navy' | 'outline' | 'muted';
+  size?: 'sm' | 'md';
+  class?: string;
+}
+
+const { variant = 'gold', size = 'md', class: className = '' } = Astro.props as Props;
+
+const baseStyles =
+  'inline-flex items-center font-medium tracking-wide uppercase transition-colors select-none font-heading';
+
+const variants: Record<'gold' | 'navy' | 'outline' | 'muted', string> = {
+  gold: 'bg-primary/10 text-primary border border-primary/30 shadow-[0_0_12px_rgba(212,175,55,0.15)]',
+  navy: 'bg-surface-soft text-slate-200 border border-border-subtle',
+  outline: 'bg-transparent text-text-gold border border-border hover:border-primary/40',
+  muted: 'bg-white/5 text-text-muted border border-white/10',
+};
+
+const sizes: Record<'sm' | 'md', string> = {
+  sm: 'text-[10px] px-2 py-0.5 rounded-[var(--radius-sm)] gap-1 tracking-wider',
+  md: 'text-xs px-3 py-1 rounded-[var(--radius-md)] gap-1.5 tracking-wide',
+};
+
+const combinedClasses = [baseStyles, variants[variant], sizes[size], className].filter(Boolean).join(' ');
+---
+
+<span class={combinedClasses}>
+  <slot name="dot">
+    {variant === 'gold' && <span class="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" aria-hidden="true" />}
+  </slot>
+  <slot />
+</span>

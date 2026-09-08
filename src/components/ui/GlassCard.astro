@@ -1,0 +1,46 @@
+---
+interface Props {
+  hoverEffect?: boolean;
+  glow?: boolean;
+  padding?: 'none' | 'sm' | 'md' | 'lg';
+  as?: 'div' | 'article' | 'section' | 'aside';
+  class?: string;
+}
+
+const {
+  hoverEffect = true,
+  glow = false,
+  padding = 'md',
+  as: Element = 'div',
+  class: className = '',
+} = Astro.props as Props;
+
+const baseStyles =
+  'relative rounded-[var(--radius-xl)] bg-[linear-gradient(180deg,rgba(14,26,56,0.65)_0%,rgba(10,17,40,0.85)_100%)] backdrop-blur-md border border-border transition-all duration-300 overflow-hidden';
+
+const hoverStyles = hoverEffect
+  ? 'hover:border-primary/40 hover:-translate-y-1 hover:shadow-[0_12px_32px_-4px_rgba(0,0,0,0.7),0_0_20px_-2px_rgba(212,175,55,0.15)]'
+  : '';
+
+const glowStyles = glow ? 'shadow-[0_0_30px_-5px_rgba(212,175,55,0.25)] border-primary/40' : 'shadow-glass';
+
+const paddings: Record<'none' | 'sm' | 'md' | 'lg', string> = {
+  none: '',
+  sm: 'p-4',
+  md: 'p-6 sm:p-8',
+  lg: 'p-8 sm:p-10',
+};
+
+const combinedClasses = [baseStyles, hoverStyles, glowStyles, paddings[padding], className]
+  .filter(Boolean)
+  .join(' ');
+---
+
+<Element class={combinedClasses}>
+  <!-- Subtle Top Border Highlight Glint -->
+  <div
+    class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent"
+    aria-hidden="true"
+  ></div>
+  <slot />
+</Element>
