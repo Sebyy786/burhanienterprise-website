@@ -2,6 +2,8 @@
 
 ## 1. Corporate Identity & Overview
 - **Legal / Trading Entity:** Burhani Enterprise
+- **Registered Base / Facility:** Umreth, Anand District, Gujarat, India.
+- **Primary Service Footprint:** Serving Umreth & Anand District, Gujarat.
 - **Industry Sector:** Industrial Gas Systems, Heavy Weighing Solutions & Enterprise Software.
 - **Mission:** Delivering robust industrial engineering, precision-calibrated weighing infrastructure, and custom software systems that empower modern commercial operations.
 - **Tone of Voice:** Authoritative, technical, refined, dependable, and solutions-focused.

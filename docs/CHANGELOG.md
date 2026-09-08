@@ -2,6 +2,18 @@
 
 All notable changes to the **Burhani Enterprise Website** will be documented in this file.
 The project adheres to sprint-based versioning aligned with project tickets.
+## [Sprint BE-006.0A] — 2026-09-08
+
+### Changed
+- **Business Accuracy & Service Area Alignment:**
+  - Standardized operating corridor across all components, headers, footers, and meta descriptions to `"Serving Umreth & Anand District, Gujarat."`
+  - Replaced central operations and contact address with verified location: `Umreth, Anand District, Gujarat, India`.
+  - Removed all unverified claims regarding "Legal Metrology", "Metrology-Grade Calibration & Stamping", and government stamping assistance.
+  - Refined Pillar 02 to "Precision Calibration & Testing" focusing on weight repeatability, balance verification, and digital signal stability.
+  - Updated regional footprint banner to list Anand District centers (Umreth, Anand, Vallabh Vidyanagar, Khambhat, Petlad, Borsad, Tarapur, Sojitra).
+  - Verified `docs/BUSINESS_CONTENT.md` to reflect strictly factual business capabilities and operating base.
+
+---
 
 ## [Sprint BE-006.0] — 2026-09-08
 

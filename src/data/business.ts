@@ -37,7 +37,7 @@ export const businessProfile: BusinessProfile = {
     },
     email: 'contact@burhanienterprise.com',
     phone: '+91 98250 00000',
-    address: 'Industrial Area, Baroda, Gujarat, India',
+    address: 'Umreth, Anand District, Gujarat, India',
   },
   supportedLanguages: [
     { code: 'en', label: 'English', nativeLabel: 'EN' },
