@@ -3,6 +3,14 @@
 All notable changes to the **Burhani Enterprise Website** will be documented in this file.
 The project adheres to sprint-based versioning aligned with project tickets.
 
+## [Sprint BE-005.1] — 2026-09-08
+
+### Added
+- **Custom Domain Configuration:** Configured `site: 'https://burhanienterprise.me'` and `base: '/'` in `astro.config.mjs`.
+- **GitHub Pages CNAME:** Created `public/CNAME` pointing to `burhanienterprise.me` to bind GitHub Pages hosting to Cloudflare custom domain.
+
+---
+
 ## [Sprint BE-005.0] — 2026-09-08
 
 ### Added
