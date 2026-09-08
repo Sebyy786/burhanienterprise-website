@@ -1,0 +1,35 @@
+---
+import Container from '../../components/ui/Container.astro';
+import HeroBackground from './HeroBackground.astro';
+import HeroContent from './HeroContent.astro';
+import HeroDivisionCards from './HeroDivisionCards.astro';
+import HeroStats from './HeroStats.astro';
+
+interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props as Props;
+---
+
+<section
+  id="hero"
+  class={`relative min-h-[calc(100vh-var(--header-height))] flex flex-col justify-center pt-8 pb-16 sm:pt-12 sm:pb-24 lg:pt-16 lg:pb-28 overflow-hidden ${className}`}
+  aria-label="Burhani Enterprise Hero Section"
+>
+  <!-- Cinematic Ambient Background -->
+  <HeroBackground />
+
+  <Container size="xl" class="relative z-10 flex flex-col items-center gap-14 sm:gap-16 lg:gap-20">
+    <!-- Main Content: Headline, Value Prop & Dual CTAs -->
+    <HeroContent />
+
+    <!-- 3 Floating Business Division Cards -->
+    <div id="divisions" class="w-full">
+      <HeroDivisionCards />
+    </div>
+
+    <!-- 4-Pillar Trust & Performance Stats -->
+    <HeroStats />
+  </Container>
+</section>

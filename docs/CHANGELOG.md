@@ -3,6 +3,27 @@
 All notable changes to the **Burhani Enterprise Website** will be documented in this file.
 The project adheres to sprint-based versioning aligned with project tickets.
 
+## [Sprint BE-004.4] — 2026-09-08
+
+### Added
+- **Cinematic Dark Hero Section (`src/sections/hero/Hero.astro`):** Root hero composer combining ambient backdrop, headline content, floating division cards, and core performance stats.
+- **Ambient Hero Background (`src/sections/hero/HeroBackground.astro`):** Deep navy radial backdrop, glowing gold ambient orbs, and subtle technical engineering grid with top/bottom edge hairline transitions.
+- **Hero Typography & Content (`src/sections/hero/HeroContent.astro`):** High-impact fluid typography featuring `text-display`, gold gradient typography accents, compliance trust badge, and B2B value proposition.
+- **Dual Action CTAs (`src/sections/hero/HeroCTA.astro`):** Primary "Request B2B Quote" with interactive hover lift and secondary "Explore Product Divisions" glass button, complemented by material traceability micro-badges.
+- **Three Floating Business Cards (`src/sections/hero/HeroDivisionCards.astro`):** Reusable glass cards representing core business verticals (Fasteners & Fixings, Valves & Flanges, Rigging & Heavy Hardware) with authentic technical vector placeholders, specification highlights, and zero founder/unverified photos.
+- **Trust & Performance Metrics Bar (`src/sections/hero/HeroStats.astro`):** Responsive 4-metric glass bar highlighting 5,000+ SKUs, 100% MTR Traceability, DIN/ISO Global Compliance, and <24hr Priority Dispatch.
+### Changed (QA Patch — Business Content Correction)
+- **Business Content Alignment:** Removed all extraneous fastener, piping, flange, and rigging content.
+- **Removed Unsupported Claims:** Stripped unverified claims (ISO 9001, DIN / ASTM, ANSI / ASME, MTR Traceability, 5,000+ SKUs, 24hr Dispatch).
+- **Core Division Cards Updated:** Sourced the three authentic business divisions in `HeroDivisionCards.astro`:
+  1. *Gas Solutions* (Manifold systems, pressure regulation stations, pipeline distribution)
+  2. *Weighing Solutions* (Pit & pitless truck weighbridges, digital load cells, automation)
+  3. *Software Solutions* (Weighbridge management software, ERP bridges, cloud analytics)
+- **Honest Trust Pillars in HeroStats:** Replaced fabricated metrics with genuine pillars (3 Specialized Divisions, Industrial-Grade Engineering, Precision Calibrated Systems, and End-to-End Turnkey Delivery).
+- **Updated Business Profile & Architecture:** Refreshed `src/data/business.ts` and `docs/BUSINESS_CONTENT.md` to reflect the company's true technical offerings.
+
+---
+
 ## [Sprint BE-004.3] — 2026-09-08
 
 ### Added

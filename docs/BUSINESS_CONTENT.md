@@ -2,48 +2,53 @@
 
 ## 1. Corporate Identity & Overview
 - **Legal / Trading Entity:** Burhani Enterprise
-- **Industry Sector:** Industrial Supplies, Heavy Hardware, Fasteners & Commercial Engineering Solutions.
-- **Mission:** Delivering precision-certified industrial components and reliable B2B supply chain solutions with uncompromising quality standards.
-- **Tone of Voice:** Authoritative, technical, refined, and dependable.
+- **Industry Sector:** Industrial Gas Systems, Heavy Weighing Solutions & Enterprise Software.
+- **Mission:** Delivering robust industrial engineering, precision-calibrated weighing infrastructure, and custom software systems that empower modern commercial operations.
+- **Tone of Voice:** Authoritative, technical, refined, dependable, and solutions-focused.
 
 ---
 
 ## 2. Core Value Propositions
-1. **Certified Quality & Compliance:** Full traceability with Material Test Reports (MTR) adhering to international DIN, ISO, and ASTM standards.
-2. **Reliable B2B Supply Chain:** High inventory volume for high-velocity replenishment and customized procurement contracts.
-3. **Engineering Consultation:** Dedicated technical sales engineers assisting clients in material grade selection, load calculations, and specialized sourcing.
-4. **Rapid Fulfillment:** Prompt dispatch protocols ensuring minimal downtime for critical infrastructure and manufacturing operations.
+1. **Integrated Turnkey Solutions:** Seamless coordination across physical gas infrastructure, weighing hardware, and digital software automation.
+2. **Precision & Reliability:** Calibrated weighing instruments and engineered gas distribution built for heavy industrial duty cycles.
+3. **Tailored Software Architecture:** Proprietary weighbridge software and customized ERP integration for real-time operational data.
+4. **Dedicated Engineering Support:** Direct technical consultation for system design, installation, calibration, and long-term maintenance.
 
 ---
 
-## 3. Product Catalog Architecture
+## 3. Core Business Divisions
 
-### Category A: Industrial Fasteners & Fixings
-- **Sub-items:** High-tensile bolts (Grade 8.8, 10.9, 12.9), stainless steel fasteners (SS 304, SS 316), stud bolts, hex nuts, washers, anchors.
-- **Applications:** Petrochemical, construction, structural engineering, machinery assembly.
+### Division 1: Gas Solutions
+- **Scope:** Industrial and commercial gas infrastructure, manifold systems, pressure reduction stations, and pipeline networks.
+- **Offerings:**
+  - High-pressure gas manifold systems (cylinder bundles and changeover manifolds).
+  - Industrial pressure regulators, safety relief valves, and pipeline controls.
+  - Gas distribution pipeline engineering for manufacturing, healthcare, and processing plants.
+- **Applications:** Fabrication facilities, processing units, hospitals, commercial kitchens, chemical operations.
 
-### Category B: Industrial Valves, Flanges & Pipe Fittings
-- **Sub-items:** Ball valves, gate valves, globe valves, check valves, forged steel flanges (ANSI / ASME classes), seamless pipe fittings.
-- **Applications:** Oil & gas, water processing, HVAC systems, chemical plants.
+### Division 2: Weighing Solutions
+- **Scope:** Commercial and industrial weight instrumentation, heavy vehicle weighbridges, and weighing automation.
+- **Offerings:**
+  - Pit & Pitless truck weighbridges with heavy structural steel fabrication.
+  - High-precision digital shear beam and compression load cells.
+  - Unmanned weighing terminals with RFID, barrier gates, and automated display boards.
+  - Industrial bench and platform scales for warehouse inventory.
+- **Applications:** Logistics hubs, transport terminals, scrap yards, quarries, manufacturing plants.
 
-### Category C: Heavy Hardware & Rigging Equipment
-- **Sub-items:** Wire ropes, lifting slings, shackles, turnbuckles, eye bolts, load-rated hooks, pulley blocks.
-- **Applications:** Marine, crane operations, logistics, structural rigging.
-
-### Category D: Precision Tools & Workshop Machinery
-- **Sub-items:** Industrial torque wrenches, cutting tools, carbide end mills, power drill attachments, pneumatic accessories.
-- **Applications:** Manufacturing fabrication, automotive workshops, tooling maintenance.
-
-### Category E: Industrial Safety & Maintenance Consumables
-- **Sub-items:** Personal protective equipment (PPE), high-pressure sealants, industrial lubricants, anti-seize compounds.
-- **Applications:** Plant safety, preventive maintenance, operational safety compliance.
+### Division 3: Software Solutions
+- **Scope:** Dedicated weighbridge management software, enterprise system data bridges, and cloud telemetry.
+- **Offerings:**
+  - Automated weighbridge ticketing and weight recording software.
+  - Integration bridges with client ERP systems (SAP, Oracle, Tally, custom databases).
+  - Real-time cloud dashboards, vehicle payload analytics, and tamper-proof audit trails.
+- **Applications:** Fleet operators, dispatch yards, multi-site weighing networks.
 
 ---
 
 ## 4. B2B Inquiry & Conversion Channels
-1. **Request for Quote (RFQ) Form:**
-   - Multi-step structured inquiry capturing item category, material grade, dimensions, quantity, and delivery timeline.
+1. **Direct Technical Consultation & RFQ:**
+   - Structured inquiries for gas installation designs, weighbridge civil drawings, and custom software feature requests.
 2. **Direct WhatsApp Business Dispatch:**
-   - Fast-track instant messaging for urgent quotation and inventory checks.
-3. **Engineering Specification Support:**
-   - Dedicated email routing for tender drawings and bulk BOQ (Bill of Quantities) submissions.
+   - Rapid-response direct channel for urgent support, spare parts, and quotation requests.
+3. **On-Site Assessment & Engineering Survey:**
+   - Field visits for site suitability, civil pit preparation, and gas pipeline route planning.

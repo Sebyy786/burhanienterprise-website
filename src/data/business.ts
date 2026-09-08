@@ -22,12 +22,12 @@ export interface BusinessProfile {
 
 const whatsappNumber = '919825000000';
 const whatsappDefaultMessage =
-  'Hello Burhani Enterprise, I would like to inquire about your industrial supplies and hardware.';
+  'Hello Burhani Enterprise, I would like to inquire about your Gas, Weighing, or Software solutions.';
 
 export const businessProfile: BusinessProfile = {
   name: 'Burhani Enterprise',
-  tagline: 'Precision Industrial Supplies & Commercial Hardware',
-  subtitle: 'Industrial Supplies & Hardware',
+  tagline: 'Gas, Weighing & Enterprise Software Solutions',
+  subtitle: 'Gas • Weighing • Software',
   contact: {
     whatsapp: {
       number: `+${whatsappNumber}`,

@@ -1,0 +1,54 @@
+---
+import GlassCard from '../../components/ui/GlassCard.astro';
+
+interface StatItem {
+  value: string;
+  label: string;
+  sublabel: string;
+}
+
+const stats: StatItem[] = [
+  {
+    value: '3',
+    label: 'Specialized Divisions',
+    sublabel: 'Gas, Weighing & Software',
+  },
+  {
+    value: 'Industrial',
+    label: 'Grade Engineering',
+    sublabel: 'Commercial & High-Capacity',
+  },
+  {
+    value: 'Precision',
+    label: 'Calibrated Systems',
+    sublabel: 'Certified Weight Accuracy',
+  },
+  {
+    value: 'End-to-End',
+    label: 'Turnkey Delivery',
+    sublabel: 'Hardware, Setup & Automation',
+  },
+];
+---
+
+<div class="w-full max-w-5xl mx-auto select-none">
+  <GlassCard padding="none" hoverEffect={false} class="border-border/60">
+    <div class="grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-border-subtle">
+      {
+        stats.map((stat) => (
+          <div class="p-5 sm:p-6 text-center flex flex-col items-center justify-center">
+            <span class="text-2xl sm:text-3xl lg:text-4xl font-bold font-heading gold-gradient-text tracking-tight mb-1">
+              {stat.value}
+            </span>
+            <span class="text-sm font-semibold text-white font-heading tracking-wide">
+              {stat.label}
+            </span>
+            <span class="text-xs text-text-muted font-body mt-0.5">
+              {stat.sublabel}
+            </span>
+          </div>
+        ))
+      }
+    </div>
+  </GlassCard>
+</div>
