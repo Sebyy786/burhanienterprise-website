@@ -1,0 +1,217 @@
+---
+import Container from '../../components/ui/Container.astro';
+import GlassCard from '../../components/ui/GlassCard.astro';
+import Badge from '../../components/ui/Badge.astro';
+
+interface CapabilityPillar {
+  id: string;
+  iconNumber: string;
+  tagline: string;
+  title: string;
+  description: string;
+  points: string[];
+}
+
+const pillars: CapabilityPillar[] = [
+  {
+    id: 'turnkey-engineering',
+    iconNumber: '01',
+    tagline: 'Single-Source Execution',
+    title: 'Turnkey Engineering & Commissioning',
+    description:
+      'We manage the entire project lifecycle in-house—from initial layout drawings and mechanical fabrication to on-site pipeline laying, platform alignment, and digital automation.',
+    points: [
+      'Zero subcontractor fragmentation or delays',
+      'Custom manifold schematics & structural design',
+      'Complete pre-commissioning pressure & load tests',
+    ],
+  },
+  {
+    id: 'metrology-calibration',
+    iconNumber: '02',
+    tagline: 'Trade Accuracy Certified',
+    title: 'Metrology-Grade Calibration & Stamping',
+    description:
+      'Our weighbridge installations and load cell configurations adhere to stringent Legal Metrology standards, delivering stamping-ready accuracy for commercial trade billing.',
+    points: [
+      'Standard certified test weights verification',
+      'Hermetically sealed micro-tolerance digital load cells',
+      'Assistance with government stamping and verification',
+    ],
+  },
+  {
+    id: 'heavy-duty-build',
+    iconNumber: '03',
+    tagline: 'Built for Harsh Environments',
+    title: 'Heavy-Duty Structural Longevity',
+    description:
+      'Engineered with prime structural steel girders, high-pressure brass and stainless steel 316 fittings, designed to withstand continuous 24/7 industrial duty cycles.',
+    points: [
+      'High structural overload margins for heavy vehicular traffic',
+      'Corrosion-resistant epoxy industrial coatings',
+      'Dual-stage regulation & explosion-safe safety valves',
+    ],
+  },
+  {
+    id: 'regional-support',
+    iconNumber: '04',
+    tagline: 'Direct Gujarat Service Desk',
+    title: 'Rapid On-Site Regional Support',
+    description:
+      'Centrally located in Baroda, our technical service engineers provide swift on-site maintenance, emergency breakdown dispatch, and routine calibration checks across Gujarat.',
+    points: [
+      'Prompt on-site response across Vadodara, Ahmedabad & Surat',
+      'Comprehensive Annual Maintenance Contracts (AMC)',
+      'Immediate stock of genuine spares & remote software support',
+    ],
+  },
+];
+
+const industrialCorridors = [
+  'Vadodara',
+  'Ahmedabad',
+  'Surat',
+  'Ankleshwar',
+  'Dahej',
+  'Bharuch',
+  'Halol',
+  'Sanand',
+  'Morbi',
+  'Rajkot',
+];
+---
+
+<section
+  id="capabilities"
+  class="relative py-20 sm:py-28 bg-[#030712] border-t border-border-subtle overflow-hidden"
+  aria-label="Why Choose Burhani Enterprise"
+>
+  <!-- Ambient Gold Glow Accent -->
+  <div
+    class="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.06)_0%,transparent_70%)] blur-3xl -z-10"
+    aria-hidden="true"
+  ></div>
+
+  <!-- Anchor for #about navigation -->
+  <div id="about" class="absolute -top-20" aria-hidden="true"></div>
+
+  <Container size="xl" class="relative z-10 flex flex-col gap-14 sm:gap-18">
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto flex flex-col items-center">
+      <div class="mb-4">
+        <Badge variant="gold" size="sm">
+          <span>ENGINEERING RIGOR • REGIONAL ACCOUNTABILITY</span>
+        </Badge>
+      </div>
+
+      <h2
+        class="text-2xl sm:text-3xl lg:text-4xl font-heading font-bold text-white tracking-tight leading-snug sm:leading-tight mb-5"
+      >
+        Why Industrial Operators Choose{' '}
+        <span class="gold-gradient-text font-serif italic">Burhani Enterprise</span>
+      </h2>
+
+      <p class="text-sm sm:text-base text-text-muted leading-relaxed font-body">
+        Whether retrofitting a high-pressure manifold, installing a 120-tonne truck weighbridge, or deploying
+        unmanned weighbridge software, we provide single-source technical expertise you can rely on.
+      </p>
+    </div>
+
+    <!-- 4 Pillar Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-6xl mx-auto w-full">
+      {
+        pillars.map((pillar) => (
+          <GlassCard
+            as="article"
+            padding="lg"
+            hoverEffect={true}
+            class="flex flex-col justify-between group border-border/60 hover:border-primary/50 transition-all duration-300 relative overflow-hidden"
+          >
+            <!-- Background Glow Effect on Hover -->
+            <div
+              class="pointer-events-none absolute -right-16 -top-16 w-48 h-48 bg-primary/5 rounded-full blur-2xl group-hover:bg-primary/10 transition-all duration-500"
+              aria-hidden="true"
+            />
+
+            <div>
+              <!-- Header Row: Index Number and Tagline Badge -->
+              <div class="flex items-center justify-between gap-4 mb-6">
+                <span class="text-2xl sm:text-3xl font-heading font-bold font-mono text-primary/40 group-hover:text-primary transition-colors">
+                  {pillar.iconNumber}
+                </span>
+
+                <span class="text-[11px] font-mono tracking-wider text-text-gold bg-surface-soft px-3 py-1 rounded-full border border-border-subtle uppercase">
+                  {pillar.tagline}
+                </span>
+              </div>
+
+              <!-- Title -->
+              <h3 class="text-lg sm:text-xl font-heading font-semibold text-white mb-3 group-hover:text-primary transition-colors">
+                {pillar.title}
+              </h3>
+
+              <!-- Description -->
+              <p class="text-sm text-text-muted leading-relaxed font-body mb-6">
+                {pillar.description}
+              </p>
+            </div>
+
+            <!-- Bullet Points -->
+            <div class="pt-5 border-t border-border-subtle/80">
+              <ul class="space-y-2 text-xs sm:text-sm text-text-subtle font-body">
+                {pillar.points.map((point) => (
+                  <li class="flex items-start gap-2.5">
+                    <svg
+                      class="h-4 w-4 text-primary shrink-0 mt-0.5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="2.2"
+                      aria-hidden="true"
+                    >
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span class="text-slate-300">{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </GlassCard>
+        ))
+      }
+    </div>
+
+    <!-- Regional Footprint Banner -->
+    <div class="max-w-5xl mx-auto w-full">
+      <div
+        class="rounded-[var(--radius-xl)] bg-gradient-to-r from-[#0a1128] via-[#0e1a38] to-[#0a1128] border border-border/50 p-6 sm:p-8 text-center flex flex-col items-center shadow-glass"
+      >
+        <div class="flex items-center gap-2 text-xs font-mono text-primary uppercase tracking-widest mb-2">
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+            />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          <span>Direct Regional Footprint</span>
+        </div>
+
+        <h4 class="text-base sm:text-lg font-heading font-semibold text-white mb-4">
+          Serving Key Industrial Hubs Across Gujarat
+        </h4>
+
+        <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 max-w-3xl">
+          {
+            industrialCorridors.map((city) => (
+              <span class="text-xs text-text-muted bg-[#030712]/60 px-3 py-1 rounded-md border border-border-subtle hover:border-primary/40 hover:text-white transition-colors">
+                {city}
+              </span>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </Container>
+</section>

@@ -1,0 +1,340 @@
+---
+import Container from '../../components/ui/Container.astro';
+import Badge from '../../components/ui/Badge.astro';
+import Button from '../../components/ui/Button.astro';
+import { businessProfile } from '../../data/business';
+
+interface ProductDivision {
+  id: string;
+  badge: string;
+  title: string;
+  tagline: string;
+  description: string;
+  primaryImage: string;
+  primaryAlt: string;
+  detailImage: string;
+  detailAlt: string;
+  detailCaption: string;
+  features: string[];
+  specs: Array<{ label: string; value: string }>;
+  whatsappMsg: string;
+}
+
+const divisions: ProductDivision[] = [
+  {
+    id: 'gas-solutions',
+    badge: 'Division 01 • Industrial Gas Systems',
+    title: 'High-Pressure Gas Manifold & Distribution Systems',
+    tagline: 'Engineered for continuous flow, pressure stability, and complete industrial safety.',
+    description:
+      'Custom-fabricated gas manifold systems engineered for industrial, medical, and specialty gases (Oxygen, Nitrogen, Argon, CO2, Hydrogen). Built with dual-stage precision pressure regulators, automatic or manual bank changeover, safety blow-off valves, and high-pressure stainless steel flexible pigtails.',
+    primaryImage: '/images/gas-solutions.jpg',
+    primaryAlt: 'High-Pressure Industrial Gas Cylinder Manifold System by Burhani Enterprise',
+    detailImage: '/images/gas-regulator-detail.jpg',
+    detailAlt: 'Close-up of Dual-Stage Industrial Gas Pressure Regulator with Twin Analog Gauges',
+    detailCaption: 'Twin-Stage Brass & SS Pressure Reduction Station',
+    features: [
+      'Dual-bank manifold headers with master shut-off valves',
+      'High-pressure braided stainless steel 304/316 pigtails',
+      'Dual-stage brass regulators with precision analog dial gauges',
+      'Flashback arrestors and safety relief line integration',
+      'Custom on-site stainless and copper pipeline layout',
+    ],
+    specs: [
+      { label: 'Working Pressure', value: 'Up to 300 Bar (Hydraulic Test 450 Bar)' },
+      { label: 'Header Material', value: 'Seamless SS 316 / Heavy-Wall Brass' },
+      { label: 'Bank Configurations', value: '2x2 up to 2x20 Cylinder Banks' },
+      { label: 'Compatible Media', value: 'O2, N2, Ar, CO2, H2, Air & Mixtures' },
+    ],
+    whatsappMsg:
+      'Hello Burhani Enterprise, I would like to request technical specifications and pricing for Gas Manifold Systems.',
+  },
+  {
+    id: 'weighing-solutions',
+    badge: 'Division 02 • Heavy Commercial Metrology',
+    title: 'Industrial Truck Weighbridges & Load Cell Systems',
+    tagline: 'High-tonnage capacity with metrology-grade repeatability and rugged durability.',
+    description:
+      'Modular structural steel truck weighbridge platforms available in pit and pitless installations ranging from 20T to 120T. Engineered with high-strength I-beam girders, hermetically sealed IP68/IP69K digital canister load cells, and microprocessor-controlled indicator terminals compliant with Legal Metrology standards.',
+    primaryImage: '/images/weighing-solutions.jpg',
+    primaryAlt: 'Commercial Heavy-Duty Truck Weighbridge Platform Scale by Burhani Enterprise',
+    detailImage: '/images/load-cell-detail.jpg',
+    detailAlt: 'Heavy-Duty Digital Canister Load Cell installed under steel weighbridge structure',
+    detailCaption: 'IP68 Hermetic Canister Load Cell with Rocker Pin',
+    features: [
+      'Robust structural steel deck with heavy anti-skid chequered plate',
+      'Hermetically sealed stainless steel compression load cells (IP68/IP69K)',
+      'Pit-mounted or Pitless surface-mounted configurations',
+      'Intelligent digital weight indicators with RS232 / USB / Ethernet',
+      'Built-in lightning and electrical surge protection junction box',
+    ],
+    specs: [
+      { label: 'Capacity Range', value: '20 Tonnes up to 120 Tonnes' },
+      { label: 'Standard Dimensions', value: '6m x 3m up to 18m x 3m (Custom spans)' },
+      { label: 'Load Cell Type', value: 'Stainless Steel Compression / Rocker Pin' },
+      { label: 'Compliance', value: 'Legal Metrology Stamping Ready' },
+    ],
+    whatsappMsg:
+      'Hello Burhani Enterprise, I would like to request a quotation and civil layout for Truck Weighbridges.',
+  },
+  {
+    id: 'software-solutions',
+    badge: 'Division 03 • Enterprise Automation',
+    title: 'Weighbridge Automation & Enterprise Software Suite',
+    tagline: 'Eliminate operator error, prevent material leakage, and automate weighment data.',
+    description:
+      'Our proprietary Weighbridge Management Software connects platform hardware directly to enterprise ERP systems (SAP, Oracle, custom APIs). Supports unmanned automated operations via RFID vehicle tags, CCTV snapshot capture, barrier gate controls, and real-time cloud analytics reporting.',
+    primaryImage: '/images/software-solutions.jpg',
+    primaryAlt: 'Burhani Enterprise Weighbridge Automation Software Dashboard on Dual Monitors',
+    detailImage: '/images/unmanned-kiosk-detail.jpg',
+    detailAlt: 'Outdoor Weatherproof Unmanned Weighbridge Driver Kiosk with RFID Reader',
+    detailCaption: 'Rugged Driver Self-Service Kiosk Terminal',
+    features: [
+      'Automated gross, tare, and net calculation with instant slip printout',
+      'Unmanned driver self-service kiosk with RFID tag reader',
+      'CCTV license plate and vehicle photo capture on weight record',
+      'Automatic boom barrier and red/green traffic light control',
+      'Direct ERP synchronization (SAP, Tally, SQL, Custom API)',
+    ],
+    specs: [
+      { label: 'Operation Modes', value: 'Manned Operator / 100% Unmanned Kiosk' },
+      { label: 'Database Engine', value: 'Secure SQL Local + Real-Time Cloud Sync' },
+      { label: 'Peripherals', value: 'RFID, ANPR Cameras, Traffic Barriers, Printers' },
+      { label: 'Audit Trail', value: 'Tamper-Proof Weight Log & Photo Archiving' },
+    ],
+    whatsappMsg:
+      'Hello Burhani Enterprise, I would like to schedule a demonstration of your Weighbridge Automation Software.',
+  },
+];
+---
+
+<section
+  id="products"
+  class="relative py-20 sm:py-28 bg-[#02050e] border-t border-border-subtle overflow-hidden"
+  aria-label="Burhani Enterprise Product Gallery"
+>
+  <!-- Background Decorative Grid Lines -->
+  <div
+    class="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(212,175,55,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(212,175,55,0.03)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-70"
+    aria-hidden="true"
+  ></div>
+
+  <Container size="xl" class="relative z-10 flex flex-col gap-14 sm:gap-20">
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto flex flex-col items-center">
+      <div class="mb-4">
+        <Badge variant="gold" size="sm">
+          <span>FEATURED PRODUCT PORTFOLIO</span>
+        </Badge>
+      </div>
+
+      <h2
+        class="text-2xl sm:text-3xl lg:text-4xl font-heading font-bold text-white tracking-tight leading-snug sm:leading-tight mb-5"
+      >
+        Three Core Divisions.{' '}
+        <span class="gold-gradient-text font-serif italic">One Standard of Precision.</span>
+      </h2>
+
+      <p class="text-sm sm:text-base text-text-muted leading-relaxed font-body">
+        Engineered to meet the demanding requirements of manufacturing, logistics, and processing industries.
+        Select a division below to review technical specifications and hardware architecture.
+      </p>
+
+      <!-- Division Quick Navigation Pills -->
+      <nav class="flex flex-wrap items-center justify-center gap-2.5 mt-8" aria-label="Division Quick Navigation">
+        {
+          divisions.map((division) => (
+            <a
+              href={`#${division.id}`}
+              class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-heading font-semibold bg-surface border border-border/70 text-text-muted hover:text-white hover:border-primary/60 hover:bg-surface-soft transition-all duration-200"
+            >
+              <span class="w-2 h-2 rounded-full bg-primary/70"></span>
+              <span>{division.badge.split('•')[1]?.trim() || division.title}</span>
+            </a>
+          ))
+        }
+      </nav>
+    </div>
+
+    <!-- Divisions Detailed Showcase Stack -->
+    <div class="flex flex-col gap-20 sm:gap-28 max-w-6xl mx-auto w-full">
+      {
+        divisions.map((division, index) => {
+          const isReversed = index % 2 !== 0;
+          return (
+            <article
+              id={division.id}
+              class="scroll-mt-28 flex flex-col gap-8 rounded-[var(--radius-2xl)] bg-[#070e24]/70 border border-border/60 p-6 sm:p-10 lg:p-12 shadow-2xl backdrop-blur-md relative overflow-hidden"
+            >
+              <!-- Top Gold Glint -->
+              <div
+                class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent"
+                aria-hidden="true"
+              />
+
+              <!-- Division Header Strip -->
+              <div class="flex flex-wrap items-center justify-between gap-4 border-b border-border-subtle pb-6">
+                <span class="text-xs font-mono uppercase tracking-widest text-primary font-semibold bg-[#030712]/80 px-3 py-1 rounded-full border border-primary/30">
+                  {division.badge}
+                </span>
+
+                <span class="text-xs font-mono text-text-subtle">
+                  SYSTEM CODE: BE-DIV-0{index + 1}
+                </span>
+              </div>
+
+              <!-- Main Content Grid: Images (Left/Right alternating) and Technical Specs -->
+              <div
+                class:list={[
+                  'grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center',
+                  isReversed && 'lg:direction-rtl',
+                ]}
+              >
+                <!-- Photography Column (6 Cols) -->
+                <div class="lg:col-span-6 flex flex-col gap-4">
+                  <!-- Main Hero Product Photo -->
+                  <div class="relative w-full h-64 sm:h-80 rounded-[var(--radius-xl)] bg-[#030712] border border-border overflow-hidden group shadow-soft">
+                    <img
+                      src={division.primaryImage}
+                      alt={division.primaryAlt}
+                      width="800"
+                      height="500"
+                      loading="eager"
+                      decoding="async"
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#030712] via-transparent to-transparent opacity-60" />
+                    <div class="absolute bottom-3 left-3 bg-[#030712]/85 px-3 py-1 rounded border border-border-subtle text-[11px] font-mono text-text-gold backdrop-blur-xs">
+                      Primary Installation
+                    </div>
+                  </div>
+
+                  <!-- Secondary Detail Photo Strip -->
+                  <div class="relative flex items-center gap-4 rounded-[var(--radius-lg)] bg-[#04091a] border border-border-subtle p-3">
+                    <div class="w-24 h-20 shrink-0 rounded-[var(--radius-md)] overflow-hidden border border-border/40">
+                      <img
+                        src={division.detailImage}
+                        alt={division.detailAlt}
+                        width="200"
+                        height="150"
+                        loading="eager"
+                        decoding="async"
+                        class="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div class="min-w-0 flex flex-col justify-center">
+                      <span class="text-[10px] font-mono text-primary uppercase tracking-wider">
+                        Component Detail
+                      </span>
+                      <p class="text-xs font-heading font-semibold text-white truncate mt-0.5">
+                        {division.detailCaption}
+                      </p>
+                      <span class="text-[11px] text-text-muted mt-0.5 line-clamp-1">
+                        High-precision industrial componentry
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Technical Details Column (6 Cols) -->
+                <div class="lg:col-span-6 flex flex-col gap-6">
+                  <div>
+                    <h3 class="text-xl sm:text-2xl lg:text-3xl font-heading font-bold text-white mb-2 leading-tight">
+                      {division.title}
+                    </h3>
+                    <p class="text-xs sm:text-sm font-medium text-text-gold font-heading mb-4">
+                      {division.tagline}
+                    </p>
+                    <p class="text-sm text-text-muted leading-relaxed font-body">
+                      {division.description}
+                    </p>
+                  </div>
+
+                  <!-- Key Features Checklist -->
+                  <div class="space-y-2.5">
+                    <h4 class="text-xs font-mono uppercase tracking-wider text-text-subtle font-semibold">
+                      Engineering Highlights
+                    </h4>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-300 font-body">
+                      {division.features.map((feature) => (
+                        <li class="flex items-start gap-2">
+                          <svg
+                            class="h-4 w-4 text-primary shrink-0 mt-0.5"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="2.2"
+                            aria-hidden="true"
+                          >
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                          </svg>
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <!-- Technical Specs Grid -->
+                  <div class="rounded-[var(--radius-lg)] bg-[#030712]/70 border border-border-subtle p-4">
+                    <h4 class="text-[11px] font-mono uppercase tracking-wider text-primary mb-3 font-semibold">
+                      Technical Parameter Matrix
+                    </h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2 text-xs">
+                      {division.specs.map((spec) => (
+                        <div class="flex flex-col border-b border-border-subtle/50 pb-1.5 last:border-b-0 sm:last:border-b">
+                          <span class="text-[10px] uppercase font-mono text-text-subtle">{spec.label}</span>
+                          <span class="text-xs font-semibold text-white mt-0.5">{spec.value}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <!-- Action Buttons -->
+                  <div class="flex flex-wrap items-center gap-3 pt-2">
+                    <Button
+                      href="#contact"
+                      variant="primary"
+                      size="sm"
+                      class="px-5 py-2 text-xs font-semibold"
+                    >
+                      <span>Request Quote & Specs</span>
+                      <svg
+                        slot="icon-right"
+                        class="h-3.5 w-3.5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        stroke-width="2.2"
+                      >
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                      </svg>
+                    </Button>
+
+                    <Button
+                      href={`https://wa.me/${businessProfile.contact.whatsapp.number.replace('+', '')}?text=${encodeURIComponent(division.whatsappMsg)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      variant="secondary"
+                      size="sm"
+                      class="px-4 py-2 text-xs border-border hover:border-primary/50"
+                    >
+                      <svg
+                        slot="icon-left"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-3.5 w-3.5 fill-current text-[#25D366]"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.072-2.128-.521-1.615-.67-2.66-2.308-2.74-2.417-.08-.108-.659-.877-.659-1.672 0-.795.414-1.187.561-1.349.146-.162.32-.203.428-.203.107 0 .215.002.308.007.1.005.234-.038.366.279.136.327.464 1.132.505 1.215.041.083.068.18.012.289-.056.108-.083.177-.165.273-.082.096-.174.215-.248.289-.083.083-.17.172-.073.338.097.166.432.713.927 1.154.636.568 1.172.744 1.338.827.166.083.264.069.362-.042.098-.111.42-.489.532-.656.113-.167.225-.139.378-.083.153.056.974.459 1.141.542.167.083.278.125.32.194.041.07.041.405-.103.81zM12 2C6.477 2 2 6.477 2 12c0 1.891.526 3.662 1.442 5.179L2 22l4.981-1.306A9.957 9.957 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/>
+                      </svg>
+                      <span>Inquire on WhatsApp</span>
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </article>
+          );
+        })
+      }
+    </div>
+  </Container>
+</section>

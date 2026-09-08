@@ -25,7 +25,7 @@ const { currentPath = '/' } = Astro.props as Props;
     </div>
 
     <!-- Desktop Navigation Links -->
-    <nav class="hidden md:flex items-center gap-6 lg:gap-8" aria-label="Desktop Main Navigation">
+    <nav class="hidden lg:flex items-center gap-6 xl:gap-8" aria-label="Desktop Main Navigation">
       {
         navigationItems.map((item) => {
           const isActive = currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href));
@@ -35,7 +35,7 @@ const { currentPath = '/' } = Astro.props as Props;
     </nav>
 
     <!-- Desktop Actions (Language Switcher & WhatsApp CTA) -->
-    <div class="hidden md:flex items-center gap-3 lg:gap-4">
+    <div class="hidden lg:flex items-center gap-3 xl:gap-4">
       <!-- Language Switcher Placeholder -->
       <div
         class="inline-flex items-center rounded-[var(--radius-sm)] bg-surface-soft border border-border-subtle p-0.5 text-xs select-none"
@@ -83,7 +83,7 @@ const { currentPath = '/' } = Astro.props as Props;
     </div>
 
     <!-- Mobile Hamburger Toggle Button -->
-    <div class="flex items-center gap-2 md:hidden">
+    <div class="flex items-center gap-2 lg:hidden">
       <button
         type="button"
         id="navbar-hamburger"
@@ -139,7 +139,7 @@ const { currentPath = '/' } = Astro.props as Props;
       } else if (window.scrollY > 20) {
         header.dataset.state = 'scrolled';
         header.className =
-          'fixed top-0 inset-x-0 z-40 w-full transition-all duration-300 bg-[#030712]/85 backdrop-blur-md border-b border-border shadow-glass header-height';
+          'fixed top-0 inset-x-0 z-40 w-full transition-all duration-300 bg-[#030712]/80 backdrop-blur-lg border-b border-primary/25 shadow-[0_8px_32px_rgba(0,0,0,0.65)] header-height';
       } else {
         header.dataset.state = 'transparent';
         header.className =

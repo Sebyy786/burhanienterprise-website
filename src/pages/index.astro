@@ -1,11 +1,19 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../sections/hero/Hero.astro';
+import ProductGallery from '../sections/gallery/ProductGallery.astro';
+import WhyChoose from '../sections/why-choose/WhyChoose.astro';
+import RfqSection from '../sections/rfq/RfqSection.astro';
+import Footer from '../components/layout/Footer.astro';
 ---
 
 <BaseLayout
   title="Burhani Enterprise — Gas Solutions, Weighing Systems & Software"
-  description="Burhani Enterprise provides gas solutions, weighing systems, weighbridge automation, and software services across Gujarat."
+  description="Burhani Enterprise provides industrial gas distribution systems, commercial truck weighbridges, and enterprise weighbridge automation software across Gujarat."
 >
   <Hero />
+  <ProductGallery />
+  <WhyChoose />
+  <RfqSection />
+  <Footer slot="footer" />
 </BaseLayout>

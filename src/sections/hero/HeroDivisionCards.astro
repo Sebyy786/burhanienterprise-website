@@ -8,7 +8,8 @@ interface DivisionItem {
   badge: string;
   description: string;
   specs: string[];
-  iconType: 'gas' | 'weighing' | 'software';
+  image: string;
+  imageAlt: string;
 }
 
 const divisions: DivisionItem[] = [
@@ -19,7 +20,8 @@ const divisions: DivisionItem[] = [
     description:
       'Complete gas manifold systems, high-pressure regulation setups, and safe industrial pipeline installations.',
     specs: ['Industrial & Medical Manifolds', 'Pressure Reduction Stations', 'Safety Regulators & Pipelines'],
-    iconType: 'gas',
+    image: '/images/gas-solutions.jpg',
+    imageAlt: 'Burhani Enterprise Industrial Gas Manifold Distribution System',
   },
   {
     id: 'weighing-solutions',
@@ -28,7 +30,8 @@ const divisions: DivisionItem[] = [
     description:
       'Robust pit & pitless weighbridges, digital load-cell integrations, and precision weighing automation platforms.',
     specs: ['Pit & Pitless Weighbridges', 'High-Precision Digital Load Cells', 'Unmanned Weighing Terminals'],
-    iconType: 'weighing',
+    image: '/images/weighing-solutions.jpg',
+    imageAlt: 'Burhani Enterprise Heavy-Duty Commercial Truck Weighbridge Scale Platform',
   },
   {
     id: 'software-solutions',
@@ -37,7 +40,8 @@ const divisions: DivisionItem[] = [
     description:
       'Purpose-built weighbridge management software, ERP data bridges, cloud reporting, and customized industrial workflows.',
     specs: ['Weighbridge Management Software', 'Custom ERP & Cloud Integration', 'Real-Time Weight Analytics & Logs'],
-    iconType: 'software',
+    image: '/images/software-solutions.jpg',
+    imageAlt: 'Burhani Enterprise Weighbridge Automation Management Software Dashboard',
   },
 ];
 ---
@@ -52,98 +56,31 @@ const divisions: DivisionItem[] = [
         class="flex flex-col justify-between group border-border/70 hover:border-primary/50 transition-all duration-300"
       >
         <div>
-          <!-- Product Photography Placeholder & Header -->
-          <div class="relative w-full h-44 rounded-[var(--radius-lg)] bg-[#050c20] border border-border-subtle overflow-hidden mb-5 flex items-center justify-center group-hover:border-primary/30 transition-colors">
-            <!-- Subtle Radial Gradient in Photography Chamber -->
-            <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(212,175,55,0.08)_0%,transparent_70%)]" />
+          <!-- Real Product Photography Chamber -->
+          <div class="relative w-full h-48 rounded-[var(--radius-lg)] bg-[#050c20] border border-border-subtle overflow-hidden mb-5 group-hover:border-primary/40 transition-colors">
+            <img
+              src={division.image}
+              alt={division.imageAlt}
+              width="600"
+              height="380"
+              loading="eager"
+              decoding="async"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+            />
 
-            <!-- Authentic Technical Vector Illustration Placeholder -->
-            {division.iconType === 'gas' && (
-              <svg
-                class="h-24 w-24 text-primary/80 group-hover:text-primary transition-all duration-300 group-hover:scale-105"
-                viewBox="0 0 100 100"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-                aria-hidden="true"
-              >
-                <!-- Industrial Gas Cylinder & Manifold Regulator Blueprint -->
-                <rect x="25" y="32" width="22" height="52" rx="6" fill="rgba(212,175,55,0.08)" />
-                <rect x="53" y="32" width="22" height="52" rx="6" fill="rgba(212,175,55,0.08)" />
-                <!-- Cylinder Caps & Valves -->
-                <path d="M30 32V24h12v8M58 32V24h12v8" />
-                <circle cx="36" cy="20" r="3" fill="currentColor" />
-                <circle cx="64" cy="20" r="3" fill="currentColor" />
-                <!-- Manifold Pipeline connecting cylinders -->
-                <line x1="36" y1="16" x2="64" y2="16" stroke-width="2.5" />
-                <!-- Center Regulator Gauge -->
-                <circle cx="50" cy="14" r="7" fill="rgba(10,17,40,0.9)" />
-                <line x1="50" y1="14" x2="54" y2="11" />
-              </svg>
-            )}
-
-            {division.iconType === 'weighing' && (
-              <svg
-                class="h-24 w-24 text-primary/80 group-hover:text-primary transition-all duration-300 group-hover:scale-105"
-                viewBox="0 0 100 100"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-                aria-hidden="true"
-              >
-                <!-- Heavy Commercial Weighbridge & Load Cell Blueprint -->
-                <rect x="15" y="44" width="70" height="12" rx="2" fill="rgba(212,175,55,0.12)" stroke-width="2" />
-                <!-- Platform Surface Texture lines -->
-                <line x1="28" y1="44" x2="24" y2="56" opacity="0.6" />
-                <line x1="42" y1="44" x2="38" y2="56" opacity="0.6" />
-                <line x1="56" y1="44" x2="52" y2="56" opacity="0.6" />
-                <line x1="70" y1="44" x2="66" y2="56" opacity="0.6" />
-                <!-- Load Cell Support Columns -->
-                <rect x="22" y="56" width="10" height="16" rx="1" fill="rgba(212,175,55,0.08)" />
-                <rect x="68" y="56" width="10" height="16" rx="1" fill="rgba(212,175,55,0.08)" />
-                <line x1="12" y1="72" x2="88" y2="72" stroke-width="2.5" />
-                <!-- Digital Weight Indicator Unit -->
-                <rect x="38" y="20" width="24" height="16" rx="2" fill="rgba(10,17,40,0.9)" stroke-width="1.5" />
-                <line x1="43" y1="28" x2="57" y2="28" stroke-width="2" stroke-dasharray="2 1" />
-                <line x1="50" y1="36" x2="50" y2="44" stroke-dasharray="1 2" />
-              </svg>
-            )}
-
-            {division.iconType === 'software' && (
-              <svg
-                class="h-24 w-24 text-primary/80 group-hover:text-primary transition-all duration-300 group-hover:scale-105"
-                viewBox="0 0 100 100"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-                aria-hidden="true"
-              >
-                <!-- Enterprise Weighbridge Software Terminal Blueprint -->
-                <rect x="18" y="20" width="64" height="46" rx="4" fill="rgba(212,175,55,0.08)" stroke-width="2" />
-                <line x1="18" y1="30" x2="82" y2="30" />
-                <!-- Window control dots -->
-                <circle cx="24" cy="25" r="1.5" fill="currentColor" />
-                <circle cx="29" cy="25" r="1.5" fill="currentColor" />
-                <circle cx="34" cy="25" r="1.5" fill="currentColor" />
-                <!-- Analytics Chart / Telemetry code blocks -->
-                <polyline points="26,54 36,44 48,50 62,38 74,42" stroke-width="2" />
-                <circle cx="62" cy="38" r="2" fill="currentColor" />
-                <!-- Base / Stand -->
-                <path d="M42 66l-4 14h24l-4-14" fill="rgba(10,17,40,0.9)" />
-                <line x1="32" y1="80" x2="68" y2="80" stroke-width="2.5" />
-              </svg>
-            )}
+            <!-- Subtle Gradient Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0a1128] via-[#0a1128]/35 to-transparent pointer-events-none" />
 
             <!-- Division Index Indicator Badge -->
-            <div class="absolute top-3 left-3">
-              <span class="text-[10px] font-mono tracking-widest text-primary/70 bg-black/60 px-2 py-0.5 rounded border border-primary/20 backdrop-blur-xs">
+            <div class="absolute top-3 left-3 z-10">
+              <span class="text-[10px] font-mono tracking-widest text-primary/90 bg-[#030712]/80 px-2 py-0.5 rounded border border-primary/30 backdrop-blur-xs">
                 DIV-0{index + 1}
               </span>
             </div>
 
-            <!-- Standard Badge -->
-            <div class="absolute bottom-3 right-3">
-              <Badge variant="navy" size="sm">
+            <!-- Division Category Badge -->
+            <div class="absolute bottom-3 right-3 z-10">
+              <Badge variant="navy" size="sm" class="bg-[#030712]/85 border-border text-text-gold backdrop-blur-xs">
                 {division.badge}
               </Badge>
             </div>
@@ -171,10 +108,10 @@ const divisions: DivisionItem[] = [
           </ul>
 
           <a
-            href="#contact"
+            href={`#${division.id}`}
             class="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:text-primary-hover tracking-wide font-heading uppercase group/link"
           >
-            <span>Inquire Technical Specs</span>
+            <span>Explore Division Specs</span>
             <svg
               class="h-3.5 w-3.5 transition-transform duration-200 group-hover/link:translate-x-1"
               fill="none"
