@@ -11,8 +11,8 @@ interface Props {
 }
 
 const {
-  title = 'Burhani Enterprise — Precision Industrial Supplies & Hardware',
-  description = 'Burhani Enterprise delivers certified industrial fasteners, commercial valves, pipe fittings, and heavy engineering hardware with international compliance.',
+  title = 'Burhani Enterprise — Gas Solutions, Weighing Systems & Software',
+  description = 'Burhani Enterprise provides gas solutions, weighing systems, weighbridge automation, and software services across Gujarat.',
   canonical = Astro.url.href,
   ogImage = '/images/og-card.jpg',
   offsetHeader = true,
@@ -93,7 +93,7 @@ const currentPath = Astro.url.pathname;
         id="main-content"
         class:list={[
           'flex-1 focus:outline-none',
-          offsetHeader && 'pt-[var(--header-height-mobile)] lg:pt-[var(--header-height)]',
+          offsetHeader && 'offset-header',
         ]}
       >
         <slot />

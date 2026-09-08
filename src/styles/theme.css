@@ -53,6 +53,28 @@
      ------------------------------------------------------------------------ */
   --header-height: 5rem;          /* 80px */
   --header-height-mobile: 4.25rem; /* 68px */
+}
+
+/* Header & Offset Utilities */
+.header-height {
+  height: var(--header-height-mobile);
+}
+@media (min-width: 1024px) {
+  .header-height {
+    height: var(--header-height);
+  }
+}
+
+.offset-header {
+  padding-top: var(--header-height-mobile);
+}
+@media (min-width: 1024px) {
+  .offset-header {
+    padding-top: var(--header-height);
+  }
+}
+
+:root {
 
   /* ------------------------------------------------------------------------
      Radius Scale

@@ -3,6 +3,7 @@ interface Props {
   size?: 'sm' | 'md' | 'lg';
   color?: 'gold' | 'white' | 'monochrome';
   showSubtitle?: boolean;
+  subtitle?: string;
   class?: string;
   href?: string;
 }
@@ -11,6 +12,7 @@ const {
   size = 'md',
   color = 'gold',
   showSubtitle = true,
+  subtitle = 'Gas Solutions • Weighing Systems • Software Solutions',
   class: className = '',
   href = '/',
 } = Astro.props as Props;
@@ -19,15 +21,15 @@ const {
 const sizeStyles: Record<'sm' | 'md' | 'lg', { title: string; subtitle: string }> = {
   sm: {
     title: 'text-sm sm:text-base font-semibold tracking-wider',
-    subtitle: 'text-[9px] tracking-[0.2em] font-medium',
+    subtitle: 'text-[7.5px] sm:text-[9px] tracking-tight sm:tracking-normal font-medium',
   },
   md: {
-    title: 'text-base sm:text-lg lg:text-xl font-bold tracking-widest',
-    subtitle: 'text-[10px] sm:text-[11px] tracking-[0.25em] font-medium',
+    title: 'text-sm sm:text-lg lg:text-xl font-bold tracking-wider sm:tracking-widest',
+    subtitle: 'text-[7.5px] sm:text-[9.5px] lg:text-[10.5px] tracking-tight sm:tracking-wider font-medium leading-tight',
   },
   lg: {
     title: 'text-xl sm:text-2xl lg:text-3xl font-bold tracking-widest',
-    subtitle: 'text-xs tracking-[0.3em] font-medium',
+    subtitle: 'text-xs tracking-wider font-medium',
   },
 };
 
@@ -53,16 +55,16 @@ const currentColor = colorStyles[color];
 
 <a
   href={href}
-  class={`group inline-flex flex-col select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] rounded-[var(--radius-sm)] transition-opacity hover:opacity-95 ${className}`}
+  class={`group inline-flex flex-col select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] rounded-[var(--radius-sm)] transition-opacity hover:opacity-95 min-w-0 ${className}`}
   aria-label="Burhani Enterprise — Home"
 >
-  <span class={`font-serif uppercase transition-transform duration-200 group-hover:scale-[1.01] ${currentSize.title} ${currentColor.title}`}>
+  <span class={`font-serif uppercase transition-transform duration-200 group-hover:scale-[1.01] ${currentSize.title} ${currentColor.title} truncate sm:whitespace-normal`}>
     Burhani Enterprise
   </span>
   {
     showSubtitle && (
-      <span class={`font-heading uppercase mt-0.5 ${currentSize.subtitle} ${currentColor.subtitle}`}>
-        Industrial Supplies & Hardware
+      <span class={`font-heading uppercase mt-0.5 ${currentSize.subtitle} ${currentColor.subtitle} truncate sm:whitespace-normal`}>
+        {subtitle}
       </span>
     )
   }

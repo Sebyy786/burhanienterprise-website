@@ -3,6 +3,19 @@
 All notable changes to the **Burhani Enterprise Website** will be documented in this file.
 The project adheres to sprint-based versioning aligned with project tickets.
 
+## [Sprint BE-005.2] — 2026-09-08
+
+### Changed
+- **Header Offset & Overlap Resolution:** Resolved the fixed navbar and hero content overlap by wrapping CSS reset rules in `@layer base` (preventing unlayered overrides of padding utilities), providing explicit `.offset-header` (`padding-top: var(--header-height)`) and `.header-height` (`height: var(--header-height)`) classes, and adjusting `Hero.astro` to `justify-start`.
+- **Fluid Typography Refinement:** Scaled down `HeroContent.astro` headline to `text-2xl sm:text-3xl md:text-4xl lg:text-[3.25rem]` with relaxed line-height (`leading-[1.22] sm:leading-[1.18] lg:leading-[1.15]`) and refined `--text-display` token.
+- **Brand Wordmark Tagline Update:** Updated wordmark subtitle to `"Gas Solutions • Weighing Systems • Software Solutions"` in `BrandWordmark.astro`, `Navbar.astro`, and `business.ts` with responsive mobile truncation to prevent horizontal overflow on 320px screens.
+- **Navbar Padding Inset:** Increased navbar container horizontal padding to `px-4 sm:px-8 lg:px-12` for balanced breathing room.
+- **CTA Sizing & Spacing:** Improved spacing and responsive sizing of dual CTA buttons in `HeroCTA.astro` (`gap-3.5 sm:gap-5`, `px-5 py-3 sm:px-8 sm:py-3.5`) with gold ambient box shadows.
+- **BaseLayout Metadata:** Updated page title to `Burhani Enterprise — Gas Solutions, Weighing Systems & Software` and description to `Burhani Enterprise provides gas solutions, weighing systems, weighbridge automation, and software services across Gujarat.` in `BaseLayout.astro` and `index.astro`.
+- **Responsive Captures:** Updated high-resolution screenshots in `docs/screenshots/` across 320, 768, 1024, and 1440 viewports.
+
+---
+
 ## [Sprint BE-005.1] — 2026-09-08
 
 ### Added

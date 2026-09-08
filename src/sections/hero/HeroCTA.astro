@@ -14,19 +14,19 @@ const {
 } = Astro.props as Props;
 ---
 
-<div class={`flex flex-col sm:flex-row items-center justify-center gap-4 ${className}`}>
+<div class={`flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-5 w-full sm:w-auto ${className}`}>
   <!-- Primary B2B Action Button -->
   <Button
     href={quoteHref}
     variant="primary"
     size="lg"
-    class="w-full sm:w-auto px-8 py-4 text-base font-semibold shadow-[0_4px_24px_rgba(212,175,55,0.35)] hover:shadow-[0_8px_32px_rgba(212,175,55,0.5)] group"
+    class="w-full sm:w-auto px-5 py-3 sm:px-8 sm:py-3.5 text-xs sm:text-base font-semibold shadow-[0_4px_20px_rgba(212,175,55,0.3)] hover:shadow-[0_6px_28px_rgba(212,175,55,0.45)] group"
   >
     <span>Request B2B Quote</span>
     <svg
       slot="icon-right"
       xmlns="http://www.w3.org/2000/svg"
-      class="h-5 w-5 transition-transform duration-200 group-hover:translate-x-1"
+      class="h-4 w-4 sm:h-5 sm:w-5 transition-transform duration-200 group-hover:translate-x-1"
       fill="none"
       viewBox="0 0 24 24"
       stroke="currentColor"
@@ -42,12 +42,12 @@ const {
     href={catalogHref}
     variant="secondary"
     size="lg"
-    class="w-full sm:w-auto px-8 py-4 text-base border-border hover:border-primary/50 group"
+    class="w-full sm:w-auto px-5 py-3 sm:px-8 sm:py-3.5 text-xs sm:text-base border-border hover:border-primary/50 group"
   >
     <svg
       slot="icon-left"
       xmlns="http://www.w3.org/2000/svg"
-      class="h-5 w-5 text-primary/80 transition-transform duration-200 group-hover:scale-110"
+      class="h-4 w-4 sm:h-5 sm:w-5 text-primary/80 transition-transform duration-200 group-hover:scale-110"
       fill="none"
       viewBox="0 0 24 24"
       stroke="currentColor"

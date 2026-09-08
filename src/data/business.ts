@@ -26,8 +26,8 @@ const whatsappDefaultMessage =
 
 export const businessProfile: BusinessProfile = {
   name: 'Burhani Enterprise',
-  tagline: 'Gas, Weighing & Enterprise Software Solutions',
-  subtitle: 'Gas • Weighing • Software',
+  tagline: 'Gas Solutions, Weighing Systems & Software',
+  subtitle: 'Gas Solutions • Weighing Systems • Software Solutions',
   contact: {
     whatsapp: {
       number: `+${whatsappNumber}`,

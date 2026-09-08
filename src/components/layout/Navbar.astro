@@ -15,12 +15,12 @@ const { currentPath = '/' } = Astro.props as Props;
 
 <header
   id="navbar-header"
-  class="fixed top-0 inset-x-0 z-40 w-full transition-all duration-300 bg-transparent border-b border-transparent h-[var(--header-height-mobile)] lg:h-[var(--header-height)]"
+  class="fixed top-0 inset-x-0 z-40 w-full transition-all duration-300 bg-transparent border-b border-transparent header-height"
   data-state="transparent"
 >
-  <div class="h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
+  <div class="h-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 flex items-center justify-between gap-2 sm:gap-4">
     <!-- Brand Wordmark -->
-    <div class="flex-shrink-0">
+    <div class="flex-shrink min-w-0 pr-2">
       <BrandWordmark size="md" />
     </div>
 
@@ -135,15 +135,15 @@ const { currentPath = '/' } = Astro.props as Props;
       if (isMenuOpen) {
         header.dataset.state = 'mobile-open';
         header.className =
-          'fixed top-0 inset-x-0 z-40 w-full transition-all duration-300 bg-[#030712] border-b border-border shadow-2xl h-[var(--header-height-mobile)] lg:h-[var(--header-height)]';
+          'fixed top-0 inset-x-0 z-40 w-full transition-all duration-300 bg-[#030712] border-b border-border shadow-2xl header-height';
       } else if (window.scrollY > 20) {
         header.dataset.state = 'scrolled';
         header.className =
-          'fixed top-0 inset-x-0 z-40 w-full transition-all duration-300 bg-[#030712]/85 backdrop-blur-md border-b border-border shadow-glass h-[var(--header-height-mobile)] lg:h-[var(--header-height)]';
+          'fixed top-0 inset-x-0 z-40 w-full transition-all duration-300 bg-[#030712]/85 backdrop-blur-md border-b border-border shadow-glass header-height';
       } else {
         header.dataset.state = 'transparent';
         header.className =
-          'fixed top-0 inset-x-0 z-40 w-full transition-all duration-300 bg-transparent border-b border-transparent h-[var(--header-height-mobile)] lg:h-[var(--header-height)]';
+          'fixed top-0 inset-x-0 z-40 w-full transition-all duration-300 bg-transparent border-b border-transparent header-height';
       }
     }
 

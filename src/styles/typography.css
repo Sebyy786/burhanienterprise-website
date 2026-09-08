@@ -16,9 +16,9 @@
   /* ------------------------------------------------------------------------
      Fluid Typography Scale (Clamp-based)
      ------------------------------------------------------------------------ */
-  /* Display: 44px on mobile -> 68px on desktop */
-  --text-display: clamp(2.75rem, 5vw + 1rem, 4.25rem);
-  --leading-display: 1.1;
+  /* Display: 36px on mobile -> 54px on desktop */
+  --text-display: clamp(2.25rem, 3.5vw + 0.75rem, 3.375rem);
+  --leading-display: 1.18;
 
   /* H1: 32px on mobile -> 48px on desktop */
   --text-h1: clamp(2rem, 3.5vw + 0.75rem, 3rem);
