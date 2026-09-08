@@ -61,3 +61,16 @@
 - **Repository Isolation:**
   - **Strict Constraint:** Never modify, create, or delete any files outside this repository directory.
   - All dependencies, scripts, configuration, and assets must stay strictly within this workspace.
+
+---
+
+## 6. Production Design QA Rule
+- **No commit may be pushed to `origin/main` until screenshots are reviewed and approved.**
+- **Required artifacts for every UI sprint:**
+  1. Desktop 1440 screenshot.
+  2. Tablet 768 screenshot.
+  3. Mobile 320 screenshot.
+  4. Lighthouse screenshot.
+  5. Git diff summary.
+  6. Build + Astro check output.
+- **Only after explicit QA approval may Antigravity push.**
