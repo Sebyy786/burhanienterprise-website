@@ -18,55 +18,61 @@ interface ProductDivision {
   features: string[];
   specs: Array<{ label: string; value: string }>;
   whatsappMsg: string;
+  contactPerson: string;
+  contactPhone: string;
+  contactPhoneDigits: string;
 }
 
 const divisions: ProductDivision[] = [
   {
     id: 'gas-solutions',
-    badge: 'Division 01 • Industrial Gas Systems',
-    title: 'High-Pressure Gas Manifold & Distribution Systems',
-    tagline: 'Engineered for continuous flow, pressure stability, and complete industrial safety.',
+    badge: 'Division 01 • Commercial LPG & Pipelines',
+    title: 'Commercial LPG Cylinder Manifolds & Pipeline Systems',
+    tagline: 'Engineered for commercial kitchens, hotels, bakeries, schools, and local factories.',
     description:
-      'Custom-fabricated gas manifold systems engineered for industrial, medical, and specialty gases (Oxygen, Nitrogen, Argon, CO2, Hydrogen). Built with dual-stage precision pressure regulators, automatic or manual bank changeover, safety blow-off valves, and high-pressure stainless steel flexible pigtails.',
+      'Custom-fabricated LPG cylinder manifold banks and gas pipeline distribution systems for restaurants, hotels, commercial kitchens, and manufacturing units across Anand district. Built with dual-stage brass regulators, copper pigtails, safety ball valves, and certified pressure testing.',
     primaryImage: '/images/gas-solutions.jpg',
-    primaryAlt: 'High-Pressure Industrial Gas Cylinder Manifold System by Burhani Enterprise',
+    primaryAlt: 'Commercial LPG Cylinder Manifold Installation by Burhani Enterprise',
     detailImage: '/images/gas-regulator-detail.jpg',
-    detailAlt: 'Close-up of Dual-Stage Industrial Gas Pressure Regulator with Twin Analog Gauges',
-    detailCaption: 'Twin-Stage Brass & SS Pressure Reduction Station',
+    detailAlt: 'Close-up of Dual-Stage Brass Gas Pressure Regulator on Yellow Pipeline',
+    detailCaption: 'Dual-Gauge Brass Pressure Regulator Station',
     features: [
-      'Dual-bank manifold headers with master shut-off valves',
-      'High-pressure braided stainless steel 304/316 pigtails',
-      'Dual-stage brass regulators with precision analog dial gauges',
-      'Flashback arrestors and safety relief line integration',
-      'Custom on-site stainless and copper pipeline layout',
+      'Dual-bank manifold headers with safety shut-off ball valves',
+      'Flexible copper and braided stainless steel pigtails',
+      'Dual-stage brass regulators with analog dial gauges',
+      'Kitchen and factory gas pipeline layout with safety testing',
+      'Direct on-site installation and support in Anand District',
     ],
     specs: [
-      { label: 'Working Pressure', value: 'Up to 300 Bar (Hydraulic Test 450 Bar)' },
-      { label: 'Header Material', value: 'Seamless SS 316 / Heavy-Wall Brass' },
-      { label: 'Bank Configurations', value: '2x2 up to 2x20 Cylinder Banks' },
-      { label: 'Compatible Media', value: 'O2, N2, Ar, CO2, H2, Air & Mixtures' },
+      { label: 'Working Media', value: 'Commercial LPG & Industrial Gases' },
+      { label: 'Header Setup', value: '2x2 up to 2x20 Cylinder Banks' },
+      { label: 'Pressure Range', value: 'Dual-Stage High & Low Regulation' },
+      { label: 'Service Scope', value: 'Piping, Regulators, Valves & AMC' },
     ],
     whatsappMsg:
-      'Hello Burhani Enterprise, I would like to request technical specifications and pricing for Gas Manifold Systems.',
+      'Hello Burhanuddin, I would like to request an estimate for Commercial LPG Pipeline & Manifold installation.',
+    contactPerson: businessProfile.divisionContacts.gas.name,
+    contactPhone: businessProfile.divisionContacts.gas.phone,
+    contactPhoneDigits: businessProfile.divisionContacts.gas.phoneDigits,
   },
   {
     id: 'weighing-solutions',
     badge: 'Division 02 • Commercial Weighing Systems',
-    title: 'Industrial Truck Weighbridges & Load Cell Systems',
-    tagline: 'High-tonnage capacity with dependable repeatability and rugged durability.',
+    title: 'Truck Weighbridges, Platform Scales & Load Cells',
+    tagline: 'Heavy-duty capacity with dependable repeatability for mills, warehouses, and factories.',
     description:
-      'Modular structural steel truck weighbridge platforms available in pit and pitless installations ranging from 20T to 120T. Engineered with high-strength I-beam girders, hermetically sealed IP68/IP69K digital canister load cells, and microprocessor-controlled indicator terminals for high accuracy and reliable commercial operations.',
+      'Modular structural steel truck weighbridge platforms in pit and pitless configurations (20T to 120T), platform bench scales, and digital load cells. Engineered with high-strength I-beam steel, hermetically sealed IP68 load cells, and digital indicator terminals with fast local service.',
     primaryImage: '/images/weighing-solutions.jpg',
-    primaryAlt: 'Commercial Heavy-Duty Truck Weighbridge Platform Scale by Burhani Enterprise',
+    primaryAlt: 'Commercial Pitless Truck Weighbridge Platform Scale at Local Mill in Anand',
     detailImage: '/images/load-cell-detail.jpg',
-    detailAlt: 'Heavy-Duty Digital Canister Load Cell installed under steel weighbridge structure',
-    detailCaption: 'IP68 Hermetic Canister Load Cell with Rocker Pin',
+    detailAlt: 'Heavy-Duty Digital Canister Compression Load Cell with Rocker Pin',
+    detailCaption: 'IP68 Stainless Steel Canister Load Cell',
     features: [
       'Robust structural steel deck with heavy anti-skid chequered plate',
-      'Hermetically sealed stainless steel compression load cells (IP68/IP69K)',
+      'Hermetically sealed stainless steel compression load cells (IP68)',
       'Pit-mounted or Pitless surface-mounted configurations',
-      'Intelligent digital weight indicators with RS232 / USB / Ethernet',
-      'Built-in lightning and electrical surge protection junction box',
+      'Intelligent digital weight indicators with RS232 / USB / printer support',
+      'Rapid calibration and on-site maintenance across Anand District',
     ],
     specs: [
       { label: 'Capacity Range', value: '20 Tonnes up to 120 Tonnes' },
@@ -75,35 +81,41 @@ const divisions: ProductDivision[] = [
       { label: 'System Build', value: 'Heavy Commercial Industrial Standard' },
     ],
     whatsappMsg:
-      'Hello Burhani Enterprise, I would like to request a quotation and civil layout for Truck Weighbridges.',
+      'Hello Hozefa, I would like to request a quotation and layout for Truck Weighbridges.',
+    contactPerson: businessProfile.divisionContacts.weighing.name,
+    contactPhone: businessProfile.divisionContacts.weighing.phone,
+    contactPhoneDigits: businessProfile.divisionContacts.weighing.phoneDigits,
   },
   {
     id: 'software-solutions',
-    badge: 'Division 03 • Enterprise Automation',
-    title: 'Weighbridge Automation & Enterprise Software Suite',
-    tagline: 'Eliminate operator error, prevent material leakage, and automate weighment data.',
+    badge: 'Division 03 • Weighbridge & Business IT',
+    title: 'Burhani Weighbridge Management Software & Automation',
+    tagline: 'Automate weighment slips, prevent operator errors, and integrate with business ERP.',
     description:
-      'Our proprietary Weighbridge Management Software connects platform hardware directly to enterprise ERP systems (SAP, Oracle, custom APIs). Supports unmanned automated operations via RFID vehicle tags, CCTV snapshot capture, barrier gate controls, and real-time cloud analytics reporting.',
+      'Dedicated desktop weighbridge software and automation systems for commercial weighbridges and industrial dispatch yards. Features instant gross/tare/net calculation, custom ticket printing (dot-matrix and thermal), vehicle plate logging, optional CCTV snapshots, RFID driver cards, and Tally/ERP integration.',
     primaryImage: '/images/software-solutions.jpg',
-    primaryAlt: 'Burhani Enterprise Weighbridge Automation Software Dashboard on Dual Monitors',
+    primaryAlt: 'Burhani Weighbridge Automation Desktop Software on PC Monitor',
     detailImage: '/images/unmanned-kiosk-detail.jpg',
-    detailAlt: 'Outdoor Weatherproof Unmanned Weighbridge Driver Kiosk with RFID Reader',
-    detailCaption: 'Rugged Driver Self-Service Kiosk Terminal',
+    detailAlt: 'Outdoor Weatherproof Industrial Weighbridge Driver Kiosk and Terminal',
+    detailCaption: 'Rugged Driver Self-Service Terminal',
     features: [
-      'Automated gross, tare, and net calculation with instant slip printout',
-      'Unmanned driver self-service kiosk with RFID tag reader',
-      'CCTV license plate and vehicle photo capture on weight record',
-      'Automatic boom barrier and red/green traffic light control',
-      'Direct ERP synchronization (SAP, Tally, SQL, Custom API)',
+      'Instant gross, tare, and net calculation with ticket printout',
+      'Custom slip printing for dot-matrix and thermal printers',
+      'Vehicle license plate and customer party master records',
+      'Driver self-service RFID card reader and optional CCTV capture',
+      'Tally, Excel, and custom database data synchronization',
     ],
     specs: [
-      { label: 'Operation Modes', value: 'Manned Operator / 100% Unmanned Kiosk' },
-      { label: 'Database Engine', value: 'Secure SQL Local + Real-Time Cloud Sync' },
-      { label: 'Peripherals', value: 'RFID, ANPR Cameras, Traffic Barriers, Printers' },
-      { label: 'Audit Trail', value: 'Tamper-Proof Weight Log & Photo Archiving' },
+      { label: 'Software Suite', value: 'Burhani Weighbridge Desktop System' },
+      { label: 'Compatibility', value: 'Windows 10 / 11 / Server OS' },
+      { label: 'Indicator Sync', value: 'Supports all major digital indicator brands' },
+      { label: 'Data Security', value: 'Tamper-Proof Weight Logs & Operator Roles' },
     ],
     whatsappMsg:
-      'Hello Burhani Enterprise, I would like to schedule a demonstration of your Weighbridge Automation Software.',
+      'Hello Shabbir, I would like to schedule a demonstration of Burhani Weighbridge Management Software.',
+    contactPerson: businessProfile.divisionContacts.software.name,
+    contactPhone: businessProfile.divisionContacts.software.phone,
+    contactPhoneDigits: businessProfile.divisionContacts.software.phoneDigits,
   },
 ];
 ---
@@ -199,7 +211,7 @@ const divisions: ProductDivision[] = [
                       alt={division.primaryAlt}
                       width="800"
                       height="500"
-                      loading="eager"
+                      loading="lazy"
                       decoding="async"
                       class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                     />
@@ -217,7 +229,7 @@ const divisions: ProductDivision[] = [
                         alt={division.detailAlt}
                         width="200"
                         height="150"
-                        loading="eager"
+                        loading="lazy"
                         decoding="async"
                         class="w-full h-full object-cover"
                       />
@@ -311,7 +323,7 @@ const divisions: ProductDivision[] = [
                     </Button>
 
                     <Button
-                      href={`https://wa.me/${businessProfile.contact.whatsapp.number.replace('+', '')}?text=${encodeURIComponent(division.whatsappMsg)}`}
+                      href={`https://wa.me/${division.contactPhoneDigits}?text=${encodeURIComponent(division.whatsappMsg)}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       variant="secondary"
@@ -326,7 +338,7 @@ const divisions: ProductDivision[] = [
                       >
                         <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.072-2.128-.521-1.615-.67-2.66-2.308-2.74-2.417-.08-.108-.659-.877-.659-1.672 0-.795.414-1.187.561-1.349.146-.162.32-.203.428-.203.107 0 .215.002.308.007.1.005.234-.038.366.279.136.327.464 1.132.505 1.215.041.083.068.18.012.289-.056.108-.083.177-.165.273-.082.096-.174.215-.248.289-.083.083-.17.172-.073.338.097.166.432.713.927 1.154.636.568 1.172.744 1.338.827.166.083.264.069.362-.042.098-.111.42-.489.532-.656.113-.167.225-.139.378-.083.153.056.974.459 1.141.542.167.083.278.125.32.194.041.07.041.405-.103.81zM12 2C6.477 2 2 6.477 2 12c0 1.891.526 3.662 1.442 5.179L2 22l4.981-1.306A9.957 9.957 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/>
                       </svg>
-                      <span>Inquire on WhatsApp</span>
+                      <span>WhatsApp {division.contactPerson.split(' ')[0]}</span>
                     </Button>
                   </div>
                 </div>

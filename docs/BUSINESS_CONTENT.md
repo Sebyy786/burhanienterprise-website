@@ -4,9 +4,13 @@
 - **Legal / Trading Entity:** Burhani Enterprise
 - **Registered Base / Facility:** Umreth, Anand District, Gujarat, India.
 - **Primary Service Footprint:** Serving Umreth & Anand District, Gujarat.
-- **Industry Sector:** Industrial Gas Systems, Heavy Weighing Solutions & Enterprise Software.
-- **Mission:** Delivering robust industrial engineering, precision-calibrated weighing infrastructure, and custom software systems that empower modern commercial operations.
-- **Tone of Voice:** Authoritative, technical, refined, dependable, and solutions-focused.
+- **Division Contacts:**
+  - **Gas Solutions:** Burhanuddin Rangwala (`+91 99984 50711`)
+  - **Weighing Solutions:** Hozefa B. Rangwala (`+91 99741 64452`)
+  - **Software Solutions:** Shabbir Yahya (`+91 95747 13452`)
+- **Industry Sector:** Commercial & Industrial Gas Systems, Weighing Infrastructure & Automation Software.
+- **Mission:** Delivering dependable commercial engineering, accurate weighing infrastructure, and custom software automation tailored for local businesses in Anand District.
+- **Tone of Voice:** Authentic, technical, dependable, accessible, and solutions-focused.
 
 ---
 

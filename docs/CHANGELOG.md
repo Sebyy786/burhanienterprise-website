@@ -1,7 +1,28 @@
 # Changelog
 
 All notable changes to the **Burhani Enterprise Website** will be documented in this file.
-The project adheres to sprint-based versioning aligned with project tickets.
+## [Sprint BE-006.1] — 2026-09-08
+
+### Changed
+- **Local Business Authenticity & Verified Contact Sourcing:**
+  - Replaced oversized stock photos with authentic Indian commercial installation imagery in Gujarat:
+    - `gas-solutions.jpg`: Commercial 19kg LPG manifold cylinder banks with yellow header lines and brass regulators for restaurants and local factories.
+    - `weighing-solutions.jpg`: Real pitless truck weighbridge platform with Indian commercial truck and operator cabin in Anand District.
+    - `software-solutions.jpg`: Burhani Weighbridge Automation Desktop System running on office PC with gross/tare/net display and ticket printer.
+    - `gas-regulator-detail.jpg`: Macro dual-stage brass gas regulator with twin analog dial gauges.
+    - `load-cell-detail.jpg`: Heavy-duty IP68 stainless steel canister compression load cell with rocker pin under I-beam.
+    - `unmanned-kiosk-detail.jpg`: Rugged outdoor driver self-service kiosk with red LED weight display and RFID card reader.
+  - Sourced and integrated verified division contacts with direct WhatsApp routing:
+    - Gas Solutions: Burhanuddin Rangwala (`+91 99984 50711`)
+    - Weighing Solutions: Hozefa B. Rangwala (`+91 99741 64452`)
+    - Software Solutions: Shabbir Yahya (`+91 95747 13452`)
+  - Hero Copy: Rewrote badge to `SERVING UMRETH & ANAND DISTRICT • GAS • WEIGHING • SOFTWARE`, heading to `Industrial Engineering Solutions for Umreth & Anand District`, and description to focus on local commercial facilities across Anand district.
+  - RFQ Section: Rewrote heading to `Request a Quote`, added `Request on WhatsApp` and `Call Engineering Team` action buttons, and displayed verified division leads.
+  - Footer Cleanup: Restructured to show Burhani Enterprise subtitle, verified Service Area, 5 standard Quick Links, and direct Division Leads contact card.
+  - Performance: Sharp mozjpeg optimization with 595 KB total homepage image weight (under 700 KB target), hero image preload, and lazy loading for gallery and detail assets.
+
+---
+
 ## [Sprint BE-006.0A] — 2026-09-08
 
 ### Changed
