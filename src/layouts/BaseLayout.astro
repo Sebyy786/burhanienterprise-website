@@ -1,11 +1,13 @@
 ---
 import '../styles/global.css';
+import Navbar from '../components/layout/Navbar.astro';
 
 interface Props {
   title?: string;
   description?: string;
   canonical?: string;
   ogImage?: string;
+  offsetHeader?: boolean;
 }
 
 const {
@@ -13,9 +15,11 @@ const {
   description = 'Burhani Enterprise delivers certified industrial fasteners, commercial valves, pipe fittings, and heavy engineering hardware with international compliance.',
   canonical = Astro.url.href,
   ogImage = '/images/og-card.jpg',
-} = Astro.props;
+  offsetHeader = true,
+} = Astro.props as Props;
 
 const siteTitle = title.includes('Burhani Enterprise') ? title : `${title} | Burhani Enterprise`;
+const currentPath = Astro.url.pathname;
 ---
 
 <!doctype html>
@@ -79,9 +83,19 @@ const siteTitle = title.includes('Burhani Enterprise') ? title : `${title} | Bur
         aria-hidden="true"
       ></div>
 
-      <slot name="header" />
+      <!-- Mount Navigation in Header Slot -->
+      <slot name="header">
+        <Navbar currentPath={currentPath} />
+      </slot>
 
-      <main id="main-content" class="flex-1 focus:outline-none">
+      <!-- Main Content Offset via --header-height Variable -->
+      <main
+        id="main-content"
+        class:list={[
+          'flex-1 focus:outline-none',
+          offsetHeader && 'pt-[var(--header-height-mobile)] lg:pt-[var(--header-height)]',
+        ]}
+      >
         <slot />
       </main>
 

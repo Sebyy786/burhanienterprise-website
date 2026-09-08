@@ -1,0 +1,128 @@
+---
+import { navigationItems } from '../../data/navigation';
+import { businessProfile } from '../../data/business';
+import BrandWordmark from './BrandWordmark.astro';
+import NavLink from './NavLink.astro';
+import Button from '../ui/Button.astro';
+import Badge from '../ui/Badge.astro';
+
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = '/' } = Astro.props as Props;
+---
+
+<div
+  id="mobile-menu"
+  class="fixed inset-0 z-50 invisible transition-[visibility] duration-300 pointer-events-none"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Mobile Navigation Menu"
+>
+  <!-- Backdrop Overlay (Outside Click Target) -->
+  <div
+    id="mobile-menu-backdrop"
+    class="fixed inset-0 bg-[#030712]/80 backdrop-blur-md opacity-0 transition-opacity duration-300"
+    aria-hidden="true"
+  ></div>
+
+  <!-- Drawer Panel -->
+  <div
+    id="mobile-menu-panel"
+    class="fixed top-0 right-0 bottom-0 w-full max-w-xs sm:max-w-sm bg-surface border-l border-border shadow-2xl flex flex-col justify-between p-6 translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto"
+  >
+    <!-- Drawer Header -->
+    <div class="flex items-center justify-between pb-5 border-b border-border-subtle">
+      <BrandWordmark size="sm" showSubtitle={false} />
+      <button
+        type="button"
+        id="mobile-menu-close"
+        class="inline-flex items-center justify-center h-10 w-10 rounded-[var(--radius-md)] text-text-muted hover:text-text hover:bg-surface-soft border border-transparent hover:border-border transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+        aria-label="Close menu"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+          aria-hidden="true"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Navigation Links -->
+    <nav class="flex-1 py-6 space-y-1.5" aria-label="Mobile Menu Navigation">
+      {
+        navigationItems.map((item) => {
+          const isActive = currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href));
+          return (
+            <NavLink
+              href={item.href}
+              label={item.label}
+              active={isActive}
+              isMobile={true}
+              class="mobile-nav-item"
+            />
+          );
+        })
+      }
+    </nav>
+
+    <!-- Drawer Footer Actions -->
+    <div class="pt-6 border-t border-border-subtle space-y-4">
+      <!-- Language Switcher Placeholder -->
+      <div class="flex items-center justify-between px-2 text-xs">
+        <span class="text-text-muted font-heading">Language:</span>
+        <div class="inline-flex items-center rounded-[var(--radius-sm)] bg-surface-soft border border-border-subtle p-0.5">
+          <button
+            type="button"
+            class="px-2.5 py-1 text-xs font-semibold rounded-[var(--radius-sm)] bg-primary text-[#030712]"
+            aria-pressed="true"
+          >
+            EN
+          </button>
+          <button
+            type="button"
+            class="px-2.5 py-1 text-xs font-medium text-text-muted hover:text-text font-gujarati"
+            aria-pressed="false"
+            title="ગુજરાતી ભાષા પસંદ કરો"
+          >
+            ગુજરાતી
+          </button>
+        </div>
+      </div>
+
+      <!-- WhatsApp Direct CTA Button -->
+      <Button
+        href={businessProfile.contact.whatsapp.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        variant="primary"
+        size="md"
+        class="w-full justify-center"
+        ariaLabel="Contact Burhani Enterprise via WhatsApp"
+      >
+        <svg
+          slot="icon-left"
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-4 w-4 fill-current"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.072-2.128-.521-1.615-.67-2.66-2.308-2.74-2.417-.08-.108-.659-.877-.659-1.672 0-.795.414-1.187.561-1.349.146-.162.32-.203.428-.203.107 0 .215.002.308.007.1.005.234-.038.366.279.136.327.464 1.132.505 1.215.041.083.068.18.012.289-.056.108-.083.177-.165.273-.082.096-.174.215-.248.289-.083.083-.17.172-.073.338.097.166.432.713.927 1.154.636.568 1.172.744 1.338.827.166.083.264.069.362-.042.098-.111.42-.489.532-.656.113-.167.225-.139.378-.083.153.056.974.459 1.141.542.167.083.278.125.32.194.041.07.041.405-.103.81zM12 2C6.477 2 2 6.477 2 12c0 1.891.526 3.662 1.442 5.179L2 22l4.981-1.306A9.957 9.957 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/>
+        </svg>
+        WhatsApp Inquiry
+      </Button>
+
+      <!-- Subtitle badge -->
+      <div class="text-center">
+        <Badge variant="muted" size="sm">B2B Priority Dispatch</Badge>
+      </div>
+    </div>
+  </div>
+</div>

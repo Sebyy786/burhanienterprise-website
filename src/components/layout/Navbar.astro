@@ -1,0 +1,262 @@
+---
+import { navigationItems } from '../../data/navigation';
+import { businessProfile } from '../../data/business';
+import BrandWordmark from './BrandWordmark.astro';
+import NavLink from './NavLink.astro';
+import MobileMenu from './MobileMenu.astro';
+import Button from '../ui/Button.astro';
+
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = '/' } = Astro.props as Props;
+---
+
+<header
+  id="navbar-header"
+  class="fixed top-0 inset-x-0 z-40 w-full transition-all duration-300 bg-transparent border-b border-transparent h-[var(--header-height-mobile)] lg:h-[var(--header-height)]"
+  data-state="transparent"
+>
+  <div class="h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
+    <!-- Brand Wordmark -->
+    <div class="flex-shrink-0">
+      <BrandWordmark size="md" />
+    </div>
+
+    <!-- Desktop Navigation Links -->
+    <nav class="hidden md:flex items-center gap-6 lg:gap-8" aria-label="Desktop Main Navigation">
+      {
+        navigationItems.map((item) => {
+          const isActive = currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href));
+          return <NavLink href={item.href} label={item.label} active={isActive} />;
+        })
+      }
+    </nav>
+
+    <!-- Desktop Actions (Language Switcher & WhatsApp CTA) -->
+    <div class="hidden md:flex items-center gap-3 lg:gap-4">
+      <!-- Language Switcher Placeholder -->
+      <div
+        class="inline-flex items-center rounded-[var(--radius-sm)] bg-surface-soft border border-border-subtle p-0.5 text-xs select-none"
+        role="group"
+        aria-label="Language selection"
+      >
+        <button
+          type="button"
+          class="px-2 py-0.5 font-semibold rounded-[var(--radius-sm)] bg-primary text-[#030712] cursor-default"
+          aria-pressed="true"
+        >
+          EN
+        </button>
+        <button
+          type="button"
+          class="px-2 py-0.5 font-medium text-text-muted hover:text-text cursor-pointer font-gujarati transition-colors"
+          aria-pressed="false"
+          title="ગુજરાતી ભાષા પસંદ કરો"
+        >
+          ગુજરાતી
+        </button>
+      </div>
+
+      <!-- WhatsApp CTA Button -->
+      <Button
+        href={businessProfile.contact.whatsapp.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        variant="primary"
+        size="sm"
+        ariaLabel="Inquire on WhatsApp"
+        class="whitespace-nowrap"
+      >
+        <svg
+          slot="icon-left"
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-3.5 w-3.5 fill-current"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.072-2.128-.521-1.615-.67-2.66-2.308-2.74-2.417-.08-.108-.659-.877-.659-1.672 0-.795.414-1.187.561-1.349.146-.162.32-.203.428-.203.107 0 .215.002.308.007.1.005.234-.038.366.279.136.327.464 1.132.505 1.215.041.083.068.18.012.289-.056.108-.083.177-.165.273-.082.096-.174.215-.248.289-.083.083-.17.172-.073.338.097.166.432.713.927 1.154.636.568 1.172.744 1.338.827.166.083.264.069.362-.042.098-.111.42-.489.532-.656.113-.167.225-.139.378-.083.153.056.974.459 1.141.542.167.083.278.125.32.194.041.07.041.405-.103.81zM12 2C6.477 2 2 6.477 2 12c0 1.891.526 3.662 1.442 5.179L2 22l4.981-1.306A9.957 9.957 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/>
+        </svg>
+        WhatsApp
+      </Button>
+    </div>
+
+    <!-- Mobile Hamburger Toggle Button -->
+    <div class="flex items-center gap-2 md:hidden">
+      <button
+        type="button"
+        id="navbar-hamburger"
+        class="inline-flex items-center justify-center h-10 w-10 rounded-[var(--radius-md)] text-text hover:text-primary hover:bg-surface-soft border border-border-subtle transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        aria-label="Open navigation menu"
+      >
+        <!-- Animated 3-line hamburger icon -->
+        <span class="sr-only">Toggle Navigation</span>
+        <svg
+          class="h-6 w-6 stroke-current"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <line x1="4" y1="6" x2="20" y2="6" class="hamburger-line top origin-center transition-all"></line>
+          <line x1="4" y1="12" x2="20" y2="12" class="hamburger-line middle transition-all"></line>
+          <line x1="4" y1="18" x2="20" y2="18" class="hamburger-line bottom origin-center transition-all"></line>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mount Accessible Mobile Menu Drawer -->
+<MobileMenu currentPath={currentPath} />
+
+<script>
+  function initNavigation() {
+    const header = document.getElementById('navbar-header');
+    const hamburgerBtn = document.getElementById('navbar-hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const backdrop = document.getElementById('mobile-menu-backdrop');
+    const panel = document.getElementById('mobile-menu-panel');
+    const closeBtn = document.getElementById('mobile-menu-close');
+    const navItems = document.querySelectorAll('.mobile-nav-item');
+
+    if (!header || !hamburgerBtn || !mobileMenu || !backdrop || !panel || !closeBtn) return;
+
+    let isMenuOpen = false;
+
+    // 1. Navbar Visual State Management (transparent | scrolled glass | mobile-open solid)
+    function updateHeaderVisualState() {
+      if (!header) return;
+      if (isMenuOpen) {
+        header.dataset.state = 'mobile-open';
+        header.className =
+          'fixed top-0 inset-x-0 z-40 w-full transition-all duration-300 bg-[#030712] border-b border-border shadow-2xl h-[var(--header-height-mobile)] lg:h-[var(--header-height)]';
+      } else if (window.scrollY > 20) {
+        header.dataset.state = 'scrolled';
+        header.className =
+          'fixed top-0 inset-x-0 z-40 w-full transition-all duration-300 bg-[#030712]/85 backdrop-blur-md border-b border-border shadow-glass h-[var(--header-height-mobile)] lg:h-[var(--header-height)]';
+      } else {
+        header.dataset.state = 'transparent';
+        header.className =
+          'fixed top-0 inset-x-0 z-40 w-full transition-all duration-300 bg-transparent border-b border-transparent h-[var(--header-height-mobile)] lg:h-[var(--header-height)]';
+      }
+    }
+
+    window.addEventListener('scroll', updateHeaderVisualState, { passive: true });
+    updateHeaderVisualState();
+
+    // 2. Open Mobile Menu
+    function openMenu() {
+      if (!hamburgerBtn || !mobileMenu || !backdrop || !panel || !closeBtn) return;
+      if (isMenuOpen) return;
+      isMenuOpen = true;
+      hamburgerBtn.setAttribute('aria-expanded', 'true');
+      hamburgerBtn.setAttribute('aria-label', 'Close navigation menu');
+
+      // Show drawer
+      mobileMenu.classList.remove('invisible', 'pointer-events-none');
+      backdrop.classList.remove('opacity-0');
+      backdrop.classList.add('opacity-100');
+      panel.classList.remove('translate-x-full');
+      panel.classList.add('translate-x-0');
+
+      // Body scroll lock
+      document.body.style.overflow = 'hidden';
+
+      // Update header state
+      updateHeaderVisualState();
+
+      // Focus close button initially
+      closeBtn.focus();
+    }
+
+    // 3. Close Mobile Menu
+    function closeMenu() {
+      if (!hamburgerBtn || !mobileMenu || !backdrop || !panel) return;
+      if (!isMenuOpen) return;
+      isMenuOpen = false;
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
+      hamburgerBtn.setAttribute('aria-label', 'Open navigation menu');
+
+      // Hide drawer
+      backdrop.classList.remove('opacity-100');
+      backdrop.classList.add('opacity-0');
+      panel.classList.remove('translate-x-0');
+      panel.classList.add('translate-x-full');
+
+      // Restore body scroll
+      document.body.style.overflow = '';
+
+      // Update header state
+      updateHeaderVisualState();
+
+      // Delay hiding visibility for animation
+      setTimeout(() => {
+        if (!isMenuOpen && mobileMenu) {
+          mobileMenu.classList.add('invisible', 'pointer-events-none');
+        }
+      }, 300);
+
+      // Restore focus to hamburger button
+      hamburgerBtn.focus();
+    }
+
+    // Toggle trigger
+    hamburgerBtn.addEventListener('click', () => {
+      if (isMenuOpen) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+
+    closeBtn.addEventListener('click', closeMenu);
+    backdrop.addEventListener('click', closeMenu);
+
+    // Close when clicking any nav item
+    navItems.forEach((link) => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    // 4. Keyboard Navigation: ESC key to close
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isMenuOpen) {
+        closeMenu();
+      }
+    });
+
+    // 5. Accessible Focus Trap inside Mobile Drawer
+    mobileMenu.addEventListener('keydown', (e) => {
+      if (!isMenuOpen || e.key !== 'Tab' || !panel) return;
+
+      const focusables = panel.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      );
+      if (focusables.length === 0) return;
+
+      const firstElement = focusables[0];
+      const lastElement = focusables[focusables.length - 1];
+
+      if (e.shiftKey) {
+        if (document.activeElement === firstElement) {
+          e.preventDefault();
+          lastElement.focus();
+        }
+      } else {
+        if (document.activeElement === lastElement) {
+          e.preventDefault();
+          firstElement.focus();
+        }
+      }
+    });
+  }
+
+  // Support both initial load and Astro page transitions
+  document.addEventListener('DOMContentLoaded', initNavigation);
+  document.addEventListener('astro:page-load', initNavigation);
+</script>

@@ -1,0 +1,69 @@
+---
+interface Props {
+  size?: 'sm' | 'md' | 'lg';
+  color?: 'gold' | 'white' | 'monochrome';
+  showSubtitle?: boolean;
+  class?: string;
+  href?: string;
+}
+
+const {
+  size = 'md',
+  color = 'gold',
+  showSubtitle = true,
+  class: className = '',
+  href = '/',
+} = Astro.props as Props;
+
+// Sizes mapping
+const sizeStyles: Record<'sm' | 'md' | 'lg', { title: string; subtitle: string }> = {
+  sm: {
+    title: 'text-sm sm:text-base font-semibold tracking-wider',
+    subtitle: 'text-[9px] tracking-[0.2em] font-medium',
+  },
+  md: {
+    title: 'text-base sm:text-lg lg:text-xl font-bold tracking-widest',
+    subtitle: 'text-[10px] sm:text-[11px] tracking-[0.25em] font-medium',
+  },
+  lg: {
+    title: 'text-xl sm:text-2xl lg:text-3xl font-bold tracking-widest',
+    subtitle: 'text-xs tracking-[0.3em] font-medium',
+  },
+};
+
+// Colors mapping
+const colorStyles: Record<'gold' | 'white' | 'monochrome', { title: string; subtitle: string }> = {
+  gold: {
+    title: 'gold-gradient-text',
+    subtitle: 'text-text-muted',
+  },
+  white: {
+    title: 'text-white',
+    subtitle: 'text-slate-400',
+  },
+  monochrome: {
+    title: 'text-text',
+    subtitle: 'text-text-subtle',
+  },
+};
+
+const currentSize = sizeStyles[size];
+const currentColor = colorStyles[color];
+---
+
+<a
+  href={href}
+  class={`group inline-flex flex-col select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] rounded-[var(--radius-sm)] transition-opacity hover:opacity-95 ${className}`}
+  aria-label="Burhani Enterprise — Home"
+>
+  <span class={`font-serif uppercase transition-transform duration-200 group-hover:scale-[1.01] ${currentSize.title} ${currentColor.title}`}>
+    Burhani Enterprise
+  </span>
+  {
+    showSubtitle && (
+      <span class={`font-heading uppercase mt-0.5 ${currentSize.subtitle} ${currentColor.subtitle}`}>
+        Industrial Supplies & Hardware
+      </span>
+    )
+  }
+</a>

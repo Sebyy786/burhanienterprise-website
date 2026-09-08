@@ -3,6 +3,20 @@
 All notable changes to the **Burhani Enterprise Website** will be documented in this file.
 The project adheres to sprint-based versioning aligned with project tickets.
 
+## [Sprint BE-004.3] — 2026-09-08
+
+### Added
+- **Premium Navigation System (`src/components/layout/Navbar.astro`):** Sticky navigation bar supporting three distinct visual states: `transparent` (page top), `scrolled glass` (backdrop blur with gold hairline border upon scroll), and `mobile-open solid` (solid dark luxury background during mobile menu activation).
+- **Data-Driven Menu & Business Modules:**
+  - `src/data/navigation.ts`: Centralized menu routing with English and Gujarati (`ગુજરાતી`) labels.
+  - `src/data/business.ts`: Corporate identity attributes, WhatsApp inquiry links, and contact parameters.
+- **Brand Wordmark (`src/components/layout/BrandWordmark.astro`):** Typographic logo placeholder supporting `size` (`sm` | `md` | `lg`), `color` (`gold` | `white` | `monochrome`), and `showSubtitle` flags (adhering strictly to no-logo-until-provided directive).
+- **Animated Nav Links (`src/components/layout/NavLink.astro`):** Desktop navigation link with animated gold underline hover effects (`after:w-0 hover:after:w-full`) and touch-optimized mobile links.
+- **Accessible Mobile Menu Drawer (`src/components/layout/MobileMenu.astro`):** Full-featured glass drawer including focus trap, ESC key dismissal, backdrop outside-click dismissal, body scroll locking, and focus restoration to the hamburger button.
+- **Layout Integration & Offset (`src/layouts/BaseLayout.astro`):** Replaced manual spacers by introducing `--header-height` (`5rem`) and `--header-height-mobile` (`4.25rem`) CSS variables in `src/styles/theme.css` to offset `<main>` automatically.
+
+---
+
 ## [Sprint BE-004.2] — 2026-09-08
 
 ### Added
