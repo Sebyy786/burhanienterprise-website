@@ -3,6 +3,13 @@
 All notable changes to the **Burhani Enterprise Website** will be documented in this file.
 The project adheres to sprint-based versioning aligned with project tickets.
 
+## [Sprint BE-005.0] — 2026-09-08
+
+### Added
+- **GitHub Pages CI/CD Workflow (`.github/workflows/deploy.yml`):** Implemented official Astro GitHub Pages deployment workflow using `withastro/action@v3` with Node 22, explicit `pages: write` and `id-token: write` permissions, static artifact building, and automated deployment trigger on pushes to `main`.
+
+---
+
 ## [Sprint BE-004.4] — 2026-09-08
 
 ### Added
