@@ -185,23 +185,6 @@ import { businessProfile } from '../../data/business';
               </span>
             </a>
 
-            <!-- Email Address Block -->
-            <a
-              href={`mailto:${businessProfile.contact.email}`}
-              class="flex items-center gap-3.5 p-3 rounded-[var(--radius-md)] bg-[#04091a] border border-border-subtle hover:border-primary/50 transition-colors group"
-            >
-              <div class="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center shrink-0 text-primary group-hover:scale-105 transition-transform">
-                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-              </div>
-              <div class="min-w-0 flex-1">
-                <span class="text-[10px] uppercase font-mono text-text-subtle block">Email Inquiries</span>
-                <span class="text-xs font-mono font-semibold text-primary group-hover:underline truncate block">
-                  {businessProfile.contact.email}
-                </span>
-              </div>
-            </a>
 
             <!-- Shop Address -->
             <div class="flex items-start gap-3.5 p-3 rounded-[var(--radius-md)] bg-[#04091a] border border-border-subtle">

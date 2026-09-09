@@ -117,19 +117,27 @@ const { class: className = '' } = Astro.props as Props;
         <div class="pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent z-20" aria-hidden="true"></div>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 items-center">
-          <!-- Left: Authentic Scale Photo -->
-          <div class="lg:col-span-7 relative h-[280px] sm:h-[380px] lg:h-[420px] bg-[#01040f] p-4 sm:p-6 flex items-center justify-center overflow-hidden group">
-            <img
-              src="/images/scale/scale-2.jpg"
-              alt="બુરહાની એન્ટરપ્રાઇઝ ડિજિટલ વજન કાંટા અને કેલિબ્રેશન સેવા"
-              loading="eager"
-              decoding="async"
-              class="max-w-full max-h-full object-contain rounded-xl shadow-2xl transition-transform duration-500 group-hover:scale-105"
-            />
-            <div class="absolute top-4 left-4 z-10">
-              <span class="text-[11px] font-mono font-bold px-3 py-1 rounded-full bg-[#020512]/90 text-primary border border-primary/50 backdrop-blur-md shadow-lg">
+          <!-- Left: Authentic Scale Photo Showcase -->
+          <div class="lg:col-span-7 relative flex flex-col items-center justify-center bg-gradient-to-b from-[#020719] to-[#01030b] p-4 sm:p-6 lg:p-7 overflow-hidden group">
+            <!-- Top Tag Strip -->
+            <div class="w-full flex items-center justify-between gap-2 mb-3 z-10 select-none">
+              <span class="text-[10px] sm:text-xs font-mono font-bold px-2.5 sm:px-3 py-1 rounded-full bg-[#03081a]/95 text-primary border border-primary/40 backdrop-blur-md shadow-sm truncate">
                 ઓરિજિનલ પ્રોડક્ટ ફોટો • લીગલ મેટ્રોલોજી સ્ટેમ્પિંગ સહાય
               </span>
+              <span class="text-[10px] sm:text-xs font-mono font-semibold px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 shrink-0">
+                હાજરમાં સ્ટોક
+              </span>
+            </div>
+
+            <!-- Product Showcase Box with Clean Frame -->
+            <div class="relative w-full h-[230px] sm:h-[300px] lg:h-[330px] bg-white rounded-xl p-3 sm:p-5 flex items-center justify-center shadow-[0_15px_35px_rgba(0,0,0,0.5)] border border-slate-200/20 overflow-hidden">
+              <img
+                src="/images/scale/scale-2.jpg"
+                alt="બુરહાની એન્ટરપ્રાઇઝ ડિજિટલ સ્ટેઈનલેસ સ્ટીલ ટેબલટોપ વજન કાંટો (AQUA મોડેલ) - ચોક્કસ વજન અને ગ્રીન LED ડિસ્પ્લે / Digital Stainless Steel Tabletop Scale"
+                loading="eager"
+                decoding="async"
+                class="max-w-full max-h-full object-contain transition-transform duration-500 group-hover:scale-105"
+              />
             </div>
           </div>
 

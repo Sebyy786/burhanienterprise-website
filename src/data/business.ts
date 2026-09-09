@@ -25,9 +25,15 @@ export interface BusinessProfile {
       defaultMessage: string;
       url: string;
     };
-    email: string;
+    email?: string;
     phone: string;
     address: string;
+  };
+  businessHours: {
+    weekdays: string;
+    sunday: string;
+    gujaratiWeekdays: string;
+    gujaratiSunday: string;
   };
   divisionContacts: {
     gas: DivisionContact;
@@ -67,9 +73,14 @@ export const businessProfile: BusinessProfile = {
       defaultMessage: whatsappDefaultMessage,
       url: `https://wa.me/${primaryPhoneDigits}?text=${encodeURIComponent(whatsappDefaultMessage)}`,
     },
-    email: 'contact@burhanienterprise.com',
     phone: '+91 99984 50711',
     address: 'Lokhand Bazar, infront of Old post office, Nr. kansara bazar, Umreth, Anand District, Gujarat',
+  },
+  businessHours: {
+    weekdays: '9:00 AM – 8:30 PM',
+    sunday: '9:00 AM – 1:30 PM',
+    gujaratiWeekdays: 'સોમવાર - શનિવાર: સવારે ૯:૦૦ થી રાત્રે ૮:૩૦',
+    gujaratiSunday: 'રવિવાર: સવારે ૯:૦૦ થી બપોરે ૧:૩૦',
   },
   divisionContacts: {
     gas: {
