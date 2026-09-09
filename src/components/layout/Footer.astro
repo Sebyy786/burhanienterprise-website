@@ -5,6 +5,7 @@ import { businessProfile } from '../../data/business';
 ---
 
 <footer
+  id="contact"
   class="relative bg-[#02050d] border-t border-border/80 text-text-muted py-14 sm:py-20 select-none overflow-hidden"
   aria-label="Burhani Enterprise Footer"
 >
@@ -23,27 +24,37 @@ import { businessProfile } from '../../data/business';
 
         <p
           class="text-xs sm:text-sm text-text-gold font-mono tracking-wide font-gujarati"
-          data-i18n-gu="ગેસ સોલ્યુશન્સ • વજન કાંટા • સોફ્ટવેર સોલ્યુશન્સ"
-          data-i18n-en="Gas Solutions • Weighing Scales • Software"
+          data-i18n-gu="વજન કાંટા • ગેસ એપ્લાયન્સિસ • સોફ્ટવેર સોલ્યુશન્સ"
+          data-i18n-en="Weighing Scales • Gas Appliances • Software Solutions"
         >
-          ગેસ સોલ્યુશન્સ • વજન કાંટા • સોફ્ટવેર સોલ્યુશન્સ
+          વજન કાંટા • ગેસ એપ્લાયન્સિસ • સોફ્ટવેર સોલ્યુશન્સ
         </p>
 
         <p
           class="text-xs sm:text-sm text-text-muted leading-relaxed max-w-sm font-body font-gujarati"
-          data-i18n-gu="બુરહાની એન્ટરપ્રાઇઝ: કોમર્શિયલ LPG પાઇપલાઇન, દરેક પ્રકારના ગેસ સ્ટવ, તમામ સ્પેરપાર્ટ્સ, રિપેરિંગ, ડિજિટલ વજન કાંટા, વેઇબ્રિજ, સ્ટેમ્પિંગ સહાય અને કસ્ટમ સોફ્ટવેર."
-          data-i18n-en="Burhani Enterprise: Commercial LPG pipelines, all gas stoves, spare parts &amp; repairs, digital weighing scales, weighbridges, stamping assistance, and custom software."
+          data-i18n-gu="બુરહાની એન્ટરપ્રાઇઝ: ડિજિટલ વજન કાંટા, ગેસ ચૂલા, ઓરિજિનલ સ્પેરપાર્ટ્સ, રિપેરિંગ સેવાઓ અને સ્થાનિક વ્યવસાય સોફ્ટવેર સોલ્યુશન્સ. ઉમરેઠ અને આણંદ જિલ્લો."
+          data-i18n-en="Burhani Enterprise: Digital weighing scales, gas stoves, genuine spare parts, repair services, and local business software solutions. Serving Umreth and Anand District."
         >
-          બુરહાની એન્ટરપ્રાઇઝ: કોમર્શિયલ LPG પાઇપલાઇન, દરેક પ્રકારના ગેસ સ્ટવ, તમામ સ્પેરપાર્ટ્સ, રિપેરિંગ, ડિજિટલ વજન કાંટા, વેઇબ્રિજ, સ્ટેમ્પિંગ સહાય અને કસ્ટમ સોફ્ટવેર.
+          બુરહાની એન્ટરપ્રાઇઝ: ડિજિટલ વજન કાંટા, ગેસ ચૂલા, ઓરિજિનલ સ્પેરપાર્ટ્સ, રિપેરિંગ સેવાઓ અને સ્થાનિક વ્યવસાય સોફ્ટવેર સોલ્યુશન્સ. ઉમરેઠ અને આણંદ જિલ્લો.
         </p>
 
-        <div class="space-y-1.5 text-xs text-text-subtle font-mono font-gujarati">
+        <div class="space-y-2 text-xs text-text-subtle font-mono font-gujarati pt-1">
           <p><span class="text-primary/90 font-semibold">GSTIN:</span> {businessProfile.gstin}</p>
-          <div class="flex items-start gap-2 pt-1">
+          <div class="flex items-start gap-2">
             <span class="w-2 h-2 rounded-full bg-[#25D366] mt-1 shrink-0"></span>
             <span class="leading-relaxed">
-              <span data-i18n-gu="સરનામું:" data-i18n-en="Address:">સરનામું:</span> Lokhand Bazar, infront of Old post office, Nr. kansara bazar, Umreth
+              <span class="text-slate-300 font-semibold" data-i18n-gu="સરનામું:" data-i18n-en="Address:">સરનામું:</span> {businessProfile.contact.address}
             </span>
+          </div>
+          <div class="flex items-start gap-2 pt-1">
+            <span class="text-primary/90 font-semibold">સમય:</span>
+            <span class="leading-relaxed">
+              સોમ-શનિ: ૯:૦૦ AM – ૮:૩૦ PM | રવિ: ૯:૦૦ AM – ૧:૩૦ PM
+            </span>
+          </div>
+          <div class="flex items-start gap-2 text-text-gold font-semibold">
+            <span>સર્વિસ એરિયા:</span>
+            <span>ઉમરેઠ અને સમગ્ર આણંદ જિલ્લો</span>
           </div>
         </div>
       </div>
@@ -57,7 +68,7 @@ import { businessProfile } from '../../data/business';
         >
           ઝડપી લિંક્સ (Quick Links)
         </h4>
-        <ul class="space-y-2 text-xs sm:text-sm">
+        <ul class="space-y-2.5 text-xs sm:text-sm">
           <li>
             <a
               href="#hero"
@@ -65,57 +76,48 @@ import { businessProfile } from '../../data/business';
               data-i18n-gu="મુખ્ય પૃષ્ઠ"
               data-i18n-en="Home"
             >
-              મુખ્ય પૃષ્ઠ
+              મુખ્ય પૃષ્ઠ (Home)
             </a>
           </li>
           <li>
             <a
               href="#scales"
               class="text-text-muted hover:text-white transition-colors"
-              data-i18n-gu="વજન કાંટા"
-              data-i18n-en="Weighing Scales"
+              data-i18n-gu="વજન કાંટા &amp; રિપેરિંગ"
+              data-i18n-en="Weighing Scales &amp; Repair"
             >
-              વજન કાંટા
+              વજન કાંટા &amp; રિપેરિંગ
+            </a>
+          </li>
+          <li>
+            <a
+              href="/weighing-scales"
+              class="text-text-muted hover:text-white transition-colors flex items-center gap-1.5"
+              data-i18n-gu="ડિજિટલ શોરૂમ"
+              data-i18n-en="Digital Showroom"
+            >
+              <span>ડિજિટલ શોરૂમ</span>
+              <span class="text-[10px] font-mono px-1.5 py-0.2 rounded bg-primary/20 text-primary border border-primary/40">નવું</span>
             </a>
           </li>
           <li>
             <a
               href="#gas"
               class="text-text-muted hover:text-white transition-colors"
-              data-i18n-gu="ગેસ સોલ્યુશન્સ"
-              data-i18n-en="Gas Solutions"
+              data-i18n-gu="ગેસ સ્ટવ &amp; સાધનો"
+              data-i18n-en="Gas Stoves &amp; Spares"
             >
-              ગેસ સોલ્યુશન્સ
+              ગેસ સ્ટવ &amp; સાધનો
             </a>
           </li>
           <li>
             <a
               href="#software"
               class="text-text-muted hover:text-white transition-colors"
-              data-i18n-gu="સોફ્ટવેર &amp; AI"
-              data-i18n-en="Software &amp; AI"
+              data-i18n-gu="સોફ્ટવેર ડેવલપમેન્ટ"
+              data-i18n-en="Software Development"
             >
-              સોફ્ટવેર &amp; AI
-            </a>
-          </li>
-          <li>
-            <a
-              href="#capabilities"
-              class="text-text-muted hover:text-white transition-colors"
-              data-i18n-gu="વિશેષતાઓ"
-              data-i18n-en="Capabilities"
-            >
-              વિશેષતાઓ
-            </a>
-          </li>
-          <li>
-            <a
-              href="#contact"
-              class="text-text-muted hover:text-white transition-colors"
-              data-i18n-gu="સંપર્ક"
-              data-i18n-en="Contact"
-            >
-              સંપર્ક
+              સોફ્ટવેર ડેવલપમેન્ટ
             </a>
           </li>
         </ul>
@@ -126,49 +128,44 @@ import { businessProfile } from '../../data/business';
         <h4 class="text-xs font-mono uppercase tracking-widest text-primary font-semibold">
           Division Contacts
         </h4>
-        <div class="space-y-2.5 text-xs">
-          <div>
-            <span class="text-text-subtle block text-[10px] font-mono uppercase">Gas Solutions</span>
+        <div class="space-y-3 text-xs font-gujarati">
+          <div class="p-2.5 rounded-lg bg-[#040a1c] border border-border-subtle">
+            <span class="text-emerald-400 block text-[10px] font-mono uppercase font-bold">Gas Stoves &amp; Equipment</span>
             <a
               href={businessProfile.divisionContacts.gas.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              class="text-slate-300 hover:text-primary transition-colors flex items-center justify-between"
+              class="text-slate-200 hover:text-primary transition-colors flex items-center justify-between pt-1"
             >
-              <span>{businessProfile.divisionContacts.gas.name}</span>
-              <span class="text-text-gold font-mono">{businessProfile.divisionContacts.gas.phone}</span>
+              <span class="font-bold">{businessProfile.divisionContacts.gas.name}</span>
+              <span class="text-text-gold font-mono font-semibold">{businessProfile.divisionContacts.gas.phone}</span>
             </a>
           </div>
 
-          <div>
-            <span class="text-text-subtle block text-[10px] font-mono uppercase">Weighing Solutions</span>
+          <div class="p-2.5 rounded-lg bg-[#040a1c] border border-border-subtle">
+            <span class="text-primary block text-[10px] font-mono uppercase font-bold">Weighing Scales &amp; Repair</span>
             <a
               href={businessProfile.divisionContacts.weighing.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              class="text-slate-300 hover:text-primary transition-colors flex items-center justify-between"
+              class="text-slate-200 hover:text-primary transition-colors flex items-center justify-between pt-1"
             >
-              <span>{businessProfile.divisionContacts.weighing.name}</span>
-              <span class="text-text-gold font-mono">{businessProfile.divisionContacts.weighing.phone}</span>
+              <span class="font-bold">{businessProfile.divisionContacts.weighing.name}</span>
+              <span class="text-text-gold font-mono font-semibold">{businessProfile.divisionContacts.weighing.phone}</span>
             </a>
           </div>
 
-          <div>
-            <span class="text-text-subtle block text-[10px] font-mono uppercase">Software Solutions</span>
+          <div class="p-2.5 rounded-lg bg-[#040a1c] border border-border-subtle">
+            <span class="text-indigo-400 block text-[10px] font-mono uppercase font-bold">Software Development</span>
             <a
               href={businessProfile.divisionContacts.software.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              class="text-slate-300 hover:text-primary transition-colors flex items-center justify-between"
+              class="text-slate-200 hover:text-primary transition-colors flex items-center justify-between pt-1"
             >
-              <span>{businessProfile.divisionContacts.software.name}</span>
-              <span class="text-text-gold font-mono">{businessProfile.divisionContacts.software.phone}</span>
+              <span class="font-bold">{businessProfile.divisionContacts.software.name}</span>
+              <span class="text-text-gold font-mono font-semibold">{businessProfile.divisionContacts.software.phone}</span>
             </a>
-          </div>
-
-          <div class="pt-2 border-t border-border-subtle/60 text-slate-400">
-            <span class="text-text-subtle block text-[10px] font-mono uppercase">Works & Service</span>
-            <span>{businessProfile.contact.address}</span>
           </div>
         </div>
       </div>
@@ -183,7 +180,7 @@ import { businessProfile } from '../../data/business';
       </p>
 
       <p class="text-[11px] font-mono">
-        Lokhand Bazar, Umreth, Gujarat.
+        Lokhand Bazar, Umreth, Anand District, Gujarat.
       </p>
     </div>
   </Container>

@@ -1,163 +1,134 @@
 ---
 import Container from '../../components/ui/Container.astro';
-import Badge from '../../components/ui/Badge.astro';
 import Button from '../../components/ui/Button.astro';
-import GlassCard from '../../components/ui/GlassCard.astro';
 import { businessProfile } from '../../data/business';
-import { weighingProducts, scaleCategories, scaleServices } from '../../data/weighing';
+import { weighingProducts } from '../../data/weighing';
 import { brandLogos } from '../../data/brands';
 
 const scaleItems = weighingProducts;
+const weighingLead = businessProfile.divisionContacts.weighing;
+
+// Brand logos strictly limited to: Axpert, Rolex, Silver Eagle, Taj (logos only, no fake wording)
+const partnerBrands = brandLogos.filter((b) =>
+  ['brand-axpert', 'brand-rolex', 'brand-eagle', 'brand-taj'].includes(b.id)
+);
 ---
 
 <section
   id="scales"
-  class="relative py-20 sm:py-28 bg-[#020614] border-t border-border-subtle overflow-hidden"
-  aria-label="Section 1 — Weighing Scales and Systems"
+  class="relative py-16 sm:py-24 bg-[#020614] border-t border-border-subtle overflow-hidden"
+  aria-label="Section — Weighing Scales and Repair"
 >
-  <!-- Ambient Gold Glow Accent -->
+  <!-- Subtle Ambient Glow -->
   <div
-    class="pointer-events-none absolute top-1/3 left-1/2 -translate-x-1/2 w-[950px] h-[550px] bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.08)_0%,transparent_70%)] blur-3xl -z-10"
+    class="pointer-events-none absolute top-1/3 left-1/2 -translate-x-1/2 w-[850px] h-[450px] bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.07)_0%,transparent_70%)] blur-3xl -z-10"
     aria-hidden="true"
   ></div>
 
-  <Container size="xl" class="relative z-10 flex flex-col gap-14 sm:gap-20">
-    <!-- Section Header with Controls -->
+  <Container size="xl" class="relative z-10 flex flex-col gap-10 sm:gap-14">
+    <!-- Header with Bilingual Titles, Short Description, and Carousel Navigation -->
     <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 font-gujarati">
-      <div>
-        <div class="mb-3">
-          <Badge variant="gold" size="sm">
-            <span
-              data-i18n-gu="વિભાગ ૦૧ • ડિજિટલ વજન કાંટા &amp; વેઇબ્રિજ"
-              data-i18n-en="Section 01 • Weighing Scales &amp; Systems"
-            >
-              વિભાગ ૦૧ • ડિજિટલ વજન કાંટા &amp; વેઇબ્રિજ
-            </span>
-          </Badge>
-        </div>
-
-        <h2
-          class="text-2xl sm:text-3xl lg:text-4xl font-heading font-bold text-white tracking-tight leading-snug sm:leading-tight mb-2"
-        >
-          <span
-            data-i18n-gu="ડિજિટલ વજન કાંટા અને "
-            data-i18n-en="Digital Weighing Scales &amp; "
-          >ડિજિટલ વજન કાંટા અને </span>
-          <span
-            class="gold-gradient-text font-serif italic"
-            data-i18n-gu="વેઇબ્રિજ સિસ્ટમ્સ"
-            data-i18n-en="Weighbridge Systems"
-          >વેઇબ્રિજ સિસ્ટમ્સ</span>
+      <div class="max-w-2xl">
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-heading font-bold text-white tracking-tight mb-1">
+          Weighing Scales &amp; Repair
         </h2>
 
-        <p
-          class="text-xs sm:text-sm text-text-muted leading-relaxed font-body max-w-2xl"
-          data-i18n-gu="દરેક પ્રકારના નવા વજન કાંટાનું અધિકૃત વેચાણ તેમજ સંતોષકારક રિપેરિંગ. લાગુ પડતા લીગલ મેટ્રોલોજી નિયમો અનુસાર કેલિબ્રેશન અને સરકારી સ્ટેમ્પિંગ સહાય ઉપલબ્ધ છે. કરિયાણા, ફેક્ટરી અને ટ્રક વેઇબ્રિજ માટે સંપૂર્ણ રેન્જ."
-          data-i18n-en="Authorized sales of all types of new weighing scales and expert repairing. Calibration and government stamping assistance is available as per applicable Legal Metrology requirements. Complete range from retail counter to 120T truck weighbridges."
-        >
-          દરેક પ્રકારના નવા વજન કાંટાનું અધિકૃત વેચાણ તેમજ સંતોષકારક રિપેરિંગ. લાગુ પડતા લીગલ મેટ્રોલોજી નિયમો અનુસાર કેલિબ્રેશન અને સરકારી સ્ટેમ્પિંગ સહાય ઉપલબ્ધ છે.
+        <p class="text-lg sm:text-xl font-heading font-bold gold-gradient-text mb-2">
+          ડિજિટલ વજન કાંટા અને રિપેરિંગ
+        </p>
+
+        <p class="text-xs sm:text-sm text-text-muted leading-relaxed font-body">
+          દરેક પ્રકારના નવા ડિજિટલ વજન કાંટા, કાઉન્ટર સ્કેલ, પ્લેટફોર્મ અને પ્રિસિઝન સ્કેલ્સનું વેચાણ તેમજ સંતોષકારક રિપેરિંગ. સ્ટેમ્પિંગ સહાય અને ઓરિજિનલ સ્પેરપાર્ટ્સ હાજરમાં ઉપલબ્ધ.
         </p>
       </div>
 
       <!-- Carousel Navigation Arrows -->
-      <div class="flex items-center gap-3 shrink-0 select-none">
-        <span class="text-[11px] font-mono text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/30 flex items-center gap-1.5">
-          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-          <span>૪-૫ સેકન્ડ સ્લાઇડર</span>
-        </span>
+      <div class="flex items-center gap-2 shrink-0 select-none">
+        <button
+          type="button"
+          id="scale-embla-prev"
+          aria-label="Previous scale"
+          class="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-border bg-[#03081a] hover:border-primary hover:text-primary text-text-muted flex items-center justify-center transition-all cursor-pointer shadow-lg active:scale-95"
+        >
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
 
-        <div class="flex items-center gap-2">
-          <button
-            type="button"
-            id="scale-embla-prev"
-            aria-label="અગાઉના વજન કાંટા"
-            class="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-border bg-[#03081a] hover:border-primary hover:text-primary text-text-muted flex items-center justify-center transition-all cursor-pointer shadow-lg active:scale-95"
-          >
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
-
-          <button
-            type="button"
-            id="scale-embla-next"
-            aria-label="આગળના વજન કાંટા"
-            class="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-border bg-[#03081a] hover:border-primary hover:text-primary text-text-muted flex items-center justify-center transition-all cursor-pointer shadow-lg active:scale-95"
-          >
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
-        </div>
+        <button
+          type="button"
+          id="scale-embla-next"
+          aria-label="Next scale"
+          class="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-border bg-[#03081a] hover:border-primary hover:text-primary text-text-muted flex items-center justify-center transition-all cursor-pointer shadow-lg active:scale-95"
+        >
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
       </div>
     </div>
 
-    <!-- 1. Embla Multi-Card Horizontal Carousel (3-4 desktop, 2 tablet, 1 mobile) -->
+    <!-- Multi-Card Carousel: 4 desktop / 2 tablet / 1 mobile, Infinite Loop, Autoplay pause on hover -->
     <div class="w-full relative select-none">
       <div class="embla overflow-hidden cursor-grab active:cursor-grabbing" id="scale-embla-viewport">
         <div class="embla__container flex -ml-4 sm:-ml-5">
           {
-            scaleItems.map((item) => (
-              <div class="embla__slide flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] xl:flex-[0_0_25%] pl-4 sm:pl-5 min-w-0">
-                <div class="h-full rounded-2xl bg-gradient-to-b from-[#071330] via-[#040c22] to-[#020614] border border-primary/25 hover:border-primary/60 shadow-xl hover:shadow-[0_12px_35px_rgba(212,175,55,0.15)] transition-all duration-300 flex flex-col justify-between overflow-hidden group/card p-4 sm:p-5 font-gujarati">
-                  <!-- Image Container -->
+            scaleItems.map((item, index) => (
+              <div class="embla__slide flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_25%] pl-4 sm:pl-5 min-w-0">
+                <div class="h-full rounded-2xl bg-gradient-to-b from-[#071330] via-[#040c22] to-[#020614] border border-primary/25 hover:border-primary/60 shadow-xl hover:shadow-[0_12px_30px_rgba(212,175,55,0.15)] transition-all duration-300 flex flex-col justify-between p-4 sm:p-5 font-gujarati group/card">
                   <div>
-                    <div class="relative w-full h-48 sm:h-52 bg-[#01040f] rounded-xl overflow-hidden flex items-center justify-center p-3 mb-4 border border-border-subtle group-hover/card:border-primary/40 transition-colors">
+                    <!-- Product Image Box -->
+                    <div class="relative w-full aspect-[4/3] bg-[#01040f] rounded-xl overflow-hidden flex items-center justify-center p-3 mb-3.5 border border-border-subtle group-hover/card:border-primary/40 transition-colors">
                       <img
                         src={item.src}
                         alt={item.alt}
-                        loading="lazy"
+                        loading={index < 4 ? 'eager' : 'lazy'}
                         decoding="async"
                         class="max-w-full max-h-full object-contain transition-transform duration-300 group-hover/card:scale-105"
                       />
 
                       <!-- Capacity Tag -->
-                      <div class="absolute top-2.5 right-2.5 z-10">
-                        <span class="text-[10px] font-mono font-semibold px-2 py-0.5 rounded bg-[#020512]/90 text-primary border border-primary/40 backdrop-blur-md">
-                          {item.capacityGu}
-                        </span>
-                      </div>
-
-                      <!-- Available / Repair Available Badge -->
-                      <div class="absolute bottom-2.5 left-2.5 z-10">
-                        <span class="text-[10px] font-mono font-semibold px-2 py-0.5 rounded bg-[#020512]/90 text-emerald-400 border border-emerald-500/40 backdrop-blur-md">
-                          {item.badgeGu}
-                        </span>
-                      </div>
+                      {item.capacityGu && (
+                        <div class="absolute top-2 right-2 z-10">
+                          <span class="text-[10px] font-mono font-semibold px-2 py-0.5 rounded bg-[#020512]/90 text-primary border border-primary/40 backdrop-blur-md">
+                            {item.capacityGu}
+                          </span>
+                        </div>
+                      )}
                     </div>
 
-                    <!-- Title & Description -->
-                    <h3
-                      class="text-sm sm:text-base font-heading font-bold text-white mb-1.5 line-clamp-1 group-hover/card:text-primary transition-colors"
-                      data-i18n-gu={item.nameGu}
-                      data-i18n-en={item.nameEn}
-                    >
+                    <!-- Title -->
+                    <h3 class="text-sm font-heading font-bold text-white mb-1 line-clamp-1 group-hover/card:text-primary transition-colors">
                       {item.nameGu}
                     </h3>
 
-                    <p
-                      class="text-xs text-text-muted leading-relaxed line-clamp-2 mb-4 font-body"
-                      data-i18n-gu={item.descGu}
-                      data-i18n-en={item.descEn}
-                    >
+                    <!-- English Subtitle / Category -->
+                    <p class="text-[11px] font-mono text-text-gold truncate mb-2">
+                      {item.nameEn}
+                    </p>
+
+                    <!-- Short Description -->
+                    <p class="text-xs text-text-muted line-clamp-2 font-body leading-relaxed mb-3">
                       {item.descGu}
                     </p>
                   </div>
 
-                  <!-- WhatsApp Quote Button on Card -->
-                  <div class="pt-3 border-t border-border-subtle/80 flex items-center justify-between gap-2">
-                    <span class="text-[11px] font-mono text-text-gold font-semibold">લીગલ મેટ્રોલોજી સહાય</span>
+                  <!-- Card Footer: Status & Direct Quote Button -->
+                  <div class="pt-3 border-t border-border-subtle flex items-center justify-between gap-2">
+                    <span class="text-[10px] font-mono text-emerald-400 font-semibold">
+                      હાજરમાં સ્ટોક
+                    </span>
                     <a
-                      href={`https://wa.me/${businessProfile.divisionContacts.weighing.phoneDigits}?text=${encodeURIComponent(item.whatsappMsg)}`}
+                      href={`https://wa.me/${weighingLead.phoneDigits}?text=${encodeURIComponent(item.whatsappMsg)}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary hover:bg-primary-hover text-[#030712] font-heading font-bold text-xs shadow-md transition-all shrink-0 active:scale-95"
-                      aria-label={`Inquire about ${item.nameEn} on WhatsApp`}
+                      class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-primary hover:bg-primary-hover text-[#030712] font-heading font-bold text-xs shadow-md transition-all active:scale-95"
+                      aria-label={`Inquire on WhatsApp about ${item.nameEn}`}
                     >
                       <svg class="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24">
                         <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.072-2.128-.521-1.615-.67-2.66-2.308-2.74-2.417-.08-.108-.659-.877-.659-1.672 0-.795.414-1.187.561-1.349.146-.162.32-.203.428-.203.107 0 .215.002.308.007.1.005.234-.038.366.279.136.327.464 1.132.505 1.215.041.083.068.18.012.289-.056.108-.083.177-.165.273-.082.096-.174.215-.248.289-.083.083-.17.172-.073.338.097.166.432.713.927 1.154.636.568 1.172.744 1.338.827.166.083.264.069.362-.042.098-.111.42-.489.532-.656.113-.167.225-.139.378-.083.153.056.974.459 1.141.542.167.083.278.125.32.194.041.07.041.405-.103.81zM12 2C6.477 2 2 6.477 2 12c0 1.891.526 3.662 1.442 5.179L2 22l4.981-1.306A9.957 9.957 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/>
                       </svg>
-                      <span>WhatsApp Quote</span>
+                      <span>Quote</span>
                     </a>
                   </div>
                 </div>
@@ -168,177 +139,55 @@ const scaleItems = weighingProducts;
       </div>
     </div>
 
-    <!-- 2. Brands We Deal In (Auto-scrolling Logo Strip with Glass Background) -->
-    <div class="w-full flex flex-col gap-4 font-gujarati">
-      <div class="flex items-center justify-between px-2">
-        <div class="flex items-center gap-2">
-          <span class="text-xs sm:text-sm font-heading font-bold text-white tracking-wide">
-            🏷️ Brands We Deal In (અમે જે બ્રાન્ડ્સમાં ડીલ કરીએ છીએ)
-          </span>
-        </div>
-        <span class="text-[11px] font-mono text-text-muted">Auto-scrolling Partner Network</span>
+    <!-- Clean Brand Strip (Logos Only: Axpert, Rolex, Silver Eagle, Taj - No fake wording) -->
+    <div class="w-full flex flex-col items-center gap-3 pt-2">
+      <div class="text-[11px] font-mono uppercase tracking-widest text-text-subtle font-semibold">
+        Partner Brands
       </div>
 
-      <div class="relative w-full overflow-hidden rounded-2xl bg-surface/50 backdrop-blur-md border border-primary/25 py-4 px-3 shadow-lg select-none">
-        <!-- Fading masks on edges -->
-        <div class="pointer-events-none absolute left-0 inset-y-0 w-16 sm:w-28 bg-gradient-to-r from-[#020614] to-transparent z-10"></div>
-        <div class="pointer-events-none absolute right-0 inset-y-0 w-16 sm:w-28 bg-gradient-to-l from-[#020614] to-transparent z-10"></div>
-
-        <!-- Marquee Track -->
-        <div class="flex items-center gap-6 sm:gap-10 w-max animate-marquee hover:[animation-play-state:paused]">
-          {
-            [...brandLogos, ...brandLogos, ...brandLogos, ...brandLogos].map((b) => (
-              <div class="flex items-center gap-3 px-4 py-2.5 rounded-xl bg-white/95 border border-white/20 shadow-md shrink-0 transition-transform hover:scale-105">
-                <img src={b.logo} alt={b.alt} class="h-10 sm:h-12 w-auto max-w-[110px] object-contain" loading="lazy" />
-                <div class="text-left">
-                  <div class="text-xs font-bold text-slate-900 font-heading">{b.fullName}</div>
-                  <div class="text-[10px] text-emerald-700 font-mono font-semibold">{b.tag}</div>
-                </div>
-              </div>
-            ))
-          }
-        </div>
-      </div>
-    </div>
-
-    <!-- 3. Scale Information Block: 8 Categories Grid -->
-    <div class="w-full flex flex-col gap-6 font-gujarati pt-2">
-      <div class="text-center max-w-2xl mx-auto">
-        <span class="text-xs font-mono uppercase tracking-widest text-text-gold font-bold block mb-1">
-          Complete Range Available
-        </span>
-        <h3 class="text-xl sm:text-2xl font-heading font-bold text-white">
-          ડિજિટલ વજન કાંટાની સંપૂર્ણ શ્રેણી (Scale Categories)
-        </h3>
-      </div>
-
-      <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+      <div class="w-full max-w-4xl grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-5">
         {
-          scaleCategories.map((cat) => (
-            <GlassCard padding="md" hoverEffect={true} class="flex flex-col justify-between border-border/70 group">
-              <div>
-                <div class="w-8 h-8 rounded-lg bg-primary/10 border border-primary/30 flex items-center justify-center text-primary mb-3 group-hover:scale-110 transition-transform">
-                  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d={cat.icon} />
-                  </svg>
-                </div>
-                <h4 class="text-xs sm:text-sm font-heading font-bold text-white mb-1 group-hover:text-primary transition-colors">
-                  {cat.nameGu}
-                </h4>
-                <p class="text-[11px] text-text-gold font-mono mb-2">
-                  {cat.nameEn}
-                </p>
-              </div>
-              <span class="text-[10px] font-mono text-slate-300 bg-[#020512] px-2 py-0.5 rounded border border-border-subtle inline-block self-start">
-                {cat.range}
-              </span>
-            </GlassCard>
+          partnerBrands.map((b) => (
+            <div class="flex items-center justify-center p-3 sm:p-4 rounded-xl bg-white/95 border border-white/20 shadow-md hover:scale-105 transition-transform">
+              <img
+                src={b.logo}
+                alt={b.name}
+                class="h-9 sm:h-11 w-auto max-w-[120px] object-contain"
+                loading="lazy"
+              />
+            </div>
           ))
         }
       </div>
     </div>
 
-    <!-- 4. Services Grid (New Sales, Repair, Spare Parts, Calibration Support) -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 w-full font-gujarati">
-      {
-        scaleServices.map((srv) => (
-          <GlassCard padding="md" hoverEffect={true} class="flex flex-col justify-between border-primary/30 bg-[#03091e] group">
-            <div>
-              <div class="flex items-center justify-between mb-3">
-                <span class="text-[10px] font-mono text-primary bg-primary/10 px-2 py-0.5 rounded border border-primary/20 font-semibold">
-                  {srv.badgeGu}
-                </span>
-                <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-              </div>
-              <h4 class="text-sm font-heading font-bold text-white mb-1.5 group-hover:text-primary transition-colors">
-                {srv.titleGu}
-              </h4>
-              <p class="text-[10px] text-text-gold font-mono mb-2">
-                {srv.titleEn}
-              </p>
-              <p class="text-xs text-text-muted leading-relaxed font-body">
-                {srv.descGu}
-              </p>
-            </div>
-            <div class="pt-3 mt-3 border-t border-border-subtle/80 flex items-center justify-between text-[11px] text-slate-300">
-              <span class="text-primary font-mono font-semibold">ઉમરેઠ &amp; આણંદ</span>
-              <span class="text-emerald-400 font-semibold">100% Reliable</span>
-            </div>
-          </GlassCard>
-        ))
-      }
-    </div>
+    <!-- Section Bottom Actions & Primary CTA (WhatsApp for Scale Inquiry routed to Hozefa) -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+      <Button
+        href={weighingLead.whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        variant="primary"
+        size="lg"
+        ariaLabel="WhatsApp for Scale Inquiry"
+        class="shadow-xl shadow-primary/25"
+      >
+        <svg slot="icon-left" class="h-4 w-4 fill-current" viewBox="0 0 24 24">
+          <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.072-2.128-.521-1.615-.67-2.66-2.308-2.74-2.417-.08-.108-.659-.877-.659-1.672 0-.795.414-1.187.561-1.349.146-.162.32-.203.428-.203.107 0 .215.002.308.007.1.005.234-.038.366.279.136.327.464 1.132.505 1.215.041.083.068.18.012.289-.056.108-.083.177-.165.273-.082.096-.174.215-.248.289-.083.083-.17.172-.073.338.097.166.432.713.927 1.154.636.568 1.172.744 1.338.827.166.083.264.069.362-.042.098-.111.42-.489.532-.656.113-.167.225-.139.378-.083.153.056.974.459 1.141.542.167.083.278.125.32.194.041.07.041.405-.103.81zM12 2C6.477 2 2 6.477 2 12c0 1.891.526 3.662 1.442 5.179L2 22l4.981-1.306A9.957 9.957 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/>
+        </svg>
+        <span>WhatsApp for Scale Inquiry</span>
+      </Button>
 
-    <!-- 5. Direct Division Consultation Card -->
-    <div class="max-w-5xl mx-auto w-full font-gujarati">
-      <div class="rounded-2xl bg-gradient-to-r from-[#030c24] via-[#071c3d] to-[#030c24] border-2 border-primary/40 p-6 sm:p-8 lg:p-10 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8">
-        <div class="flex-1">
-          <div class="inline-flex items-center gap-2 mb-3">
-            <span class="w-2.5 h-2.5 rounded-full bg-[#25D366]"></span>
-            <span
-              class="text-xs font-mono uppercase tracking-wider text-text-gold font-semibold"
-              data-i18n-gu="ડિજિટલ વજન કાંટા &amp; વેઇબ્રિજ વિભાગ"
-              data-i18n-en="Weighing Scales &amp; Systems Division"
-            >
-              ડિજિટલ વજન કાંટા &amp; વેઇબ્રિજ વિભાગ
-            </span>
-          </div>
-
-          <h3
-            class="text-lg sm:text-2xl font-heading font-bold text-white mb-2"
-            data-i18n-gu="નવા કાંટા, રિપેરિંગ કે લીગલ મેટ્રોલોજી સ્ટેમ્પિંગ સહાય માટે સંપર્ક"
-            data-i18n-en="Contact for New Scales, Repairs, and Legal Metrology Stamping Assistance"
-          >
-            નવા કાંટા, રિપેરિંગ કે લીગલ મેટ્રોલોજી સ્ટેમ્પિંગ સહાય માટે સંપર્ક
-          </h3>
-
-          <p
-            class="text-xs sm:text-sm text-text-muted leading-relaxed max-w-2xl"
-            data-i18n-gu="હોઝેફા બી. રંગવાલા સાથે સીધી વાત કરો. તમારા વ્યાપાર કે ઉદ્યોગ માટે યોગ્ય વજન કાંટો પસંદ કરો અને સ્થળ પર જ સંતોષકારક સેવા મેળવો."
-            data-i18n-en="Speak directly with Hozefa B. Rangwala. Choose the right weighing scale for your retail shop or industrial plant with reliable calibration support."
-          >
-            હોઝેફા બી. રંગવાલા સાથે સીધી વાત કરો. તમારા વ્યાપાર કે ઉદ્યોગ માટે યોગ્ય વજન કાંટો પસંદ કરો અને સ્થળ પર જ સંતોષકારક સેવા મેળવો.
-          </p>
-        </div>
-
-        <div class="bg-[#020512] rounded-xl p-5 border border-primary/40 shrink-0 flex flex-col gap-3 min-w-[260px] text-center sm:text-left shadow-xl">
-          <div>
-            <span class="text-[10px] font-mono uppercase text-text-subtle block" data-i18n-gu="વિભાગ વડા" data-i18n-en="Division Lead">વિભાગ વડા</span>
-            <span class="font-heading font-bold text-white text-base block">{businessProfile.divisionContacts.weighing.name}</span>
-            <span class="text-xs text-text-gold font-mono font-semibold">{businessProfile.divisionContacts.weighing.phone}</span>
-          </div>
-
-          <Button
-            href={businessProfile.divisionContacts.weighing.whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            variant="primary"
-            size="md"
-            class="w-full justify-center"
-            ariaLabel="Contact Hozefa on WhatsApp"
-          >
-            <span data-i18n-gu="વોટ્સએપ સંપર્ક" data-i18n-en="Chat on WhatsApp">વોટ્સએપ સંપર્ક</span>
-          </Button>
-        </div>
-      </div>
+      <a
+        href="/weighing-scales"
+        class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-surface-soft hover:bg-surface-card border border-primary/40 text-xs font-semibold text-white transition-all shadow-md"
+      >
+        <span>Explore Digital Showroom</span>
+        <span>→</span>
+      </a>
     </div>
   </Container>
 </section>
-
-<style>
-  @keyframes marquee {
-    0% {
-      transform: translateX(0%);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
-  }
-
-  .animate-marquee {
-    animation: marquee 20s linear infinite;
-  }
-</style>
 
 <script>
   import EmblaCarousel from 'embla-carousel';

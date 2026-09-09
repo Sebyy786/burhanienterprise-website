@@ -1,157 +1,154 @@
 ---
 import Container from '../../components/ui/Container.astro';
-import Badge from '../../components/ui/Badge.astro';
 import Button from '../../components/ui/Button.astro';
 import GlassCard from '../../components/ui/GlassCard.astro';
 import { businessProfile } from '../../data/business';
-import { gasProducts, repairServices } from '../../data/gas';
+import { gasProducts } from '../../data/gas';
 
 const gasItems = gasProducts;
+const gasLead = businessProfile.divisionContacts.gas;
+
+const simpleServices = [
+  {
+    titleEn: 'New Gas Stoves',
+    titleGu: 'નવા ગેસ સ્ટવ',
+    descGu: '૧, ૨, ૩ અને ૪ બર્નર ગેસ સ્ટવ, ગ્લાસ-ટોપ અને હેવી સ્ટેનલેસ સ્ટીલ બોડી મોડેલ્સ વ્યાજબી ભાવે ઉપલબ્ધ.',
+    badge: 'વેચાણ / Sales',
+    icon: 'M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z',
+  },
+  {
+    titleEn: 'Spare Parts Available',
+    titleGu: 'સ્પેરપાર્ટ્સ ઉપલબ્ધ',
+    descGu: 'બર્નર, વાલ્વ, નોઝલ, જેટ, હાઇ-પ્રેશર રેગ્યુલેટર, રબર ટ્યુબ અને તમામ ૧૦૦% ઓરિજિનલ સ્પેરપાર્ટ્સ.',
+    badge: 'ઓરિજિનલ પાર્ટ્સ',
+    icon: 'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z',
+  },
+  {
+    titleEn: 'Gas Stove Repair',
+    titleGu: 'ગેસ સ્ટવ રિપેરિંગ',
+    descGu: 'ગેસ લીકેજ સોલ્યુશન, ઓછી ફ્લેમ, બર્નર સર્વિસિંગ અને ઘરબેઠા વિશ્વસનીય સમારકામ સેવા.',
+    badge: 'સંતોષકારક રિપેરિંગ',
+    icon: 'M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z',
+  },
+];
 ---
 
 <section
   id="gas"
-  class="relative py-20 sm:py-28 bg-[#010617] border-t border-border-subtle overflow-hidden"
-  aria-label="Section 2 — Gas Appliances and Repair"
+  class="relative py-16 sm:py-24 bg-[#010617] border-t border-border-subtle overflow-hidden"
+  aria-label="Section — Gas Stoves, Equipment and Repair"
 >
   <!-- Ambient Emerald Radial Glow Accent -->
   <div
-    class="pointer-events-none absolute top-1/4 left-1/2 -translate-x-1/2 w-[900px] h-[550px] bg-[radial-gradient(ellipse_at_center,rgba(16,185,129,0.07)_0%,transparent_70%)] blur-3xl -z-10"
+    class="pointer-events-none absolute top-1/3 left-1/2 -translate-x-1/2 w-[850px] h-[450px] bg-[radial-gradient(ellipse_at_center,rgba(16,185,129,0.07)_0%,transparent_70%)] blur-3xl -z-10"
     aria-hidden="true"
   ></div>
 
-  <Container size="xl" class="relative z-10 flex flex-col gap-14 sm:gap-20">
-    <!-- Section Header with Controls -->
+  <Container size="xl" class="relative z-10 flex flex-col gap-10 sm:gap-14">
+    <!-- Header with Bilingual Titles, Short Description, and Carousel Navigation -->
     <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 font-gujarati">
-      <div>
-        <div class="mb-3">
-          <Badge variant="emerald" size="sm">
-            <span
-              data-i18n-gu="વિભાગ ૦૨ • ગેસ એપ્લાયન્સિસ &amp; રિપેરિંગ"
-              data-i18n-en="Section 02 • Gas Appliances &amp; Repairs"
-            >
-              વિભાગ ૦૨ • ગેસ એપ્લાયન્સિસ &amp; રિપેરિંગ
-            </span>
-          </Badge>
-        </div>
-
-        <h2
-          class="text-2xl sm:text-3xl lg:text-4xl font-heading font-bold text-white tracking-tight leading-snug sm:leading-tight mb-2"
-        >
-          <span
-            data-i18n-gu="ગેસ એપ્લાયન્સિસ અને "
-            data-i18n-en="Gas Appliances &amp; "
-          >ગેસ એપ્લાયન્સિસ અને </span>
-          <span
-            class="text-emerald-400 font-serif italic"
-            data-i18n-gu="સંતોષકારક રિપેરિંગ સેવા"
-            data-i18n-en="Satisfactory Repair Services"
-          >સંતોષકારક રિપેરિંગ સેવા</span>
+      <div class="max-w-2xl">
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-heading font-bold text-white tracking-tight mb-1">
+          Gas Stoves, Equipment &amp; Repair
         </h2>
 
-        <p
-          class="text-xs sm:text-sm text-text-muted leading-relaxed font-body max-w-2xl"
-          data-i18n-gu="૧, ૨, ૩, ૪ બર્નર ગેસ સ્ટવ, કોમર્શિયલ ભઠ્ઠી, હોટલ પાઇપલાઇન મેનિફોલ્ડ અને તમામ ઓરિજિનલ સ્પેરપાર્ટ્સનું વેચાણ તેમજ સ્થળ પર સંતોષકારક સમારકામ."
-          data-i18n-en="Sales of 1, 2, 3, 4 burner stoves, commercial bhatthi burners, hotel manifolds, and 100% genuine spares with guaranteed doorstep repair."
-        >
-          ૧, ૨, ૩, ૪ બર્નર ગેસ સ્ટવ, કોમર્શિયલ ભઠ્ઠી, હોટલ પાઇપલાઇન મેનિફોલ્ડ અને તમામ ઓરિજિનલ સ્પેરપાર્ટ્સનું વેચાણ તેમજ સ્થળ પર સંતોષકારક સમારકામ.
+        <p class="text-lg sm:text-xl font-heading font-bold text-emerald-400 mb-2">
+          ગેસ સ્ટવ, સાધનો અને રિપેરિંગ સેવા
+        </p>
+
+        <p class="text-xs sm:text-sm text-text-muted leading-relaxed font-body">
+          ૧, ૨, ૩ અને ૪ બર્નર ગેસ ચૂલા, કોમર્શિયલ ભઠ્ઠી, તમામ ઓરિજિનલ સ્પેરપાર્ટ્સ અને સ્થળ પર સંતોષકારક રિપેરિંગ સેવા.
         </p>
       </div>
 
       <!-- Carousel Navigation Controls -->
-      <div class="flex items-center gap-3 shrink-0 select-none">
-        <span class="text-[11px] font-mono text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/30 flex items-center gap-1.5">
-          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-          <span>૪-૫ સેકન્ડ સ્લાઇડર</span>
-        </span>
+      <div class="flex items-center gap-2 shrink-0 select-none">
+        <button
+          type="button"
+          id="gas-embla-prev"
+          aria-label="Previous Gas Product"
+          class="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-border bg-[#03091e] hover:border-emerald-400 hover:text-emerald-400 text-text-muted flex items-center justify-center transition-all cursor-pointer shadow-lg active:scale-95"
+        >
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
 
-        <div class="flex items-center gap-2">
-          <button
-            type="button"
-            id="gas-embla-prev"
-            aria-label="અગાઉની પ્રોડક્ટ"
-            class="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-border bg-[#03091e] hover:border-emerald-400/80 hover:text-emerald-400 text-text-muted flex items-center justify-center transition-all cursor-pointer shadow-lg active:scale-95"
-          >
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
-
-          <button
-            type="button"
-            id="gas-embla-next"
-            aria-label="આગળની પ્રોડક્ટ"
-            class="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-border bg-[#03091e] hover:border-emerald-400/80 hover:text-emerald-400 text-text-muted flex items-center justify-center transition-all cursor-pointer shadow-lg active:scale-95"
-          >
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
-        </div>
+        <button
+          type="button"
+          id="gas-embla-next"
+          aria-label="Next Gas Product"
+          class="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-border bg-[#03091e] hover:border-emerald-400 hover:text-emerald-400 text-text-muted flex items-center justify-center transition-all cursor-pointer shadow-lg active:scale-95"
+        >
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
       </div>
     </div>
 
-    <!-- 1. Embla Multi-Card Horizontal Carousel (3-4 desktop, 2 tablet, 1 mobile) -->
+    <!-- Multi-Card Carousel (4 desktop / 2 tablet / 1 mobile, Infinite Loop, Autoplay with Pause on Hover) -->
     <div class="w-full relative select-none">
       <div class="embla overflow-hidden cursor-grab active:cursor-grabbing" id="gas-embla-viewport">
         <div class="embla__container flex -ml-4 sm:-ml-5">
           {
-            gasItems.map((item) => (
-              <div class="embla__slide flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] xl:flex-[0_0_25%] pl-4 sm:pl-5 min-w-0 font-gujarati">
+            gasItems.map((item, index) => (
+              <div class="embla__slide flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_25%] pl-4 sm:pl-5 min-w-0 font-gujarati">
                 <div class="h-full flex flex-col justify-between rounded-2xl bg-gradient-to-b from-[#061430] via-[#030c22] to-[#010617] border border-border/80 hover:border-emerald-500/60 shadow-xl hover:shadow-[0_12px_35px_rgba(16,185,129,0.15)] transition-all duration-300 group overflow-hidden p-4 sm:p-5">
-                  <!-- Image Frame -->
+                  <!-- Image Frame (Object Contain Real Product Photography) -->
                   <div>
-                    <div class="relative w-full h-48 sm:h-52 bg-[#01040f] rounded-xl overflow-hidden flex items-center justify-center p-3 mb-4 border border-border-subtle group-hover:border-emerald-500/40 transition-colors">
+                    <div class="relative w-full aspect-[4/3] bg-[#01040f] rounded-xl overflow-hidden flex items-center justify-center p-3 mb-3.5 border border-border-subtle group-hover:border-emerald-500/40 transition-colors">
                       <img
                         src={item.src}
                         alt={item.alt}
-                        loading="lazy"
+                        loading={index < 4 ? 'eager' : 'lazy'}
                         decoding="async"
                         class="max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-105"
                       />
-                      <div class="absolute top-2.5 left-2.5 z-10">
-                        <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-[#010617]/90 text-emerald-300 border border-emerald-500/40 backdrop-blur-md">
-                          {item.badgeGu}
-                        </span>
-                      </div>
-                      <div class="absolute bottom-2.5 right-2.5 z-10">
-                        <span class="text-[10px] font-mono text-slate-300 bg-[#020512]/90 px-2 py-0.5 rounded border border-border-subtle backdrop-blur-sm">
-                          {item.categoryGu}
-                        </span>
-                      </div>
+                      {item.badgeGu && (
+                        <div class="absolute top-2 left-2 z-10">
+                          <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-[#010617]/90 text-emerald-300 border border-emerald-500/40 backdrop-blur-md">
+                            {item.badgeGu}
+                          </span>
+                        </div>
+                      )}
+                      {item.categoryGu && (
+                        <div class="absolute bottom-2 right-2 z-10">
+                          <span class="text-[10px] font-mono text-slate-300 bg-[#020512]/90 px-2 py-0.5 rounded border border-border-subtle backdrop-blur-sm">
+                            {item.categoryGu}
+                          </span>
+                        </div>
+                      )}
                     </div>
 
-                    <!-- Title & Description -->
-                    <h3
-                      class="text-sm sm:text-base font-heading font-bold text-white mb-1.5 line-clamp-1 group-hover:text-emerald-300 transition-colors"
-                      data-i18n-gu={item.nameGu}
-                      data-i18n-en={item.nameEn}
-                    >
+                    <!-- Title & Short Description -->
+                    <h3 class="text-sm font-heading font-bold text-white mb-1 line-clamp-1 group-hover:text-emerald-300 transition-colors">
                       {item.nameGu}
                     </h3>
-                    <p
-                      class="text-xs text-text-muted leading-relaxed line-clamp-2 mb-4 font-body"
-                      data-i18n-gu={item.descGu}
-                      data-i18n-en={item.descEn}
-                    >
+                    <p class="text-[11px] font-mono text-emerald-400 truncate mb-2">
+                      {item.nameEn}
+                    </p>
+                    <p class="text-xs text-text-muted leading-relaxed line-clamp-2 mb-3 font-body">
                       {item.descGu}
                     </p>
                   </div>
 
-                  <!-- WhatsApp CTA Button on Card -->
+                  <!-- Card Footer: Genuine Tag & WhatsApp Quote Button -->
                   <div class="pt-3 border-t border-border-subtle/80 flex items-center justify-between gap-2">
-                    <span class="text-[11px] font-mono text-emerald-400 font-semibold">૧૦૦% ઓરિજિનલ</span>
+                    <span class="text-[10px] font-mono text-emerald-400 font-semibold">
+                      ઓરિજિનલ ક્વોલિટી
+                    </span>
                     <a
-                      href={`https://wa.me/${businessProfile.divisionContacts.gas.phoneDigits}?text=${encodeURIComponent(item.whatsappMsg)}`}
+                      href={`https://wa.me/${gasLead.phoneDigits}?text=${encodeURIComponent(item.whatsappMsg)}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 hover:bg-emerald-500 hover:text-slate-950 font-heading font-bold text-xs transition-all shrink-0 active:scale-95 shadow-sm"
+                      class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 hover:bg-emerald-500 hover:text-slate-950 font-heading font-bold text-xs transition-all shrink-0 active:scale-95 shadow-sm"
                       aria-label={`Inquire about ${item.nameEn} on WhatsApp`}
                     >
                       <svg class="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24">
                         <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.072-2.128-.521-1.615-.67-2.66-2.308-2.74-2.417-.08-.108-.659-.877-.659-1.672 0-.795.414-1.187.561-1.349.146-.162.32-.203.428-.203.107 0 .215.002.308.007.1.005.234-.038.366.279.136.327.464 1.132.505 1.215.041.083.068.18.012.289-.056.108-.083.177-.165.273-.082.096-.174.215-.248.289-.083.083-.17.172-.073.338.097.166.432.713.927 1.154.636.568 1.172.744 1.338.827.166.083.264.069.362-.042.098-.111.42-.489.532-.656.113-.167.225-.139.378-.083.153.056.974.459 1.141.542.167.083.278.125.32.194.041.07.041.405-.103.81zM12 2C6.477 2 2 6.477 2 12c0 1.891.526 3.662 1.442 5.179L2 22l4.981-1.306A9.957 9.957 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/>
                       </svg>
-                      <span>WhatsApp CTA</span>
+                      <span>Quote</span>
                     </a>
                   </div>
                 </div>
@@ -162,21 +159,12 @@ const gasItems = gasProducts;
       </div>
     </div>
 
-    <!-- 2. Repair Services Block (6 Required Services) -->
+    <!-- Three Simple Service Cards (New Gas Stoves, Spare Parts Available, Gas Stove Repair) -->
     <div class="w-full flex flex-col gap-6 font-gujarati pt-2">
-      <div class="text-center max-w-2xl mx-auto">
-        <span class="text-xs font-mono uppercase tracking-widest text-emerald-400 font-bold block mb-1">
-          Technical Capabilities &amp; Maintenance
-        </span>
-        <h3 class="text-xl sm:text-2xl font-heading font-bold text-white">
-          ગેસ સ્ટવ &amp; ઇક્વિપમેન્ટ્સ રિપેરિંગ સેવાઓ (Repair Services)
-        </h3>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
         {
-          repairServices.map((srv) => (
-            <GlassCard padding="md" hoverEffect={true} class="flex flex-col justify-between border-border/80 bg-[#03091e] group">
+          simpleServices.map((srv) => (
+            <GlassCard padding="md" hoverEffect={true} class="flex flex-col justify-between border-emerald-500/20 bg-[#03091e] group">
               <div>
                 <div class="flex items-center justify-between mb-3">
                   <div class="w-9 h-9 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition-transform">
@@ -185,24 +173,24 @@ const gasItems = gasProducts;
                     </svg>
                   </div>
                   <span class="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/30 font-semibold">
-                    {srv.tagGu}
+                    {srv.badge}
                   </span>
                 </div>
 
-                <h4 class="text-sm sm:text-base font-heading font-bold text-white mb-1 group-hover:text-emerald-300 transition-colors">
-                  {srv.titleGu}
-                </h4>
-                <p class="text-[10px] text-text-gold font-mono mb-2">
+                <h3 class="text-base font-heading font-bold text-white mb-1 group-hover:text-emerald-300 transition-colors">
                   {srv.titleEn}
+                </h3>
+                <p class="text-xs text-emerald-400 font-medium mb-2">
+                  {srv.titleGu}
                 </p>
                 <p class="text-xs text-text-muted leading-relaxed font-body">
                   {srv.descGu}
                 </p>
               </div>
 
-              <div class="pt-3 mt-3 border-t border-border-subtle/80 flex items-center justify-between text-[11px]">
-                <span class="text-slate-300 font-mono">ઓરિજિનલ સ્પેરપાર્ટ્સ</span>
-                <span class="text-emerald-400 font-semibold font-mono">100% Safe Work</span>
+              <div class="pt-3 mt-4 border-t border-border-subtle/80 flex items-center justify-between text-[11px]">
+                <span class="text-slate-300 font-mono">સ્થાનિક દુકાન • ઉમરેઠ</span>
+                <span class="text-emerald-400 font-semibold font-mono">100% Guaranteed</span>
               </div>
             </GlassCard>
           ))
@@ -210,58 +198,22 @@ const gasItems = gasProducts;
       </div>
     </div>
 
-    <!-- 3. Commercial LPG Pipeline Manifold & Direct Division Contact Box -->
-    <div class="max-w-5xl mx-auto w-full font-gujarati">
-      <div class="rounded-2xl bg-gradient-to-r from-[#030c24] via-[#051c3d] to-[#030c24] border-2 border-emerald-500/40 p-6 sm:p-8 lg:p-10 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8">
-        <div class="flex-1">
-          <div class="inline-flex items-center gap-2 mb-3">
-            <span class="w-2.5 h-2.5 rounded-full bg-[#25D366]"></span>
-            <span
-              class="text-xs font-mono uppercase tracking-wider text-emerald-400 font-semibold"
-              data-i18n-gu="કોમર્શિયલ LPG પાઇપલાઇન &amp; સર્વિસિંગ કન્સલ્ટેશન"
-              data-i18n-en="Commercial LPG Pipeline &amp; Service Consultation"
-            >
-              કોમર્શિયલ LPG પાઇપલાઇન &amp; સર્વિસિંગ કન્સલ્ટેશન
-            </span>
-          </div>
-
-          <h3
-            class="text-lg sm:text-2xl font-heading font-bold text-white mb-2"
-            data-i18n-gu="હોટલ, રેસ્ટોરન્ટ કે ફેક્ટરી માટે સુરક્ષિત ગેસ પાઇપલાઇન"
-            data-i18n-en="Safe Commercial Gas Pipelines for Hotels, Restaurants &amp; Factories"
-          >
-            હોટલ, રેસ્ટોરન્ટ કે ફેક્ટરી માટે સુરક્ષિત ગેસ પાઇપલાઇન
-          </h3>
-
-          <p
-            class="text-xs sm:text-sm text-text-muted leading-relaxed max-w-2xl"
-            data-i18n-gu="તમારી સાઇટનું સર્વેક્ષણ, ડ્યુઅલ-સ્ટેજ પ્રેશર રેગ્યુલેશન, કોપર પિગટેલ, સેફ્ટી વાલ્વ્સ અને સંતોષકારક રિપેરિંગ માટે બુરહાનુદ્દીન રંગવાલાનો સીધો સંપર્ક કરો."
-            data-i18n-en="Contact Burhanuddin Rangwala directly for site surveys, dual-stage pressure manifolds, copper pigtails, safety shutoffs, and reliable kitchen stove maintenance."
-          >
-            તમારી સાઇટનું સર્વેક્ષણ, ડ્યુઅલ-સ્ટેજ પ્રેશર રેગ્યુલેશન, કોપર પિગટેલ, સેફ્ટી વાલ્વ્સ અને સંતોષકારક રિપેરિંગ માટે બુરહાનુદ્દીન રંગવાલાનો સીધો સંપર્ક કરો.
-          </p>
-        </div>
-
-        <div class="bg-[#020512] rounded-xl p-5 border border-emerald-500/40 shrink-0 flex flex-col gap-3 min-w-[260px] text-center sm:text-left shadow-xl">
-          <div>
-            <span class="text-[10px] font-mono uppercase text-text-subtle block" data-i18n-gu="ગેસ વિભાગ વડા" data-i18n-en="Gas Division Lead">ગેસ વિભાગ વડા</span>
-            <span class="font-heading font-bold text-white text-base block">{businessProfile.divisionContacts.gas.name}</span>
-            <span class="text-xs text-emerald-400 font-mono font-semibold">{businessProfile.divisionContacts.gas.phone}</span>
-          </div>
-
-          <Button
-            href={businessProfile.divisionContacts.gas.whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            variant="primary"
-            size="md"
-            class="w-full justify-center"
-            ariaLabel="Contact Burhanuddin on WhatsApp"
-          >
-            <span data-i18n-gu="વોટ્સએપ પર વાત કરો" data-i18n-en="Chat on WhatsApp">વોટ્સએપ પર વાત કરો</span>
-          </Button>
-        </div>
-      </div>
+    <!-- Section Bottom Primary CTA (WhatsApp for Gas Inquiry routed to Burhanuddin) -->
+    <div class="flex items-center justify-center pt-2">
+      <Button
+        href={gasLead.whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        variant="primary"
+        size="lg"
+        ariaLabel="WhatsApp for Gas Inquiry"
+        class="shadow-xl shadow-emerald-500/20 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold border-none"
+      >
+        <svg slot="icon-left" class="h-4 w-4 fill-current" viewBox="0 0 24 24">
+          <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.072-2.128-.521-1.615-.67-2.66-2.308-2.74-2.417-.08-.108-.659-.877-.659-1.672 0-.795.414-1.187.561-1.349.146-.162.32-.203.428-.203.107 0 .215.002.308.007.1.005.234-.038.366.279.136.327.464 1.132.505 1.215.041.083.068.18.012.289-.056.108-.083.177-.165.273-.082.096-.174.215-.248.289-.083.083-.17.172-.073.338.097.166.432.713.927 1.154.636.568 1.172.744 1.338.827.166.083.264.069.362-.042.098-.111.42-.489.532-.656.113-.167.225-.139.378-.083.153.056.974.459 1.141.542.167.083.278.125.32.194.041.07.041.405-.103.81zM12 2C6.477 2 2 6.477 2 12c0 1.891.526 3.662 1.442 5.179L2 22l4.981-1.306A9.957 9.957 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/>
+        </svg>
+        <span>WhatsApp for Gas Inquiry</span>
+      </Button>
     </div>
   </Container>
 </section>
