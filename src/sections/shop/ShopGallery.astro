@@ -1,0 +1,289 @@
+---
+import Container from '../../components/ui/Container.astro';
+
+/**
+ * BE-007.2B: Real Shop Photography Sprint (Gemini Placeholder Version)
+ *
+ * NOTE FOR DEVELOPERS:
+ * Every generated image in this gallery is marked internally as:
+ * "Temporary Placeholder — Replace with Real Shop Photo"
+ * Once actual on-site photographs of Burhani Enterprise in Lokhand Bazar,
+ * Umreth are captured, replace the image files in /public/images/shop/.
+ */
+const shopPhotos = [
+  {
+    id: 'shop-exterior',
+    src: '/images/shop/shop-exterior.jpg',
+    alt: 'Burhani Enterprise - Shop Exterior & Storefront (Temporary Placeholder — Replace with Real Shop Photo)',
+    titleEn: 'Shop Exterior',
+    titleGu: 'દુકાનનું પ્રવેશદ્વાર અને બોર્ડ',
+    tagEn: 'Storefront & Entrance',
+    tagGu: 'મુખ્ય શોરૂમ',
+    descEn: 'Storefront at Lokhand Bazar, Umreth — Retail and authorized service showroom for weighing scales and gas appliances.',
+    descGu: 'ઉમરેઠ લોખંડ બજારમાં આવેલ શોરૂમ — વજન કાંટા, ગેસ ચૂલા અને સ્પેરપાર્ટ્સનું વેચાણ તેમજ અધિકૃત સર્વિસ સેન્ટર.',
+    placeholderStatus: 'Temporary Placeholder — Replace with Real Shop Photo',
+  },
+  {
+    id: 'shop-interior',
+    src: '/images/shop/shop-interior.jpg',
+    alt: 'Burhani Enterprise - Shop Interior & Counters (Temporary Placeholder — Replace with Real Shop Photo)',
+    titleEn: 'Shop Interior',
+    titleGu: 'શોરૂમ અને કાઉન્ટર ડિસ્પ્લે',
+    tagEn: 'Retail Showroom',
+    tagGu: 'ડિસ્પ્લે કાઉન્ટર',
+    descEn: 'Organized showroom showcasing commercial weighing scales, modern gas stoves, and certified spare parts.',
+    descGu: 'ડિજિટલ સ્કેલ્સ, ગેસ સ્ટોવ અને ઓરિજિનલ સ્પેરપાર્ટ્સની લાઇવ પ્રોડક્ટ રેન્જ સાથે વ્યવસ્થિત શોરૂમ ડિસ્પ્લે.',
+    placeholderStatus: 'Temporary Placeholder — Replace with Real Shop Photo',
+  },
+  {
+    id: 'scale-repair-counter',
+    src: '/images/shop/scale-repair-counter.jpg',
+    alt: 'Burhani Enterprise - Weighing Scale Repair Counter (Temporary Placeholder — Replace with Real Shop Photo)',
+    titleEn: 'Weighing Scale Repair Counter',
+    titleGu: 'વજન કાંટા રિપેરિંગ વર્કશોપ',
+    tagEn: 'Scale Calibration & Repair',
+    tagGu: 'કેલિબ્રેશન સેન્ટર',
+    descEn: 'Dedicated calibration and repair workbench equipped with standard test weights, multimeter, and load-cell diagnostics.',
+    descGu: 'પ્રિસિઝન સ્ટાન્ડર્ડ ટેસ્ટ વેઇટ્સ અને ડિજિટલ મલ્ટિમીટર સાથે દરેક મોડેલનું ચોકસાઈપૂર્વક કેલિબ્રેશન અને રિપેરિંગ.',
+    placeholderStatus: 'Temporary Placeholder — Replace with Real Shop Photo',
+  },
+  {
+    id: 'gas-repair-area',
+    src: '/images/shop/gas-repair-area.jpg',
+    alt: 'Burhani Enterprise - Gas Stove Repair Area (Temporary Placeholder — Replace with Real Shop Photo)',
+    titleEn: 'Gas Stove Repair Area',
+    titleGu: 'ગેસ ચૂલા અને વાલ્વ રિપેરિંગ',
+    tagEn: 'Stove & Burner Service',
+    tagGu: 'ગેસ રિપેરિંગ',
+    descEn: 'Specialized repair area for domestic & commercial gas stoves, brass burners, safety valves, and gas pipelines.',
+    descGu: 'ઓરિજિનલ પિત્તળ બર્નર, પાઇપલાઇન ટેસ્ટિંગ અને પ્રેશર વાલ્વ રિપેરિંગ માટે ખાસ સજ્જ ટેકનિકલ વર્કબેન્ચ.',
+    placeholderStatus: 'Temporary Placeholder — Replace with Real Shop Photo',
+  },
+  {
+    id: 'brand-display-shelf',
+    src: '/images/shop/brand-display-shelf.jpg',
+    alt: 'Burhani Enterprise - Brand Display Shelf (Temporary Placeholder — Replace with Real Shop Photo)',
+    titleEn: 'Brand Display Shelf',
+    titleGu: 'બ્રાન્ડ ડિસ્પ્લે શેલ્ફ',
+    tagEn: 'Authorized Brand Showcase',
+    tagGu: 'અધિકૃત બ્રાન્ડ્સ',
+    descEn: 'Curated showcase of trusted weighing scale brands, digital platform indicators, and genuine replacement accessories.',
+    descGu: 'ટોચની બ્રાન્ડ્સના કાઉન્ટર સ્કેલ, પ્લેટફોર્મ ઈન્ડિકેટર્સ અને એસેસરીઝનું વ્યવસ્થિત ડિસ્પ્લે કલેક્શન.',
+    placeholderStatus: 'Temporary Placeholder — Replace with Real Shop Photo',
+  },
+];
+---
+
+<section
+  id="shop-gallery"
+  class="relative py-14 sm:py-20 bg-[#020614] border-t border-border-subtle overflow-hidden"
+  aria-label="Section — Visit Our Shop Gallery"
+  data-internal-status="Temporary Placeholder — Replace with Real Shop Photo"
+>
+  <!-- Subtle Ambient Glow -->
+  <div
+    class="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] h-[400px] bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.06)_0%,transparent_70%)] blur-3xl -z-10"
+    aria-hidden="true"
+  ></div>
+
+  <Container size="xl" class="relative z-10 flex flex-col gap-8 sm:gap-12">
+    <!-- Section Header: Bilingual Titles, Location Info & Carousel Controls -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 font-gujarati">
+      <div class="max-w-2xl">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="inline-flex items-center gap-1.5 text-[11px] font-mono font-semibold uppercase tracking-widest text-text-gold px-2.5 py-0.5 rounded bg-primary/10 border border-primary/25">
+            <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" aria-hidden="true"></span>
+            <span>Lokhand Bazar, Umreth</span>
+          </span>
+        </div>
+
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-heading font-bold text-white tracking-tight mb-1">
+          Visit Our Shop
+        </h2>
+
+        <p class="text-lg sm:text-xl font-heading font-bold gold-gradient-text mb-2">
+          અમારી દુકાનની મુલાકાત લો
+        </p>
+
+        <p class="text-xs sm:text-sm text-text-muted leading-relaxed font-body">
+          ઉમરેઠ લોખંડ બજાર સ્થિત અમારા શોરૂમ અને સર્વિસ સેન્ટરની રૂબરૂ મુલાકાત લો. નવા વજન કાંટા અને ગેસ ચૂલાનું વિશાળ કલેક્શન, ઓરિજિનલ સ્પેરપાર્ટ્સ અને અનુભવી કારીગરો દ્વારા લાઈવ ટેસ્ટિંગ તથા તાત્કાલિક રિપેરિંગ સુવિધા.
+        </p>
+      </div>
+
+      <!-- Carousel Navigation Arrows -->
+      <div class="flex items-center gap-2 shrink-0 select-none">
+        <button
+          type="button"
+          id="shop-gallery-prev"
+          aria-label="Previous photo"
+          class="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-border bg-[#03081a] hover:border-primary hover:text-primary text-text-muted flex items-center justify-center transition-all cursor-pointer shadow-lg active:scale-95"
+        >
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+
+        <button
+          type="button"
+          id="shop-gallery-next"
+          aria-label="Next photo"
+          class="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-border bg-[#03081a] hover:border-primary hover:text-primary text-text-muted flex items-center justify-center transition-all cursor-pointer shadow-lg active:scale-95"
+        >
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Responsive Multi-Card Carousel (1 mobile / 2 tablet / 3 desktop) -->
+    <div class="w-full relative select-none">
+      <div class="embla overflow-hidden cursor-grab active:cursor-grabbing" id="shop-gallery-viewport">
+        <div class="embla__container flex -ml-4 sm:-ml-5">
+          {
+            shopPhotos.map((photo, index) => (
+              <div
+                class="embla__slide flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] pl-4 sm:pl-5 min-w-0"
+                data-placeholder={photo.placeholderStatus}
+              >
+                <!-- Temporary Placeholder — Replace with Real Shop Photo -->
+                <div class="h-full rounded-2xl bg-gradient-to-b from-[#071330] via-[#040c22] to-[#020614] border border-primary/25 hover:border-primary/60 shadow-xl hover:shadow-[0_12px_30px_rgba(212,175,55,0.15)] transition-all duration-300 flex flex-col overflow-hidden font-gujarati group/card">
+                  <!-- Image Container with 16:9 Aspect Ratio -->
+                  <div class="relative w-full aspect-[16/9] bg-[#01040f] overflow-hidden border-b border-border-subtle">
+                    <img
+                      src={photo.src}
+                      alt={photo.alt}
+                      loading={index < 3 ? 'eager' : 'lazy'}
+                      decoding="async"
+                      data-placeholder="Temporary Placeholder — Replace with Real Shop Photo"
+                      class="w-full h-full object-cover object-center transition-transform duration-500 group-hover/card:scale-105 select-none"
+                    />
+
+                    <!-- Category Badge -->
+                    <div class="absolute top-2.5 left-2.5 z-10">
+                      <span class="text-[10px] font-mono font-semibold px-2 py-0.5 rounded bg-[#020512]/90 text-primary border border-primary/40 backdrop-blur-md">
+                        {photo.tagGu}
+                      </span>
+                    </div>
+
+                    <!-- Slide Number Indicator -->
+                    <div class="absolute top-2.5 right-2.5 z-10">
+                      <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-[#020512]/90 text-slate-300 border border-white/10 backdrop-blur-md">
+                        0{index + 1} / 05
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Text Details Area -->
+                  <div class="p-4 sm:p-5 flex flex-col justify-between flex-1 gap-3">
+                    <div>
+                      <h3 class="text-base sm:text-lg font-heading font-bold text-white mb-1 group-hover/card:text-primary transition-colors">
+                        {photo.titleGu}
+                      </h3>
+
+                      <p class="text-[11px] font-mono text-text-gold tracking-wide mb-2">
+                        {photo.titleEn}
+                      </p>
+
+                      <p class="text-xs text-text-muted leading-relaxed font-body">
+                        {photo.descGu}
+                      </p>
+                    </div>
+
+                    <!-- Card Footer: Shop Location Quick Tag -->
+                    <div class="pt-3 border-t border-border-subtle flex items-center justify-between text-[11px] font-mono text-text-subtle">
+                      <span class="flex items-center gap-1">
+                        <svg class="w-3 h-3 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                          <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                        </svg>
+                        <span>લોખંડ બજાર, ઉમરેઠ</span>
+                      </span>
+
+                      <span class="text-emerald-400 font-semibold">
+                        હાજર સેવા
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Slide Indicator Dots -->
+      <div class="flex items-center justify-center gap-2 mt-6 select-none" id="shop-gallery-dots">
+        {
+          shopPhotos.map((_, index) => (
+            <button
+              type="button"
+              class:list={[
+                'shop-dot h-2 rounded-full transition-all duration-300 cursor-pointer border border-primary/50',
+                index === 0 ? 'bg-primary w-6' : 'bg-white/30 w-2 hover:bg-white/60',
+              ]}
+              data-slide-index={index}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </Container>
+</section>
+
+<script>
+  import EmblaCarousel from 'embla-carousel';
+  import Autoplay from 'embla-carousel-autoplay';
+
+  function initShopGallery() {
+    const emblaNode = document.getElementById('shop-gallery-viewport');
+    if (!emblaNode) return;
+
+    const prevBtn = document.getElementById('shop-gallery-prev');
+    const nextBtn = document.getElementById('shop-gallery-next');
+    const dots = document.querySelectorAll('.shop-dot');
+
+    const autoplay = Autoplay({
+      delay: 4500,
+      stopOnInteraction: false,
+      stopOnMouseEnter: true,
+    });
+
+    const emblaApi = EmblaCarousel(
+      emblaNode,
+      {
+        loop: true,
+        align: 'start',
+        slidesToScroll: 1,
+        skipSnaps: false,
+      },
+      [autoplay]
+    );
+
+    function updateDots() {
+      const selectedIndex = emblaApi.selectedScrollSnap();
+      dots.forEach((dot, index) => {
+        if (index === selectedIndex) {
+          dot.classList.add('bg-primary', 'w-6');
+          dot.classList.remove('bg-white/30', 'w-2');
+        } else {
+          dot.classList.remove('bg-primary', 'w-6');
+          dot.classList.add('bg-white/30', 'w-2');
+        }
+      });
+    }
+
+    emblaApi.on('select', updateDots);
+    emblaApi.on('init', updateDots);
+
+    prevBtn?.addEventListener('click', () => emblaApi.scrollPrev());
+    nextBtn?.addEventListener('click', () => emblaApi.scrollNext());
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => emblaApi.scrollTo(index));
+    });
+  }
+
+  initShopGallery();
+  document.addEventListener('astro:page-load', initShopGallery);
+</script>
