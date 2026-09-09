@@ -74,3 +74,19 @@
   5. Git diff summary.
   6. Build + Astro check output.
 - **Only after explicit QA approval may Antigravity push.**
+
+---
+
+## 7. PROJECT RULE v2 — Burhani Enterprise Website
+
+The website represents a real local retail and repair shop.
+
+### Every new section must satisfy these checks:
+
+1. **Is this fact verified by Burhani Enterprise?**
+2. **Is this something the shop actually sells or repairs?**
+3. **Is this useful to a customer in Umreth or Anand District?**
+4. **Does this use a real product photo or real shop photo where available?**
+
+> [!IMPORTANT]
+> If any answer is "No", do not add the content.
