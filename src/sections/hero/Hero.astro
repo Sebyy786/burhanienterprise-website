@@ -24,42 +24,54 @@ const { class: className = '' } = Astro.props as Props;
     <div class="text-center max-w-4xl mx-auto flex flex-col items-center font-gujarati">
       <div class="mb-4 inline-flex items-center justify-center">
         <Badge variant="gold" size="md">
-          <span class="text-[10px] sm:text-xs font-mono font-bold tracking-wider uppercase">
-            GSTIN: 24BZQPR2070B1ZG • ઉમરેઠ &amp; આણંદ જિલ્લો
+          <span
+            class="text-[10px] sm:text-xs font-mono font-bold tracking-wider uppercase"
+            data-i18n-gu="ઉમરેઠ અને સમગ્ર આણંદ જિલ્લો, ગુજરાત"
+            data-i18n-en="Serving Umreth &amp; Anand District, Gujarat"
+          >
+            ઉમરેઠ અને સમગ્ર આણંદ જિલ્લો, ગુજરાત
           </span>
         </Badge>
       </div>
 
-      <span
-        class="text-xs sm:text-sm font-heading font-semibold text-text-gold tracking-widest uppercase mb-3 block"
-        data-i18n-gu="બુરહાની એન્ટરપ્રાઇઝ • BURHANI ENTERPRISE"
-        data-i18n-en="BURHANI ENTERPRISE"
-      >
-        બુરહાની એન્ટરપ્રાઇઝ • BURHANI ENTERPRISE
-      </span>
-
       <!-- Primary Headline -->
       <h1
-        class="text-2xl sm:text-4xl lg:text-5xl font-heading font-bold tracking-tight text-white mb-5 max-w-3xl leading-tight text-center"
+        class="text-3xl sm:text-5xl lg:text-6xl font-heading font-bold tracking-tight text-white mb-3 max-w-4xl leading-tight text-center"
       >
         <span
-          data-i18n-gu="ડિજિટલ વજન કાંટા, LPG ગેસ સોલ્યુશન્સ અને "
-          data-i18n-en="Digital Weighing Scales, LPG Gas Solutions &amp; "
-        >ડિજિટલ વજન કાંટા, LPG ગેસ સોલ્યુશન્સ અને </span>
-        <span
-          class="gold-gradient-text font-serif italic"
-          data-i18n-gu="AI સોફ્ટવેર"
-          data-i18n-en="AI Software"
-        >AI સોફ્ટવેર</span>
+          class="gold-gradient-text"
+          data-i18n-gu="બુરહાની એન્ટરપ્રાઈઝ"
+          data-i18n-en="Burhani Enterprise"
+        >
+          બુરહાની એન્ટરપ્રાઈઝ
+        </span>
       </h1>
 
-      <!-- Value Proposition -->
+      <!-- Subtitle -->
       <p
-        class="text-sm sm:text-base text-text-muted max-w-2xl mb-6 leading-relaxed font-body"
-        data-i18n-gu="દરેક પ્રકારના નવા વજન કાંટા તેમજ રિપેરિંગ (સરકાર માન્ય છાપી આપવામાં આવશે) • દરેક પ્રકારના ગેસ સ્ટવ, હોટલ પાઇપલાઇન અને તમામ સ્પેરપાર્ટ્સ • AI ઓટોમેશન, વેઇબ્રિજ સોફ્ટવેર અને કસ્ટમ એપ્સ."
-        data-i18n-en="All types of new weighing scales &amp; legal stamping • Commercial gas stoves, hotel pipelines &amp; genuine spares • AI automation, weighbridge software &amp; custom apps."
+        class="text-base sm:text-xl font-heading font-semibold text-slate-200 tracking-wide mb-2 text-center"
+        data-i18n-gu="વજન કાંટા • ગેસ એપ્લાયન્સિસ • સોફ્ટવેર સોલ્યુશન્સ"
+        data-i18n-en="Weighing Scales • Gas Appliances • Software Solutions"
       >
-        દરેક પ્રકારના નવા વજન કાંટા તેમજ રિપેરિંગ (સરકાર માન્ય છાપી આપવામાં આવશે) • દરેક પ્રકારના ગેસ સ્ટવ, હોટલ પાઇપલાઇન અને તમામ સ્પેરપાર્ટ્સ • AI ઓટોમેશન, વેઇબ્રિજ સોફ્ટવેર અને કસ્ટમ એપ્સ.
+        વજન કાંટા • ગેસ એપ્લાયન્સિસ • સોફ્ટવેર સોલ્યુશન્સ
+      </p>
+
+      <!-- Tagline -->
+      <p
+        class="text-xs sm:text-sm font-mono uppercase tracking-widest text-text-gold font-bold mb-4 text-center"
+        data-i18n-gu="વેચાણ • સર્વિસ • રિપેરિંગ"
+        data-i18n-en="Sales • Service • Repair"
+      >
+        વેચાણ • સર્વિસ • રિપેરિંગ
+      </p>
+
+      <!-- Value Proposition / Context -->
+      <p
+        class="text-xs sm:text-sm text-text-muted max-w-2xl mb-6 leading-relaxed font-body text-center"
+        data-i18n-gu="ઉમરેઠ અને આણંદ જિલ્લા માટે અધિકૃત ડિજિટલ વજન કાંટા (સરકાર માન્ય છાપકામ), કોમર્શિયલ ગેસ પાઇપલાઇન, સ્ટવ રિપેરિંગ અને આધુનિક વેઇબ્રિજ/AI સોફ્ટવેર સોલ્યુશન્સ."
+        data-i18n-en="Authorized commercial weighing scales (legal metrology stamping), commercial LPG pipelines, stove repairs, and modern weighbridge &amp; AI software solutions for Umreth &amp; Anand District."
+      >
+        ઉમરેઠ અને આણંદ જિલ્લા માટે અધિકૃત ડિજિટલ વજન કાંટા (સરકાર માન્ય છાપકામ), કોમર્શિયલ ગેસ પાઇપલાઇન, સ્ટવ રિપેરિંગ અને આધુનિક વેઇબ્રિજ/AI સોફ્ટવેર સોલ્યુશન્સ.
       </p>
 
       <!-- Quick Category Jump Buttons -->

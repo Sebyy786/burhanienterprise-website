@@ -9,108 +9,115 @@ interface SoftwareItem {
   id: string;
   src: string;
   alt: string;
-  nameGu: string;
-  nameEn: string;
+  featureTitleGu: string;
+  featureTitleEn: string;
   descGu: string;
   descEn: string;
   badgeGu: string;
   badgeEn: string;
-  categoryGu: string;
-  categoryEn: string;
-  whatsappMsg: string;
+  demoMsg: string;
 }
 
 const softwareItems: SoftwareItem[] = [
   {
-    id: 'software-1',
-    src: '/images/software/software-1.jpg',
-    alt: 'મોડર્ન ક્લાઉડ બિઝનેસ ERP અને એનાલિટિક્સ ડેશબોર્ડ',
-    nameGu: 'મોડર્ન ક્લાઉડ ERP & CRM ડેશબોર્ડ',
-    nameEn: 'Modern Cloud ERP & CRM Platform',
-    descGu: 'ઇન્વેન્ટરી, સેલ્સ, પર્ચેઝ, કસ્ટમર CRM અને રિયલ-ટાઇમ એકાઉન્ટિંગ સાથે સંપૂર્ણ બિઝનેસ મેનેજમેન્ટ.',
-    descEn: 'Integrated inventory, multi-branch sales, purchase workflows, CRM, and real-time financial tracking.',
-    badgeGu: 'કસ્ટમ એન્ટરપ્રાઇઝ ERP',
-    badgeEn: 'Custom Enterprise ERP',
-    categoryGu: 'બિઝનેસ સોલ્યુશન્સ',
-    categoryEn: 'Business ERP',
-    whatsappMsg: 'નમસ્તે શબ્બીરભાઈ, મારે કસ્ટમ બિઝનેસ ERP / CRM સોફ્ટવેર ડેવલપમેન્ટ વિશે ચર્ચા કરવી છે.',
-  },
-  {
-    id: 'software-2',
-    src: '/images/software/software-2.jpg',
-    alt: 'ફાઇનાન્સિયલ એકાઉન્ટિંગ અને બિલિંગ મેનેજમેન્ટ સોફ્ટવેર',
-    nameGu: 'એકાઉન્ટિંગ, બિલિંગ & GST સોફ્ટવેર',
-    nameEn: 'Accounting, Billing & GST Invoicing',
-    descGu: 'ઝડપી બારકોડ બિલિંગ, એક-ક્લિક GST રિટર્ન રિપોર્ટ્સ, WhatsApp બિલિંગ અને થર્મલ પ્રિન્ટિંગ.',
-    descEn: 'Lightning-fast POS barcode billing, GST compliance reports, direct WhatsApp invoice sharing, and thermal prints.',
-    badgeGu: 'GST & POS સોફ્ટવેર',
-    badgeEn: 'GST & POS System',
-    categoryGu: 'બિલિંગ સિસ્ટમ',
-    categoryEn: 'Billing Software',
-    whatsappMsg: 'નમસ્તે શબ્બીરભાઈ, મારે એકાઉન્ટિંગ અને GST બિલિંગ સોફ્ટવેર વિશે પૂછપરછ કરવી છે.',
-  },
-  {
-    id: 'software-3',
+    id: 'soft-feat-1',
     src: '/images/software/software-3.jpg',
-    alt: 'વેઇબ્રિજ ઓટોમેશન અને વજન સ્લિપ સિસ્ટમ',
-    nameGu: 'વેઇબ્રિજ ઓટોમેશન & વજન સ્લિપ સિસ્ટમ',
-    nameEn: 'Weighbridge Automation & Weight Slips',
-    descGu: 'કોઈપણ ઇન્ડિકેટર સાથે ડાયરેક્ટ કનેક્ટિવિટી, ઓટોમેટિક વજન કેપ્ચરિંગ અને ફ્રોડ-પ્રૂફ પ્રિન્ટેડ સ્લિપ.',
-    descEn: 'Direct RS-232/IP scale indicator interfacing, anti-theft CCTV integration, and tamper-proof weight slips.',
-    badgeGu: 'વેઇબ્રિજ કનેક્ટેડ',
-    badgeEn: 'Scale Interfaced',
-    categoryGu: 'હાર્ડવેર ઇન્ટિગ્રેશન',
-    categoryEn: 'Hardware Integration',
-    whatsappMsg: 'નમસ્તે શબ્બીરભાઈ, મારે વેઇબ્રિજ સોફ્ટવેર અને વજન સ્લિપ પ્રિન્ટિંગ સિસ્ટમ વિશે જાણવું છે.',
+    alt: 'Weighbridge Management Software',
+    featureTitleGu: 'વેઇબ્રિજ મેનેજમેન્ટ સોફ્ટવેર',
+    featureTitleEn: 'Weighbridge Management Software',
+    descGu: 'ડિજિટલ વજન કાંટા સાથે ડાયરેક્ટ સીરીયલ/IP કનેક્ટિવિટી, લાઇવ ટેર & ગ્રોસ વજન લોગિંગ અને સિક્યોરિટી.',
+    descEn: 'Direct scale indicator interfacing, real-time live weight capture, tare/gross automation, and fraud prevention.',
+    badgeGu: 'હાર્ડવેર IoT કનેક્ટેડ',
+    badgeEn: 'Hardware IoT Connected',
+    demoMsg: 'નમસ્તે શબ્બીરભાઈ, મારે વેઇબ્રિજ મેનેજમેન્ટ સોફ્ટવેરનો લાઇવ ડેમો જોવો છે.',
   },
   {
-    id: 'software-4',
+    id: 'soft-feat-2',
+    src: '/images/software/software-1.jpg',
+    alt: 'ERP Integration',
+    featureTitleGu: 'કસ્ટમ ERP ઇન્ટિગ્રેશન',
+    featureTitleEn: 'ERP Integration',
+    descGu: 'ઇન્વેન્ટરી, ખરીદ-વેચાણ, ગોડાઉન સ્ટોક અને જીએસટી એકાઉન્ટિંગ સાથે અખંડ ક્લાઉડ ERP ઇન્ટિગ્રેશન.',
+    descEn: 'Unified cloud ERP linking warehouse inventory, purchase orders, sales logistics, and ledger accounts.',
+    badgeGu: 'ક્લાઉડ એન્ટરપ્રાઇઝ ERP',
+    badgeEn: 'Enterprise Cloud ERP',
+    demoMsg: 'નમસ્તે શબ્બીરભાઈ, મારે ERP ઇન્ટિગ્રેશન સોલ્યુશનનો ડેમો સમજવો છે.',
+  },
+  {
+    id: 'soft-feat-3',
     src: '/images/software/software-4.jpg',
-    alt: 'કસ્ટમ એન્ટરપ્રાઇઝ વેબ એપ્લિકેશન્સ અને પોર્ટલ્સ',
-    nameGu: 'કસ્ટમ એન્ટરપ્રાઇઝ વેબ એપ્સ',
-    nameEn: 'Custom Enterprise Web Applications',
-    descGu: 'હાઇ-સ્પીડ, સુરક્ષિત અને ક્લાઉડ સ્કેલેબલ વેબ એપ્લિકેશન્સ, ક્લાયન્ટ પોર્ટલ્સ અને ઓટોમેટેડ ડેટાબેઝ.',
-    descEn: 'Scalable cloud web applications, client portals, custom dashboards, and high-security architectures.',
-    badgeGu: 'મોડર્ન વેબ ડેવલપમેન્ટ',
-    badgeEn: 'Modern Web Apps',
-    categoryGu: 'વેબ એપ્સ',
-    categoryEn: 'Web Applications',
-    whatsappMsg: 'નમસ્તે શબ્બીરભાઈ, મારે નવી વેબસાઇટ / કસ્ટમ વેબ એપ્લિકેશન બનાવડાવવી છે.',
+    alt: 'Vehicle Entry / Exit',
+    featureTitleGu: 'વાહન એન્ટ્રી / એક્ઝિટ & CCTV સિક્યોરિટી',
+    featureTitleEn: 'Vehicle Entry / Exit Tracking',
+    descGu: 'ટ્રક નંબર પ્લેટ રેકગ્નિશન, ઇન/આઉટ ટાઇમસ્ટેમ્પ, કેમેરા સ્નેપશોટ અને ગેટ પાસ ઓટોમેશન.',
+    descEn: 'Automatic vehicle number capture, in/out timestamps, CCTV camera snapshots, and gate pass management.',
+    badgeGu: 'ઓટોમેટેડ ગેટ પાસ',
+    badgeEn: 'Automated Gate Pass',
+    demoMsg: 'નમસ્તે શબ્બીરભાઈ, મારે વાહન એન્ટ્રી/એક્ઝિટ અને CCTV સિસ્ટમ ડેમો જોવો છે.',
   },
   {
-    id: 'software-5',
-    src: '/images/software/software-5.jpg',
-    alt: 'Android અને iOS કસ્ટમ બિઝનેસ મોબાઇલ એપ્સ',
-    nameGu: 'Android & iOS કસ્ટમ મોબાઇલ એપ્સ',
-    nameEn: 'Android & iOS Custom Mobile Apps',
-    descGu: 'ઓન-ધ-ગો ઓર્ડર બુકિંગ, ફિલ્ડ સેલ્સ ટ્રેકિંગ, સ્ટોક ચેક અને સ્માર્ટ કસ્ટમર નોટિફિકેશન એપ્સ.',
-    descEn: 'Cross-platform mobile apps for field sales, real-time inventory tracking, offline sync, and customer management.',
-    badgeGu: 'મોબાઇલ એપ્લિકેશન',
-    badgeEn: 'Mobile App',
-    categoryGu: 'સ્માર્ટફોન એપ્સ',
-    categoryEn: 'Mobile Apps',
-    whatsappMsg: 'નમસ્તે શબ્બીરભાઈ, મારે બિઝનેસ માટે Android / iOS મોબાઇલ એપ બનાવવી છે.',
+    id: 'soft-feat-4',
+    src: '/images/software/software-2.jpg',
+    alt: 'Weight Slip Printing',
+    featureTitleGu: 'ઓટોમેટિક વજન સ્લિપ પ્રિન્ટિંગ',
+    featureTitleEn: 'Weight Slip Printing',
+    descGu: 'ડોટ મેટ્રિક્સ, થર્મલ અને લેસર પ્રિન્ટર સપોર્ટ સાથે ટેમ્પર-પ્રૂફ કસ્ટમ બારકોડ વજન રસીદ.',
+    descEn: 'Instant dot matrix, thermal, and laser slip generation with QR/barcode verification and GST details.',
+    badgeGu: 'GST સ્લિપ ફોર્મેટ્સ',
+    badgeEn: 'GST Slip Formats',
+    demoMsg: 'નમસ્તે શબ્બીરભાઈ, મારે વજન સ્લિપ પ્રિન્ટિંગ સોફ્ટવેર વિશે જાણવું છે.',
   },
   {
-    id: 'software-6',
+    id: 'soft-feat-5',
     src: '/images/software/software-6.jpg',
-    alt: 'AI ઓટોમેશન સોલ્યુશન્સ અને સ્માર્ટ વર્કફ્લોઝ',
-    nameGu: 'AI ઓટોમેશન & સ્માર્ટ વર્કફ્લોઝ',
-    nameEn: 'AI Automation & Smart Workflows',
-    descGu: 'બિઝનેસ પ્રોસેસ ઓટોમેશન, ડોક્યુમેન્ટ OCR ડેટા એક્સટ્રેક્શન, AI ચેટબોટ્સ અને સ્માર્ટ એનાલિટિક્સ.',
-    descEn: 'Next-gen workflow automation, intelligent document OCR extraction, AI agents, and predictive insights.',
-    badgeGu: 'AI & નેક્સ્ટ-જેન ટેક',
-    badgeEn: 'AI & Automation',
-    categoryGu: 'AI ઓટોમેશન',
-    categoryEn: 'AI Automation',
-    whatsappMsg: 'નમસ્તે શબ્બીરભાઈ, મારે AI ઓટોમેશન અને સ્માર્ટ વર્કફ્લો વિશે કન્સલ્ટેશન જોઈએ છે.',
+    alt: 'Reports & Analytics',
+    featureTitleGu: 'રિયલ-ટાઇમ રિપોર્ટ્સ & એનાલિટિક્સ',
+    featureTitleEn: 'Reports & Analytics',
+    descGu: 'દૈનિક/માસિક વજન સમરી, ગ્રાહકવાઇઝ રિપોર્ટ્સ, એક્સેલ એક્સપોર્ટ અને બિઝનેસ ઇન્ટેલિજન્સ ગ્રાફ્સ.',
+    descEn: 'Comprehensive daily/monthly weighbridge summaries, party-wise ledgers, Excel/PDF exports, and BI charts.',
+    badgeGu: 'લાઇવ એનાલિટિક્સ',
+    badgeEn: 'Live Analytics',
+    demoMsg: 'નમસ્તે શબ્બીરભાઈ, મારે રિપોર્ટ્સ & એનાલિટિક્સ ડેશબોર્ડનો ડેમો જોવો છે.',
+  },
+  {
+    id: 'soft-feat-6',
+    src: '/images/software/software-5.jpg',
+    alt: 'Customer Management',
+    featureTitleGu: 'ગ્રાહક મેનેજમેન્ટ (CRM & પાર્ટી લેજર)',
+    featureTitleEn: 'Customer Management (CRM)',
+    descGu: 'વેપારીઓ અને ડ્રાઇવરોનું ડિજિટલ રજિસ્ટર, WhatsApp દ્વારા સીધી વજન સ્લિપ અને બાકી પેમેન્ટ ટ્રેકિંગ.',
+    descEn: 'Digital directory of parties and transporters with automated WhatsApp slip sharing and payment tracking.',
+    badgeGu: 'WhatsApp ઇન્ટિગ્રેટેડ',
+    badgeEn: 'WhatsApp Integrated',
+    demoMsg: 'નમસ્તે શબ્બીરભાઈ, મારે કસ્ટમર મેનેજમેન્ટ અને WhatsApp ઇન્ટિગ્રેશન સમજવું છે.',
+  },
+  {
+    id: 'soft-feat-7',
+    src: '/images/software/software-1.jpg',
+    alt: 'Multi-Weighbridge Support',
+    featureTitleGu: 'મલ્ટી-વેઇબ્રિજ ક્લાઉડ સપોર્ટ',
+    featureTitleEn: 'Multi-Weighbridge Support',
+    descGu: 'એક કરતાં વધુ વેઇબ્રિજ અથવા શાખાઓ ધરાવતા ઉદ્યોગો માટે કેન્દ્રીય ક્લાઉડ મોનિટરિંગ અને ડેટા સિંક.',
+    descEn: 'Centralized cloud synchronization managing multiple physical scale locations from a single master dashboard.',
+    badgeGu: 'મલ્ટી-લોકેશન સિંક',
+    badgeEn: 'Multi-Location Sync',
+    demoMsg: 'નમસ્તે શબ્બીરભાઈ, મારે મલ્ટી-વેઇબ્રિજ સેન્ટ્રલ સિસ્ટમ ડેમો જોવો છે.',
   },
 ];
 
 const softwarePillars = [
   {
+    icon: 'M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z',
+    titleGu: 'વેઇબ્રિજ & હાર્ડવેર IoT ઓટોમેશન',
+    titleEn: 'Weighbridge & IoT Automation',
+    descGu: 'કોઈપણ ઇન્ડિકેટર સાથે ડાયરેક્ટ RS-232/IP કનેક્ટિવિટી, ઓટોમેટિક વજન કેપ્ચરિંગ, CCTV સ્નેપશોટ અને GST સ્લિપ પ્રિન્ટિંગ.',
+    descEn: 'Direct scale indicator interfacing, real-time RS-232 telemetry, vehicle CCTV capture, and tamper-proof weight slips.',
+    tagGu: 'હાર્ડવેર + સોફ્ટવેર',
+    tagEn: 'Hardware + Software',
+  },
+  {
     icon: 'M13 10V3L4 14h7v7l9-11h-7z',
-    titleGu: 'AI & વર્કફ્લો ઓટોમેશન',
+    titleGu: 'AI વર્કફ્લો & સ્માર્ટ ઓટોમેશન',
     titleEn: 'AI & Workflow Automation',
     descGu: 'માનવીય પુનરાવર્તિત કામોને ઓટોમેટ કરો. ઇન્વૉઇસ OCR પ્રોસેસિંગ, WhatsApp બોટ્સ અને સ્માર્ટ બિઝનેસ ઓટોમેશન સિસ્ટમ્સ.',
     descEn: 'Eliminate repetitive manual tasks with document OCR, automated WhatsApp pipelines, and intelligent process bots.',
@@ -118,18 +125,9 @@ const softwarePillars = [
     tagEn: 'Artificial Intelligence',
   },
   {
-    icon: 'M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z',
-    titleGu: 'વેઇબ્રિજ & હાર્ડવેર IoT ઇન્ટિગ્રેશન',
-    titleEn: 'Weighbridge & Hardware IoT',
-    descGu: 'ડિજિટલ વજન કાંટા અને ટ્રક વેઇબ્રિજ સાથે ડાયરેક્ટ સોફ્ટવેર લિંક. ઓટોમેટિક વજન કેપ્ચરિંગ, CCTV સ્નેપશોટ અને GST સ્લિપ પ્રિન્ટિંગ.',
-    descEn: 'Direct scale indicator interfacing, real-time RS-232 telemetry, vehicle CCTV capture, and tamper-proof weight slips.',
-    tagGu: 'હાર્ડવેર + સોફ્ટવેર',
-    tagEn: 'Hardware + Software',
-  },
-  {
     icon: 'M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9',
-    titleGu: 'કસ્ટમ ક્લાઉડ ERP, વેબ & મોબાઇલ એપ્સ',
-    titleEn: 'Custom Cloud ERP, Web & Mobile Apps',
+    titleGu: 'કસ્ટમ ક્લાઉડ ERP & મોબાઇલ એપ્સ',
+    titleEn: 'Custom Cloud ERP & Mobile Apps',
     descGu: 'તમારા વેપારની જરૂરિયાત મુજબ ખાસ ડિઝાઇન કરેલા ERP પોર્ટલ્સ, GST એકાઉન્ટિંગ અને Android/iOS મોબાઇલ એપ્સ.',
     descEn: 'Tailored enterprise ERP systems, POS billing, warehouse inventory, and responsive cross-platform mobile apps.',
     tagGu: 'કસ્ટમ ડેવલપમેન્ટ',
@@ -138,21 +136,21 @@ const softwarePillars = [
 ];
 
 const techBadges = [
-  'Python & AI Agents',
+  'Weighbridge Serial Protocols',
+  'Python & AI Workflows',
   'Astro & Next.js',
-  'TypeScript',
-  'PostgreSQL',
-  'Flutter / React Native',
-  'FastAPI & Cloud APIs',
-  'RS-232 Scale Protocols',
-  'Docker & Cloudflare',
+  'TypeScript & Node.js',
+  'PostgreSQL & SQLite',
+  'Flutter & Mobile Apps',
+  'FastAPI Cloud Endpoints',
+  'Thermal & Matrix Printing',
 ];
 ---
 
 <section
   id="software"
-  class="relative py-16 sm:py-24 bg-[#020617] border-t border-border-subtle overflow-hidden"
-  aria-label="સોફ્ટવેર સોલ્યુશન્સ & AI ઓટોમેશન"
+  class="relative py-20 sm:py-28 bg-[#020617] border-t border-border-subtle overflow-hidden"
+  aria-label="Section 3 — Software Solutions and Automation"
 >
   <!-- Ambient Indigo / Violet Glow Accent -->
   <div
@@ -160,69 +158,57 @@ const techBadges = [
     aria-hidden="true"
   ></div>
 
-  <Container size="xl" class="relative z-10 flex flex-col gap-12 sm:gap-16">
-    <!-- Section Header -->
-    <div class="text-center max-w-3xl mx-auto flex flex-col items-center font-gujarati">
-      <div class="mb-3">
-        <Badge variant="gold" size="md">
-          <span
-            data-i18n-gu="વિભાગ ૦૩ • આધુનિક સોફ્ટવેર &amp; AI ઓટોમેશન"
-            data-i18n-en="Division 03 • Modern Software &amp; AI Automation"
-          >
-            વિભાગ ૦૩ • આધુનિક સોફ્ટવેર &amp; AI ઓટોમેશન
-          </span>
-        </Badge>
-      </div>
-
-      <h2
-        class="text-2xl sm:text-3xl lg:text-4xl font-heading font-bold text-white tracking-tight leading-snug sm:leading-tight mb-4"
-      >
-        <span
-          data-i18n-gu="સોફ્ટવેર સોલ્યુશન્સ અને "
-          data-i18n-en="Software Solutions &amp; "
-        >
-          સોફ્ટવેર સોલ્યુશન્સ અને
-        </span>{' '}
-        <span
-          class="text-indigo-400 font-serif italic"
-          data-i18n-gu="AI ઓટોમેશન"
-          data-i18n-en="AI Automation"
-        >
-          AI ઓટોમેશન
-        </span>
-      </h2>
-
-      <p
-        class="text-sm sm:text-base text-text-muted leading-relaxed font-body"
-        data-i18n-gu="સ્થાનિક વેપારીઓ અને ઉદ્યોગો માટે વિશ્વકક્ષાના આધુનિક વેબ સોફ્ટવેર, કસ્ટમ ERP, વેઇબ્રિજ વજન પ્રિન્ટિંગ એપ્લિકેશન્સ અને AI ઓટોમેશન."
-        data-i18n-en="World-class custom cloud software, enterprise ERP, weighbridge ticket automation, and AI workflows tailored for local businesses and modern enterprises."
-      >
-        સ્થાનિક વેપારીઓ અને ઉદ્યોગો માટે વિશ્વકક્ષાના આધુનિક વેબ સોફ્ટવેર, કસ્ટમ ERP, વેઇબ્રિજ વજન પ્રિન્ટિંગ એપ્લિકેશન્સ અને AI ઓટોમેશન.
-      </p>
-    </div>
-
-    <!-- Multi-Card Embla Carousel Stage -->
-    <div class="relative w-full">
-      <!-- Carousel Navigation Header & Controls -->
-      <div class="flex items-center justify-between px-2 pb-4 font-gujarati border-b border-border-subtle/70 mb-6">
-        <div class="flex items-center gap-2.5">
-          <span class="w-3 h-3 rounded-full bg-indigo-400 shadow-[0_0_8px_rgba(129,140,248,0.8)] animate-pulse"></span>
-          <span
-            class="text-xs sm:text-sm font-heading font-bold text-white tracking-wide"
-            data-i18n-gu="સોફ્ટવેર &amp; AI ઇન્ટરફેસ કેરોસલ (૬ સિસ્ટમ્સ)"
-            data-i18n-en="Software &amp; AI Interface Carousel (6 Systems)"
-          >
-            સોફ્ટવેર &amp; AI ઇન્ટરફેસ કેરોસલ (૬ સિસ્ટમ્સ)
-          </span>
+  <Container size="xl" class="relative z-10 flex flex-col gap-14 sm:gap-20">
+    <!-- Section Header with Controls -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 font-gujarati">
+      <div>
+        <div class="mb-3">
+          <Badge variant="gold" size="sm">
+            <span
+              data-i18n-gu="વિભાગ ૦૩ • સોફ્ટવેર સોલ્યુશન્સ &amp; AI"
+              data-i18n-en="Section 03 • Software Solutions &amp; AI"
+            >
+              વિભાગ ૦૩ • સોફ્ટવેર સોલ્યુશન્સ &amp; AI
+            </span>
+          </Badge>
         </div>
 
-        <!-- Carousel Action Buttons -->
+        <h2
+          class="text-2xl sm:text-3xl lg:text-4xl font-heading font-bold text-white tracking-tight leading-snug sm:leading-tight mb-2"
+        >
+          <span
+            data-i18n-gu="આધુનિક સોફ્ટવેર સોલ્યુશન્સ અને "
+            data-i18n-en="Modern Software Solutions &amp; "
+          >આધુનિક સોફ્ટવેર સોલ્યુશન્સ અને </span>
+          <span
+            class="text-indigo-400 font-serif italic"
+            data-i18n-gu="વેઇબ્રિજ ઓટોમેશન"
+            data-i18n-en="Weighbridge Automation"
+          >વેઇબ્રિજ ઓટોમેશન</span>
+        </h2>
+
+        <p
+          class="text-xs sm:text-sm text-text-muted leading-relaxed font-body max-w-2xl"
+          data-i18n-gu="વેઇબ્રિજ સ્લિપ પ્રિન્ટિંગ, ERP ઇન્ટિગ્રેશન, વાહન એન્ટ્રી/એક્ઝિટ, રિયલ-ટાઇમ એનાલિટિક્સ અને AI આધારિત કસ્ટમ બિઝનેસ સોફ્ટવેર."
+          data-i18n-en="Weighbridge slip printing, ERP integration, vehicle entry/exit tracking, live analytics, and custom AI enterprise automation."
+        >
+          વેઇબ્રિજ સ્લિપ પ્રિન્ટિંગ, ERP ઇન્ટિગ્રેશન, વાહન એન્ટ્રી/એક્ઝિટ, રિયલ-ટાઇમ એનાલિટિક્સ અને AI આધારિત કસ્ટમ બિઝનેસ સોફ્ટવેર.
+        </p>
+      </div>
+
+      <!-- Carousel Navigation Controls -->
+      <div class="flex items-center gap-3 shrink-0 select-none">
+        <span class="text-[11px] font-mono text-indigo-400 bg-indigo-500/10 px-3 py-1 rounded-full border border-indigo-500/30 flex items-center gap-1.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse"></span>
+          <span>૪-૫ સેકન્ડ સ્લાઇડર</span>
+        </span>
+
         <div class="flex items-center gap-2">
           <button
             type="button"
             id="software-embla-prev"
             aria-label="અગાઉનું સોફ્ટવેર"
-            class="w-9 h-9 rounded-full border border-border bg-[#050b24] hover:border-indigo-400/80 hover:text-indigo-400 text-text-muted flex items-center justify-center transition-all cursor-pointer shadow-lg active:scale-95"
+            class="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-border bg-[#050b24] hover:border-indigo-400/80 hover:text-indigo-400 text-text-muted flex items-center justify-center transition-all cursor-pointer shadow-lg active:scale-95"
           >
             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
               <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
@@ -233,7 +219,7 @@ const techBadges = [
             type="button"
             id="software-embla-next"
             aria-label="આગળનું સોફ્ટવેર"
-            class="w-9 h-9 rounded-full border border-border bg-[#050b24] hover:border-indigo-400/80 hover:text-indigo-400 text-text-muted flex items-center justify-center transition-all cursor-pointer shadow-lg active:scale-95"
+            class="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-border bg-[#050b24] hover:border-indigo-400/80 hover:text-indigo-400 text-text-muted flex items-center justify-center transition-all cursor-pointer shadow-lg active:scale-95"
           >
             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
               <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
@@ -241,73 +227,65 @@ const techBadges = [
           </button>
         </div>
       </div>
+    </div>
 
-      <!-- Embla Carousel Viewport -->
-      <div class="overflow-hidden cursor-grab active:cursor-grabbing select-none" id="software-embla-viewport">
-        <div class="flex -ml-4 sm:-ml-5">
+    <!-- 1. Embla Multi-Card Horizontal Carousel (3-4 desktop, 2 tablet, 1 mobile) -->
+    <div class="w-full relative select-none">
+      <div class="embla overflow-hidden cursor-grab active:cursor-grabbing" id="software-embla-viewport">
+        <div class="embla__container flex -ml-4 sm:-ml-5">
           {
             softwareItems.map((item) => (
-              <div class="flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] xl:flex-[0_0_25%] pl-4 sm:pl-5 min-w-0 font-gujarati">
-                <div class="h-full flex flex-col justify-between rounded-2xl bg-gradient-to-b from-[#070e2f] to-[#020514] border border-border/80 hover:border-indigo-500/60 transition-all duration-300 shadow-xl group overflow-hidden">
+              <div class="embla__slide flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] xl:flex-[0_0_25%] pl-4 sm:pl-5 min-w-0 font-gujarati">
+                <div class="h-full flex flex-col justify-between rounded-2xl bg-gradient-to-b from-[#070e2f] via-[#03081e] to-[#010414] border border-border/80 hover:border-indigo-500/60 shadow-xl hover:shadow-[0_12px_35px_rgba(99,102,241,0.15)] transition-all duration-300 group overflow-hidden p-4 sm:p-5">
                   <!-- Image Frame -->
-                  <div class="relative w-full h-56 sm:h-60 bg-[#01030e] p-2 flex items-center justify-center overflow-hidden border-b border-border-subtle/80">
-                    <img
-                      src={item.src}
-                      alt={item.alt}
-                      loading="lazy"
-                      decoding="async"
-                      class="max-w-full max-h-full object-contain rounded-lg transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div class="absolute top-2.5 left-2.5">
-                      <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 border border-indigo-500/40 backdrop-blur-md">
-                        {item.badgeGu}
-                      </span>
+                  <div>
+                    <div class="relative w-full h-48 sm:h-52 bg-[#01030e] rounded-xl overflow-hidden flex items-center justify-center p-2.5 mb-4 border border-border-subtle group-hover:border-indigo-500/40 transition-colors">
+                      <img
+                        src={item.src}
+                        alt={item.alt}
+                        loading="lazy"
+                        decoding="async"
+                        class="max-w-full max-h-full object-contain rounded-lg transition-transform duration-300 group-hover:scale-105"
+                      />
+                      <div class="absolute top-2.5 left-2.5 z-10">
+                        <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-[#010414]/90 text-indigo-300 border border-indigo-500/40 backdrop-blur-md">
+                          {item.badgeGu}
+                        </span>
+                      </div>
                     </div>
-                    <div class="absolute bottom-2.5 right-2.5">
-                      <span class="text-[10px] font-mono text-slate-300 bg-[#020512]/80 px-2 py-0.5 rounded border border-border-subtle backdrop-blur-sm">
-                        {item.categoryGu}
-                      </span>
-                    </div>
+
+                    <!-- Feature Title & Description -->
+                    <h3
+                      class="text-sm sm:text-base font-heading font-bold text-white mb-1.5 line-clamp-1 group-hover:text-indigo-300 transition-colors"
+                      data-i18n-gu={item.featureTitleGu}
+                      data-i18n-en={item.featureTitleEn}
+                    >
+                      {item.featureTitleGu}
+                    </h3>
+                    <p
+                      class="text-xs text-text-muted leading-relaxed line-clamp-2 mb-4 font-body"
+                      data-i18n-gu={item.descGu}
+                      data-i18n-en={item.descEn}
+                    >
+                      {item.descGu}
+                    </p>
                   </div>
 
-                  <!-- Content Body -->
-                  <div class="p-4 sm:p-5 flex flex-col flex-grow justify-between gap-4">
-                    <div>
-                      <h3
-                        class="text-base font-heading font-bold text-white group-hover:text-indigo-300 transition-colors line-clamp-1 mb-1.5"
-                        data-i18n-gu={item.nameGu}
-                        data-i18n-en={item.nameEn}
-                      >
-                        {item.nameGu}
-                      </h3>
-                      <p
-                        class="text-xs text-text-muted leading-relaxed line-clamp-2"
-                        data-i18n-gu={item.descGu}
-                        data-i18n-en={item.descEn}
-                      >
-                        {item.descGu}
-                      </p>
-                    </div>
-
-                    <!-- Direct Contact CTA -->
-                    <div class="pt-3 border-t border-border-subtle/60 flex items-center justify-between gap-2">
-                      <div class="flex flex-col">
-                        <span class="text-[9px] font-mono uppercase text-indigo-400 font-semibold" data-i18n-gu="સોફ્ટવેર વડા" data-i18n-en="Software Lead">સોફ્ટવેર વડા</span>
-                        <span class="text-[11px] font-bold text-slate-300">{businessProfile.divisionContacts.software.name}</span>
-                      </div>
-                      <a
-                        href={`https://wa.me/${businessProfile.divisionContacts.software.phoneDigits}?text=${encodeURIComponent(item.whatsappMsg)}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="inline-flex items-center gap-1 text-[11px] font-heading font-bold px-3 py-1.5 rounded-lg bg-indigo-500/20 text-indigo-300 border border-indigo-500/40 hover:bg-indigo-600 hover:text-white transition-all shadow-sm"
-                        aria-label={`Inquire about ${item.nameEn} on WhatsApp`}
-                      >
-                        <span>કન્સલ્ટેશન</span>
-                        <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                        </svg>
-                      </a>
-                    </div>
+                  <!-- Demo CTA Button on Card -->
+                  <div class="pt-3 border-t border-border-subtle/80 flex items-center justify-between gap-2">
+                    <span class="text-[11px] font-mono text-indigo-400 font-semibold">લાઇવ ડેમો</span>
+                    <a
+                      href={`https://wa.me/${businessProfile.divisionContacts.software.phoneDigits}?text=${encodeURIComponent(item.demoMsg)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-500/20 text-indigo-300 border border-indigo-500/40 hover:bg-indigo-600 hover:text-white font-heading font-bold text-xs transition-all shrink-0 active:scale-95 shadow-sm"
+                      aria-label={`Request Demo for ${item.featureTitleEn} on WhatsApp`}
+                    >
+                      <svg class="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24">
+                        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.072-2.128-.521-1.615-.67-2.66-2.308-2.74-2.417-.08-.108-.659-.877-.659-1.672 0-.795.414-1.187.561-1.349.146-.162.32-.203.428-.203.107 0 .215.002.308.007.1.005.234-.038.366.279.136.327.464 1.132.505 1.215.041.083.068.18.012.289-.056.108-.083.177-.165.273-.082.096-.174.215-.248.289-.083.083-.17.172-.073.338.097.166.432.713.927 1.154.636.568 1.172.744 1.338.827.166.083.264.069.362-.042.098-.111.42-.489.532-.656.113-.167.225-.139.378-.083.153.056.974.459 1.141.542.167.083.278.125.32.194.041.07.041.405-.103.81zM12 2C6.477 2 2 6.477 2 12c0 1.891.526 3.662 1.442 5.179L2 22l4.981-1.306A9.957 9.957 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/>
+                      </svg>
+                      <span>Demo CTA</span>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -317,8 +295,8 @@ const techBadges = [
       </div>
     </div>
 
-    <!-- Software Capabilities Pillars Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 font-gujarati pt-4">
+    <!-- 2. Software Capabilities Pillars Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 font-gujarati pt-2">
       {
         softwarePillars.map((pillar) => (
           <GlassCard padding="lg" hoverEffect={true} class="flex flex-col justify-between border-border/80 bg-[#040a24] group">
@@ -329,18 +307,21 @@ const techBadges = [
                     <path stroke-linecap="round" stroke-linejoin="round" d={pillar.icon} />
                   </svg>
                 </div>
-                <span class="text-[10px] font-mono text-indigo-400 bg-indigo-500/10 px-2.5 py-0.5 rounded border border-indigo-500/30">
+                <span class="text-[10px] font-mono text-indigo-400 bg-indigo-500/10 px-2.5 py-0.5 rounded border border-indigo-500/30 font-semibold">
                   {pillar.tagGu}
                 </span>
               </div>
 
               <h3
-                class="text-base sm:text-lg font-heading font-bold text-white mb-2 group-hover:text-indigo-300 transition-colors"
+                class="text-base sm:text-lg font-heading font-bold text-white mb-1 group-hover:text-indigo-300 transition-colors"
                 data-i18n-gu={pillar.titleGu}
                 data-i18n-en={pillar.titleEn}
               >
                 {pillar.titleGu}
               </h3>
+              <p class="text-[10px] text-text-gold font-mono mb-2">
+                {pillar.titleEn}
+              </p>
 
               <p
                 class="text-xs sm:text-sm text-text-muted leading-relaxed font-body"
@@ -360,7 +341,7 @@ const techBadges = [
       }
     </div>
 
-    <!-- Tech Stack Capabilities Strip -->
+    <!-- 3. Tech Stack Badges Strip -->
     <div class="flex flex-wrap items-center justify-center gap-2 max-w-4xl mx-auto">
       {
         techBadges.map((badge) => (
@@ -371,7 +352,7 @@ const techBadges = [
       }
     </div>
 
-    <!-- Direct Software & AI Consultation Action Box -->
+    <!-- 4. Direct Software & AI Consultation Action Box -->
     <div class="max-w-5xl mx-auto w-full font-gujarati">
       <div class="rounded-2xl bg-gradient-to-r from-[#03071e] via-[#081240] to-[#03071e] border-2 border-indigo-500/40 p-6 sm:p-8 lg:p-10 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8">
         <div class="flex-1">
@@ -403,7 +384,6 @@ const techBadges = [
           </p>
         </div>
 
-        <!-- Contact Action Card -->
         <div class="bg-[#020512] rounded-xl p-5 border border-indigo-500/40 shrink-0 flex flex-col gap-3 min-w-[260px] text-center sm:text-left shadow-xl">
           <div>
             <span class="text-[10px] font-mono uppercase text-text-subtle block" data-i18n-gu="સોફ્ટવેર વિભાગ વડા" data-i18n-en="Software Division Lead">સોફ્ટવેર વિભાગ વડા</span>

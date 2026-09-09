@@ -22,364 +22,243 @@ interface GasItem {
 
 const gasItems: GasItem[] = [
   {
-    id: 'gas-1',
-    src: '/images/gas/gas-1.jpg',
-    alt: 'ગેસ બર્નર કેપ અને હેવી ડ્યુટી હેડ',
-    nameGu: 'ગેસ બર્નર કેપ & હેવી હેડ',
-    nameEn: 'Gas Burner Cap & Heavy Head',
-    descGu: 'બ્રાસ બર્નર ટોપ, કાસ્ટ આયર્ન હેડ, ઉત્કૃષ્ટ બ્લુ ફ્લેમ અને ઓરિજિનલ ફિટિંગ.',
-    descEn: 'Pure brass burner tops, heavy cast iron heads, high thermal efficiency, perfect flame distribution.',
-    badgeGu: 'ઓરિજિનલ પાર્ટ્સ • સ્ટોક',
-    badgeEn: 'Genuine Spares • In Stock',
-    categoryGu: 'બર્નર સ્પેરપાર્ટ્સ',
-    categoryEn: 'Burner Parts',
-    whatsappMsg: 'નમસ્તે બુરહાનુદ્દીનભાઈ, મારે ગેસ બર્નર કેપ અને હેડ સ્પેરપાર્ટ્સ વિશે પૂછવું છે.',
-  },
-  {
-    id: 'gas-2',
-    src: '/images/gas/gas-2.webp',
-    alt: 'કોમર્શિયલ LPG સિલિન્ડર મેનિફોલ્ડ બેંક',
-    nameGu: 'LPG સિલિન્ડર મેનિફોલ્ડ બેંક',
-    nameEn: 'LPG Cylinder Manifold Bank',
-    descGu: 'હોટલ, રેસ્ટોરન્ટ અને કેટરર્સ માટે હેવી ڈ્યુટી મલ્ટી-સિલિન્ડર સેફ્ટી પાઇપલાઇન નેટવર્ક.',
-    descEn: 'Heavy commercial manifold networks for hotels, banquet halls, and bulk kitchen lines.',
-    badgeGu: 'ઇન્સ્ટોલેશન & AMC',
-    badgeEn: 'Installation & AMC',
-    categoryGu: 'પાઇપલાઇન સિસ્ટમ',
-    categoryEn: 'Pipeline Systems',
-    whatsappMsg: 'નમસ્તે બુરહાનુદ્દીનભાઈ, મારે કોમર્શિયલ ગેસ પાઇપલાઇન મેનિફોલ્ડ વિશે ચર્ચા કરવી છે.',
-  },
-  {
-    id: 'gas-3',
-    src: '/images/gas/gas-3.jpg',
-    alt: 'હાઇ-પ્રેશર બ્રાસ વાલ્વ અને કંટ્રોલ સ્પિન્ડલ',
-    nameGu: 'હાઇ-પ્રેશર બ્રાસ વાલ્વ & સ્પિન્ડલ',
-    nameEn: 'High Pressure Brass Valve & Spindle',
-    descGu: '૧૦૦% લીકેજ-પ્રૂફ ટેસ્ટિંગ, સ્મૂધ રોટેશન અને હેવી ડ્યુટી બ્રાસ કન્સ્ટ્રક્શન.',
-    descEn: '100% leak-tested brass gas valves, heavy spindles, and flame adjusters for kitchen stoves.',
-    badgeGu: 'ઓરિજિનલ સ્ટોક ઉપલબ્ધ',
-    badgeEn: 'In Stock • Ready',
-    categoryGu: 'વાલ્વ અને સ્પિન્ડલ',
-    categoryEn: 'Valves & Spindles',
-    whatsappMsg: 'નમસ્તે બુરહાનુદ્દીનભાઈ, મારે ગેસ સ્ટવ બ્રાસ વાલ્વ અને સ્પિન્ડલ વિશે પૂછવું છે.',
-  },
-  {
-    id: 'gas-4',
-    src: '/images/gas/gas-4.jpg',
-    alt: 'પ્રિસિઝન બ્રાસ જેટ્સ અને નોઝલ્સ',
-    nameGu: 'પ્રિસિઝન બ્રાસ જેટ્સ & નોઝલ્સ',
-    nameEn: 'Precision Brass Jets & Nozzles',
-    descGu: 'LPG અને PNG બંને માટે અલગ અલગ સાઇઝના કસ્ટમ બ્રાસ નોઝલ્સ અને જેટ પાઇપ.',
-    descEn: 'Precision drilled brass nozzles and jet pins for clean combustion in LPG and PNG.',
-    badgeGu: 'તમામ સાઇઝ ઉપલબ્ધ',
-    badgeEn: 'All Sizes Available',
-    categoryGu: 'જેટ અને નોઝલ',
-    categoryEn: 'Jets & Nozzles',
-    whatsappMsg: 'નમસ્તે બુરહાનુદ્દીનભાઈ, મારે ગેસ જેટ્સ અને નોઝલ સ્પેરપાર્ટ્સ જોઈએ છે.',
-  },
-  {
-    id: 'gas-5',
-    src: '/images/gas/gas-5.jpg',
-    alt: 'ડ્યુઅલ ગેજ હાઇ-પ્રેશર રેગ્યુલેટર',
-    nameGu: 'ડ્યુઅલ ગેજ ઇન્ડસ્ટ્રિયલ રેગ્યુલેટર',
-    nameEn: 'Dual-Gauge Industrial Regulator',
-    descGu: 'કોમર્શિયલ ભઠ્ઠી અને મોટા કુકિંગ યુનિટ્સ માટે ચોક્કસ ગેસ પ્રેશર કંટ્રોલ અને મીટર.',
-    descEn: 'Industrial heavy duty regulators with dual pressure gauges for high-flow appliances.',
-    badgeGu: 'હેવી ડ્યુટી • સેફ્ટી',
-    badgeEn: 'Heavy Duty • Certified',
-    categoryGu: 'રેગ્યુલેટર',
-    categoryEn: 'Regulators',
-    whatsappMsg: 'નમસ્તે બુરહાનુદ્દીનભાઈ, મારે ઇન્ડસ્ટ્રિયલ ગેસ રેગ્યુલેટર વિશે પૂછવું છે.',
-  },
-  {
-    id: 'gas-6',
-    src: '/images/gas/gas-6.jpg',
-    alt: 'સ્ટીલ-રિઇનફોર્સ્ડ સુરક્ષા ગેસ હોસ પાઇપ',
-    nameGu: 'સ્ટીલ વાયર સુરક્ષા ગેસ પાઇપ',
-    nameEn: 'Steel-Wire Suraksha Gas Hose',
-    descGu: 'ઉંદર-પ્રૂફ, આગ-રોધક સ્ટીલ વાયર મેશ કવચ સાથે ૧૦૦% સલામત ગેસ હોસ પાઇપ.',
-    descEn: 'Rodent-proof, flame-resistant wire-braided safety rubber hose with maximum burst pressure.',
-    badgeGu: 'ISI માર્ક • સુરક્ષિત',
-    badgeEn: 'ISI Mark • Safe',
-    categoryGu: 'સુરક્ષા હોસ પાઇપ',
-    categoryEn: 'Suraksha Hose',
-    whatsappMsg: 'નમસ્તે બુરહાનુદ્દીનભાઈ, મારે સુરક્ષા સ્ટીલ વાયર ગેસ પાઇપ ખરીદવી છે.',
-  },
-  {
-    id: 'gas-7',
-    src: '/images/gas/gas-7.jpg',
-    alt: 'મિક્સિંગ ટ્યુબ અને વેન્ચુરી કંટ્રોલર',
-    nameGu: 'મિક્સિંગ ટ્યુબ / વેન્ચુરી કંટ્રોલર',
-    nameEn: 'Mixing Tube / Venturi Air Controller',
-    descGu: 'ગેસ અને હવાનું ચોક્કસ મિશ્રણ બનાવી બ્લુ ફ્લેમ આપવા માટે મજબૂત વેન્ચુરી ટ્યુબ.',
-    descEn: 'Ensures optimal air-gas ratio for soot-free blue combustion and thermal efficiency.',
-    badgeGu: 'ઓરિજિનલ સ્પેર',
-    badgeEn: 'Original Spare',
-    categoryGu: 'મિક્સિંગ ટ્યુબ',
-    categoryEn: 'Venturi Tubes',
-    whatsappMsg: 'નમસ્તે બુરહાનુદ્દીનભાઈ, મારે ગેસ મિક્સિંગ ટ્યુબ / વેન્ચુરી સ્પેરપાર્ટ્સ જોઈએ છે.',
-  },
-  {
-    id: 'gas-8',
-    src: '/images/gas/gas-8.jpg',
-    alt: 'ઓટોમેટિક ઇગ્નીશન બોક્સ અને સ્પાર્કર',
-    nameGu: 'ઓટોમેટિક ઇગ્નીશન બોક્સ',
-    nameEn: 'Automatic Ignition Spark Box',
-    descGu: 'ઓટો-ઇગ્નીશન ગેસ સ્ટવ અને હોબ્સ માટે પાવરફુલ ઇલેક્ટ્રિક સ્પાર્ક જનરેટર.',
-    descEn: 'Continuous impulse multi-outlet pulse igniter box for auto-ignition glass top hobs.',
-    badgeGu: 'રિપેરિંગ & નવું',
-    badgeEn: 'New & Repair',
-    categoryGu: 'ઇગ્નીશન સિસ્ટમ',
-    categoryEn: 'Ignition Systems',
-    whatsappMsg: 'નમસ્તે બુરહાનુદ્દીનભાઈ, મારે ઓટોમેટિક ઇગ્નીશન બોક્સ અને સ્પાર્કર વિશે પૂછવું છે.',
-  },
-  {
-    id: 'gas-9',
-    src: '/images/gas/gas-9.jpg',
-    alt: 'સેફ્ટી થર્મોકપલ અને ફ્લેમ સેન્સર',
-    nameGu: 'સેફ્ટી થર્મોકપલ ફ્લેમ સેન્સર',
-    nameEn: 'Safety Thermocouple Sensor',
-    descGu: 'ફ્લેમ ઓલવાઈ જવાના સંજોગોમાં આપમેળે ગેસ બંધ કરતી અદ્યતન સેફ્ટી કટ-ઓફ સિસ્ટમ.',
-    descEn: 'Automatic gas shutoff protection when flame is extinguished, essential for safety.',
-    badgeGu: 'સેફ્ટી સેન્સર',
-    badgeEn: 'Safety Sensor',
-    categoryGu: 'થર્મોકપલ સેન્સર',
-    categoryEn: 'Thermocouples',
-    whatsappMsg: 'નમસ્તે બુરહાનુદ્દીનભાઈ, મારે ગેસ સ્ટવ થર્મોકપલ સેન્સર વિશે જાણવું છે.',
-  },
-  {
-    id: 'gas-10',
-    src: '/images/gas/gas-10.webp',
-    alt: 'કોમર્શિયલ રેસ્ટોરન્ટ કુકિંગ રેન્જ',
-    nameGu: 'કોમર્શિયલ હોટલ કુકિંગ રેન્જ',
-    nameEn: 'Commercial Restaurant Cooking Range',
-    descGu: 'હોટલ, ઢાબા અને રેસ્ટોરન્ટ માટે હેવી ડ્યુટી 2-બર્નર, 3-બર્નર અને ચાઇનીઝ રેન્જ.',
-    descEn: 'Stainless steel commercial cooking ranges for restaurants, catering, and heavy kitchen workloads.',
-    badgeGu: 'નવા & રિપેરિંગ',
-    badgeEn: 'Sales & Service',
-    categoryGu: 'કોમર્શિયલ રેન્જ',
-    categoryEn: 'Commercial Range',
-    whatsappMsg: 'નમસ્તે બુરહાનુદ્દીનભાઈ, મારે હોટલ કુકિંગ રેન્જ વિશે પૂછપરછ કરવી છે.',
-  },
-  {
-    id: 'gas-11',
+    id: 'gas-prod-1',
     src: '/images/gas/gas-11.jpg',
-    alt: 'ગ્લાસ ટોપ અને સ્ટીલ સ્ટવ રિપેરિંગ',
-    nameGu: 'ગ્લાસ ટોપ સ્ટવ રિપેરિંગ સેવા',
-    nameEn: 'Glass Top & Steel Stove Repairs',
-    descGu: 'તમામ બ્રાન્ડના ગ્લાસ ટોપ કુકટોપ, ધીમી ફ્લેમ, લીકેજ કે તૂટેલા ગ્લાસનું ઝડપી સમારકામ.',
-    descEn: 'Expert doorstep diagnostics and repair for all glass top and steel domestic gas stoves.',
-    badgeGu: 'ઝડપી રિપેરિંગ સેવા',
-    badgeEn: 'Doorstep Repairs',
-    categoryGu: 'સ્ટવ રિપેરિંગ',
-    categoryEn: 'Stove Repairs',
-    whatsappMsg: 'નમસ્તે બુરહાનુદ્દીનભાઈ, મારે ગેસ સ્ટવ રિપેરિંગ કરાવવું છે.',
+    alt: '1 Burner Gas Stove',
+    nameGu: '1 બર્નર ગેસ સ્ટવ',
+    nameEn: '1 Burner Gas Stove',
+    descGu: 'કોમ્પેક્ટ અને હેવી ડ્યુટી સિંગલ બર્નર સ્ટવ, નાની રસોઈ અને હોટેલ સાઇડ-કુકિંગ માટે ટકાઉ બોડી.',
+    descEn: 'Compact heavy-duty single burner stove, perfect for quick boiling and side kitchen setups.',
+    badgeGu: 'Available • સ્ટોક',
+    badgeEn: 'Available • In Stock',
+    categoryGu: 'ગેસ સ્ટવ',
+    categoryEn: 'Gas Stoves',
+    whatsappMsg: 'નમસ્તે બુરહાનુદ્દીનભાઈ, મારે 1 બર્નર ગેસ સ્ટવ વિશે પૂછપરછ કરવી છે.',
   },
   {
-    id: 'gas-12',
-    src: '/images/gas/gas-12.jpg',
-    alt: 'હીટ-રેઝિસ્ટન્ટ ગેસ નોબ અને કંટ્રોલ સ્વીચ',
-    nameGu: 'હીટ-રેઝિસ્ટન્ટ ગેસ નોબ્સ & સ્વીચ',
-    nameEn: 'Heat-Resistant Gas Knobs & Switch',
-    descGu: 'ગરમીથી પીગળે નહીં તેવા ટકાઉ બેકલાઇટ નોબ્સ અને સ્મૂધ કંટ્રોલ સ્વીચ.',
-    descEn: 'Heavy duty bakelite knobs, control switches, and stem adaptors for all stove models.',
-    badgeGu: 'ઓરિજિનલ સ્ટોક',
-    badgeEn: 'Ready Stock',
-    categoryGu: 'કંટ્રોલ નોબ્સ',
-    categoryEn: 'Knobs & Fittings',
-    whatsappMsg: 'નમસ્તે બુરહાનુદ્દીનભાઈ, મારે ગેસ સ્ટવના નોબ્સ સ્પેરપાર્ટ્સ જોઈએ છે.',
-  },
-  {
-    id: 'gas-13',
-    src: '/images/gas/gas-13.jpg',
-    alt: 'હેવી કોપર પિગટેલ અને સિલિન્ડર કનેક્ટર',
-    nameGu: 'હેવી કોપર પિગટેલ કનેક્ટર',
-    nameEn: 'Heavy Copper Pigtail Connector',
-    descGu: 'કોમર્શિયલ સિલિન્ડર બેંક માટે હાઇ પ્રેશર કોપર પાઇપ અને બ્રાસ એન્ડેડ કનેક્ટર્સ.',
-    descEn: 'High-pressure copper flexible pigtails with brass end fittings for manifold lines.',
-    badgeGu: 'હાઇ પ્રેશર ટેસ્ટેડ',
-    badgeEn: 'Tested High Pressure',
-    categoryGu: 'પિગટેલ ફિટિંગ',
-    categoryEn: 'Copper Pigtails',
-    whatsappMsg: 'નમસ્તે બુરહાનુદ્દીનભાઈ, મારે કોપર પિગટેલ ગેસ ફિટિંગ વિશે પૂછવું છે.',
-  },
-  {
-    id: 'gas-14',
-    src: '/images/gas/gas-14.jpg',
-    alt: 'કિચન ચિમની સર્વિસિંગ અને ફિલ્ટર્સ',
-    nameGu: 'કિચન ચિમની સર્વિસ & ફિલ્ટર્સ',
-    nameEn: 'Kitchen Chimney Service & Filters',
-    descGu: 'ચિમની મોટર વાઇન્ડિંગ, બેફલ ફિલ્ટર ક્લીનિંગ, ડક્ટ પાઇપ ફિટિંગ અને નોઇઝ રિપેર.',
-    descEn: 'Complete kitchen chimney deep cleaning, motor repairing, baffle filter replacement, and ducting.',
-    badgeGu: 'સર્વિસ & સ્પેરપાર્ટ્સ',
-    badgeEn: 'Service & Spares',
-    categoryGu: 'ચિમની સર્વિસ',
-    categoryEn: 'Chimney Service',
-    whatsappMsg: 'નમસ્તે બુરહાનુદ્દીનભાઈ, મારે કિચન ચિમની રિપેરિંગ / સર્વિસ કરાવવી છે.',
-  },
-  {
-    id: 'gas-15',
-    src: '/images/gas/gas-15.jpg',
-    alt: 'ગેસ પાઇપલાઇન લીકેજ ડિટેક્શન અને પ્રેશર ટેસ્ટ',
-    nameGu: 'ગેસ લીકેજ પ્રૂફ ટેસ્ટિંગ',
-    nameEn: 'Pipeline Leakage Detection & Testing',
-    descGu: 'ડિજિટલ ડિટેક્ટર અને પ્રેશર ટેસ્ટિંગ દ્વારા ગેસ લીકેજની સુરક્ષિત ચકાસણી.',
-    descEn: 'Comprehensive pressure drop testing and leak detection for absolute safety compliance.',
-    badgeGu: '૧૦૦% સુરક્ષા ગેરંટી',
-    badgeEn: 'Safety Certified',
-    categoryGu: 'સેફ્ટી ટેસ્ટિંગ',
-    categoryEn: 'Safety Testing',
-    whatsappMsg: 'નમસ્તે બુરહાનુદ્દીનભાઈ, અમારે ગેસ પાઇપલાઇન લીકેજ ચેક અને ટેસ્ટિંગ કરાવવું છે.',
-  },
-  {
-    id: 'gas-16',
+    id: 'gas-prod-2',
     src: '/images/gas/gas-16.jpg',
-    alt: 'ડોમેસ્ટિક એલપીજી ગેસ બોટલ રેગ્યુલેટર',
-    nameGu: 'ડોમેસ્ટિક LPG બોટલ રેગ્યુલેટર',
-    nameEn: 'Domestic LPG Bottle Regulator',
-    descGu: 'ઘરેલુ ગેસ સિલિન્ડર માટે ૧૦૦% સલામત, સ્મૂધ ઓન/ઓફ સ્વીચવાળો ઓરિજિનલ રેગ્યુલેટર.',
-    descEn: 'Standard domestic LPG regulators with push-button lock and leak-resistant seal.',
-    badgeGu: 'ઓરિજિનલ ક્વોલિટી',
-    badgeEn: 'Original Quality',
-    categoryGu: 'ડોમેસ્ટિક રેગ્યુલેટર',
-    categoryEn: 'LPG Regulators',
-    whatsappMsg: 'નમસ્તે બુરહાનુદ્દીનભાઈ, મારે ઘરેલુ ગેસ રેગ્યુલેટર વિશે પૂછવું છે.',
+    alt: '2 Burner Gas Stove',
+    nameGu: '2 બર્નર ગેસ સ્ટવ (ગ્લાસ ટોપ / સ્ટીલ)',
+    nameEn: '2 Burner Gas Stove (Glass & Steel)',
+    descGu: 'ટફન્ડ ગ્લાસ ટોપ અને સ્ટેઈનલેસ સ્ટીલ 2-બર્નર સ્ટવ, બ્લુ ફ્લેમ કાર્યક્ષમતા અને લાંબા આયુષ્ય સાથે.',
+    descEn: 'Toughened glass top and stainless steel 2-burner cooktops with high thermal efficiency.',
+    badgeGu: 'Available • નવી રેન્જ',
+    badgeEn: 'Available • New Range',
+    categoryGu: 'ગેસ સ્ટવ',
+    categoryEn: 'Gas Stoves',
+    whatsappMsg: 'નમસ્તે બુરહાનુદ્દીનભાઈ, મારે 2 બર્નર ગેસ સ્ટવ વિશે પૂછપરછ કરવી છે.',
   },
   {
-    id: 'gas-17',
-    src: '/images/gas/gas-17.jpg',
-    alt: 'હોટલ અને રેસ્ટોરન્ટ કિચન પાઇપલાઇન વર્ક',
-    nameGu: 'હોટલ & રેસ્ટોરન્ટ પાઇપલાઇન વર્ક',
-    nameEn: 'Hotel & Restaurant Piping Work',
-    descGu: 'સી સ્કેડ્યુલ MS/GI પાઇપિંગ, આઇસોલેશન વાલ્વ્સ અને સેફ્ટી શટ-ઓફ સાથે સંપૂર્ણ ફિટિંગ.',
-    descEn: 'Industrial grade seamless pipe laying, shutoff valves, and fire-safety layouts for hotels.',
-    badgeGu: 'પ્રોજેક્ટ ઇન્સ્ટોલેશન',
-    badgeEn: 'Project Work',
-    categoryGu: 'પાઇપલાઇન ઇન્સ્ટોલેશન',
-    categoryEn: 'Kitchen Piping',
-    whatsappMsg: 'નમસ્તે બુરહાનુદ્દીનભાઈ, અમારે નવી હોટલ/રેસ્ટોરન્ટ ગેસ પાઇપલાઇન કામ કરાવવું છે.',
-  },
-  {
-    id: 'gas-18',
-    src: '/images/gas/gas-18.webp',
-    alt: 'બેકરી અને સ્વીટ્સ માટે હાઇ-ફ્લેમ ભઠ્ઠી બર્નર',
-    nameGu: 'હાઇ-ફ્લેમ ઇન્ડસ્ટ્રિયલ ભઠ્ઠી',
-    nameEn: 'High-Flame Industrial Bhatthi',
-    descGu: 'ફરસાણ, મીઠાઈ, કેટરિંગ અને બેકરી કારખાના માટે હાઇ-કેલરીફિક પાવરફુલ ફ્લેમ ભઠ્ઠી.',
-    descEn: 'High-BTU industrial bhatthi burners for sweet makers, farsan, bakeries, and bulk food production.',
-    badgeGu: 'હાઇ-હીટ આઉટપુટ',
-    badgeEn: 'High Output',
-    categoryGu: 'ઇન્ડસ્ટ્રિયલ ભઠ્ઠી',
-    categoryEn: 'Industrial Bhatthi',
-    whatsappMsg: 'નમસ્તે બુરહાનુદ્દીનભાઈ, મારે ફરસાણ/મીઠાઈની હેવી ભઠ્ઠી બર્નર વિશે પૂછવું છે.',
-  },
-  {
-    id: 'gas-19',
-    src: '/images/gas/gas-19.jpg',
-    alt: 'પ્રિસિઝન બ્રાસ કોક અને ફ્લેમ એડજસ્ટર',
-    nameGu: 'પ્રિસિઝન બ્રાસ કોક & ફ્લેમ એડજસ્ટર',
-    nameEn: 'Precision Brass Cock & Valve',
-    descGu: 'હાઇ-ટેમ્પરેચર ગ્રીસ સીલવાળા બ્રાસ કોક જે લાંબા સમય સુધી લીક-ફ્રી સર્વિસ આપે છે.',
-    descEn: 'High-temperature lubricated precision brass stopcocks for commercial kitchen stoves.',
-    badgeGu: '૧૦૦% બ્રાસ',
-    badgeEn: '100% Solid Brass',
-    categoryGu: 'બ્રાસ ફિટિંગ્સ',
-    categoryEn: 'Brass Fittings',
-    whatsappMsg: 'નમસ્તે બુરહાનુદ્દીનભાઈ, મારે બ્રાસ કોક અને વાલ્વ સ્પેરપાર્ટ્સ જોઈએ છે.',
-  },
-  {
-    id: 'gas-20',
+    id: 'gas-prod-3',
     src: '/images/gas/gas-20.webp',
-    alt: 'મલ્ટી-બર્નર કુકટોપ ઓવરહોલિંગ',
-    nameGu: '3 & 4 બર્નર કુકટોપ ઓવરહોલિંગ',
-    nameEn: '3 & 4 Burner Cooktop Overhaul',
-    descGu: 'બધા બર્નર્સની સંપૂર્ણ સફાઈ, ધીમી આંચનું નિવારણ અને નવા જેટ્સ સાથે ફેક્ટરી-લેવલ પરફોર્મન્સ.',
-    descEn: 'Complete disassembly, descaling, carbon clearing, and recalibration for multi-burner cooktops.',
-    badgeGu: 'સંપૂર્ણ ઓવરહોલિંગ',
-    badgeEn: 'Complete Overhaul',
-    categoryGu: 'સ્ટવ સર્વિસ',
-    categoryEn: 'Cooktop Repairs',
-    whatsappMsg: 'નમસ્તે બુરહાનુદ્દીનભાઈ, મારે 3/4 બર્નર કુકટોપની સંપૂર્ણ સર્વિસ કરાવવી છે.',
+    alt: '3 Burner Gas Stove',
+    nameGu: '3 બર્નર ગેસ સ્ટવ / હોબ્સ',
+    nameEn: '3 Burner Gas Stove & Hobs',
+    descGu: 'ત્રણ બર્નર સાથે સ્પીડી કુકિંગ, એન્ટી-સ્કિડ રબર લેગ્સ અને હેવી ડ્યુટી પેન સપોર્ટ.',
+    descEn: 'Multi-tasking 3-burner gas stoves with ergonomic knobs, auto/manual ignition, and anti-skid feet.',
+    badgeGu: 'Available • વોરંટી',
+    badgeEn: 'Available • Warranty',
+    categoryGu: 'ગેસ સ્ટવ',
+    categoryEn: 'Gas Stoves',
+    whatsappMsg: 'નમસ્તે બુરહાનુદ્દીનભાઈ, મારે 3 બર્નર ગેસ સ્ટવ વિશે પૂછપરછ કરવી છે.',
   },
   {
-    id: 'gas-21',
-    src: '/images/gas/gas-21.jpg',
-    alt: 'ઇન્ડસ્ટ્રિયલ હેવી બોલ વાલ્વ આઇસોલેશન',
-    nameGu: 'ઇન્ડસ્ટ્રિયલ હેવી બોલ વાલ્વ',
-    nameEn: 'Industrial Heavy Ball Valve',
-    descGu: 'મેનિફોલ્ડ અને ગેસ પાઇપલાઇનમાં ઇમરજન્સી ક્વિક શટ-ઓફ માટે ક્લાસ-રેટેડ બોલ વાલ્વ.',
-    descEn: 'Quarter-turn emergency isolation ball valves rated for LPG vapour and liquid lines.',
-    badgeGu: 'ઇમરજન્સી સેફ્ટી',
-    badgeEn: 'Safety Rated',
-    categoryGu: 'બોલ વાલ્વ',
-    categoryEn: 'Ball Valves',
-    whatsappMsg: 'નમસ્તે બુરહાનુદ્દીનભાઈ, મારે ગેસ પાઇપલાઇન બોલ વાલ્વ સ્પેરપાર્ટ્સ વિશે પૂછવું છે.',
+    id: 'gas-prod-4',
+    src: '/images/gas/gas-10.webp',
+    alt: '4 Burner Gas Stove',
+    nameGu: '4 બર્નર ગેસ સ્ટવ & કુકટોપ',
+    nameEn: '4 Burner Gas Stove & Cooktop',
+    descGu: 'મોટા પરિવાર અને સેમી-કોમર્શિયલ ઉપયોગ માટે 4 હાઇ-પાવર બર્નર્સ, એસ્થેટિક લુક અને સરળ સફાઈ.',
+    descEn: 'Spacious 4-burner cooktop for large families and heavy culinary prep with easy-clean surfaces.',
+    badgeGu: 'Available • પ્રીમિયમ',
+    badgeEn: 'Available • Premium',
+    categoryGu: 'ગેસ સ્ટવ',
+    categoryEn: 'Gas Stoves',
+    whatsappMsg: 'નમસ્તે બુરહાનુદ્દીનભાઈ, મારે 4 બર્નર ગેસ સ્ટવ વિશે પૂછપરછ કરવી છે.',
   },
   {
-    id: 'gas-22',
+    id: 'gas-prod-5',
+    src: '/images/gas/gas-18.webp',
+    alt: 'Commercial Gas Burners',
+    nameGu: 'કોમર્શિયલ ગેસ બર્નર્સ & ભઠ્ઠી',
+    nameEn: 'Commercial Gas Burners & Bhatthi',
+    descGu: 'હોટલ, રેસ્ટોરન્ટ, કેટરિંગ અને ફરસાણ-મીઠાઈ એકમો માટે હાઇ-પ્રેશર પાવરફુલ ફ્લેમ ભઠ્ઠી.',
+    descEn: 'Industrial high-BTU gas bhatthis and burners engineered for restaurants, bakeries, and catering.',
+    badgeGu: 'Repair & Sales Available',
+    badgeEn: 'Repair & Sales Available',
+    categoryGu: 'કોમર્શિયલ બર્નર',
+    categoryEn: 'Commercial Burners',
+    whatsappMsg: 'નમસ્તે બુરહાનુદ્દીનભાઈ, મારે કોમર્શિયલ ગેસ બર્નર્સ અને ભઠ્ઠી વિશે જાણવું છે.',
+  },
+  {
+    id: 'gas-prod-6',
+    src: '/images/gas/gas-5.jpg',
+    alt: 'LPG Regulators',
+    nameGu: 'ઇન્ડસ્ટ્રિયલ & ડોમેસ્ટિક LPG રેગ્યુલેટર્સ',
+    nameEn: 'Industrial & Domestic LPG Regulators',
+    descGu: 'પ્રેશર મીટર ગેજવાળા હાઇ-પ્રેશર ઇન્ડસ્ટ્રિયલ અને ISI પ્રમાણિત ડોમેસ્ટિક ગેસ રેગ્યુલેટર્સ.',
+    descEn: 'Dual-gauge high-pressure industrial regulators and ISI certified domestic regulators.',
+    badgeGu: 'Available • ISI સર્ટીફાઇડ',
+    badgeEn: 'Available • Certified',
+    categoryGu: 'રેગ્યુલેટર્સ',
+    categoryEn: 'LPG Regulators',
+    whatsappMsg: 'નમસ્તે બુરહાનુદ્દીનભાઈ, મારે LPG રેગ્યુલેટર વિશે પૂછપરછ કરવી છે.',
+  },
+  {
+    id: 'gas-prod-7',
+    src: '/images/gas/gas-6.jpg',
+    alt: 'Gas Hose Pipes',
+    nameGu: 'સ્ટીલ વાયર સુરક્ષા ગેસ હોસ પાઇપ',
+    nameEn: 'Steel-Wire Suraksha Gas Hose Pipe',
+    descGu: 'ઉંદર-પ્રૂફ, હાઇ-પ્રેશર રેઝિસ્ટન્ટ સ્ટીલ વાયર બ્રેઇડેડ સલામત ગેસ હોસ પાઇપ.',
+    descEn: 'Wire-braided rodent-proof Suraksha safety hose pipe with leak-resistant reinforcement.',
+    badgeGu: 'Available • સુરક્ષા ગેરંટી',
+    badgeEn: 'Available • Safe',
+    categoryGu: 'હોસ પાઇપ',
+    categoryEn: 'Gas Hose Pipes',
+    whatsappMsg: 'નમસ્તે બુરહાનુદ્દીનભાઈ, મારે સ્ટીલ વાયર સુરક્ષા ગેસ પાઇપ ખરીદવી છે.',
+  },
+  {
+    id: 'gas-prod-8',
+    src: '/images/gas/gas-1.jpg',
+    alt: 'Burners',
+    nameGu: 'ગેસ બર્નર કેપ & હેવી કાસ્ટ હેડ',
+    nameEn: 'Gas Burner Cap & Heavy Cast Head',
+    descGu: 'શુદ્ધ બ્રાસ બર્નર ટોપ અને કાસ્ટ આયર્ન હેડ, પરફેક્ટ બ્લુ ફ્લેમ અને ઓરિજિનલ ફિટિંગ.',
+    descEn: 'Solid brass burner tops and heavy cast iron heads delivering pure blue flame and fuel economy.',
+    badgeGu: 'Available • ઓરિજિનલ',
+    badgeEn: 'Available • 100% Genuine',
+    categoryGu: 'બર્નર્સ',
+    categoryEn: 'Burners',
+    whatsappMsg: 'નમસ્તે બુરહાનુદ્દીનભાઈ, મારે ગેસ બર્નર સ્પેરપાર્ટ્સ જોઈએ છે.',
+  },
+  {
+    id: 'gas-prod-9',
+    src: '/images/gas/gas-12.jpg',
+    alt: 'Knobs',
+    nameGu: 'હીટ-રેઝિસ્ટન્ટ બેકલાઇટ ગેસ નોબ્સ',
+    nameEn: 'Heat-Resistant Gas Knobs & Controls',
+    descGu: 'ગરમીથી પીગળે નહીં તેવા હેવી બેકલાઇટ નોબ્સ, સ્મૂધ રોટેશન અને તમામ મોડલ માટે ઉપલબ્ધ.',
+    descEn: 'Heavy duty bakelite knobs, stem adaptors, and smooth rotary switches for all stove brands.',
+    badgeGu: 'Available • હાજરમાં સ્ટોક',
+    badgeEn: 'Available • Ready Stock',
+    categoryGu: 'નોબ્સ & કંટ્રોલ',
+    categoryEn: 'Knobs',
+    whatsappMsg: 'નમસ્તે બુરહાનુદ્દીનભાઈ, મારે ગેસ સ્ટવના નોબ્સ જોઈએ છે.',
+  },
+  {
+    id: 'gas-prod-10',
+    src: '/images/gas/gas-4.jpg',
+    alt: 'Jets',
+    nameGu: 'પ્રિસિઝન બ્રાસ જેટ્સ & નોઝલ્સ (LPG/PNG)',
+    nameEn: 'Precision Brass Jets & Nozzles',
+    descGu: 'ગેસ અને PNG માટે ચોક્કસ ગેજવાળા બ્રાસ જેટ્સ, સચોટ ફ્લેમ કંટ્રોલ અને નો-કાર્બન કમ્બશ્ન.',
+    descEn: 'Precision drilled brass jets and fuel nozzles calibrated for clean combustion in LPG and PNG.',
+    badgeGu: 'Available • તમામ સાઇઝ',
+    badgeEn: 'Available • All Sizes',
+    categoryGu: 'જેટ્સ & નોઝલ',
+    categoryEn: 'Jets & Nozzles',
+    whatsappMsg: 'નમસ્તે બુરહાનુદ્દીનભાઈ, મારે ગેસ જેટ્સ અને નોઝલ્સ વિશે પૂછવું છે.',
+  },
+  {
+    id: 'gas-prod-11',
+    src: '/images/gas/gas-3.jpg',
+    alt: 'Valves',
+    nameGu: 'હાઇ-પ્રેશર બ્રાસ વાલ્વ & સ્પિન્ડલ',
+    nameEn: 'High-Pressure Brass Valves & Spindles',
+    descGu: '૧૦૦% લીકેજ-પ્રૂફ ટેસ્ટેડ બ્રાસ ગેસ વાલ્વ, સ્મૂધ રોટેટિંગ સ્પિન્ડલ અને સેફ્ટી શટ-ઓફ.',
+    descEn: '100% leak-tested solid brass gas valves, heavy spindles, and flame adjusters for kitchen stoves.',
+    badgeGu: 'Repair & Sales Available',
+    badgeEn: 'Repair & Sales Available',
+    categoryGu: 'વાલ્વ & સ્પિન્ડલ',
+    categoryEn: 'Valves',
+    whatsappMsg: 'નમસ્તે બુરહાનુદ્દીનભાઈ, મારે ગેસ સ્ટવ વાલ્વ અને સ્પિન્ડલ સ્પેરપાર્ટ્સ વિશે પૂછવું છે.',
+  },
+  {
+    id: 'gas-prod-12',
     src: '/images/gas/Gas-22.jpg',
-    alt: 'તમામ પ્રકારના ઓરિજિનલ સ્પેરપાર્ટ્સ વેરહાઉસ સ્ટોક',
-    nameGu: 'સંપૂર્ણ ઓરિજિનલ સ્પેરપાર્ટ્સ સ્ટોક',
+    alt: 'Spare Parts',
+    nameGu: 'સંપૂર્ણ ઓરિજિનલ સ્પેરપાર્ટ્સ કલેક્શન',
     nameEn: 'Complete Genuine Spare Parts Stock',
-    descGu: 'દરેક કંપનીના ગેસ ચૂલા, હોબ્સ, હોટલ રેન્જ અને પાઇપલાઇનના તમામ સ્પેરપાર્ટ્સ હાજરમાં.',
-    descEn: 'Massive ready inventory of authentic spare parts for domestic, commercial, and industrial gas equipment.',
-    badgeGu: '૧૦૦% ઓરિજિનલ • હાજરમાં સ્ટોક',
-    badgeEn: '100% Genuine • Ready Stock',
-    categoryGu: 'સ્પેરપાર્ટ્સ સ્ટોક',
-    categoryEn: 'Spares Inventory',
+    descGu: 'મિક્સિંગ ટ્યુબ, વેન્ચુરી, કોપર પિગટેલ, ઇગ્નીશન બોક્સ, થર્મોકપલ અને કિચન ચિમની મોટર ફિલ્ટર્સ.',
+    descEn: 'Mixing tubes, venturis, copper pigtails, ignition generators, thermocouples, and chimney parts.',
+    badgeGu: 'Available • રેડી સ્ટોક',
+    badgeEn: 'Available • Ready Stock',
+    categoryGu: 'સ્પેરપાર્ટ્સ',
+    categoryEn: 'Spare Parts',
     whatsappMsg: 'નમસ્તે બુરહાનુદ્દીનભાઈ, મારે ગેસ સ્પેરપાર્ટ્સનો જથ્થો / રીટેલ પાર્ટ્સ જોઈએ છે.',
-  },
-  {
-    id: 'gas-23',
-    src: '/images/gas/gas-23.jpg',
-    alt: 'સંતોષકારક ગેસ સ્ટવ અને પાઇપલાઇન રિપેરિંગ સેવા',
-    nameGu: 'સંતોષકારક ટેકનિકલ રિપેરિંગ',
-    nameEn: 'Expert Technical Repairing Service',
-    descGu: 'અનુભવી ટેકનિશિયન દ્વારા સ્થળ પર જ ગેસ ઉપકરણોનું વિશ્વસનીય અને સંતોષકારક કામકાજ.',
-    descEn: 'Decades of certified on-site service experience ensuring smooth, safe, and dependable cooking operations.',
-    badgeGu: 'ગેરંટેડ કામકાજ',
-    badgeEn: 'Guaranteed Workmanship',
-    categoryGu: 'ઓન-સાઇટ સર્વિસ',
-    categoryEn: 'On-Site Repairs',
-    whatsappMsg: 'નમસ્તે બુરહાનુદ્દીનભાઈ, અમારે તાત્કાલિક ગેસ રિપેરિંગ સર્વિસની જરૂર છે.',
   },
 ];
 
-const gasCapabilities = [
+const repairServices = [
   {
-    icon: 'M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z',
-    titleGu: 'કોમર્શિયલ LPG પાઇપલાઇન મેનિફોલ્ડ',
-    titleEn: 'Commercial LPG Pipeline Manifolds',
-    descGu: 'હોટલ, રેસ્ટોરન્ટ, બેકરી અને ફેક્ટરીઓ માટે સુરક્ષિત ડ્યુઅલ-સ્ટેજ પ્રેશર રેગ્યુલેશન સિસ્ટમ, કોપર પિગટેલ અને ISI સ્ટીલ પાઇપલાઇન ઇન્સ્ટોલેશન.',
-    descEn: 'Design, copper pigtails, dual-stage pressure manifold manifolds, and certified safety compliance for commercial kitchens.',
-    tagGu: 'હોટલ & ફેક્ટરી',
-    tagEn: 'Hotels & Industry',
-  },
-  {
-    icon: 'M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z',
-    titleGu: 'ગેસ સ્ટવ વેચાણ & સંતોષકારક રિપેરિંગ',
-    titleEn: 'Gas Stoves Sales & Satisfactory Repairs',
-    descGu: 'ગ્લાસ ટોપ, સ્ટેઈનલેસ સ્ટીલ, 2-3-4 બર્નર સ્ટવ, ઓટો-ઇગ્નીશન હોબ્સ અને કોમર્શિયલ ભઠ્ઠીનું ઝડપી સમારકામ, લીકેજ સોલ્યુશન અને કમ્પ્લીટ સર્વિસિંગ.',
-    descEn: 'Comprehensive diagnostics, burner tuning, leak sealing, glass replacement, and thorough servicing for domestic & commercial stoves.',
+    id: 'gas-stove-servicing',
+    titleGu: 'ગેસ સ્ટવ સંપૂર્ણ સર્વિસિંગ',
+    titleEn: 'Gas Stove Servicing',
+    descGu: 'ઘરેલુ અને કોમર્શિયલ ગેસ સ્ટવની સ્થળ પર સંપૂર્ણ સફાઈ, ધીમી આંચનું નિવારણ અને ફ્લેમ ટ્યુનિંગ.',
+    descEn: 'On-site complete deep cleaning, descaling, carbon clearing, and flame tuning for all domestic & commercial stoves.',
     tagGu: 'સ્થળ પર સર્વિસ',
     tagEn: 'Doorstep Service',
+    icon: 'M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10',
   },
   {
+    id: 'burner-repair',
+    titleGu: 'બર્નર રિપેર & ક્લિનિંગ',
+    titleEn: 'Burner Repair',
+    descGu: 'પીળી આંચ (યલો ફ્લેમ), કાર્બન જમાવટ અને બર્નર બ્લોકેજનું તાત્કાલિક ટેકનિકલ સમારકામ.',
+    descEn: 'Fast repair for yellow flames, soot buildup, clogged air-gas mixing tubes, and uneven burning.',
+    tagGu: 'બ્લુ ફ્લેમ ગેરંટી',
+    tagEn: 'Blue Flame',
+    icon: 'M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z',
+  },
+  {
+    id: 'gas-leakage-repair',
+    titleGu: 'ગેસ લીકેજ ડિટેક્શન & રિપેર',
+    titleEn: 'Gas Leakage Repair',
+    descGu: 'ડિજિટલ ડિટેક્ટર અને પ્રેશર ડ્રોપ ટેસ્ટિંગ દ્વારા પાઇપલાઇન કે સ્ટવમાંથી ગેસ ગંધ અને લીકેજનું સુરક્ષિત નિવારણ.',
+    descEn: 'Precision digital leak detectors and pressure drop testing to identify and seal hazardous gas leaks.',
+    tagGu: '૧૦૦% સલામત',
+    tagEn: '100% Safe',
     icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
-    titleGu: '૧૦૦% ઓરિજિનલ સ્પેરપાર્ટ્સ & કિચન ચિમની',
-    titleEn: '100% Genuine Spare Parts & Kitchen Chimneys',
-    descGu: 'બર્નર કેપ અને હેડ, બ્રાસ જેટ્સ, વાલ્વ્સ, સુરક્ષા હોસ પાઇપ, થર્મોકપલ, ઇગ્નીશન બોક્સ તેમજ કિચન ચિમની મોટર વાઇન્ડિંગ અને ફિલ્ટર્સ હાજરમાં.',
-    descEn: 'Burner caps, heads, brass nozzles, valves, Suraksha hoses, thermocouple sensors, ignition boxes, and chimney maintenance.',
+  },
+  {
+    id: 'regulator-replacement',
+    titleGu: 'રેગ્યુલેટર બદલવું & પ્રેશર ચેક',
+    titleEn: 'Regulator Replacement',
+    descGu: 'ખરાબ રેગ્યુલેટર, લૂઝ લોક અને પ્રેશર વેરિએશન માટે નવા ઓરિજિનલ ISI રેગ્યુલેટરનું સચોટ ફિટિંગ.',
+    descEn: 'Replacement of faulty, leaking, or degraded regulators with tested high-grade units and pressure tuning.',
+    tagGu: 'ઓરિજિનલ પાર્ટ્સ',
+    tagEn: 'Genuine Spares',
+    icon: 'M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15',
+  },
+  {
+    id: 'spare-part-replacement',
+    titleGu: 'સ્પેરપાર્ટ રિપ્લેસમેન્ટ',
+    titleEn: 'Spare Part Replacement',
+    descGu: 'બર્નર કેપ, જેટ્સ, વાલ્વ્સ, નોબ્સ, સેફ્ટી પાઇપ અને ઓટો-ઇગ્નીશન બોક્સનું સ્થળ પર જ ઓરિજિનલ રિપ્લેસમેન્ટ.',
+    descEn: 'Instant on-site replacement of burner caps, nozzles, stopcocks, auto-igniter boxes, and copper pigtails.',
     tagGu: 'હાજરમાં સ્ટોક',
-    tagEn: 'Ready Inventory',
+    tagEn: 'Ready Spares',
+    icon: 'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z',
+  },
+  {
+    id: 'complete-maintenance',
+    titleGu: 'સંપૂર્ણ મેઇન્ટેનન્સ & AMC',
+    titleEn: 'Complete Maintenance',
+    descGu: 'હોટલ, રેસ્ટોરન્ટ અને બેકરીઓ માટે નિયમિત તપાસણી, ગેસ પાઇપલાઇન ઓવરહોલ અને વાર્ષિક જાળવણી કરાર.',
+    descEn: 'Comprehensive preventive maintenance contracts, pipeline certification, and periodic kitchen safety checkups.',
+    tagGu: 'હોટલ & કિચન AMC',
+    tagEn: 'Kitchen AMC',
+    icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4',
   },
 ];
 ---
 
 <section
   id="gas"
-  class="relative py-16 sm:py-24 bg-[#010617] border-t border-border-subtle overflow-hidden"
-  aria-label="ગેસ ઇક્વિપમેન્ટ્સ, પાઇપલાઇન અને રિપેરિંગ"
+  class="relative py-20 sm:py-28 bg-[#010617] border-t border-border-subtle overflow-hidden"
+  aria-label="Section 2 — Gas Appliances and Repair"
 >
   <!-- Ambient Emerald Radial Glow Accent -->
   <div
@@ -387,69 +266,57 @@ const gasCapabilities = [
     aria-hidden="true"
   ></div>
 
-  <Container size="xl" class="relative z-10 flex flex-col gap-12 sm:gap-16">
-    <!-- Section Header -->
-    <div class="text-center max-w-3xl mx-auto flex flex-col items-center font-gujarati">
-      <div class="mb-3">
-        <Badge variant="emerald" size="md">
-          <span
-            data-i18n-gu="વિભાગ ૦૨ • LPG ગેસ સોલ્યુશન્સ &amp; ઓરિજિનલ સ્પેરપાર્ટ્સ"
-            data-i18n-en="Division 02 • LPG Gas Solutions &amp; Genuine Spares"
-          >
-            વિભાગ ૦૨ • LPG ગેસ સોલ્યુશન્સ &amp; ઓરિજિનલ સ્પેરપાર્ટ્સ
-          </span>
-        </Badge>
-      </div>
-
-      <h2
-        class="text-2xl sm:text-3xl lg:text-4xl font-heading font-bold text-white tracking-tight leading-snug sm:leading-tight mb-4"
-      >
-        <span
-          data-i18n-gu="ગેસ ઇક્વિપમેન્ટ્સ, પાઇપલાઇન અને "
-          data-i18n-en="Gas Equipments, Pipelines &amp; "
-        >
-          ગેસ ઇક્વિપમેન્ટ્સ, પાઇપલાઇન અને
-        </span>{' '}
-        <span
-          class="text-emerald-400 font-serif italic"
-          data-i18n-gu="સંતોષકારક રિપેરિંગ"
-          data-i18n-en="Satisfactory Repairs"
-        >
-          સંતોષકારક રિપેરિંગ
-        </span>
-      </h2>
-
-      <p
-        class="text-sm sm:text-base text-text-muted leading-relaxed font-body"
-        data-i18n-gu="હોટલ અને રેસ્ટોરન્ટ LPG પાઇપલાઇન મેનિફોલ્ડ, નવા ગેસ ચૂલા, ઓટો હોબ્સ, કિચન ચિમની તેમજ તમામ પ્રકારના ઓરિજિનલ સ્પેરપાર્ટ્સનું વિશાળ કલેક્શન."
-        data-i18n-en="Commercial LPG pipeline manifolds, new gas stoves, auto hobs, kitchen chimneys, and a complete inventory of 100% authentic spare parts with doorstep repair."
-      >
-        હોટલ અને રેસ્ટોરન્ટ LPG પાઇપલાઇન મેનિફોલ્ડ, નવા ગેસ ચૂલા, ઓટો હોબ્સ, કિચન ચિમની તેમજ તમામ પ્રકારના ઓરિજિનલ સ્પેરપાર્ટ્સનું વિશાળ કલેક્શન.
-      </p>
-    </div>
-
-    <!-- Multi-Card Embla Carousel Stage -->
-    <div class="relative w-full">
-      <!-- Carousel Navigation Header & Controls -->
-      <div class="flex items-center justify-between px-2 pb-4 font-gujarati border-b border-border-subtle/70 mb-6">
-        <div class="flex items-center gap-2.5">
-          <span class="w-3 h-3 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)] animate-pulse"></span>
-          <span
-            class="text-xs sm:text-sm font-heading font-bold text-white tracking-wide"
-            data-i18n-gu="ગેસ પ્રોડક્ટ્સ &amp; સ્પેરપાર્ટ્સ કેરોસલ (૨૩ આઇટમ્સ)"
-            data-i18n-en="Gas Products &amp; Spare Parts Carousel (23 Items)"
-          >
-            ગેસ પ્રોડક્ટ્સ &amp; સ્પેરપાર્ટ્સ કેરોસલ (૨૩ આઇટમ્સ)
-          </span>
+  <Container size="xl" class="relative z-10 flex flex-col gap-14 sm:gap-20">
+    <!-- Section Header with Controls -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 font-gujarati">
+      <div>
+        <div class="mb-3">
+          <Badge variant="emerald" size="sm">
+            <span
+              data-i18n-gu="વિભાગ ૦૨ • ગેસ એપ્લાયન્સિસ &amp; રિપેરિંગ"
+              data-i18n-en="Section 02 • Gas Appliances &amp; Repairs"
+            >
+              વિભાગ ૦૨ • ગેસ એપ્લાયન્સિસ &amp; રિપેરિંગ
+            </span>
+          </Badge>
         </div>
 
-        <!-- Carousel Action Buttons -->
+        <h2
+          class="text-2xl sm:text-3xl lg:text-4xl font-heading font-bold text-white tracking-tight leading-snug sm:leading-tight mb-2"
+        >
+          <span
+            data-i18n-gu="ગેસ એપ્લાયન્સિસ અને "
+            data-i18n-en="Gas Appliances &amp; "
+          >ગેસ એપ્લાયન્સિસ અને </span>
+          <span
+            class="text-emerald-400 font-serif italic"
+            data-i18n-gu="સંતોષકારક રિપેરિંગ સેવા"
+            data-i18n-en="Satisfactory Repair Services"
+          >સંતોષકારક રિપેરિંગ સેવા</span>
+        </h2>
+
+        <p
+          class="text-xs sm:text-sm text-text-muted leading-relaxed font-body max-w-2xl"
+          data-i18n-gu="૧, ૨, ૩, ૪ બર્નર ગેસ સ્ટવ, કોમર્શિયલ ભઠ્ઠી, હોટલ પાઇપલાઇન મેનિફોલ્ડ અને તમામ ઓરિજિનલ સ્પેરપાર્ટ્સનું વેચાણ તેમજ સ્થળ પર સંતોષકારક સમારકામ."
+          data-i18n-en="Sales of 1, 2, 3, 4 burner stoves, commercial bhatthi burners, hotel manifolds, and 100% genuine spares with guaranteed doorstep repair."
+        >
+          ૧, ૨, ૩, ૪ બર્નર ગેસ સ્ટવ, કોમર્શિયલ ભઠ્ઠી, હોટલ પાઇપલાઇન મેનિફોલ્ડ અને તમામ ઓરિજિનલ સ્પેરપાર્ટ્સનું વેચાણ તેમજ સ્થળ પર સંતોષકારક સમારકામ.
+        </p>
+      </div>
+
+      <!-- Carousel Navigation Controls -->
+      <div class="flex items-center gap-3 shrink-0 select-none">
+        <span class="text-[11px] font-mono text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/30 flex items-center gap-1.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span>૪-૫ સેકન્ડ સ્લાઇડર</span>
+        </span>
+
         <div class="flex items-center gap-2">
           <button
             type="button"
             id="gas-embla-prev"
             aria-label="અગાઉની પ્રોડક્ટ"
-            class="w-9 h-9 rounded-full border border-border bg-[#03091e] hover:border-emerald-400/80 hover:text-emerald-400 text-text-muted flex items-center justify-center transition-all cursor-pointer shadow-lg active:scale-95"
+            class="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-border bg-[#03091e] hover:border-emerald-400/80 hover:text-emerald-400 text-text-muted flex items-center justify-center transition-all cursor-pointer shadow-lg active:scale-95"
           >
             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
               <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
@@ -460,7 +327,7 @@ const gasCapabilities = [
             type="button"
             id="gas-embla-next"
             aria-label="આગળની પ્રોડક્ટ"
-            class="w-9 h-9 rounded-full border border-border bg-[#03091e] hover:border-emerald-400/80 hover:text-emerald-400 text-text-muted flex items-center justify-center transition-all cursor-pointer shadow-lg active:scale-95"
+            class="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-border bg-[#03091e] hover:border-emerald-400/80 hover:text-emerald-400 text-text-muted flex items-center justify-center transition-all cursor-pointer shadow-lg active:scale-95"
           >
             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
               <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
@@ -468,73 +335,70 @@ const gasCapabilities = [
           </button>
         </div>
       </div>
+    </div>
 
-      <!-- Embla Carousel Viewport -->
-      <div class="overflow-hidden cursor-grab active:cursor-grabbing select-none" id="gas-embla-viewport">
-        <div class="flex -ml-4 sm:-ml-5">
+    <!-- 1. Embla Multi-Card Horizontal Carousel (3-4 desktop, 2 tablet, 1 mobile) -->
+    <div class="w-full relative select-none">
+      <div class="embla overflow-hidden cursor-grab active:cursor-grabbing" id="gas-embla-viewport">
+        <div class="embla__container flex -ml-4 sm:-ml-5">
           {
             gasItems.map((item) => (
-              <div class="flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] xl:flex-[0_0_25%] pl-4 sm:pl-5 min-w-0 font-gujarati">
-                <div class="h-full flex flex-col justify-between rounded-2xl bg-gradient-to-b from-[#06122d] to-[#020512] border border-border/80 hover:border-emerald-500/60 transition-all duration-300 shadow-xl group overflow-hidden">
+              <div class="embla__slide flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] xl:flex-[0_0_25%] pl-4 sm:pl-5 min-w-0 font-gujarati">
+                <div class="h-full flex flex-col justify-between rounded-2xl bg-gradient-to-b from-[#061430] via-[#030c22] to-[#010617] border border-border/80 hover:border-emerald-500/60 shadow-xl hover:shadow-[0_12px_35px_rgba(16,185,129,0.15)] transition-all duration-300 group overflow-hidden p-4 sm:p-5">
                   <!-- Image Frame -->
-                  <div class="relative w-full h-56 sm:h-60 bg-[#01040f] p-3 flex items-center justify-center overflow-hidden border-b border-border-subtle/80">
-                    <img
-                      src={item.src}
-                      alt={item.alt}
-                      loading="lazy"
-                      decoding="async"
-                      class="max-w-full max-h-full object-contain transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div class="absolute top-2.5 left-2.5">
-                      <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 backdrop-blur-md">
-                        {item.badgeGu}
-                      </span>
+                  <div>
+                    <div class="relative w-full h-48 sm:h-52 bg-[#01040f] rounded-xl overflow-hidden flex items-center justify-center p-3 mb-4 border border-border-subtle group-hover:border-emerald-500/40 transition-colors">
+                      <img
+                        src={item.src}
+                        alt={item.alt}
+                        loading="lazy"
+                        decoding="async"
+                        class="max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-105"
+                      />
+                      <div class="absolute top-2.5 left-2.5 z-10">
+                        <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-[#010617]/90 text-emerald-300 border border-emerald-500/40 backdrop-blur-md">
+                          {item.badgeGu}
+                        </span>
+                      </div>
+                      <div class="absolute bottom-2.5 right-2.5 z-10">
+                        <span class="text-[10px] font-mono text-slate-300 bg-[#020512]/90 px-2 py-0.5 rounded border border-border-subtle backdrop-blur-sm">
+                          {item.categoryGu}
+                        </span>
+                      </div>
                     </div>
-                    <div class="absolute bottom-2.5 right-2.5">
-                      <span class="text-[10px] font-mono text-slate-300 bg-[#020512]/80 px-2 py-0.5 rounded border border-border-subtle backdrop-blur-sm">
-                        {item.categoryGu}
-                      </span>
-                    </div>
+
+                    <!-- Title & Description -->
+                    <h3
+                      class="text-sm sm:text-base font-heading font-bold text-white mb-1.5 line-clamp-1 group-hover:text-emerald-300 transition-colors"
+                      data-i18n-gu={item.nameGu}
+                      data-i18n-en={item.nameEn}
+                    >
+                      {item.nameGu}
+                    </h3>
+                    <p
+                      class="text-xs text-text-muted leading-relaxed line-clamp-2 mb-4 font-body"
+                      data-i18n-gu={item.descGu}
+                      data-i18n-en={item.descEn}
+                    >
+                      {item.descGu}
+                    </p>
                   </div>
 
-                  <!-- Content Body -->
-                  <div class="p-4 sm:p-5 flex flex-col flex-grow justify-between gap-4">
-                    <div>
-                      <h3
-                        class="text-base font-heading font-bold text-white group-hover:text-emerald-300 transition-colors line-clamp-1 mb-1.5"
-                        data-i18n-gu={item.nameGu}
-                        data-i18n-en={item.nameEn}
-                      >
-                        {item.nameGu}
-                      </h3>
-                      <p
-                        class="text-xs text-text-muted leading-relaxed line-clamp-2"
-                        data-i18n-gu={item.descGu}
-                        data-i18n-en={item.descEn}
-                      >
-                        {item.descGu}
-                      </p>
-                    </div>
-
-                    <!-- Direct Contact CTA -->
-                    <div class="pt-3 border-t border-border-subtle/60 flex items-center justify-between gap-2">
-                      <div class="flex flex-col">
-                        <span class="text-[9px] font-mono uppercase text-emerald-400 font-semibold" data-i18n-gu="ગેસ વિભાગ" data-i18n-en="Gas Dept">ગેસ વિભાગ</span>
-                        <span class="text-[11px] font-bold text-slate-300">{businessProfile.divisionContacts.gas.name}</span>
-                      </div>
-                      <a
-                        href={`https://wa.me/${businessProfile.divisionContacts.gas.phoneDigits}?text=${encodeURIComponent(item.whatsappMsg)}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="inline-flex items-center gap-1 text-[11px] font-heading font-bold px-3 py-1.5 rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 hover:bg-emerald-500 hover:text-slate-950 transition-all shadow-sm"
-                        aria-label={`Inquire about ${item.nameEn} on WhatsApp`}
-                      >
-                        <span>વોટ્સએપ</span>
-                        <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                        </svg>
-                      </a>
-                    </div>
+                  <!-- WhatsApp CTA Button on Card -->
+                  <div class="pt-3 border-t border-border-subtle/80 flex items-center justify-between gap-2">
+                    <span class="text-[11px] font-mono text-emerald-400 font-semibold">૧૦૦% ઓરિજિનલ</span>
+                    <a
+                      href={`https://wa.me/${businessProfile.divisionContacts.gas.phoneDigits}?text=${encodeURIComponent(item.whatsappMsg)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 hover:bg-emerald-500 hover:text-slate-950 font-heading font-bold text-xs transition-all shrink-0 active:scale-95 shadow-sm"
+                      aria-label={`Inquire about ${item.nameEn} on WhatsApp`}
+                    >
+                      <svg class="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24">
+                        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.072-2.128-.521-1.615-.67-2.66-2.308-2.74-2.417-.08-.108-.659-.877-.659-1.672 0-.795.414-1.187.561-1.349.146-.162.32-.203.428-.203.107 0 .215.002.308.007.1.005.234-.038.366.279.136.327.464 1.132.505 1.215.041.083.068.18.012.289-.056.108-.083.177-.165.273-.082.096-.174.215-.248.289-.083.083-.17.172-.073.338.097.166.432.713.927 1.154.636.568 1.172.744 1.338.827.166.083.264.069.362-.042.098-.111.42-.489.532-.656.113-.167.225-.139.378-.083.153.056.974.459 1.141.542.167.083.278.125.32.194.041.07.041.405-.103.81zM12 2C6.477 2 2 6.477 2 12c0 1.891.526 3.662 1.442 5.179L2 22l4.981-1.306A9.957 9.957 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/>
+                      </svg>
+                      <span>WhatsApp CTA</span>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -544,50 +408,55 @@ const gasCapabilities = [
       </div>
     </div>
 
-    <!-- Gas Sales, Repairs, Spares & Engineering Capabilities Info Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 font-gujarati pt-4">
-      {
-        gasCapabilities.map((cap) => (
-          <GlassCard padding="lg" hoverEffect={true} class="flex flex-col justify-between border-border/80 bg-[#03091e] group">
-            <div>
-              <div class="flex items-center justify-between mb-4">
-                <div class="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition-transform">
-                  <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d={cap.icon} />
-                  </svg>
+    <!-- 2. Repair Services Block (6 Required Services) -->
+    <div class="w-full flex flex-col gap-6 font-gujarati pt-2">
+      <div class="text-center max-w-2xl mx-auto">
+        <span class="text-xs font-mono uppercase tracking-widest text-emerald-400 font-bold block mb-1">
+          Technical Capabilities &amp; Maintenance
+        </span>
+        <h3 class="text-xl sm:text-2xl font-heading font-bold text-white">
+          ગેસ સ્ટવ &amp; ઇક્વિપમેન્ટ્સ રિપેરિંગ સેવાઓ (Repair Services)
+        </h3>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {
+          repairServices.map((srv) => (
+            <GlassCard padding="md" hoverEffect={true} class="flex flex-col justify-between border-border/80 bg-[#03091e] group">
+              <div>
+                <div class="flex items-center justify-between mb-3">
+                  <div class="w-9 h-9 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition-transform">
+                    <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d={srv.icon} />
+                    </svg>
+                  </div>
+                  <span class="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/30 font-semibold">
+                    {srv.tagGu}
+                  </span>
                 </div>
-                <span class="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded border border-emerald-500/30">
-                  {cap.tagGu}
-                </span>
+
+                <h4 class="text-sm sm:text-base font-heading font-bold text-white mb-1 group-hover:text-emerald-300 transition-colors">
+                  {srv.titleGu}
+                </h4>
+                <p class="text-[10px] text-text-gold font-mono mb-2">
+                  {srv.titleEn}
+                </p>
+                <p class="text-xs text-text-muted leading-relaxed font-body">
+                  {srv.descGu}
+                </p>
               </div>
 
-              <h3
-                class="text-base sm:text-lg font-heading font-bold text-white mb-2 group-hover:text-emerald-300 transition-colors"
-                data-i18n-gu={cap.titleGu}
-                data-i18n-en={cap.titleEn}
-              >
-                {cap.titleGu}
-              </h3>
-
-              <p
-                class="text-xs sm:text-sm text-text-muted leading-relaxed font-body"
-                data-i18n-gu={cap.descGu}
-                data-i18n-en={cap.descEn}
-              >
-                {cap.descGu}
-              </p>
-            </div>
-
-            <div class="pt-4 mt-4 border-t border-border-subtle/80 flex items-center justify-between text-xs">
-              <span class="text-[11px] font-mono text-slate-300">ઓરિજિનલ ક્વોલિટી</span>
-              <span class="text-[11px] text-emerald-400 font-semibold font-mono">100% Safe</span>
-            </div>
-          </GlassCard>
-        ))
-      }
+              <div class="pt-3 mt-3 border-t border-border-subtle/80 flex items-center justify-between text-[11px]">
+                <span class="text-slate-300 font-mono">ઓરિજિનલ સ્પેરપાર્ટ્સ</span>
+                <span class="text-emerald-400 font-semibold font-mono">100% Safe Work</span>
+              </div>
+            </GlassCard>
+          ))
+        }
+      </div>
     </div>
 
-    <!-- Commercial Pipeline Manifold & Direct Division Contact Box -->
+    <!-- 3. Commercial LPG Pipeline Manifold & Direct Division Contact Box -->
     <div class="max-w-5xl mx-auto w-full font-gujarati">
       <div class="rounded-2xl bg-gradient-to-r from-[#030c24] via-[#051c3d] to-[#030c24] border-2 border-emerald-500/40 p-6 sm:p-8 lg:p-10 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8">
         <div class="flex-1">
@@ -619,7 +488,6 @@ const gasCapabilities = [
           </p>
         </div>
 
-        <!-- Contact Action Card -->
         <div class="bg-[#020512] rounded-xl p-5 border border-emerald-500/40 shrink-0 flex flex-col gap-3 min-w-[260px] text-center sm:text-left shadow-xl">
           <div>
             <span class="text-[10px] font-mono uppercase text-text-subtle block" data-i18n-gu="ગેસ વિભાગ વડા" data-i18n-en="Gas Division Lead">ગેસ વિભાગ વડા</span>
