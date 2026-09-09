@@ -187,7 +187,7 @@ import { businessProfile } from '../../data/business';
 
             <!-- Email Address Block -->
             <a
-              href="mailto:hello@burhanienterprise.me"
+              href={`mailto:${businessProfile.contact.email}`}
               class="flex items-center gap-3.5 p-3 rounded-[var(--radius-md)] bg-[#04091a] border border-border-subtle hover:border-primary/50 transition-colors group"
             >
               <div class="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center shrink-0 text-primary group-hover:scale-105 transition-transform">
@@ -198,7 +198,7 @@ import { businessProfile } from '../../data/business';
               <div class="min-w-0 flex-1">
                 <span class="text-[10px] uppercase font-mono text-text-subtle block">Email Inquiries</span>
                 <span class="text-xs font-mono font-semibold text-primary group-hover:underline truncate block">
-                  hello@burhanienterprise.me
+                  {businessProfile.contact.email}
                 </span>
               </div>
             </a>

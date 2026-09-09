@@ -31,15 +31,15 @@ import { businessProfile } from '../../data/business';
 
         <p
           class="text-xs sm:text-sm text-text-muted leading-relaxed max-w-sm font-body font-gujarati"
-          data-i18n-gu="બુરહાની એન્ટરપ્રાઇઝ: કોમર્શિયલ LPG પાઇપલાઇન, દરેક પ્રકારના ગેસ સ્ટવ, તમામ સ્પેરપાર્ટ્સ, રિપેરિંગ, સરકાર માન્ય ડિજિટલ વજન કાંટા, વેઇબ્રિજ અને કસ્ટમ સોફ્ટવેર."
-          data-i18n-en="Burhani Enterprise: Commercial LPG pipelines, all gas stoves, spare parts &amp; repairs, government-approved digital weighing scales, weighbridges, and custom software."
+          data-i18n-gu="બુરહાની એન્ટરપ્રાઇઝ: કોમર્શિયલ LPG પાઇપલાઇન, દરેક પ્રકારના ગેસ સ્ટવ, તમામ સ્પેરપાર્ટ્સ, રિપેરિંગ, ડિજિટલ વજન કાંટા, વેઇબ્રિજ, સ્ટેમ્પિંગ સહાય અને કસ્ટમ સોફ્ટવેર."
+          data-i18n-en="Burhani Enterprise: Commercial LPG pipelines, all gas stoves, spare parts &amp; repairs, digital weighing scales, weighbridges, stamping assistance, and custom software."
         >
-          બુરહાની એન્ટરપ્રાઇઝ: કોમર્શિયલ LPG પાઇપલાઇન, દરેક પ્રકારના ગેસ સ્ટવ, તમામ સ્પેરપાર્ટ્સ, રિપેરિંગ, સરકાર માન્ય ડિજિટલ વજન કાંટા, વેઇબ્રિજ અને કસ્ટમ સોફ્ટવેર.
+          બુરહાની એન્ટરપ્રાઇઝ: કોમર્શિયલ LPG પાઇપલાઇન, દરેક પ્રકારના ગેસ સ્ટવ, તમામ સ્પેરપાર્ટ્સ, રિપેરિંગ, ડિજિટલ વજન કાંટા, વેઇબ્રિજ, સ્ટેમ્પિંગ સહાય અને કસ્ટમ સોફ્ટવેર.
         </p>
 
         <div class="space-y-1.5 text-xs text-text-subtle font-mono font-gujarati">
           <p><span class="text-primary/90 font-semibold">GSTIN:</span> {businessProfile.gstin}</p>
-          <p><span class="text-primary/90 font-semibold">Email:</span> <a href="mailto:hello@burhanienterprise.me" class="text-primary hover:underline font-mono">hello@burhanienterprise.me</a></p>
+          <p><span class="text-primary/90 font-semibold">Email:</span> <a href={`mailto:${businessProfile.contact.email}`} class="text-primary hover:underline font-mono">{businessProfile.contact.email}</a></p>
           <div class="flex items-start gap-2 pt-1">
             <span class="w-2 h-2 rounded-full bg-[#25D366] mt-1 shrink-0"></span>
             <span class="leading-relaxed">

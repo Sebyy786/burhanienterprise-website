@@ -52,7 +52,8 @@ export const businessProfile: BusinessProfile = {
   traditionalCode: '',
   tagline: 'Gas Solutions, Weighing Systems & Software',
   subtitle: 'Gas Solutions • Weighing Solutions • Software Solutions',
-  serviceArea: 'Umreth',
+  serviceArea:
+    'Serving Umreth, Anand, Vallabh Vidyanagar, Petlad, Borsad and nearby areas in Anand District.',
   authorizedWeighingBrands: [
     'Rolex Weighing Scale',
     'Axpert (ISI Certified)',
@@ -66,9 +67,9 @@ export const businessProfile: BusinessProfile = {
       defaultMessage: whatsappDefaultMessage,
       url: `https://wa.me/${primaryPhoneDigits}?text=${encodeURIComponent(whatsappDefaultMessage)}`,
     },
-    email: 'hello@burhanienterprise.me',
+    email: 'contact@burhanienterprise.com',
     phone: '+91 99984 50711',
-    address: 'Lokhand Bazar, infront of Old post office, Nr. kansara bazar, Umreth',
+    address: 'Lokhand Bazar, infront of Old post office, Nr. kansara bazar, Umreth, Anand District, Gujarat',
   },
   divisionContacts: {
     gas: {
@@ -93,11 +94,11 @@ export const businessProfile: BusinessProfile = {
       role: 'Weighing Systems & Calibration Lead',
       gujaratiRole: 'ડિજિટલ વજન કાંટા અને વેઇબ્રિજ',
       tagline: 'WEIGHBRIDGES • SCALES • CALIBRATION',
-      whatsappUrl: `https://wa.me/919974164452?text=${encodeURIComponent('Hello Hozefa, I would like to inquire about Weighing Scales and Government Stamping.')}`,
+      whatsappUrl: `https://wa.me/919974164452?text=${encodeURIComponent('Hello Hozefa, I would like to inquire about Weighing Scales, Calibration, and Legal Metrology Stamping Assistance.')}`,
       services: [
         'Digital Platform & Counter Bench Scales',
         'Heavy-Duty Truck Weighbridges (20T-120T)',
-        'Government Approved Stamping (સરકાર માન્ય)',
+        'Calibration & Stamping Assistance (Legal Metrology)',
         'Authorized: Rolex, Axpert, Taj, Silver Eagle',
       ],
     },
