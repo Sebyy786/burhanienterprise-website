@@ -139,25 +139,29 @@ const partnerBrands = brandLogos.filter((b) =>
       </div>
     </div>
 
-    <!-- Clean Brand Strip (Logos Only: Axpert, Rolex, Silver Eagle, Taj - No fake wording) -->
-    <div class="w-full flex flex-col items-center gap-3 pt-2">
+    <!-- Brand Logos Carousel (Auto-sliding Carousel) -->
+    <div class="w-full flex flex-col items-center gap-4 pt-2 select-none">
       <div class="text-[11px] font-mono uppercase tracking-widest text-text-subtle font-semibold">
         Partner Brands
       </div>
 
-      <div class="w-full max-w-4xl grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-5">
-        {
-          partnerBrands.map((b) => (
-            <div class="flex items-center justify-center p-3 sm:p-4 rounded-xl bg-white/95 border border-white/20 shadow-md hover:scale-105 transition-transform">
-              <img
-                src={b.logo}
-                alt={b.name}
-                class="h-9 sm:h-11 w-auto max-w-[120px] object-contain"
-                loading="lazy"
-              />
-            </div>
-          ))
-        }
+      <div class="w-full max-w-4xl overflow-hidden relative cursor-grab active:cursor-grabbing" id="brand-embla-viewport">
+        <div class="embla__container flex -ml-3 sm:-ml-4">
+          {
+            [...partnerBrands, ...partnerBrands].map((b) => (
+              <div class="embla__slide flex-[0_0_50%] sm:flex-[0_0_33.333%] lg:flex-[0_0_25%] pl-3 sm:pl-4 min-w-0">
+                <div class="flex items-center justify-center p-3 sm:p-4 rounded-xl bg-white/95 border border-white/20 shadow-md hover:scale-105 transition-transform h-16 sm:h-20">
+                  <img
+                    src={b.logo}
+                    alt={b.name}
+                    class="h-8 sm:h-10 w-auto max-w-[110px] object-contain"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            ))
+          }
+        </div>
       </div>
     </div>
 
@@ -221,6 +225,33 @@ const partnerBrands = brandLogos.filter((b) =>
     nextBtn?.addEventListener('click', () => emblaApi.scrollNext());
   }
 
-  initScaleEmbla();
-  document.addEventListener('astro:page-load', initScaleEmbla);
+  function initBrandEmbla() {
+    const brandNode = document.getElementById('brand-embla-viewport');
+    if (!brandNode) return;
+
+    const brandAutoplay = Autoplay({
+      delay: 2500,
+      stopOnInteraction: false,
+      stopOnMouseEnter: true,
+    });
+
+    EmblaCarousel(
+      brandNode,
+      {
+        loop: true,
+        align: 'start',
+        slidesToScroll: 1,
+        skipSnaps: false,
+      },
+      [brandAutoplay]
+    );
+  }
+
+  function initAllScaleCarousels() {
+    initScaleEmbla();
+    initBrandEmbla();
+  }
+
+  initAllScaleCarousels();
+  document.addEventListener('astro:page-load', initAllScaleCarousels);
 </script>

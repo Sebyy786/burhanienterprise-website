@@ -1,0 +1,196 @@
+---
+import Container from '../../components/ui/Container.astro';
+import Badge from '../../components/ui/Badge.astro';
+import Button from '../../components/ui/Button.astro';
+import GlassCard from '../../components/ui/GlassCard.astro';
+import { businessProfile } from '../../data/business';
+
+const googleMapsPlaceUrl = 'https://maps.google.com/?cid=999684619711643113';
+const googleDirectionsUrl = 'https://maps.google.com/?q=22.699308,73.117408';
+const embedMapUrl =
+  'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d155.16300319735876!2d73.11740767365949!3d22.699308230047855!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e385b80e49b2f%3A0xddf9cdbc7ec7de9!2sBurhani%20Gas!5e1!3m2!1sen!2sin!4v1788890813262!5m2!1sen!2sin';
+---
+
+<section
+  id="location"
+  class="relative py-16 sm:py-24 bg-[#020512] border-t border-border-subtle overflow-hidden"
+  aria-label="Shop Location and Google Reviews"
+>
+  <div id="contact" class="sr-only"></div>
+  <!-- Ambient Gold Light Glow -->
+  <div
+    class="pointer-events-none absolute top-1/3 left-1/2 -translate-x-1/2 w-[850px] h-[450px] bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.06)_0%,transparent_70%)] blur-3xl -z-10"
+    aria-hidden="true"
+  ></div>
+
+  <Container size="xl" class="relative z-10 flex flex-col gap-10 sm:gap-14">
+    <!-- Header -->
+    <div class="text-center max-w-3xl mx-auto flex flex-col items-center gap-2 sm:gap-3 font-gujarati">
+      <div class="mb-1">
+        <Badge variant="gold" size="sm">
+          <span>સ્થાનિક શોરૂમ • Google Verified</span>
+        </Badge>
+      </div>
+
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-heading font-bold text-white tracking-tight">
+        Visit Our Umreth Showroom &amp; Works
+      </h2>
+
+      <p class="text-lg sm:text-xl font-heading font-bold gold-gradient-text">
+        અમારા શોરૂમ અને વર્કશોપની મુલાકાત લો
+      </p>
+
+      <p class="text-xs sm:text-sm text-text-muted leading-relaxed font-body max-w-2xl">
+        નવા ડિજિટલ વજન કાંટા, ગેસ સ્ટોવ, ઓરિજિનલ સ્પેરપાર્ટ્સ, રિપેરિંગ અથવા સોફ્ટવેર કન્સલ્ટેશન માટે લોખંડ બજાર, ઉમરેઠ સ્થિત અમારા શોરૂમની રૂબરૂ મુલાકાત લો.
+      </p>
+    </div>
+
+    <!-- Task 2: Google Maps Embed with Shop Details -->
+    <div class="max-w-5xl mx-auto w-full flex flex-col gap-6">
+      <div class="overflow-hidden rounded-2xl border-2 border-primary/30 shadow-2xl bg-[#03081a]">
+        <!-- Map Header Bar -->
+        <div class="p-3.5 sm:p-4 bg-[#040c24] border-b border-primary/20 flex flex-col sm:flex-row sm:items-center justify-between gap-3 font-gujarati">
+          <div class="flex items-center gap-2.5">
+            <span class="w-3 h-3 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
+            <div>
+              <span class="text-xs sm:text-sm font-heading font-bold text-white block">
+                Burhani Enterprise / Burhani Gas — Umreth
+              </span>
+              <span class="text-[11px] font-mono text-text-subtle block">
+                {businessProfile.contact.address}
+              </span>
+            </div>
+          </div>
+
+          <a
+            href={googleDirectionsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-primary/15 hover:bg-primary text-text-gold hover:text-slate-950 border border-primary/40 text-xs font-mono font-bold transition-all shrink-0 self-start sm:self-auto active:scale-95 shadow-md"
+          >
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            <span>Get Directions &rarr;</span>
+          </a>
+        </div>
+
+        <!-- Embedded Responsive Google Map -->
+        <div class="relative w-full aspect-[16/9] sm:aspect-[21/9] min-h-[280px] sm:min-h-[360px] bg-[#020512]">
+          <iframe
+            src={embedMapUrl}
+            width="100%"
+            height="100%"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+            title="Burhani Enterprise Google Maps Location"
+            class="w-full h-full block"
+          ></iframe>
+        </div>
+      </div>
+
+      <!-- Quick Info Bar (Address, Hours, Service Area) -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 font-gujarati">
+        <GlassCard padding="sm" hoverEffect={false} class="border-border-subtle bg-[#03091e]">
+          <span class="text-[10px] font-mono uppercase tracking-wider text-text-subtle block mb-1">
+            શોરૂમ સરનામું / Address
+          </span>
+          <p class="text-xs text-slate-200 font-medium leading-relaxed">
+            {businessProfile.contact.address}
+          </p>
+        </GlassCard>
+
+        <GlassCard padding="sm" hoverEffect={false} class="border-border-subtle bg-[#03091e]">
+          <span class="text-[10px] font-mono uppercase tracking-wider text-text-subtle block mb-1">
+            દુકાનનો સમય / Business Hours
+          </span>
+          <p class="text-xs text-slate-200 font-medium leading-relaxed">
+            સોમ-શનિ: ૯:૦૦ AM – ૮:૩૦ PM<br />
+            રવિવાર: ૯:૦૦ AM – ૧:૩૦ PM
+          </p>
+        </GlassCard>
+
+        <GlassCard padding="sm" hoverEffect={false} class="border-border-subtle bg-[#03091e]">
+          <span class="text-[10px] font-mono uppercase tracking-wider text-text-subtle block mb-1">
+            સર્વિસ એરિયા / Service Area
+          </span>
+          <p class="text-xs text-slate-200 font-medium leading-relaxed">
+            ઉમરેઠ, આણંદ, વિદ્યાનગર, પેટલાદ, બોરસદ અને સમગ્ર આણંદ જિલ્લો.
+          </p>
+        </GlassCard>
+      </div>
+
+      <!-- Task 3: Google Reviews Block below the map -->
+      <div class="w-full rounded-2xl bg-gradient-to-r from-[#030a22] via-[#05143a] to-[#030a22] border-2 border-primary/30 p-6 sm:p-8 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6 font-gujarati">
+        <div class="flex-1 flex flex-col sm:flex-row items-center sm:items-start gap-5 text-center sm:text-left">
+          <!-- Google 'G' Icon & Big Star Rating -->
+          <div class="flex flex-col items-center justify-center p-4 rounded-xl bg-[#020512] border border-primary/40 shrink-0 min-w-[130px] shadow-lg">
+            <!-- Google Official Logo Vector -->
+            <svg class="w-7 h-7 mb-1.5" viewBox="0 0 24 24">
+              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+            </svg>
+
+            <span class="text-3xl font-heading font-extrabold text-white tracking-tight">4.2</span>
+
+            <!-- 5 Gold Stars Visual (4.2 rating) -->
+            <div class="flex items-center gap-1 my-1 text-text-gold">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-4 h-4 text-slate-600 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+
+            <span class="text-[10px] font-mono text-emerald-400 font-semibold">
+              Google Rating
+            </span>
+          </div>
+
+          <!-- Rating Text & Real Business Description -->
+          <div class="flex flex-col gap-1.5">
+            <div class="inline-flex items-center gap-2 justify-center sm:justify-start">
+              <span class="text-xs font-mono font-bold uppercase tracking-wider text-text-gold">
+                ગૂગલ બિઝનેસ પ્રોફાઇલ
+              </span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+                Verified Listing
+              </span>
+            </div>
+
+            <h3 class="text-lg sm:text-xl font-heading font-bold text-white">
+              Google Reviews &amp; Ratings — Burhani Enterprise
+            </h3>
+
+            <p class="text-xs sm:text-sm text-text-muted leading-relaxed font-body max-w-xl">
+              ઉમરેઠ અને આણંદ જિલ્લાના ગ્રાહકો દ્વારા ગેસ સ્ટવ રિપેરિંગ, ઓરિજિનલ સ્પેરપાર્ટ્સ અને ડિજિટલ વજન કાંટાની સંતોષકારક સેવા માટે ગૂગલ પર નોંધાયેલ રિયલ રેટિંગ.
+            </p>
+          </div>
+        </div>
+
+        <!-- "View on Google" Button Linking directly to the Google Business Profile -->
+        <div class="shrink-0">
+          <Button
+            href={googleMapsPlaceUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            variant="primary"
+            size="lg"
+            ariaLabel="View Burhani Enterprise on Google Business Profile"
+            class="shadow-xl shadow-primary/25 whitespace-nowrap"
+          >
+            <svg slot="icon-left" class="w-4 h-4" viewBox="0 0 24 24">
+              <path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+            </svg>
+            <span>View on Google</span>
+          </Button>
+        </div>
+      </div>
+    </div>
+  </Container>
+</section>
