@@ -1,0 +1,620 @@
+---
+import Container from '../../components/ui/Container.astro';
+import Badge from '../../components/ui/Badge.astro';
+import Button from '../../components/ui/Button.astro';
+import GlassCard from '../../components/ui/GlassCard.astro';
+import { businessProfile } from '../../data/business';
+
+interface ScaleItem {
+  id: string;
+  src: string;
+  alt: string;
+  nameGu: string;
+  nameEn: string;
+  descGu: string;
+  descEn: string;
+  badgeGu: string;
+  badgeEn: string;
+  capacityGu: string;
+  capacityEn: string;
+  whatsappMsg: string;
+}
+
+const scaleItems: ScaleItem[] = [
+  {
+    id: 'scale-1',
+    src: '/images/scale/scale-1.jpg',
+    alt: 'હેવી ડ્યુટી ટ્રક વેઇબ્રિજ',
+    nameGu: 'હેવી ડ્યુટી ટ્રક વેઇબ્રિજ (20T - 120T)',
+    nameEn: 'Heavy Duty Truck Weighbridge (20T - 120T)',
+    descGu: 'પિટ & પિટલેસ ટાઇપ વેઇબ્રિજ, ફાઉન્ડેશન વર્ક, સરકાર માન્ય વેરિફિકેશન અને સંતોષકારક રિપેરિંગ.',
+    descEn: 'Pit & pitless type truck weighbridges, complete foundation civil work, and legal metrology verification.',
+    badgeGu: 'નવા & રિપેરિંગ ઉપલબ્ધ',
+    badgeEn: 'Sales & Repair Available',
+    capacityGu: 'ક્ષમતા: 20 થી 120 ટન',
+    capacityEn: 'Cap: 20T - 120T',
+    whatsappMsg: 'નમસ્તે હોઝેફાભાઈ, મારે ટ્રક વેઇબ્રિજ (20T - 120T) વિશે પૂછપરછ કરવી છે.',
+  },
+  {
+    id: 'scale-2',
+    src: '/images/scale/scale-2.jpg',
+    alt: 'ઇન્ડસ્ટ્રિયલ પ્લેટફોર્મ સ્કેલ',
+    nameGu: 'ડિજિટલ પ્લેટફોર્મ સ્કેલ (100kg - 500kg)',
+    nameEn: 'Digital Platform Scale (100kg - 500kg)',
+    descGu: 'હેવી એમએસ ચેકર્ડ પ્લેટફોર્મ, ઓરિજિનલ લોડ સેલ, બ્રાઇટ રેડ LED ડિસ્પ્લે અને સરકાર માન્ય છાપકામ.',
+    descEn: 'Heavy MS chequered top plate, genuine load cell, bright LED display, and official legal stamping.',
+    badgeGu: 'સ્ટોક ઉપલબ્ધ • વોરંટી',
+    badgeEn: 'Ready Stock • Warranty',
+    capacityGu: 'ક્ષમતા: 100kg - 500kg',
+    capacityEn: 'Cap: 100kg - 500kg',
+    whatsappMsg: 'નમસ્તે હોઝેફાભાઈ, મારે ડિજિટલ પ્લેટફોર્મ સ્કેલ (100kg - 500kg) વિશે પૂછપરછ કરવી છે.',
+  },
+  {
+    id: 'scale-3',
+    src: '/images/scale/scale-3.jpg',
+    alt: 'બેન્ચ અને ગાર્ડ રેઇલિંગ પ્લેટફોર્મ કાંટો',
+    nameGu: 'બેન્ચ સ્કેલ વિથ ગાર્ડ રેઇલિંગ',
+    nameEn: 'Bench Scale with Guard Rail',
+    descGu: 'અનાજ અને બોરી વજન માટે બેક-સપોર્ટ રેઇલિંગ, મજબૂત પાઇપ ફ્રેમ અને લાંબી બેટરી બેકઅપ.',
+    descEn: 'Rear support railing for bag and sack weighing, rugged heavy pipe frame, and battery backup.',
+    badgeGu: 'નવા કાંટા • રિપેરિંગ',
+    badgeEn: 'New Scale • Repair',
+    capacityGu: 'ક્ષમતા: 150kg - 300kg',
+    capacityEn: 'Cap: 150kg - 300kg',
+    whatsappMsg: 'નમસ્તે હોઝેફાભાઈ, મારે રેઇલિંગવાળા બેન્ચ સ્કેલ વિશે પૂછપરછ કરવી છે.',
+  },
+  {
+    id: 'scale-4',
+    src: '/images/scale/scale-4.jpg',
+    alt: 'હાઇ પ્રિસિઝન ટેબલટોપ કાંટો',
+    nameGu: 'હાઇ-પ્રિસિઝન કાઉન્ટરટોપ વજન કાંટો',
+    nameEn: 'High Precision Countertop Scale',
+    descGu: 'કરિયાણા, તેજાના અને મસાલા માટે ચોક્કસ વજન, સ્ટેઈનલેસ સ્ટીલ પાન અને ડબલ ડિસ્પ્લે.',
+    descEn: 'Precision accuracy for retail grocery & spices, stainless steel platter, and customer display.',
+    badgeGu: 'સરકાર માન્ય છાપકામ',
+    badgeEn: 'Govt. Stamped Available',
+    capacityGu: 'ક્ષમતા: 10kg - 35kg',
+    capacityEn: 'Cap: 10kg - 35kg',
+    whatsappMsg: 'નમસ્તે હોઝેફાભાઈ, મારે કાઉન્ટરટોપ ટેબલ સ્કેલ વિશે પૂછપરછ કરવી છે.',
+  },
+  {
+    id: 'scale-5',
+    src: '/images/scale/scale-5.webp',
+    alt: 'કોમ્પેક્ટ ડિજિટલ કાઉન્ટર સ્કેલ',
+    nameGu: 'કોમ્પેક્ટ પ્રિસિઝન કાઉન્ટર સ્કેલ',
+    nameEn: 'Compact Precision Counter Scale',
+    descGu: 'રિટેલ દુકાનો, ડેરી અને મીઠાઈ માટે ચોક્કસ ૧ ગ્રામ એક્યુરેસી, રીચાર્જેબલ બેટરી સાથે.',
+    descEn: 'Retail shops, dairy and sweet shops, 1g precision accuracy with built-in rechargeable battery.',
+    badgeGu: 'ઓરિજિનલ સ્ટોક ઉપલબ્ધ',
+    badgeEn: 'Genuine Stock Available',
+    capacityGu: 'ક્ષમતા: 10kg - 30kg',
+    capacityEn: 'Cap: 10kg - 30kg',
+    whatsappMsg: 'નમસ્તે હોઝેફાભાઈ, મારે કોમ્પેક્ટ ડિજિટલ કાઉન્ટર સ્કેલ વિશે પૂછપરછ કરવી છે.',
+  },
+  {
+    id: 'scale-6',
+    src: '/images/scale/scale-6.webp',
+    alt: 'કોમર્શિયલ ગ્રોસરી અને રિટેલ સ્કેલ',
+    nameGu: 'કોમર્શિયલ ગ્રોસરી &amp; રિટેલ સ્કેલ',
+    nameEn: 'Commercial Grocery &amp; Retail Scale',
+    descGu: 'ડેઇલી શોપ વપરાશ માટે અત્યંત ટકાઉ બોડી, સ્પીડી વજન પ્રક્રિયા અને ક્લિયર ડિસ્પ્લે.',
+    descEn: 'Durable ABS body for daily heavy retail operation, instant weight lock, and clear display.',
+    badgeGu: 'વોરંટી &amp; રિપેરિંગ',
+    badgeEn: 'Warranty &amp; Service',
+    capacityGu: 'ક્ષમતા: 15kg - 35kg',
+    capacityEn: 'Cap: 15kg - 35kg',
+    whatsappMsg: 'નમસ્તે હોઝેફાભાઈ, મારે કરિયાણા રિટેલ સ્કેલ વિશે પૂછપરછ કરવી છે.',
+  },
+  {
+    id: 'scale-7',
+    src: '/images/scale/scale-7.jpg',
+    alt: 'ડિજિટલ વેઇંગ ઇન્ડિકેટર ટર્મિનલ',
+    nameGu: 'ડિજિટલ વેઇંગ ઇન્ડિકેટર &amp; કંટ્રોલર',
+    nameEn: 'Digital Weight Indicator Terminal',
+    descGu: 'કોઈપણ પ્લેટફોર્મ સાથે કનેક્ટ થાય તેવો સ્માર્ટ ઇન્ડિકેટર, RS232 પ્રિન્ટર પોર્ટ અને હાઇ સ્ટેબિલિટી.',
+    descEn: 'Smart weight terminal compatible with all platforms, RS232 printer connectivity, and fast response.',
+    badgeGu: 'સ્પેરપાર્ટ્સ &amp; સર્વિસ',
+    badgeEn: 'Spares &amp; Repairing',
+    capacityGu: 'યુનિવર્સલ સપોર્ટ',
+    capacityEn: 'Universal Support',
+    whatsappMsg: 'નમસ્તે હોઝેફાભાઈ, મારે ડિજિટલ વેઇંગ ઇન્ડિકેટર ટર્મિનલ વિશે પૂછપરછ કરવી છે.',
+  },
+  {
+    id: 'scale-8',
+    src: '/images/scale/scale-8.jpg',
+    alt: 'ચેકર્ડ પ્લેટ હેવી પ્લેટફોર્મ સ્કેલ',
+    nameGu: 'ચેકર્ડ પ્લેટ હેવી પ્લેટફોર્મ સ્કેલ',
+    nameEn: 'Anti-Skid Heavy Platform Scale',
+    descGu: 'ફેક્ટરી, સ્ક્રેપ યાર્ડ અને ગોડાઉન માટે મજબૂત એન્ટિ-સ્કિડ પ્લેટફોર્મ, 4-લોડસેલ હેવી રચના.',
+    descEn: 'Anti-skid chequered plate for factories and warehouses, rugged heavy-duty steel channel structure.',
+    badgeGu: 'સરકાર માન્ય • હેવી ડ્યુટી',
+    badgeEn: 'Govt. Approved • Heavy Duty',
+    capacityGu: 'ક્ષમતા: 500kg - 1000kg',
+    capacityEn: 'Cap: 500kg - 1000kg',
+    whatsappMsg: 'નમસ્તે હોઝેફાભાઈ, મારે ચેકર્ડ પ્લેટ હેવી પ્લેટફોર્મ સ્કેલ વિશે પૂછપરછ કરવી છે.',
+  },
+  {
+    id: 'scale-9',
+    src: '/images/scale/scale-9.webp',
+    alt: 'ડિજિટલ હેંગિંગ ક્રેન સ્કેલ',
+    nameGu: 'ડિજિટલ હેંગિંગ ક્રેન સ્કેલ',
+    nameEn: 'Digital Hanging Crane Scale',
+    descGu: 'વાયરલેસ રિમોટ કંટ્રોલ, હેવી 360° સ્વીવેલ સ્ટીલ હુક, ઓટો ટેર અને હાઇ બ્રાઇટનેસ ડિસ્પ્લે.',
+    descEn: 'Wireless remote control, 360-degree rotating forged steel hook, and high-visibility LED readout.',
+    badgeGu: 'ઇન્ડસ્ટ્રિયલ ઉપયોગ',
+    badgeEn: 'Industrial Quality',
+    capacityGu: 'ક્ષમતા: 500kg - 10 Ton',
+    capacityEn: 'Cap: 500kg - 10T',
+    whatsappMsg: 'નમસ્તે હોઝેફાભાઈ, મારે ડિજિટલ હેંગિંગ ક્રેન સ્કેલ વિશે પૂછપરછ કરવી છે.',
+  },
+  {
+    id: 'scale-10',
+    src: '/images/scale/scale-10.jpg',
+    alt: 'પ્રિસિઝન પોર્શન કંટ્રોલ સ્કેલ',
+    nameGu: 'પ્રિસિઝન પોર્શન &amp; બેલેન્સ સ્કેલ',
+    nameEn: 'Precision Portion &amp; Balance Scale',
+    descGu: 'રેસ્ટોરન્ટ, કિચન, કેમિકલ અને સ્મોલ પેકેજિંગ માટે સુપર પ્રિસિઝન એક્યુરેસી.',
+    descEn: 'Portion control for commercial kitchens, restaurants, food packaging, and laboratories.',
+    badgeGu: 'નવા &amp; રિપેરિંગ ઉપલબ્ધ',
+    badgeEn: 'Sales &amp; Service',
+    capacityGu: 'ક્ષમતા: 1kg - 10kg',
+    capacityEn: 'Cap: 1kg - 10kg',
+    whatsappMsg: 'નમસ્તે હોઝેફાભાઈ, મારે પોર્શન કંટ્રોલ સ્કેલ વિશે પૂછપરછ કરવી છે.',
+  },
+  {
+    id: 'scale-11',
+    src: '/images/scale/scale-11.jpg',
+    alt: 'સસ્પેન્ડેડ હેવી ક્રેન સ્કેલ',
+    nameGu: 'હેવી ડ્યુટી સસ્પેન્ડેડ ક્રેન સ્કેલ',
+    nameEn: 'Heavy Duty Suspended Crane Scale',
+    descGu: 'કાસ્ટ મેટલ બોડી, લોડ પ્રોટેક્શન, સ્ટીલ યાર્ડ અને મિલ્સ માટે યોગ્ય.',
+    descEn: 'Rugged cast metal housing, overload protection, ideal for steel yards, foundries, and ginning.',
+    badgeGu: 'ઓથોરાઇઝ્ડ સેલ્સ',
+    badgeEn: 'Authorized Sales',
+    capacityGu: 'ક્ષમતા: 1T - 20 Ton',
+    capacityEn: 'Cap: 1T - 20T',
+    whatsappMsg: 'નમસ્તે હોઝેફાભાઈ, મારે સસ્પેન્ડેડ ક્રેન સ્કેલ વિશે પૂછપરછ કરવી છે.',
+  },
+  {
+    id: 'scale-12',
+    src: '/images/scale/scale-12.jpg',
+    alt: 'મેકેનિકલ અને કાઉન્ટર બેલેન્સ સ્કેલ્સ',
+    nameGu: 'મેકેનિકલ &amp; ટ્રેડિશનલ બેલેન્સ સ્કેલ',
+    nameEn: 'Mechanical Counter Balance Scale',
+    descGu: 'પરંપરાગત ત્રાજવાં, કાઉન્ટર સ્કેલ અને લીગલ મેટ્રોલોજી માન્ય કાસ્ટ આયર્ન વજનિયાં (Batla).',
+    descEn: 'Traditional balance scales, mechanical counter scales, and certified standard test weights.',
+    badgeGu: 'સરકાર માન્ય વજનિયાં',
+    badgeEn: 'Govt. Stamped Weights',
+    capacityGu: 'ક્ષમતા: 500g - 50kg',
+    capacityEn: 'Cap: 500g - 50kg',
+    whatsappMsg: 'નમસ્તે હોઝેફાભાઈ, મારે મેકેનિકલ કાઉન્ટર કાંટા અને વજનિયાં વિશે પૂછપરછ કરવી છે.',
+  },
+  {
+    id: 'scale-13',
+    src: '/images/scale/scale-13.jpg',
+    alt: 'પ્રાઇસ કમ્પ્યુટિંગ ડ્યુઅલ સ્કેલ',
+    nameGu: 'પ્રાઇસ કમ્પ્યુટિંગ ડ્યુઅલ ડિસ્પ્લે સ્કેલ',
+    nameEn: 'Price Computing Dual Display Scale',
+    descGu: 'વજન, પ્રતિ કિલો ભાવ અને કુલ રકમની એક સાથે ઓટોમેટિક ગણતરી, શાકભાજી અને ફ્રૂટ માર્કેટ માટે શ્રેષ્ઠ.',
+    descEn: 'Simultaneous weight, unit price, and total amount calculation with front and rear display.',
+    badgeGu: 'રેડી સ્ટોક • વોરંટી',
+    badgeEn: 'Ready Stock • Warranty',
+    capacityGu: 'ક્ષમતા: 15kg - 35kg',
+    capacityEn: 'Cap: 15kg - 35kg',
+    whatsappMsg: 'નમસ્તે હોઝેફાભાઈ, મારે પ્રાઇસ કમ્પ્યુટિંગ સ્કેલ વિશે પૂછપરછ કરવી છે.',
+  },
+  {
+    id: 'scale-14',
+    src: '/images/scale/scale-14.webp',
+    alt: 'વોટર રેઝિસ્ટન્ટ SS બેન્ચ સ્કેલ',
+    nameGu: 'વોટર-રેઝિસ્ટન્ટ SS બેન્ચ સ્કેલ',
+    nameEn: 'Stainless Steel Water-Resistant Scale',
+    descGu: '100% સ્ટેઈનલેસ સ્ટીલ બોડી, ભેજ અને પાણી સામે રક્ષણ, ડેરી, ફિશ અને ફૂડ પ્રોસેસિંગ માટે ઉત્તમ.',
+    descEn: 'Complete stainless steel washdown construction, protected against moisture, dairy, and meat.',
+    badgeGu: 'IP65 વોટરપ્રૂફ',
+    badgeEn: 'IP65 Washdown',
+    capacityGu: 'ક્ષમતા: 30kg - 100kg',
+    capacityEn: 'Cap: 30kg - 100kg',
+    whatsappMsg: 'નમસ્તે હોઝેફાભાઈ, મારે વોટર-રેઝિસ્ટન્ટ SS બેન્ચ સ્કેલ વિશે પૂછપરછ કરવી છે.',
+  },
+];
+
+const brandLogos = [
+  {
+    name: 'Axpert',
+    fullName: 'Axpert Weighing Systems',
+    logo: '/images/scale/brand/axpert.jpg',
+    alt: 'Axpert ISI Certified Weighing Scale Partner',
+    tag: 'ISI Certified • સરકાર માન્ય',
+  },
+  {
+    name: 'Rolex',
+    fullName: 'Rolex Weighing Scales',
+    logo: '/images/scale/brand/rolex.jpg',
+    alt: 'Rolex Weighing Scale Official Partner',
+    tag: 'Industrial Quality Platform',
+  },
+  {
+    name: 'Eagle',
+    fullName: 'Silver Eagle Digital Scale',
+    logo: '/images/scale/brand/eagel.png',
+    alt: 'Eagle Weighing Scale Official Partner',
+    tag: 'Commercial Retail Range',
+  },
+  {
+    name: 'Taj',
+    fullName: 'Taj Digital Scale',
+    logo: '/images/scale/brand/taj.jpg',
+    alt: 'Taj Digital Scale Official Partner',
+    tag: 'Precision Repeatability',
+  },
+];
+---
+
+<section
+  id="scales"
+  class="relative py-20 sm:py-28 bg-[#020614] border-t border-border-subtle overflow-hidden"
+  aria-label="Section 1 — Weighing Scales and Systems"
+>
+  <!-- Ambient Gold Glow Accent -->
+  <div
+    class="pointer-events-none absolute top-1/3 left-1/2 -translate-x-1/2 w-[950px] h-[550px] bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.08)_0%,transparent_70%)] blur-3xl -z-10"
+    aria-hidden="true"
+  ></div>
+
+  <Container size="xl" class="relative z-10 flex flex-col gap-12 sm:gap-16">
+    <!-- Section Header with Controls -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 font-gujarati">
+      <div>
+        <div class="mb-3">
+          <Badge variant="gold" size="sm">
+            <span
+              data-i18n-gu="વિભાગ ૦૧ • ડિજિટલ વજન કાંટા &amp; વેઇબ્રિજ"
+              data-i18n-en="Section 01 • Weighing Scales &amp; Systems"
+            >
+              વિભાગ ૦૧ • ડિજિટલ વજન કાંટા &amp; વેઇબ્રિજ
+            </span>
+          </Badge>
+        </div>
+
+        <h2
+          class="text-2xl sm:text-3xl lg:text-4xl font-heading font-bold text-white tracking-tight leading-snug sm:leading-tight mb-2"
+        >
+          <span
+            data-i18n-gu="ડિજિટલ વજન કાંટા અને "
+            data-i18n-en="Digital Weighing Scales &amp; "
+          >ડિજિટલ વજન કાંટા અને </span>{' '}
+          <span
+            class="gold-gradient-text font-serif italic"
+            data-i18n-gu="વેઇબ્રિજ સિસ્ટમ્સ"
+            data-i18n-en="Weighbridge Systems"
+          >વેઇબ્રિજ સિસ્ટમ્સ</span>
+        </h2>
+
+        <p
+          class="text-xs sm:text-sm text-text-muted leading-relaxed font-body max-w-2xl"
+          data-i18n-gu="દરેક પ્રકારના નવા વજન કાંટાનું અધિકૃત વેચાણ તેમજ સંતોષકારક રિપેરિંગ (સરકાર માન્ય છાપી આપવામાં આવશે). કરિયાણા, ફેક્ટરી અને ટ્રક વેઇબ્રિજ માટે સંપૂર્ણ રેન્જ."
+          data-i18n-en="Authorized sales of all types of new weighing scales and expert repairing (Govt. Legal Stamping provided). Complete range from retail counter to 120T truck weighbridges."
+        >
+          દરેક પ્રકારના નવા વજન કાંટાનું અધિકૃત વેચાણ તેમજ સંતોષકારક રિપેરિંગ (સરકાર માન્ય છાપી આપવામાં આવશે).
+        </p>
+      </div>
+
+      <!-- Carousel Navigation Arrows & Auto-slide Badge -->
+      <div class="flex items-center gap-3 shrink-0 select-none">
+        <span class="text-[11px] font-mono text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/30 flex items-center gap-1.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span>૪.૫ સેકન્ડ સ્લાઇડર</span>
+        </span>
+
+        <div class="flex items-center gap-2">
+          <button
+            type="button"
+            id="scale-embla-prev"
+            aria-label="અગાઉના વજન કાંટા"
+            class="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-border bg-[#03081a] hover:border-primary hover:text-primary text-text-muted flex items-center justify-center transition-all cursor-pointer shadow-lg active:scale-95"
+          >
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+
+          <button
+            type="button"
+            id="scale-embla-next"
+            aria-label="આગળના વજન કાંટા"
+            class="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-border bg-[#03081a] hover:border-primary hover:text-primary text-text-muted flex items-center justify-center transition-all cursor-pointer shadow-lg active:scale-95"
+          >
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 1. Embla Multi-Card Horizontal Carousel (3-4 desktop, 2 tablet, 1 mobile) -->
+    <div class="w-full relative select-none">
+      <div class="embla overflow-hidden cursor-grab active:cursor-grabbing" id="scale-embla-viewport">
+        <div class="embla__container flex -ml-4 sm:-ml-5">
+          {
+            scaleItems.map((item) => (
+              <div class="embla__slide flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] xl:flex-[0_0_25%] pl-4 sm:pl-5 min-w-0">
+                <div class="h-full rounded-2xl bg-gradient-to-b from-[#071330] via-[#040c22] to-[#020614] border border-primary/25 hover:border-primary/60 shadow-xl hover:shadow-[0_12px_35px_rgba(212,175,55,0.15)] transition-all duration-300 flex flex-col justify-between overflow-hidden group/card p-4 sm:p-5 font-gujarati">
+                  <!-- Image Container -->
+                  <div>
+                    <div class="relative w-full h-48 sm:h-52 bg-[#01040f] rounded-xl overflow-hidden flex items-center justify-center p-3 mb-4 border border-border-subtle group-hover/card:border-primary/40 transition-colors">
+                      <img
+                        src={item.src}
+                        alt={item.alt}
+                        loading="lazy"
+                        decoding="async"
+                        class="max-w-full max-h-full object-contain transition-transform duration-300 group-hover/card:scale-105"
+                      />
+
+                      <!-- Capacity Tag -->
+                      <div class="absolute top-2.5 right-2.5 z-10">
+                        <span class="text-[10px] font-mono font-semibold px-2 py-0.5 rounded bg-[#020512]/90 text-primary border border-primary/40 backdrop-blur-md">
+                          {item.capacityGu}
+                        </span>
+                      </div>
+
+                      <!-- Available Badge -->
+                      <div class="absolute bottom-2.5 left-2.5 z-10">
+                        <span class="text-[10px] font-mono font-semibold px-2 py-0.5 rounded bg-[#020512]/90 text-emerald-400 border border-emerald-500/40 backdrop-blur-md">
+                          {item.badgeGu}
+                        </span>
+                      </div>
+                    </div>
+
+                    <!-- Title & Description -->
+                    <h3
+                      class="text-sm sm:text-base font-heading font-bold text-white mb-1.5 line-clamp-1 group-hover/card:text-primary transition-colors"
+                      data-i18n-gu={item.nameGu}
+                      data-i18n-en={item.nameEn}
+                    >
+                      {item.nameGu}
+                    </h3>
+
+                    <p
+                      class="text-xs text-text-muted leading-relaxed line-clamp-2 mb-4 font-body"
+                      data-i18n-gu={item.descGu}
+                      data-i18n-en={item.descEn}
+                    >
+                      {item.descGu}
+                    </p>
+                  </div>
+
+                  <!-- WhatsApp CTA Button on Card -->
+                  <div class="pt-3 border-t border-border-subtle/80 flex items-center justify-between gap-2">
+                    <span class="text-[11px] font-mono text-text-gold font-semibold">સરકાર માન્ય છાપકામ</span>
+                    <a
+                      href={`https://wa.me/${businessProfile.divisionContacts.weighing.phoneDigits}?text=${encodeURIComponent(item.whatsappMsg)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary hover:bg-primary-hover text-[#030712] font-heading font-bold text-xs shadow-md transition-all shrink-0"
+                      aria-label={`Inquire about ${item.nameEn} on WhatsApp`}
+                    >
+                      <svg class="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24">
+                        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.072-2.128-.521-1.615-.67-2.66-2.308-2.74-2.417-.08-.108-.659-.877-.659-1.672 0-.795.414-1.187.561-1.349.146-.162.32-.203.428-.203.107 0 .215.002.308.007.1.005.234-.038.366.279.136.327.464 1.132.505 1.215.041.083.068.18.012.289-.056.108-.083.177-.165.273-.082.096-.174.215-.248.289-.083.083-.17.172-.073.338.097.166.432.713.927 1.154.636.568 1.172.744 1.338.827.166.083.264.069.362-.042.098-.111.42-.489.532-.656.113-.167.225-.139.378-.083.153.056.974.459 1.141.542.167.083.278.125.32.194.041.07.041.405-.103.81zM12 2C6.477 2 2 6.477 2 12c0 1.891.526 3.662 1.442 5.179L2 22l4.981-1.306A9.957 9.957 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/>
+                      </svg>
+                      <span>પૂછપરછ</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Auto-scrolling Brand Logos Strip (public/images/scale/brand/) -->
+    <div class="w-full flex flex-col gap-4 font-gujarati">
+      <div class="flex items-center justify-between border-b border-border-subtle pb-2">
+        <span class="text-xs font-mono uppercase tracking-widest text-text-gold font-semibold">
+          અધિકૃત બ્રાન્ડ્સ • AUTHORIZED BRANDS AUTO-STRIP
+        </span>
+        <span class="text-[11px] font-mono text-text-subtle">ઓથોરાઇઝ્ડ ડીલર &amp; સર્વિસ</span>
+      </div>
+
+      <div class="relative w-full overflow-hidden rounded-xl bg-[#03081a] border border-primary/20 py-4 px-2 select-none">
+        <!-- Fading masks on edges -->
+        <div class="pointer-events-none absolute left-0 inset-y-0 w-12 sm:w-20 bg-gradient-to-r from-[#03081a] to-transparent z-10"></div>
+        <div class="pointer-events-none absolute right-0 inset-y-0 w-12 sm:w-20 bg-gradient-to-l from-[#03081a] to-transparent z-10"></div>
+
+        <!-- Marquee Track -->
+        <div class="flex items-center gap-6 sm:gap-10 w-max animate-marquee hover:[animation-play-state:paused]">
+          {
+            [...brandLogos, ...brandLogos, ...brandLogos, ...brandLogos].map((b) => (
+              <div class="flex items-center gap-3 px-4 py-2 rounded-lg bg-white/95 border border-white/20 shadow-md shrink-0">
+                <img src={b.logo} alt={b.alt} class="h-10 sm:h-12 w-auto max-w-[110px] object-contain" loading="lazy" />
+                <div class="text-left">
+                  <div class="text-xs font-bold text-slate-900 font-heading">{b.fullName}</div>
+                  <div class="text-[10px] text-emerald-700 font-mono font-semibold">{b.tag}</div>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Scale Sales, Repair, Spare Parts & Stamping Information (Below Carousel) -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full font-gujarati">
+      <!-- Card 1: Govt Approved Stamping -->
+      <GlassCard padding="lg" hoverEffect={true} class="flex flex-col justify-between border-border/60">
+        <div>
+          <div class="w-10 h-10 rounded-lg bg-primary/10 border border-primary/30 flex items-center justify-center text-primary mb-4">
+            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3
+            class="text-base sm:text-lg font-heading font-bold text-white mb-2"
+            data-i18n-gu="સરકાર માન્ય સ્ટેમ્પિંગ (છાપકામ)"
+            data-i18n-en="Government Approved Stamping"
+          >
+            સરકાર માન્ય સ્ટેમ્પિંગ (છાપકામ)
+          </h3>
+          <p
+            class="text-xs sm:text-sm text-text-muted leading-relaxed font-body mb-4"
+            data-i18n-gu="લીગલ મેટ્રોલોજી વિભાગ દ્વારા પ્રમાણિત સ્ટેમ્પિંગ (છાપી આપવામાં આવશે). વાર્ષિક રિન્યુઅલ, પ્રમાણીકરણ અને લીગલ વેરિફિકેશન સર્ટિફિકેટ સહાય."
+            data-i18n-en="Authorized Legal Metrology verification &amp; government stamping. Annual verification certificates, stamping assistance, and statutory compliance."
+          >
+            લીગલ મેટ્રોલોજી વિભાગ દ્વારા પ્રમાણિત સ્ટેમ્પિંગ (છાપી આપવામાં આવશે). વાર્ષિક રિન્યુઅલ, પ્રમાણીકરણ અને લીગલ વેરિફિકેશન સર્ટિફિકેટ સહાય.
+          </p>
+        </div>
+        <ul class="space-y-1.5 text-xs text-slate-300 pt-3 border-t border-border-subtle/80">
+          <li class="flex items-center gap-2">
+            <span class="text-primary font-bold">✓</span>
+            <span data-i18n-gu="નવા કાંટા પર સરકારી છાપકામ" data-i18n-en="Official Stamping on New Scales">નવા કાંટા પર સરકારી છાપકામ</span>
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="text-primary font-bold">✓</span>
+            <span data-i18n-gu="વાર્ષિક સ્ટેમ્પિંગ રિન્યુઅલ" data-i18n-en="Annual Stamping Renewal">વાર્ષિક સ્ટેમ્પિંગ રિન્યુઅલ</span>
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="text-primary font-bold">✓</span>
+            <span data-i18n-gu="સ્ટાન્ડર્ડ વજનિયાં કેલિબ્રેશન" data-i18n-en="Standard Test Weights Calibration">સ્ટાન્ડર્ડ વજનિયાં કેલિબ્રેશન</span>
+          </li>
+        </ul>
+      </GlassCard>
+
+      <!-- Card 2: Scale Capacities & Models -->
+      <GlassCard padding="lg" hoverEffect={true} class="flex flex-col justify-between border-border/60">
+        <div>
+          <div class="w-10 h-10 rounded-lg bg-primary/10 border border-primary/30 flex items-center justify-center text-primary mb-4">
+            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
+            </svg>
+          </div>
+          <h3
+            class="text-base sm:text-lg font-heading font-bold text-white mb-2"
+            data-i18n-gu="કાંટાના પ્રકારો &amp; ક્ષમતા (Range)"
+            data-i18n-en="Scale Range &amp; Capacities"
+          >
+            કાંટાના પ્રકારો &amp; ક્ષમતા (Range)
+          </h3>
+          <p
+            class="text-xs sm:text-sm text-text-muted leading-relaxed font-body mb-4"
+            data-i18n-gu="દરેક વ્યાપારી અને ઔદ્યોગિક જરૂરિયાત માટે યોગ્ય ક્ષમતા: કરિયાણા, શાકભાજી, ફેક્ટરી, સ્ક્રેપ યાર્ડ અને મિલો માટે સંપૂર્ણ રેન્જ."
+            data-i18n-en="Accurate capacity matching every business need: retail shops, commercial warehouses, scrap yards, and industrial factories."
+          >
+            દરેક વ્યાપારી અને ઔદ્યોગિક જરૂરિયાત માટે યોગ્ય ક્ષમતા: કરિયાણા, શાકભાજી, ફેક્ટરી, સ્ક્રેપ યાર્ડ અને મિલો માટે સંપૂર્ણ રેન્જ.
+          </p>
+        </div>
+        <ul class="space-y-1.5 text-xs text-slate-300 pt-3 border-t border-border-subtle/80">
+          <li class="flex items-center gap-2">
+            <span class="text-primary font-bold">✓</span>
+            <span data-i18n-gu="કાઉન્ટર બેન્ચ કાંટા (10kg થી 50kg)" data-i18n-en="Countertop Bench Scales (10-50kg)">કાઉન્ટર બેન્ચ કાંટા (10kg થી 50kg)</span>
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="text-primary font-bold">✓</span>
+            <span data-i18n-gu="પ્લેટફોર્મ કાંટા (100kg થી 1000kg)" data-i18n-en="Heavy Platform Scales (100-1000kg)">પ્લેટફોર્મ કાંટા (100kg થી 1000kg)</span>
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="text-primary font-bold">✓</span>
+            <span data-i18n-gu="ટ્રક વેઇબ્રિજ (20 ટન થી 120 ટન)" data-i18n-en="Truck Weighbridges (20T - 120T)">ટ્રક વેઇબ્રિજ (20 ટન થી 120 ટન)</span>
+          </li>
+        </ul>
+      </GlassCard>
+
+      <!-- Card 3: Repairing & Direct Lead Contact -->
+      <GlassCard padding="lg" hoverEffect={true} class="flex flex-col justify-between border-primary/40 bg-[#040c24]">
+        <div>
+          <div class="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-4">
+            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+            </svg>
+          </div>
+          <h3
+            class="text-base sm:text-lg font-heading font-bold text-white mb-2"
+            data-i18n-gu="સંતોષકારક રિપેરિંગ &amp; સ્પેરપાર્ટ્સ"
+            data-i18n-en="Satisfactory Repairing &amp; Spares"
+          >
+            સંતોષકારક રિપેરિંગ &amp; સ્પેરપાર્ટ્સ
+          </h3>
+          <p
+            class="text-xs sm:text-sm text-text-muted leading-relaxed font-body mb-4"
+            data-i18n-gu="કોઈપણ કંપનીના ડિજિટલ કાંટાનું ઝડપી રિપેરિંગ, લોડ સેલ બદલવું, કાર્ડ રિપેરિંગ, ડિસ્પ્લે બદલવું અને બેટરી રિપ્લેસમેન્ટ."
+            data-i18n-en="Fast turnaround repairs for all weighing brands: load cell replacement, motherboard card repair, LED/LCD displays, and batteries."
+          >
+            કોઈપણ કંપનીના ડિજિટલ કાંટાનું ઝડપી રિપેરિંગ, લોડ સેલ બદલવું, કાર્ડ રિપેરિંગ, ડિસ્પ્લે બદલવું અને બેટરી રિપ્લેસમેન્ટ.
+          </p>
+        </div>
+
+        <div class="pt-4 border-t border-border-subtle/80 space-y-3">
+          <div>
+            <span class="text-[10px] uppercase font-mono text-text-subtle block" data-i18n-gu="વિભાગ વડા" data-i18n-en="Division Lead">વિભાગ વડા</span>
+            <span class="font-heading font-bold text-white text-sm block">{businessProfile.divisionContacts.weighing.name}</span>
+            <span class="text-xs text-text-gold font-mono">{businessProfile.divisionContacts.weighing.phone}</span>
+          </div>
+
+          <Button
+            href={businessProfile.divisionContacts.weighing.whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            variant="primary"
+            size="sm"
+            class="w-full justify-center"
+            ariaLabel="Contact Hozefa on WhatsApp"
+          >
+            <span data-i18n-gu="વોટ્સએપ સંપર્ક" data-i18n-en="WhatsApp Inquiry">વોટ્સએપ સંપર્ક</span>
+          </Button>
+        </div>
+      </GlassCard>
+    </div>
+  </Container>
+</section>
+
+<style>
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-marquee {
+    animation: marquee 20s linear infinite;
+  }
+</style>
+
+<script>
+  import EmblaCarousel from 'embla-carousel';
+  import Autoplay from 'embla-carousel-autoplay';
+
+  function initScaleEmbla() {
+    const emblaNode = document.getElementById('scale-embla-viewport');
+    if (!emblaNode) return;
+
+    const prevBtn = document.getElementById('scale-embla-prev');
+    const nextBtn = document.getElementById('scale-embla-next');
+
+    const autoplay = Autoplay({
+      delay: 4500,
+      stopOnInteraction: false,
+      stopOnMouseEnter: true,
+    });
+
+    const emblaApi = EmblaCarousel(
+      emblaNode,
+      {
+        loop: true,
+        align: 'start',
+        slidesToScroll: 1,
+        skipSnaps: false,
+      },
+      [autoplay]
+    );
+
+    prevBtn?.addEventListener('click', () => emblaApi.scrollPrev());
+    nextBtn?.addEventListener('click', () => emblaApi.scrollNext());
+  }
+
+  initScaleEmbla();
+  document.addEventListener('astro:page-load', initScaleEmbla);
+</script>

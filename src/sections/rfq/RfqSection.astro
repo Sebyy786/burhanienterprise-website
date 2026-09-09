@@ -19,23 +19,30 @@ import { businessProfile } from '../../data/business';
 
   <Container size="xl" class="relative z-10 flex flex-col gap-12 sm:gap-16">
     <!-- Header -->
-    <div class="text-center max-w-3xl mx-auto flex flex-col items-center">
+    <div class="text-center max-w-3xl mx-auto flex flex-col items-center font-gujarati">
       <div class="mb-4">
         <Badge variant="gold" size="sm">
-          <span>SERVING UMRETH & ANAND DISTRICT • DIRECT CONTACT</span>
+          <span
+            data-i18n-gu="સીધો સંપર્ક અને ઇન્ક્વાયરી"
+            data-i18n-en="Direct Contact &amp; Inquiries"
+          >સીધો સંપર્ક અને ઇન્ક્વાયરી</span>
         </Badge>
       </div>
 
       <h2
         class="text-2xl sm:text-3xl lg:text-4xl font-heading font-bold text-white tracking-tight leading-snug sm:leading-tight mb-5"
       >
-        Request a <span class="gold-gradient-text font-serif italic">Quote</span>
+        <span data-i18n-gu="ભાવ / ઇન્ક્વાયરી " data-i18n-en="Request a ">ભાવ / ઇન્ક્વાયરી </span><span class="gold-gradient-text font-serif italic" data-i18n-gu="મેળવો" data-i18n-en="Quotations">મેળવો</span>
       </h2>
 
-      <p class="text-sm sm:text-base text-text-muted leading-relaxed font-body max-w-2xl">
-        Need a gas installation, weighbridge service, or custom software?
+      <p
+        class="text-sm sm:text-base text-text-muted leading-relaxed font-body max-w-2xl"
+        data-i18n-gu="ગેસ પાઇપલાઇન, સ્ટવ રિપેરિંગ, ડિજિટલ વજન કાંટા, વેઇબ્રિજ અથવા કસ્ટમ સોફ્ટવેરની જરૂર છે? બુરહાની એન્ટરપ્રાઇઝના નિષ્ણાતોનો સીધો સંપર્ક કરો."
+        data-i18n-en="Need commercial LPG pipelines, stove repairs, digital weighing scales, weighbridges, or custom software? Contact the specialists at Burhani Enterprise directly."
+      >
+        ગેસ પાઇપલાઇન, સ્ટવ રિપેરિંગ, ડિજિટલ વજન કાંટા, વેઇબ્રિજ અથવા કસ્ટમ સોફ્ટવેરની જરૂર છે?
         <br class="hidden sm:inline" />
-        Contact Burhani Enterprise for engineering consultation in Umreth and Anand district.
+        બુરહાની એન્ટરપ્રાઇઝના નિષ્ણાતોનો સીધો સંપર્ક કરો.
       </p>
 
       <!-- Primary & Secondary Quick Buttons -->
@@ -46,7 +53,7 @@ import { businessProfile } from '../../data/business';
           rel="noopener noreferrer"
           variant="primary"
           size="md"
-          class="px-6 py-2.5 text-xs font-semibold"
+          class="px-6 py-2.5 text-xs font-semibold font-gujarati"
         >
           <svg
             slot="icon-left"
@@ -56,14 +63,17 @@ import { businessProfile } from '../../data/business';
           >
             <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.072-2.128-.521-1.615-.67-2.66-2.308-2.74-2.417-.08-.108-.659-.877-.659-1.672 0-.795.414-1.187.561-1.349.146-.162.32-.203.428-.203.107 0 .215.002.308.007.1.005.234-.038.366.279.136.327.464 1.132.505 1.215.041.083.068.18.012.289-.056.108-.083.177-.165.273-.082.096-.174.215-.248.289-.083.083-.17.172-.073.338.097.166.432.713.927 1.154.636.568 1.172.744 1.338.827.166.083.264.069.362-.042.098-.111.42-.489.532-.656.113-.167.225-.139.378-.083.153.056.974.459 1.141.542.167.083.278.125.32.194.041.07.041.405-.103.81zM12 2C6.477 2 2 6.477 2 12c0 1.891.526 3.662 1.442 5.179L2 22l4.981-1.306A9.957 9.957 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/>
           </svg>
-          <span>Request on WhatsApp</span>
+          <span
+            data-i18n-gu="WhatsApp પર પૂછપરછ"
+            data-i18n-en="Inquire on WhatsApp"
+          >WhatsApp પર પૂછપરછ</span>
         </Button>
 
         <Button
           href={`tel:${businessProfile.contact.phone.replace(/[^0-9+]/g, '')}`}
           variant="secondary"
           size="md"
-          class="px-6 py-2.5 text-xs font-semibold border-border hover:border-primary/50"
+          class="px-6 py-2.5 text-xs font-semibold border-border hover:border-primary/50 font-gujarati"
         >
           <svg
             slot="icon-left"
@@ -75,7 +85,10 @@ import { businessProfile } from '../../data/business';
           >
             <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
           </svg>
-          <span>Call Engineering Team</span>
+          <span
+            data-i18n-gu="સીધો ફોન કરો"
+            data-i18n-en="Call Directly"
+          >સીધો ફોન કરો</span>
         </Button>
       </div>
     </div>
@@ -89,7 +102,7 @@ import { businessProfile } from '../../data/business';
             Burhani Enterprise
           </h3>
           <p class="text-xs text-text-muted mb-5 leading-relaxed">
-            Local engineering provider serving Umreth & Anand District, Gujarat. Contact our division leads directly:
+            Local engineering provider in Umreth, Gujarat. Contact our division leads directly:
           </p>
 
           <!-- Direct Division Contacts -->
@@ -172,7 +185,25 @@ import { businessProfile } from '../../data/business';
               </span>
             </a>
 
-            <!-- Facility & Service Area -->
+            <!-- Email Address Block -->
+            <a
+              href="mailto:hello@burhanienterprise.me"
+              class="flex items-center gap-3.5 p-3 rounded-[var(--radius-md)] bg-[#04091a] border border-border-subtle hover:border-primary/50 transition-colors group"
+            >
+              <div class="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center shrink-0 text-primary group-hover:scale-105 transition-transform">
+                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <div class="min-w-0 flex-1">
+                <span class="text-[10px] uppercase font-mono text-text-subtle block">Email Inquiries</span>
+                <span class="text-xs font-mono font-semibold text-primary group-hover:underline truncate block">
+                  hello@burhanienterprise.me
+                </span>
+              </div>
+            </a>
+
+            <!-- Shop Address -->
             <div class="flex items-start gap-3.5 p-3 rounded-[var(--radius-md)] bg-[#04091a] border border-border-subtle">
               <div class="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center shrink-0 text-primary mt-0.5">
                 <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -181,14 +212,39 @@ import { businessProfile } from '../../data/business';
                 </svg>
               </div>
               <div>
-                <span class="text-[10px] uppercase font-mono text-text-subtle block">Works & Operations</span>
-                <span class="text-xs font-medium text-slate-300">
-                  {businessProfile.contact.address}
-                </span>
-                <span class="text-[11px] text-text-subtle block mt-1">
-                  Serving Umreth & Anand District, Gujarat
+                <span class="text-[10px] uppercase font-mono text-text-subtle block">સરનામું / Address</span>
+                <span class="text-xs font-medium text-slate-200 leading-relaxed block">
+                  Lokhand Bazar, infront of Old post office, Nr. kansara bazar, Umreth
                 </span>
               </div>
+            </div>
+
+            <!-- Google Map Location & Direction -->
+            <div class="overflow-hidden rounded-[var(--radius-md)] border border-border-subtle shadow-md bg-[#020617]">
+              <div class="p-2.5 bg-[#03081c] border-b border-border-subtle flex items-center justify-between">
+                <span class="text-[11px] font-mono text-text-gold font-semibold flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                  Google Maps Location
+                </span>
+                <a
+                  href="https://maps.google.com/?q=22.699308,73.117408"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-[10px] text-primary hover:underline font-mono"
+                >
+                  Get Directions &rarr;
+                </a>
+              </div>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d155.16300319735876!2d73.11740767365949!3d22.699308230047855!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e385b80e49b2f%3A0xddf9cdbc7ec7de9!2sBurhani%20Gas!5e1!3m2!1sen!2sin!4v1788890813262!5m2!1sen!2sin"
+                width="100%"
+                height="240"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
+                class="w-full block"
+              ></iframe>
             </div>
           </div>
         </GlassCard>

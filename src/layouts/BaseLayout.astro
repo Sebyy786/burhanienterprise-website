@@ -11,19 +11,19 @@ interface Props {
 }
 
 const {
-  title = 'Burhani Enterprise — Gas Solutions, Weighing Systems & Software',
-  description = 'Burhani Enterprise provides gas solutions, weighing systems, weighbridge automation, and software services. Serving Umreth & Anand District, Gujarat.',
+  title = 'બુરહાની એન્ટરપ્રાઈઝ — ગેસ સોલ્યુશન્સ, ડિજિટલ વજન કાંટા અને સોફ્ટવેર',
+  description = 'બુરહાની એન્ટરપ્રાઈઝ: કોમર્શિયલ LPG પાઇપલાઇન, દરેક પ્રકારના ગેસ સ્ટવ, તમામ સ્પેરપાર્ટ્સ, રિપેરિંગ, સરકાર માન્ય ડિજિટલ વજન કાંટા, વેઇબ્રિજ અને AI સોફ્ટવેર ઓટોમેશન. ઉમરેઠ, ગુજરાત.',
   canonical = Astro.url.href,
   ogImage = '/images/og-card.jpg',
   offsetHeader = true,
 } = Astro.props as Props;
 
-const siteTitle = title.includes('Burhani Enterprise') ? title : `${title} | Burhani Enterprise`;
+const siteTitle = title.includes('બુરહાની એન્ટરપ્રાઈઝ') || title.includes('Burhani Enterprise') ? title : `${title} | બુરહાની એન્ટરપ્રાઈઝ`;
 const currentPath = Astro.url.pathname;
 ---
 
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="gu" class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -44,8 +44,9 @@ const currentPath = Astro.url.pathname;
       rel="stylesheet"
     />
 
-    <!-- Hero Image Preload -->
-    <link rel="preload" as="image" href="/images/gas-solutions.jpg" type="image/jpeg" />
+    <!-- Hero & Scale Image Preload -->
+    <link rel="preload" as="image" href="/images/banner/banner-1.jpg" type="image/jpeg" />
+    <link rel="preload" as="image" href="/images/scale/scale-2.jpg" type="image/jpeg" />
 
     <!-- Favicon Placeholder (Gold Typographic Monogram 'BE') -->
     <link
@@ -104,5 +105,109 @@ const currentPath = Astro.url.pathname;
 
       <slot name="footer" />
     </div>
+
+    <!-- Interactive Client-Side Language Toggle Script (Default: Gujarati) -->
+    <script is:inline>
+      (function () {
+        function getInitialLanguage() {
+          const saved = localStorage.getItem('burhani_lang');
+          if (saved === 'en' || saved === 'gu') return saved;
+          return 'gu'; // Default language MUST be Gujarati
+        }
+
+        function setLanguage(lang) {
+          if (lang !== 'en' && lang !== 'gu') lang = 'gu';
+          try {
+            localStorage.setItem('burhani_lang', lang);
+          } catch (e) {}
+          document.documentElement.lang = lang;
+
+          // Update active state on all toggle buttons (.lang-btn-gu, .lang-btn-en)
+          const guButtons = document.querySelectorAll('.lang-btn-gu');
+          const enButtons = document.querySelectorAll('.lang-btn-en');
+
+          if (lang === 'gu') {
+            guButtons.forEach(function (b) {
+              b.classList.add('bg-primary', 'text-[#030712]', 'font-semibold');
+              b.classList.remove('text-text-muted');
+              b.setAttribute('aria-pressed', 'true');
+            });
+            enButtons.forEach(function (b) {
+              b.classList.remove('bg-primary', 'text-[#030712]', 'font-semibold');
+              b.classList.add('text-text-muted');
+              b.setAttribute('aria-pressed', 'false');
+            });
+          } else {
+            enButtons.forEach(function (b) {
+              b.classList.add('bg-primary', 'text-[#030712]', 'font-semibold');
+              b.classList.remove('text-text-muted');
+              b.setAttribute('aria-pressed', 'true');
+            });
+            guButtons.forEach(function (b) {
+              b.classList.remove('bg-primary', 'text-[#030712]', 'font-semibold');
+              b.classList.add('text-text-muted');
+              b.setAttribute('aria-pressed', 'false');
+            });
+          }
+
+          // Swap text for all elements with data-i18n-gu / data-i18n-en
+          const translatableElements = document.querySelectorAll('[data-i18n-gu], [data-i18n-en]');
+          translatableElements.forEach(function (el) {
+            const text = el.getAttribute(lang === 'gu' ? 'data-i18n-gu' : 'data-i18n-en');
+            if (text !== null) {
+              if (el.getAttribute('data-i18n-mode') === 'html') {
+                el.innerHTML = text;
+              } else {
+                el.textContent = text;
+              }
+            }
+          });
+
+          // Show/Hide language-specific containers
+          document.querySelectorAll('[data-lang-show]').forEach(function (el) {
+            const showFor = el.getAttribute('data-lang-show');
+            if (showFor === lang) {
+              el.style.display = '';
+            } else {
+              el.style.display = 'none';
+            }
+          });
+
+          // Update document title if present
+          if (lang === 'en') {
+            document.title = 'Burhani Enterprise — Gas Solutions, Weighing Systems & Software';
+          } else {
+            document.title = 'બુરહાની એન્ટરપ્રાઈઝ — ગેસ સોલ્યુશન્સ, ડિજિટલ વજન કાંટા અને સોફ્ટવેર';
+          }
+
+          window.dispatchEvent(new CustomEvent('languagechange', { detail: { lang: lang } }));
+        }
+
+        window.__setAppLanguage = setLanguage;
+        window.__getAppLanguage = getInitialLanguage;
+
+        function init() {
+          const currentLang = getInitialLanguage();
+          setLanguage(currentLang);
+        }
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', init);
+        } else {
+          init();
+        }
+
+        document.addEventListener('astro:page-load', init);
+
+        // Delegated click handler for language buttons
+        document.addEventListener('click', function (e) {
+          const btn = e.target.closest('.lang-btn');
+          if (btn && btn.dataset.lang) {
+            e.preventDefault();
+            setLanguage(btn.dataset.lang);
+          }
+        });
+      })();
+    </script>
   </body>
 </html>

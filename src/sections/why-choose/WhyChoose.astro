@@ -55,28 +55,18 @@ const pillars: CapabilityPillar[] = [
   {
     id: 'regional-support',
     iconNumber: '04',
-    tagline: 'Local Regional Support',
-    title: 'Rapid On-Site Regional Support',
+    tagline: 'Direct Local Support',
+    title: 'Rapid On-Site Technical Support',
     description:
-      'Centrally located in Umreth, our technical service engineers provide swift on-site maintenance, emergency breakdown assistance, and routine calibration checks across Umreth and Anand District.',
+      'Centrally located at Lokhand Bazar, Umreth, our technical service team provides swift on-site maintenance, emergency breakdown repairs, and routine calibration checks.',
     points: [
-      'Prompt on-site response across Umreth & Anand District',
+      'Prompt on-site response and dependable repair turnaround',
       'Comprehensive Annual Maintenance Contracts (AMC)',
       'Immediate stock of genuine spares & remote software support',
     ],
   },
 ];
 
-const industrialCorridors = [
-  'Umreth',
-  'Anand',
-  'Vallabh Vidyanagar',
-  'Khambhat',
-  'Petlad',
-  'Borsad',
-  'Tarapur',
-  'Sojitra',
-];
 ---
 
 <section
@@ -95,23 +85,36 @@ const industrialCorridors = [
 
   <Container size="xl" class="relative z-10 flex flex-col gap-14 sm:gap-18">
     <!-- Section Header -->
-    <div class="text-center max-w-3xl mx-auto flex flex-col items-center">
+    <div class="text-center max-w-3xl mx-auto flex flex-col items-center font-gujarati">
       <div class="mb-4">
         <Badge variant="gold" size="sm">
-          <span>ENGINEERING RIGOR • REGIONAL ACCOUNTABILITY</span>
+          <span
+            data-i18n-gu="અમારી વિશેષતાઓ"
+            data-i18n-en="Our Key Capabilities"
+          >અમારી વિશેષતાઓ</span>
         </Badge>
       </div>
 
       <h2
         class="text-2xl sm:text-3xl lg:text-4xl font-heading font-bold text-white tracking-tight leading-snug sm:leading-tight mb-5"
       >
-        Why Industrial Operators Choose{' '}
-        <span class="gold-gradient-text font-serif italic">Burhani Enterprise</span>
+        <span
+          data-i18n-gu="શા માટે ગ્રાહકો પસંદ કરે છે "
+          data-i18n-en="Why Customers Choose "
+        >શા માટે ગ્રાહકો પસંદ કરે છે </span>{' '}
+        <span
+          class="gold-gradient-text font-serif italic"
+          data-i18n-gu="બુરહાની એન્ટરપ્રાઇઝ"
+          data-i18n-en="Burhani Enterprise"
+        >બુરહાની એન્ટરપ્રાઇઝ</span>
       </h2>
 
-      <p class="text-sm sm:text-base text-text-muted leading-relaxed font-body">
-        Whether retrofitting a high-pressure manifold, installing a 120-tonne truck weighbridge, or deploying
-        unmanned weighbridge software, we provide single-source technical expertise you can rely on.
+      <p
+        class="text-sm sm:text-base text-text-muted leading-relaxed font-body"
+        data-i18n-gu="દરેક પ્રકારના ગેસ સ્ટવ, પાઇપલાઇન, સ્પેરપાર્ટ્સ, સરકાર માન્ય વજન કાંટા, વેઇબ્રિજ અને અદ્યતન AI સોફ્ટવેરનું વિશ્વસનીય નામ."
+        data-i18n-en="The trusted provider for commercial gas pipelines, all stove repairs &amp; spare parts, government-approved weighing scales, weighbridges, and cutting-edge AI software."
+      >
+        દરેક પ્રકારના ગેસ સ્ટવ, પાઇપલાઇન, સ્પેરપાર્ટ્સ, સરકાર માન્ય વજન કાંટા, વેઇબ્રિજ અને અદ્યતન AI સોફ્ટવેરનું વિશ્વસનીય નામ.
       </p>
     </div>
 
@@ -179,37 +182,5 @@ const industrialCorridors = [
       }
     </div>
 
-    <!-- Regional Footprint Banner -->
-    <div class="max-w-5xl mx-auto w-full">
-      <div
-        class="rounded-[var(--radius-xl)] bg-gradient-to-r from-[#0a1128] via-[#0e1a38] to-[#0a1128] border border-border/50 p-6 sm:p-8 text-center flex flex-col items-center shadow-glass"
-      >
-        <div class="flex items-center gap-2 text-xs font-mono text-primary uppercase tracking-widest mb-2">
-          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-            />
-            <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-          </svg>
-          <span>Direct Regional Service</span>
-        </div>
-
-        <h4 class="text-base sm:text-lg font-heading font-semibold text-white mb-4">
-          Serving Umreth & Anand District, Gujarat
-        </h4>
-
-        <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 max-w-3xl">
-          {
-            industrialCorridors.map((city) => (
-              <span class="text-xs text-text-muted bg-[#030712]/60 px-3 py-1 rounded-md border border-border-subtle hover:border-primary/40 hover:text-white transition-colors">
-                {city}
-              </span>
-            ))
-          }
-        </div>
-      </div>
-    </div>
   </Container>
 </section>

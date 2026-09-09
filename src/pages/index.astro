@@ -1,19 +1,36 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../sections/hero/Hero.astro';
-import ProductGallery from '../sections/gallery/ProductGallery.astro';
+import ScaleSection from '../sections/scale/ScaleSection.astro';
+import GasSection from '../sections/gas/GasSection.astro';
+import SoftwareSection from '../sections/software/SoftwareSection.astro';
 import WhyChoose from '../sections/why-choose/WhyChoose.astro';
 import RfqSection from '../sections/rfq/RfqSection.astro';
 import Footer from '../components/layout/Footer.astro';
 ---
 
 <BaseLayout
-  title="Burhani Enterprise — Gas Solutions, Weighing Systems & Software"
-  description="Burhani Enterprise provides industrial gas distribution systems, commercial truck weighbridges, and enterprise weighbridge automation software. Serving Umreth & Anand District, Gujarat."
+  title="બુરહાની એન્ટરપ્રાઈઝ — વજન કાંટા, ગેસ સોલ્યુશન્સ અને સોફ્ટવેર"
+  description="બુરહાની એન્ટરપ્રાઇઝ: સરકાર માન્ય ડિજિટલ વજન કાંટા, વેઇબ્રિજ, કોમર્શિયલ LPG પાઇપલાઇન, દરેક પ્રકારના ગેસ સ્ટવ, તમામ સ્પેરપાર્ટ્સ, રિપેરિંગ અને AI સોફ્ટવેર ઓટોમેશન. ઉમરેઠ, ગુજરાત."
 >
+  <!-- Main Hero Banner with Authentic Local Scale Asset -->
   <Hero />
-  <ProductGallery />
+
+  <!-- Section 1 — Weighing Scales (Embla Multi-Card Carousel + Brand Logo Marquee + Sales/Repairs/Calibration Info) -->
+  <ScaleSection />
+
+  <!-- Section 2 — Gas Appliances (Embla Multi-Card Carousel + Pipeline Manifolds, Stoves, Spares & Repairs Info) -->
+  <GasSection />
+
+  <!-- Section 3 — Software Solutions (Embla Multi-Card Carousel + AI, IoT Weighbridge & Custom ERP Info) -->
+  <SoftwareSection />
+
+  <!-- Engineering Capabilities & Why Choose Us -->
   <WhyChoose />
+
+  <!-- Direct Contact & B2B Inquiries -->
   <RfqSection />
+
   <Footer slot="footer" />
 </BaseLayout>
+ 

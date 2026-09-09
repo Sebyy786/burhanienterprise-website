@@ -21,53 +21,102 @@ import { businessProfile } from '../../data/business';
       <div class="lg:col-span-5 flex flex-col gap-4">
         <BrandWordmark size="md" />
 
-        <p class="text-xs sm:text-sm text-text-gold font-mono tracking-wide">
-          Gas Solutions • Weighing Solutions • Software Solutions
+        <p
+          class="text-xs sm:text-sm text-text-gold font-mono tracking-wide font-gujarati"
+          data-i18n-gu="ગેસ સોલ્યુશન્સ • વજન કાંટા • સોફ્ટવેર સોલ્યુશન્સ"
+          data-i18n-en="Gas Solutions • Weighing Scales • Software"
+        >
+          ગેસ સોલ્યુશન્સ • વજન કાંટા • સોફ્ટવેર સોલ્યુશન્સ
         </p>
 
-        <p class="text-xs sm:text-sm text-text-muted leading-relaxed max-w-sm font-body">
-          Burhani Enterprise provides engineered LPG pipeline manifolds, heavy commercial truck weighbridges,
-          and proprietary weighbridge automation software.
+        <p
+          class="text-xs sm:text-sm text-text-muted leading-relaxed max-w-sm font-body font-gujarati"
+          data-i18n-gu="બુરહાની એન્ટરપ્રાઇઝ: કોમર્શિયલ LPG પાઇપલાઇન, દરેક પ્રકારના ગેસ સ્ટવ, તમામ સ્પેરપાર્ટ્સ, રિપેરિંગ, સરકાર માન્ય ડિજિટલ વજન કાંટા, વેઇબ્રિજ અને કસ્ટમ સોફ્ટવેર."
+          data-i18n-en="Burhani Enterprise: Commercial LPG pipelines, all gas stoves, spare parts &amp; repairs, government-approved digital weighing scales, weighbridges, and custom software."
+        >
+          બુરહાની એન્ટરપ્રાઇઝ: કોમર્શિયલ LPG પાઇપલાઇન, દરેક પ્રકારના ગેસ સ્ટવ, તમામ સ્પેરપાર્ટ્સ, રિપેરિંગ, સરકાર માન્ય ડિજિટલ વજન કાંટા, વેઇબ્રિજ અને કસ્ટમ સોફ્ટવેર.
         </p>
 
-        <div class="space-y-1.5 text-xs text-text-subtle font-mono">
-          <p><span class="text-primary/90 font-semibold">Service Area:</span> Umreth & Anand District, Gujarat</p>
-          <div class="flex items-center gap-2">
-            <span class="w-2 h-2 rounded-full bg-[#25D366]"></span>
-            <span>Operations: Umreth, Anand District, Gujarat</span>
+        <div class="space-y-1.5 text-xs text-text-subtle font-mono font-gujarati">
+          <p><span class="text-primary/90 font-semibold">GSTIN:</span> {businessProfile.gstin}</p>
+          <p><span class="text-primary/90 font-semibold">Email:</span> <a href="mailto:hello@burhanienterprise.me" class="text-primary hover:underline font-mono">hello@burhanienterprise.me</a></p>
+          <div class="flex items-start gap-2 pt-1">
+            <span class="w-2 h-2 rounded-full bg-[#25D366] mt-1 shrink-0"></span>
+            <span class="leading-relaxed">
+              <span data-i18n-gu="સરનામું:" data-i18n-en="Address:">સરનામું:</span> Lokhand Bazar, infront of Old post office, Nr. kansara bazar, Umreth
+            </span>
           </div>
         </div>
       </div>
 
       <!-- Col 2: Quick Links (3 Cols) -->
-      <div class="lg:col-span-3 flex flex-col gap-3">
-        <h4 class="text-xs font-mono uppercase tracking-widest text-primary font-semibold">
-          Quick Links
+      <div class="lg:col-span-3 flex flex-col gap-3 font-gujarati">
+        <h4
+          class="text-xs font-mono uppercase tracking-widest text-primary font-semibold"
+          data-i18n-gu="ઝડપી લિંક્સ"
+          data-i18n-en="Quick Links"
+        >
+          ઝડપી લિંક્સ (Quick Links)
         </h4>
         <ul class="space-y-2 text-xs sm:text-sm">
           <li>
-            <a href="#hero" class="text-text-muted hover:text-white transition-colors">
-              Home
+            <a
+              href="#hero"
+              class="text-text-muted hover:text-white transition-colors"
+              data-i18n-gu="મુખ્ય પૃષ્ઠ"
+              data-i18n-en="Home"
+            >
+              મુખ્ય પૃષ્ઠ
             </a>
           </li>
           <li>
-            <a href="#products" class="text-text-muted hover:text-white transition-colors">
-              Products
+            <a
+              href="#scales"
+              class="text-text-muted hover:text-white transition-colors"
+              data-i18n-gu="વજન કાંટા"
+              data-i18n-en="Weighing Scales"
+            >
+              વજન કાંટા
             </a>
           </li>
           <li>
-            <a href="#capabilities" class="text-text-muted hover:text-white transition-colors">
-              Capabilities
+            <a
+              href="#gas"
+              class="text-text-muted hover:text-white transition-colors"
+              data-i18n-gu="ગેસ સોલ્યુશન્સ"
+              data-i18n-en="Gas Solutions"
+            >
+              ગેસ સોલ્યુશન્સ
             </a>
           </li>
           <li>
-            <a href="#about" class="text-text-muted hover:text-white transition-colors">
-              About
+            <a
+              href="#software"
+              class="text-text-muted hover:text-white transition-colors"
+              data-i18n-gu="સોફ્ટવેર &amp; AI"
+              data-i18n-en="Software &amp; AI"
+            >
+              સોફ્ટવેર &amp; AI
             </a>
           </li>
           <li>
-            <a href="#contact" class="text-text-muted hover:text-white transition-colors">
-              Contact
+            <a
+              href="#capabilities"
+              class="text-text-muted hover:text-white transition-colors"
+              data-i18n-gu="વિશેષતાઓ"
+              data-i18n-en="Capabilities"
+            >
+              વિશેષતાઓ
+            </a>
+          </li>
+          <li>
+            <a
+              href="#contact"
+              class="text-text-muted hover:text-white transition-colors"
+              data-i18n-gu="સંપર્ક"
+              data-i18n-en="Contact"
+            >
+              સંપર્ક
             </a>
           </li>
         </ul>
@@ -135,7 +184,7 @@ import { businessProfile } from '../../data/business';
       </p>
 
       <p class="text-[11px] font-mono">
-        Serving Umreth & Anand District, Gujarat.
+        Lokhand Bazar, Umreth, Gujarat.
       </p>
     </div>
   </Container>

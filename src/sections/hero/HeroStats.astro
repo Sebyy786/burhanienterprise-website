@@ -3,47 +3,74 @@ import GlassCard from '../../components/ui/GlassCard.astro';
 
 interface StatItem {
   value: string;
+  valueEn: string;
   label: string;
+  labelEn: string;
   sublabel: string;
+  sublabelEn: string;
 }
 
 const stats: StatItem[] = [
   {
-    value: '3',
-    label: 'Specialized Divisions',
-    sublabel: 'Gas, Weighing & Software',
+    value: '૩',
+    valueEn: '3',
+    label: 'મુખ્ય વિભાગો',
+    labelEn: 'Core Divisions',
+    sublabel: 'ગેસ, વજન કાંટા & સોફ્ટવેર',
+    sublabelEn: 'Gas, Scales & Software',
   },
   {
-    value: 'Industrial',
-    label: 'Grade Engineering',
-    sublabel: 'Commercial & High-Capacity',
+    value: 'સરકાર માન્ય',
+    valueEn: 'Govt. Approved',
+    label: 'વજન કાંટા સ્ટેમ્પિંગ',
+    labelEn: 'Scales Stamping',
+    sublabel: 'કાયદેસર છાપકામ & પ્રમાણીકરણ',
+    sublabelEn: 'Legal Verification & Stamping',
   },
   {
-    value: 'Precision',
-    label: 'Calibrated Systems',
-    sublabel: 'Certified Weight Accuracy',
+    value: 'ઓરિજિનલ',
+    valueEn: '100% Genuine',
+    label: 'સ્પેરપાર્ટ્સ સપ્લાય',
+    labelEn: 'Spare Parts Supply',
+    sublabel: 'દરેક ગેસ સ્ટવ & કાંટા માટે',
+    sublabelEn: 'For All Gas Stoves & Scales',
   },
   {
-    value: 'End-to-End',
-    label: 'Turnkey Delivery',
-    sublabel: 'Hardware, Setup & Automation',
+    value: 'સ્થાનિક સેવા',
+    valueEn: 'Local Service',
+    label: 'ઓન-સાઇટ સપોર્ટ',
+    labelEn: 'On-Site Support',
+    sublabel: 'ઝડપી & વિશ્વસનીય સેવા',
+    sublabelEn: 'Fast & Reliable Service',
   },
 ];
 ---
 
-<div class="w-full max-w-5xl mx-auto select-none">
+<div class="w-full max-w-5xl mx-auto select-none font-gujarati">
   <GlassCard padding="none" hoverEffect={false} class="border-border/60">
     <div class="grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-border-subtle">
       {
         stats.map((stat) => (
           <div class="p-5 sm:p-6 text-center flex flex-col items-center justify-center">
-            <span class="text-2xl sm:text-3xl lg:text-4xl font-bold font-heading gold-gradient-text tracking-tight mb-1">
+            <span
+              class="text-2xl sm:text-3xl lg:text-4xl font-bold font-heading gold-gradient-text tracking-tight mb-1"
+              data-i18n-gu={stat.value}
+              data-i18n-en={stat.valueEn}
+            >
               {stat.value}
             </span>
-            <span class="text-sm font-semibold text-white font-heading tracking-wide">
+            <span
+              class="text-sm font-semibold text-white font-heading tracking-wide"
+              data-i18n-gu={stat.label}
+              data-i18n-en={stat.labelEn}
+            >
               {stat.label}
             </span>
-            <span class="text-xs text-text-muted font-body mt-0.5">
+            <span
+              class="text-xs text-text-muted font-body mt-0.5"
+              data-i18n-gu={stat.sublabel}
+              data-i18n-en={stat.sublabelEn}
+            >
               {stat.sublabel}
             </span>
           </div>

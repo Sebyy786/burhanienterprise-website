@@ -29,33 +29,44 @@ const { currentPath = '/' } = Astro.props as Props;
       {
         navigationItems.map((item) => {
           const isActive = currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href));
-          return <NavLink href={item.href} label={item.label} active={isActive} />;
+          return (
+            <NavLink
+              href={item.href}
+              label={item.label}
+              labelGujarati={item.labelGujarati}
+              labelEnglish={item.labelEnglish}
+              active={isActive}
+            />
+          );
         })
       }
     </nav>
 
     <!-- Desktop Actions (Language Switcher & WhatsApp CTA) -->
     <div class="hidden lg:flex items-center gap-3 xl:gap-4">
-      <!-- Language Switcher Placeholder -->
+      <!-- Language Switcher -->
       <div
         class="inline-flex items-center rounded-[var(--radius-sm)] bg-surface-soft border border-border-subtle p-0.5 text-xs select-none"
         role="group"
-        aria-label="Language selection"
+        aria-label="ભાષા પસંદગી / Language Selection"
       >
         <button
           type="button"
-          class="px-2 py-0.5 font-semibold rounded-[var(--radius-sm)] bg-primary text-[#030712] cursor-default"
+          class="lang-btn lang-btn-gu px-2.5 py-1 font-semibold rounded-[var(--radius-sm)] bg-primary text-[#030712] cursor-pointer font-gujarati transition-all text-xs"
+          data-lang="gu"
           aria-pressed="true"
+          title="ગુજરાતી ભાષા"
         >
-          EN
+          ગુજરાતી
         </button>
         <button
           type="button"
-          class="px-2 py-0.5 font-medium text-text-muted hover:text-text cursor-pointer font-gujarati transition-colors"
+          class="lang-btn lang-btn-en px-2.5 py-1 font-medium rounded-[var(--radius-sm)] text-text-muted hover:text-text cursor-pointer transition-all text-xs"
+          data-lang="en"
           aria-pressed="false"
-          title="ગુજરાતી ભાષા પસંદ કરો"
+          title="Switch to English"
         >
-          ગુજરાતી
+          EN
         </button>
       </div>
 

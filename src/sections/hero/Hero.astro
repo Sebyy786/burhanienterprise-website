@@ -1,9 +1,8 @@
 ---
 import Container from '../../components/ui/Container.astro';
 import HeroBackground from './HeroBackground.astro';
-import HeroContent from './HeroContent.astro';
-import HeroDivisionCards from './HeroDivisionCards.astro';
-import HeroStats from './HeroStats.astro';
+import Badge from '../../components/ui/Badge.astro';
+import { businessProfile } from '../../data/business';
 
 interface Props {
   class?: string;
@@ -14,22 +13,178 @@ const { class: className = '' } = Astro.props as Props;
 
 <section
   id="hero"
-  class={`relative flex flex-col justify-start pt-8 pb-16 sm:pt-12 sm:pb-24 lg:pt-14 lg:pb-28 overflow-hidden ${className}`}
-  aria-label="Burhani Enterprise Hero Section"
+  class={`relative flex flex-col justify-start pt-6 pb-16 sm:pt-10 sm:pb-20 lg:pt-12 lg:pb-24 overflow-hidden ${className}`}
+  aria-label="બુરહાની એન્ટરપ્રાઇઝ મુખ્ય વિભાગ"
 >
   <!-- Cinematic Ambient Background -->
   <HeroBackground />
 
-  <Container size="xl" class="relative z-10 flex flex-col items-center gap-14 sm:gap-16 lg:gap-20">
-    <!-- Main Content: Headline, Value Prop & Dual CTAs -->
-    <HeroContent />
+  <Container size="xl" class="relative z-10 flex flex-col items-center gap-8 sm:gap-12">
+    <!-- Top Trust Header Badge -->
+    <div class="text-center max-w-4xl mx-auto flex flex-col items-center font-gujarati">
+      <div class="mb-4 inline-flex items-center justify-center">
+        <Badge variant="gold" size="md">
+          <span class="text-[10px] sm:text-xs font-mono font-bold tracking-wider uppercase">
+            GSTIN: 24BZQPR2070B1ZG • ઉમરેઠ &amp; આણંદ જિલ્લો
+          </span>
+        </Badge>
+      </div>
 
-    <!-- 3 Floating Business Division Cards -->
-    <div id="divisions" class="w-full">
-      <HeroDivisionCards />
+      <span
+        class="text-xs sm:text-sm font-heading font-semibold text-text-gold tracking-widest uppercase mb-3 block"
+        data-i18n-gu="બુરહાની એન્ટરપ્રાઇઝ • BURHANI ENTERPRISE"
+        data-i18n-en="BURHANI ENTERPRISE"
+      >
+        બુરહાની એન્ટરપ્રાઇઝ • BURHANI ENTERPRISE
+      </span>
+
+      <!-- Primary Headline -->
+      <h1
+        class="text-2xl sm:text-4xl lg:text-5xl font-heading font-bold tracking-tight text-white mb-5 max-w-3xl leading-tight text-center"
+      >
+        <span
+          data-i18n-gu="ડિજિટલ વજન કાંટા, LPG ગેસ સોલ્યુશન્સ અને "
+          data-i18n-en="Digital Weighing Scales, LPG Gas Solutions &amp; "
+        >ડિજિટલ વજન કાંટા, LPG ગેસ સોલ્યુશન્સ અને </span>
+        <span
+          class="gold-gradient-text font-serif italic"
+          data-i18n-gu="AI સોફ્ટવેર"
+          data-i18n-en="AI Software"
+        >AI સોફ્ટવેર</span>
+      </h1>
+
+      <!-- Value Proposition -->
+      <p
+        class="text-sm sm:text-base text-text-muted max-w-2xl mb-6 leading-relaxed font-body"
+        data-i18n-gu="દરેક પ્રકારના નવા વજન કાંટા તેમજ રિપેરિંગ (સરકાર માન્ય છાપી આપવામાં આવશે) • દરેક પ્રકારના ગેસ સ્ટવ, હોટલ પાઇપલાઇન અને તમામ સ્પેરપાર્ટ્સ • AI ઓટોમેશન, વેઇબ્રિજ સોફ્ટવેર અને કસ્ટમ એપ્સ."
+        data-i18n-en="All types of new weighing scales &amp; legal stamping • Commercial gas stoves, hotel pipelines &amp; genuine spares • AI automation, weighbridge software &amp; custom apps."
+      >
+        દરેક પ્રકારના નવા વજન કાંટા તેમજ રિપેરિંગ (સરકાર માન્ય છાપી આપવામાં આવશે) • દરેક પ્રકારના ગેસ સ્ટવ, હોટલ પાઇપલાઇન અને તમામ સ્પેરપાર્ટ્સ • AI ઓટોમેશન, વેઇબ્રિજ સોફ્ટવેર અને કસ્ટમ એપ્સ.
+      </p>
+
+      <!-- Quick Category Jump Buttons -->
+      <div class="flex flex-wrap items-center justify-center gap-3">
+        <a
+          href="#scales"
+          class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-[#030712] font-heading font-bold text-xs shadow-[0_0_20px_rgba(212,175,55,0.35)] hover:brightness-110 transition-all"
+        >
+          <span>⚖️</span>
+          <span data-i18n-gu="વજન કાંટા (Scales)" data-i18n-en="Weighing Scales">વજન કાંટા (Scales)</span>
+        </a>
+
+        <a
+          href="#gas"
+          class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#05112e] text-white border border-primary/40 hover:border-primary font-heading font-bold text-xs transition-all"
+        >
+          <span>🔥</span>
+          <span data-i18n-gu="ગેસ પ્રોડક્ટ્સ (Gas)" data-i18n-en="Gas Products">ગેસ પ્રોડક્ટ્સ (Gas)</span>
+        </a>
+
+        <a
+          href="#software"
+          class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#05112e] text-white border border-indigo-500/40 hover:border-indigo-400 font-heading font-bold text-xs transition-all"
+        >
+          <span>💻</span>
+          <span data-i18n-gu="સોફ્ટવેર &amp; AI" data-i18n-en="Software &amp; AI">સોફ્ટવેર &amp; AI</span>
+        </a>
+
+        <a
+          href="#contact"
+          class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-emerald-600/20 text-emerald-300 border border-emerald-500/40 hover:bg-emerald-600/30 font-heading font-bold text-xs transition-all"
+        >
+          <span>📍</span>
+          <span data-i18n-gu="સંપર્ક &amp; સરનામું" data-i18n-en="Contact &amp; Address">સંપર્ક &amp; સરનામું</span>
+        </a>
+      </div>
     </div>
 
-    <!-- 4-Pillar Trust & Performance Stats -->
-    <HeroStats />
+    <!-- Authentic Local Scale Hero Showcase Card (Replacing Stock Imagery) -->
+    <div class="w-full max-w-5xl mx-auto font-gujarati">
+      <div class="relative rounded-2xl overflow-hidden border-2 border-primary/40 shadow-[0_20px_60px_rgba(0,0,0,0.85)] bg-gradient-to-b from-[#06122d] to-[#020512]">
+        <!-- Gold Top Accent Border Line -->
+        <div class="pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent z-20" aria-hidden="true"></div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 items-center">
+          <!-- Left: Authentic Scale Photo -->
+          <div class="lg:col-span-7 relative h-[280px] sm:h-[380px] lg:h-[420px] bg-[#01040f] p-4 sm:p-6 flex items-center justify-center overflow-hidden group">
+            <img
+              src="/images/scale/scale-1.jpg"
+              alt="બુરહાની એન્ટરપ્રાઇઝ હેવી ડ્યુટી ટ્રક વેઇબ્રિજ અને ઇન્ડસ્ટ્રિયલ વજન કાંટા"
+              loading="eager"
+              decoding="async"
+              class="max-w-full max-h-full object-contain rounded-xl shadow-2xl transition-transform duration-500 group-hover:scale-105"
+            />
+            <div class="absolute top-4 left-4 z-10">
+              <span class="text-[11px] font-mono font-bold px-3 py-1 rounded-full bg-[#020512]/90 text-primary border border-primary/50 backdrop-blur-md shadow-lg">
+                ઓરિજિનલ પ્રોડક્ટ ફોટો • સરકાર માન્ય છાપકામ
+              </span>
+            </div>
+          </div>
+
+          <!-- Right: Business Highlights & Direct Contacts -->
+          <div class="lg:col-span-5 p-6 sm:p-8 flex flex-col justify-between h-full border-t lg:border-t-0 lg:border-l border-primary/20">
+            <div>
+              <span class="text-[11px] font-mono uppercase tracking-wider text-text-gold font-semibold block mb-1">
+                વિશ્વસનીય સ્થાનિક સેવા • ઉમરેઠ
+              </span>
+              <h2 class="text-xl sm:text-2xl font-bold text-white mb-3">
+                સરકાર માન્ય વજન કાંટા, ગેસ સોલ્યુશન્સ &amp; AI
+              </h2>
+              <p class="text-xs text-text-muted leading-relaxed mb-4">
+                બુરહાની એન્ટરપ્રાઇઝ દ્વારા ઉમરેઠ તથા સમગ્ર આણંદ જિલ્લામાં અધિકૃત વેચાણ, ઓરિજિનલ સ્પેરપાર્ટ્સ અને સંતોષકારક ટેકનિકલ રિપેરિંગ સેવા.
+              </p>
+
+              <!-- Highlights Bullet List -->
+              <ul class="space-y-2 text-xs text-slate-200 mb-6">
+                <li class="flex items-center gap-2">
+                  <span class="text-primary font-bold">✓</span>
+                  <span>સરકાર માન્ય વજન કાંટા છાપી આપવામાં આવશે (Legal Metrology)</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="text-primary font-bold">✓</span>
+                  <span>દરેક પ્રકારના ગેસ સ્ટવ, હોટલ પાઇપલાઇન &amp; તમામ સ્પેરપાર્ટ્સ</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="text-primary font-bold">✓</span>
+                  <span>AI ઓટોમેશન સોલ્યુશન્સ &amp; વેઇબ્રિજ સ્લિપ પ્રિન્ટિંગ સોફ્ટવેર</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Direct WhatsApp Contacts -->
+            <div class="space-y-2.5 pt-4 border-t border-border-subtle">
+              <div class="text-[11px] font-mono text-text-subtle uppercase">વિભાગ વડાઓનો સીધો સંપર્ક:</div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                <a
+                  href={businessProfile.divisionContacts.weighing.whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="flex items-center justify-between p-2 rounded-lg bg-[#04091a] border border-border-subtle hover:border-primary/60 text-xs font-semibold text-white transition-colors"
+                >
+                  <div>
+                    <div class="text-white text-[11px] font-bold">હોઝેફા રંગવાલા</div>
+                    <div class="text-[9px] text-text-gold font-mono">વજન કાંટા • {businessProfile.divisionContacts.weighing.phone}</div>
+                  </div>
+                  <span class="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-400 text-[9px] font-mono">WhatsApp</span>
+                </a>
+
+                <a
+                  href={businessProfile.divisionContacts.gas.whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="flex items-center justify-between p-2 rounded-lg bg-[#04091a] border border-border-subtle hover:border-primary/60 text-xs font-semibold text-white transition-colors"
+                >
+                  <div>
+                    <div class="text-white text-[11px] font-bold">બુરહાનુદ્દીન રંગવાલા</div>
+                    <div class="text-[9px] text-text-gold font-mono">ગેસ સર્વિસ • {businessProfile.divisionContacts.gas.phone}</div>
+                  </div>
+                  <span class="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-400 text-[9px] font-mono">WhatsApp</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </Container>
 </section>

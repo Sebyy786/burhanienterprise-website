@@ -2,6 +2,8 @@
 interface Props {
   href: string;
   label: string;
+  labelGujarati?: string;
+  labelEnglish?: string;
   active?: boolean;
   class?: string;
   isMobile?: boolean;
@@ -10,10 +12,15 @@ interface Props {
 const {
   href,
   label,
+  labelGujarati,
+  labelEnglish,
   active = false,
   class: className = '',
   isMobile = false,
 } = Astro.props as Props;
+
+const displayLabelGu = labelGujarati || label;
+const displayLabelEn = labelEnglish || label;
 
 const desktopStyles =
   'relative inline-flex items-center text-sm font-medium transition-colors duration-200 py-2 font-heading focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712] rounded-[var(--radius-sm)]';
@@ -40,7 +47,11 @@ const mobileState = active
       class={`${mobileStyles} ${mobileState} ${className}`}
       aria-current={active ? 'page' : undefined}
     >
-      <span>{label}</span>
+      <span
+        class="nav-label font-gujarati"
+        data-i18n-gu={displayLabelGu}
+        data-i18n-en={displayLabelEn}
+      >{displayLabelGu}</span>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         class="h-4 w-4 text-primary/70"
@@ -59,7 +70,11 @@ const mobileState = active
       class={`${desktopStyles} ${desktopUnderline} ${desktopState} ${className}`}
       aria-current={active ? 'page' : undefined}
     >
-      {label}
+      <span
+        class="nav-label font-gujarati"
+        data-i18n-gu={displayLabelGu}
+        data-i18n-en={displayLabelEn}
+      >{displayLabelGu}</span>
     </a>
   )
 }

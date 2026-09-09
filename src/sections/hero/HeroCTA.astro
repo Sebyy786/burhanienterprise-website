@@ -10,7 +10,7 @@ interface Props {
 const {
   class: className = '',
   quoteHref = '#contact',
-  catalogHref = '#products',
+  catalogHref = '#scales',
 } = Astro.props as Props;
 ---
 
@@ -20,9 +20,12 @@ const {
     href={quoteHref}
     variant="primary"
     size="lg"
-    class="w-full sm:w-auto px-5 py-3 sm:px-8 sm:py-3.5 text-xs sm:text-base font-semibold shadow-[0_4px_20px_rgba(212,175,55,0.3)] hover:shadow-[0_6px_28px_rgba(212,175,55,0.45)] group"
+    class="w-full sm:w-auto px-5 py-3 sm:px-8 sm:py-3.5 text-xs sm:text-base font-semibold shadow-[0_4px_20px_rgba(212,175,55,0.3)] hover:shadow-[0_6px_28px_rgba(212,175,55,0.45)] group font-gujarati"
   >
-    <span>Request B2B Quote</span>
+    <span
+      data-i18n-gu="ભાવ / ઇન્ક્વાયરી કરો"
+      data-i18n-en="Request a Quote"
+    >ભાવ / ઇન્ક્વાયરી કરો</span>
     <svg
       slot="icon-right"
       xmlns="http://www.w3.org/2000/svg"
@@ -42,7 +45,7 @@ const {
     href={catalogHref}
     variant="secondary"
     size="lg"
-    class="w-full sm:w-auto px-5 py-3 sm:px-8 sm:py-3.5 text-xs sm:text-base border-border hover:border-primary/50 group"
+    class="w-full sm:w-auto px-5 py-3 sm:px-8 sm:py-3.5 text-xs sm:text-base border-border hover:border-primary/50 group font-gujarati"
   >
     <svg
       slot="icon-left"
@@ -60,6 +63,9 @@ const {
         d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
       />
     </svg>
-    <span>Explore Product Divisions</span>
+    <span
+      data-i18n-gu="પ્રોડક્ટ્સ અને સેવાઓ જુઓ"
+      data-i18n-en="View Products &amp; Services"
+    >પ્રોડક્ટ્સ અને સેવાઓ જુઓ</span>
   </Button>
 </div>

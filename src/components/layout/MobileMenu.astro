@@ -64,6 +64,8 @@ const { currentPath = '/' } = Astro.props as Props;
             <NavLink
               href={item.href}
               label={item.label}
+              labelGujarati={item.labelGujarati}
+              labelEnglish={item.labelEnglish}
               active={isActive}
               isMobile={true}
               class="mobile-nav-item"
@@ -75,24 +77,27 @@ const { currentPath = '/' } = Astro.props as Props;
 
     <!-- Drawer Footer Actions -->
     <div class="pt-6 border-t border-border-subtle space-y-4">
-      <!-- Language Switcher Placeholder -->
+      <!-- Language Switcher -->
       <div class="flex items-center justify-between px-2 text-xs">
-        <span class="text-text-muted font-heading">Language:</span>
+        <span class="text-text-muted font-heading" data-i18n-gu="ભાષા:" data-i18n-en="Language:">ભાષા:</span>
         <div class="inline-flex items-center rounded-[var(--radius-sm)] bg-surface-soft border border-border-subtle p-0.5">
           <button
             type="button"
-            class="px-2.5 py-1 text-xs font-semibold rounded-[var(--radius-sm)] bg-primary text-[#030712]"
+            class="lang-btn lang-btn-gu px-3 py-1 text-xs font-semibold rounded-[var(--radius-sm)] bg-primary text-[#030712] cursor-pointer font-gujarati transition-all"
+            data-lang="gu"
             aria-pressed="true"
+            title="ગુજરાતી ભાષા"
           >
-            EN
+            ગુજરાતી
           </button>
           <button
             type="button"
-            class="px-2.5 py-1 text-xs font-medium text-text-muted hover:text-text font-gujarati"
+            class="lang-btn lang-btn-en px-3 py-1 text-xs font-medium rounded-[var(--radius-sm)] text-text-muted hover:text-text cursor-pointer transition-all"
+            data-lang="en"
             aria-pressed="false"
-            title="ગુજરાતી ભાષા પસંદ કરો"
+            title="Switch to English"
           >
-            ગુજરાતી
+            EN
           </button>
         </div>
       </div>
