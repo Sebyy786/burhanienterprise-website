@@ -131,13 +131,16 @@ const { class: className = '' } = Astro.props as Props;
 
             <!-- Product Showcase Box with Clean Frame -->
             <div class="relative w-full h-[230px] sm:h-[300px] lg:h-[330px] bg-white rounded-xl p-3 sm:p-5 flex items-center justify-center shadow-[0_15px_35px_rgba(0,0,0,0.5)] border border-slate-200/20 overflow-hidden">
-              <img
-                src="/images/scale/scale-2.jpg"
-                alt="બુરહાની એન્ટરપ્રાઇઝ ડિજિટલ સ્ટેઈનલેસ સ્ટીલ ટેબલટોપ વજન કાંટો (AQUA મોડેલ) - ચોક્કસ વજન અને ગ્રીન LED ડિસ્પ્લે / Digital Stainless Steel Tabletop Scale"
-                loading="eager"
-                decoding="async"
-                class="max-w-full max-h-full object-contain transition-transform duration-500 group-hover:scale-105"
-              />
+              <picture class="w-full h-full flex items-center justify-center">
+                <source srcset="/images/scale/scale-8.webp" type="image/webp" />
+                <img
+                  src="/images/scale/scale-8.jpg"
+                  alt="બુરહાની એન્ટરપ્રાઇઝ અધિકૃત કોમર્શિયલ ડિજિટલ કાઉન્ટર સ્કેલ ૧ કિલો સ્ટાન્ડર્ડ ટેસ્ટ વજનિયાં સાથે - Commercial Calibrated Countertop Scale with 1kg Test Weight"
+                  loading="eager"
+                  decoding="async"
+                  class="max-w-full max-h-full object-contain transition-transform duration-500 group-hover:scale-105"
+                />
+              </picture>
             </div>
           </div>
 
