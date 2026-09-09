@@ -1,0 +1,164 @@
+---
+import Container from '../ui/Container.astro';
+
+const exactCapacityChips = [
+  '1kg',
+  '5kg',
+  '10kg',
+  '15kg',
+  '30kg',
+  '50kg',
+  '100kg',
+  '300kg',
+  '500kg',
+];
+
+const brandFilters = [
+  { id: 'all', name: 'All Brands', labelGu: 'બધી બ્રાન્ડ્સ' },
+  { id: 'Axpert', name: 'Axpert', labelGu: 'Axpert (ISI)' },
+  { id: 'Rolex', name: 'Rolex', labelGu: 'Rolex' },
+  { id: 'Silver Eagle', name: 'Silver Eagle', labelGu: 'Silver Eagle' },
+  { id: 'Taj', name: 'Taj', labelGu: 'Taj' },
+  { id: 'Burhani Enterprise', name: 'Burhani Workshop', labelGu: 'વર્કશોપ સર્વિસ' },
+];
+
+const categoryTabs = [
+  { id: 'all', nameGu: 'બધા કાંટા', nameEn: 'All Scales' },
+  { id: 'Grocery / Counter Scales', nameGu: 'કાઉન્ટર સ્કેલ્સ', nameEn: 'Counter Scales' },
+  { id: 'Jewellery / Precision Scales', nameGu: 'જ્વેલરી & પ્રિસિઝન', nameEn: 'Precision Scales' },
+  { id: 'Platform Scales', nameGu: 'પ્લેટફોર્મ સ્કેલ્સ', nameEn: 'Platform Scales' },
+  { id: 'Heavy-Duty Platform Scales', nameGu: 'હેવી ડ્યુટી પ્લેટફોર્મ', nameEn: 'Heavy Duty Scales' },
+  { id: 'Hanging Scales', nameGu: 'હેંગિંગ સ્કેલ્સ', nameEn: 'Hanging Scales' },
+  { id: 'Other Commercial Scales', nameGu: 'કેશ કાઉન્ટર & સર્વિસ', nameEn: 'Commercial & Cash' },
+];
+---
+
+<div class="sticky top-[var(--header-height-mobile)] lg:top-[var(--header-height)] z-30 bg-[#020614]/95 backdrop-blur-xl border-b border-border-subtle py-4 font-gujarati shadow-xl">
+  <Container size="xl" class="flex flex-col gap-3.5">
+    <!-- Top Row: Search & Stats & Reset -->
+    <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+      <!-- Search Input -->
+      <div class="relative flex-1 max-w-md">
+        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-primary">
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        </div>
+        <input
+          type="text"
+          id="showroom-search-input"
+          placeholder="કાંટો, કેપેસિટી કે મોડેલ શોધો... (Search scales, capacity...)"
+          class="w-full pl-9 pr-8 py-2 text-xs sm:text-sm bg-[#040a1d] text-white placeholder:text-text-subtle rounded-xl border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
+          autocomplete="off"
+        />
+        <button
+          type="button"
+          id="showroom-search-clear"
+          class="absolute inset-y-0 right-0 pr-3 flex items-center text-text-muted hover:text-white hidden cursor-pointer"
+          aria-label="Clear search"
+        >
+          <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Live Count & Reset -->
+      <div class="flex items-center justify-between sm:justify-end gap-3 text-xs">
+        <div class="font-mono text-text-muted">
+          <span data-i18n-gu="દર્શાવેલ:" data-i18n-en="Showing:">દર્શાવેલ:</span>
+          <span id="showroom-count-visible" class="text-primary font-bold">14</span>
+          <span class="text-text-subtle">/</span>
+          <span id="showroom-count-total" class="text-text-subtle">14</span>
+          <span data-i18n-gu="કાંટા" data-i18n-en="scales">કાંટા</span>
+        </div>
+
+        <button
+          type="button"
+          id="showroom-reset-filters"
+          class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-soft hover:bg-surface-card border border-border text-[11px] font-medium text-text-gold hover:text-primary transition-all cursor-pointer"
+        >
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+          </svg>
+          <span data-i18n-gu="રીસેટ ફિલ્ટર્સ" data-i18n-en="Reset Filters">રીસેટ ફિલ્ટર્સ</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Middle Row: Category Filter Tabs (Horizontal Scrollable) -->
+    <div class="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none select-none" id="showroom-category-pills" role="tablist">
+      {
+        categoryTabs.map((cat, idx) => (
+          <button
+            type="button"
+            class:list={[
+              'category-pill px-3 py-1.5 rounded-lg text-xs font-heading font-medium shrink-0 transition-all cursor-pointer border',
+              idx === 0
+                ? 'active bg-primary text-[#030712] font-bold border-primary shadow-sm'
+                : 'bg-[#03091e] text-text-muted hover:text-white border-border-subtle hover:border-primary/40',
+            ]}
+            data-category={cat.id}
+            role="tab"
+            aria-selected={idx === 0 ? 'true' : 'false'}
+          >
+            <span data-i18n-gu={cat.nameGu} data-i18n-en={cat.nameEn}>{cat.nameGu}</span>
+          </button>
+        ))
+      }
+    </div>
+
+    <!-- Bottom Row: Exact Capacity Chips & Brand Filters -->
+    <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3 pt-1 border-t border-border-subtle/60 text-xs">
+      <!-- Exact Capacity Chips -->
+      <div class="flex items-center gap-2 overflow-x-auto pb-1 lg:pb-0 scrollbar-none">
+        <span class="text-[11px] font-mono text-text-gold font-bold shrink-0 flex items-center gap-1">
+          <span>⚖️</span>
+          <span data-i18n-gu="કેપેસિટી:" data-i18n-en="Capacity:">કેપેસિટી:</span>
+        </span>
+        <button
+          type="button"
+          class="capacity-chip active px-2.5 py-1 rounded-md text-[11px] font-mono font-bold bg-primary text-[#030712] border border-primary shrink-0 transition-all cursor-pointer"
+          data-capacity="all"
+        >
+          All
+        </button>
+        {
+          exactCapacityChips.map((chip) => (
+            <button
+              type="button"
+              class="capacity-chip px-2.5 py-1 rounded-md text-[11px] font-mono bg-[#03091e] text-text-muted hover:text-white border border-border-subtle hover:border-primary/40 shrink-0 transition-all cursor-pointer"
+              data-capacity={chip}
+            >
+              {chip}
+            </button>
+          ))
+        }
+      </div>
+
+      <!-- Explicit Brand Filters (From Product Data Only) -->
+      <div class="flex items-center gap-1.5 overflow-x-auto pb-1 lg:pb-0 scrollbar-none">
+        <span class="text-[11px] font-mono text-text-gold font-bold shrink-0 flex items-center gap-1">
+          <span>🏷️</span>
+          <span data-i18n-gu="બ્રાન્ડ:" data-i18n-en="Brand:">બ્રાન્ડ:</span>
+        </span>
+        {
+          brandFilters.map((b, idx) => (
+            <button
+              type="button"
+              class:list={[
+                'brand-chip px-2.5 py-1 rounded-md text-[11px] font-mono shrink-0 transition-all cursor-pointer border',
+                idx === 0
+                  ? 'active bg-primary/20 text-primary border-primary/50 font-bold'
+                  : 'bg-[#03091e] text-text-muted hover:text-white border-border-subtle hover:border-primary/40',
+              ]}
+              data-brand={b.id}
+            >
+              {b.name}
+            </button>
+          ))
+        }
+      </div>
+    </div>
+  </Container>
+</div>

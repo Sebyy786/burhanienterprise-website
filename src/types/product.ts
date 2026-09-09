@@ -33,6 +33,12 @@ export interface Product {
   badgeEn: string;
   capacityGu?: string;
   capacityEn?: string;
+  capacities?: string[];
+  brand?: string;
+  bestUseGu?: string;
+  bestUseEn?: string;
+  repairAvailable?: boolean;
+  gallery?: string[];
   src: string;
   alt: string;
   featured?: boolean;

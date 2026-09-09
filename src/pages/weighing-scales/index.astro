@@ -1,0 +1,513 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Footer from '../../components/layout/Footer.astro';
+import ShowroomHero from '../../components/showroom/ShowroomHero.astro';
+import ShowroomFilterBar from '../../components/showroom/ShowroomFilterBar.astro';
+import ShowroomProductGrid from '../../components/showroom/ShowroomProductGrid.astro';
+import ShowroomDetailModal from '../../components/showroom/ShowroomDetailModal.astro';
+import ShowroomRepairSection from '../../components/showroom/ShowroomRepairSection.astro';
+import ShowroomServiceBanner from '../../components/showroom/ShowroomServiceBanner.astro';
+import { weighingProducts } from '../../data/weighing';
+import { businessProfile } from '../../data/business';
+
+// Generate LocalBusiness JSON-LD
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'Burhani Enterprise - Weighing Scales & Calibration',
+  alternateName: 'બુરહાની એન્ટરપ્રાઈઝ ઉમરેઠ',
+  description:
+    'Authorized retail sales, repair, and Legal Metrology stamping assistance for commercial digital weighing scales, platforms, hanging scales, and weighbridges in Umreth and Anand district.',
+  url: 'https://burhanienterprise.me/weighing-scales',
+  telephone: businessProfile.contact.phone,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Lokhand Bazar, infront of Old post office, Nr. kansara bazar',
+    addressLocality: 'Umreth',
+    addressRegion: 'Gujarat',
+    postalCode: '388220',
+    addressCountry: 'IN',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: '22.6983',
+    longitude: '73.1186',
+  },
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+      opens: '09:00',
+      closes: '20:30',
+    },
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Sunday'],
+      opens: '09:00',
+      closes: '13:30',
+    },
+  ],
+  priceRange: '₹₹',
+  areaServed: [
+    'Umreth',
+    'Anand',
+    'Vallabh Vidyanagar',
+    'Petlad',
+    'Borsad',
+    'Dakor',
+    'Nadiad',
+  ],
+};
+
+// Generate Product ItemList JSON-LD
+const productItemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Burhani Enterprise Weighing Scales Showroom Catalog',
+  numberOfItems: weighingProducts.length,
+  itemListElement: weighingProducts.map((item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    item: {
+      '@type': 'Product',
+      name: item.nameEn,
+      alternateName: item.nameGu,
+      image: `https://burhanienterprise.me${item.src}`,
+      description: item.descEn,
+      category: item.categoryEn,
+      brand: {
+        '@type': 'Brand',
+        name: item.brand || 'Burhani Enterprise',
+      },
+      offers: {
+        '@type': 'Offer',
+        availability: 'https://schema.org/InStock',
+        priceCurrency: 'INR',
+        price: 'Contact for Quote',
+        seller: {
+          '@type': 'LocalBusiness',
+          name: 'Burhani Enterprise',
+        },
+      },
+    },
+  })),
+};
+---
+
+<BaseLayout
+  title="ડિજિટલ વજન કાંટા શોરૂમ — બુરહાની એન્ટરપ્રાઈઝ ઉમરેઠ | Weighing Scales Showroom"
+  description="બુરહાની એન્ટરપ્રાઇઝ ઉમરેઠ ડિજિટલ વજન કાંટા શોરૂમ: કાઉન્ટર સ્કેલ, વોટરપ્રૂફ સ્કેલ, હેવી ડ્યુટી પ્લેટફોર્મ સ્કેલ્સ, હેંગિંગ અને જ્વેલરી કાંટા. અધિકૃત ડીલર: રોલેક્સ, એક્સપર્ટ, સિલ્વર ઈગલ, તાજ. કેલિબ્રેશન અને લીગલ મેટ્રોલોજી સ્ટેમ્પિંગ સહાય."
+  canonical="https://burhanienterprise.me/weighing-scales"
+  offsetHeader={true}
+>
+  <!-- SEO Structured Data -->
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(productItemListSchema)} />
+
+  <!-- 1. Hero Section (Real local shop asset + Umreth messaging) -->
+  <ShowroomHero />
+
+  <!-- 2. Interactive Sticky Filter & Search Toolbar -->
+  <ShowroomFilterBar />
+
+  <!-- 3. Product Catalog Grid & Zero-Result Empty State -->
+  <ShowroomProductGrid />
+
+  <!-- 4. Detail Modal with Multi-Image Gallery Support -->
+  <ShowroomDetailModal />
+
+  <!-- 5. Showroom Repair & Genuine Spares Section -->
+  <ShowroomRepairSection />
+
+  <!-- 6. Partner Brands & Metrology Consultation Banner -->
+  <ShowroomServiceBanner />
+
+  <Footer slot="footer" />
+</BaseLayout>
+
+<!-- Client-Side Real-Time Filter & Search Controller -->
+<script is:inline>
+  (function () {
+    let activeCategory = 'all';
+    let activeCapacity = 'all';
+    let activeBrand = 'all';
+    let searchTerm = '';
+
+    function getElements() {
+      return {
+        searchInput: document.getElementById('showroom-search-input'),
+        searchClear: document.getElementById('showroom-search-clear'),
+        categoryPills: document.querySelectorAll('.category-pill'),
+        capacityChips: document.querySelectorAll('.capacity-chip'),
+        brandChips: document.querySelectorAll('.brand-chip'),
+        cards: document.querySelectorAll('.showroom-card'),
+        visibleCount: document.getElementById('showroom-count-visible'),
+        emptyState: document.getElementById('showroom-empty-state'),
+        grid: document.getElementById('showroom-grid'),
+        resetBtn: document.getElementById('showroom-reset-filters'),
+        emptyResetBtn: document.getElementById('showroom-empty-reset-btn'),
+      };
+    }
+
+    function applyFilters() {
+      const els = getElements();
+      if (!els.cards || els.cards.length === 0) return;
+
+      let visible = 0;
+      const term = searchTerm.trim().toLowerCase();
+
+      els.cards.forEach(function (card) {
+        const cardCategory = card.getAttribute('data-category') || '';
+        const cardBrand = card.getAttribute('data-brand') || '';
+        const cardCapacities = (card.getAttribute('data-capacities') || '').split(',');
+        const cardSearch = card.getAttribute('data-search') || '';
+
+        // Category matching
+        const matchCategory = activeCategory === 'all' || cardCategory === activeCategory;
+
+        // Capacity matching (exact chip)
+        const matchCapacity = activeCapacity === 'all' || cardCapacities.includes(activeCapacity);
+
+        // Brand matching (explicit brand only)
+        const matchBrand = activeBrand === 'all' || cardBrand === activeBrand;
+
+        // Search text matching
+        const matchSearch = term === '' || cardSearch.includes(term);
+
+        if (matchCategory && matchCapacity && matchBrand && matchSearch) {
+          card.classList.remove('hidden');
+          card.style.display = '';
+          visible++;
+        } else {
+          card.classList.add('hidden');
+          card.style.display = 'none';
+        }
+      });
+
+      if (els.visibleCount) {
+        els.visibleCount.textContent = visible.toString();
+      }
+
+      if (visible === 0) {
+        if (els.emptyState) els.emptyState.classList.remove('hidden');
+        if (els.grid) els.grid.classList.add('hidden');
+      } else {
+        if (els.emptyState) els.emptyState.classList.add('hidden');
+        if (els.grid) els.grid.classList.remove('hidden');
+      }
+
+      updateUrlParams();
+    }
+
+    function updateUrlParams() {
+      try {
+        const params = new URLSearchParams();
+        if (activeCategory !== 'all') params.set('category', activeCategory);
+        if (activeCapacity !== 'all') params.set('capacity', activeCapacity);
+        if (activeBrand !== 'all') params.set('brand', activeBrand);
+        if (searchTerm.trim() !== '') params.set('q', searchTerm.trim());
+
+        const newUrl = params.toString()
+          ? window.location.pathname + '?' + params.toString()
+          : window.location.pathname;
+
+        window.history.replaceState({}, '', newUrl);
+      } catch (e) {}
+    }
+
+    function readUrlParams() {
+      try {
+        const params = new URLSearchParams(window.location.search);
+        const cat = params.get('category');
+        const cap = params.get('capacity');
+        const b = params.get('brand');
+        const q = params.get('q');
+
+        if (cat) activeCategory = cat;
+        if (cap) activeCapacity = cap;
+        if (b) activeBrand = b;
+        if (q) searchTerm = q;
+      } catch (e) {}
+    }
+
+    function syncUI() {
+      const els = getElements();
+
+      // Sync Category Pills
+      els.categoryPills.forEach(function (btn) {
+        const cat = btn.getAttribute('data-category');
+        if (cat === activeCategory) {
+          btn.classList.add('active', 'bg-primary', 'text-[#030712]', 'font-bold', 'border-primary');
+          btn.classList.remove('bg-[#03091e]', 'text-text-muted');
+          btn.setAttribute('aria-selected', 'true');
+        } else {
+          btn.classList.remove('active', 'bg-primary', 'text-[#030712]', 'font-bold', 'border-primary');
+          btn.classList.add('bg-[#03091e]', 'text-text-muted');
+          btn.setAttribute('aria-selected', 'false');
+        }
+      });
+
+      // Sync Capacity Chips
+      els.capacityChips.forEach(function (btn) {
+        const cap = btn.getAttribute('data-capacity');
+        if (cap === activeCapacity) {
+          btn.classList.add('active', 'bg-primary', 'text-[#030712]', 'font-bold', 'border-primary');
+          btn.classList.remove('bg-[#03091e]', 'text-text-muted');
+        } else {
+          btn.classList.remove('active', 'bg-primary', 'text-[#030712]', 'font-bold', 'border-primary');
+          btn.classList.add('bg-[#03091e]', 'text-text-muted');
+        }
+      });
+
+      // Sync Brand Chips
+      els.brandChips.forEach(function (btn) {
+        const b = btn.getAttribute('data-brand');
+        if (b === activeBrand) {
+          btn.classList.add('active', 'bg-primary/20', 'text-primary', 'border-primary/50', 'font-bold');
+          btn.classList.remove('bg-[#03091e]', 'text-text-muted');
+        } else {
+          btn.classList.remove('active', 'bg-primary/20', 'text-primary', 'border-primary/50', 'font-bold');
+          btn.classList.add('bg-[#03091e]', 'text-text-muted');
+        }
+      });
+
+      // Sync Search Input
+      if (els.searchInput && searchTerm) {
+        els.searchInput.value = searchTerm;
+        if (els.searchClear) els.searchClear.classList.remove('hidden');
+      }
+    }
+
+    function resetAllFilters() {
+      activeCategory = 'all';
+      activeCapacity = 'all';
+      activeBrand = 'all';
+      searchTerm = '';
+
+      const els = getElements();
+      if (els.searchInput) els.searchInput.value = '';
+      if (els.searchClear) els.searchClear.classList.add('hidden');
+
+      syncUI();
+      applyFilters();
+    }
+
+    // Modal Interaction
+    let productsMap = {};
+
+    function initModalData() {
+      const dataScript = document.getElementById('showroom-modal-data');
+      if (dataScript) {
+        try {
+          const list = JSON.parse(dataScript.textContent || '[]');
+          list.forEach(function (p) {
+            productsMap[p.id] = p;
+          });
+        } catch (e) {}
+      }
+    }
+
+    function openModal(productId) {
+      const p = productsMap[productId];
+      const dialog = document.getElementById('showroom-detail-dialog');
+      if (!p || !dialog) return;
+
+      const lang = (window.__getAppLanguage && window.__getAppLanguage()) || 'gu';
+
+      // Elements inside dialog
+      const title = document.getElementById('modal-product-title');
+      const subtitle = document.getElementById('modal-product-subtitle');
+      const desc = document.getElementById('modal-product-desc');
+      const brand = document.getElementById('modal-product-brand');
+      const category = document.getElementById('modal-product-category');
+      const capacityTag = document.getElementById('modal-capacity-tag');
+      const bestUse = document.getElementById('modal-product-bestuse');
+      const mainImg = document.getElementById('modal-main-img');
+      const galleryStrip = document.getElementById('modal-gallery-strip');
+      const waCta = document.getElementById('modal-whatsapp-cta');
+
+      if (title) title.textContent = lang === 'gu' ? p.nameGu : p.nameEn;
+      if (subtitle) subtitle.textContent = lang === 'gu' ? p.nameEn : p.nameGu;
+      if (desc) desc.textContent = lang === 'gu' ? p.descGu : p.descEn;
+      if (brand) brand.textContent = '🏷️ ' + p.brand;
+      if (category) category.textContent = lang === 'gu' ? p.categoryGu : p.categoryEn;
+      if (capacityTag) capacityTag.textContent = lang === 'gu' ? p.capacityGu : p.capacityEn;
+      if (bestUse) bestUse.textContent = lang === 'gu' ? p.bestUseGu : p.bestUseEn;
+      if (mainImg) {
+        mainImg.src = p.src;
+        mainImg.alt = p.alt;
+      }
+
+      // Populate multi-image gallery thumbnails (Requirement 7)
+      if (galleryStrip) {
+        galleryStrip.innerHTML = '';
+        const galleryImages = p.gallery && p.gallery.length > 0 ? p.gallery : [p.src];
+
+        if (galleryImages.length > 1) {
+          galleryImages.forEach(function (imgSrc, index) {
+            const thumbBtn = document.createElement('button');
+            thumbBtn.type = 'button';
+            thumbBtn.className =
+              'w-12 h-12 rounded-lg border-2 overflow-hidden bg-[#01040f] p-1 shrink-0 transition-all cursor-pointer ' +
+              (index === 0 ? 'border-primary shadow-md' : 'border-border-subtle opacity-70 hover:opacity-100');
+
+            const thumbImg = document.createElement('img');
+            thumbImg.src = imgSrc;
+            thumbImg.alt = p.nameEn + ' view ' + (index + 1);
+            thumbImg.className = 'w-full h-full object-contain';
+
+            thumbBtn.appendChild(thumbImg);
+
+            thumbBtn.addEventListener('click', function () {
+              if (mainImg) mainImg.src = imgSrc;
+              galleryStrip.querySelectorAll('button').forEach(function (btn) {
+                btn.className =
+                  'w-12 h-12 rounded-lg border-2 overflow-hidden bg-[#01040f] p-1 shrink-0 transition-all cursor-pointer border-border-subtle opacity-70 hover:opacity-100';
+              });
+              thumbBtn.className =
+                'w-12 h-12 rounded-lg border-2 overflow-hidden bg-[#01040f] p-1 shrink-0 transition-all cursor-pointer border-primary shadow-md';
+            });
+
+            galleryStrip.appendChild(thumbBtn);
+          });
+        }
+      }
+
+      // WhatsApp CTA message
+      if (waCta) {
+        const phone = '919974164452';
+        waCta.href = 'https://wa.me/' + phone + '?text=' + encodeURIComponent(p.whatsappMsg);
+      }
+
+      try {
+        dialog.showModal();
+      } catch (e) {
+        dialog.setAttribute('open', '');
+      }
+    }
+
+    function closeModal() {
+      const dialog = document.getElementById('showroom-detail-dialog');
+      if (dialog) {
+        try {
+          dialog.close();
+        } catch (e) {
+          dialog.removeAttribute('open');
+        }
+      }
+    }
+
+    function initShowroom() {
+      readUrlParams();
+      initModalData();
+      syncUI();
+      applyFilters();
+
+      const els = getElements();
+
+      // Search event with debounce
+      let debounceTimer;
+      if (els.searchInput) {
+        els.searchInput.addEventListener('input', function (e) {
+          searchTerm = e.target.value;
+          if (els.searchClear) {
+            if (searchTerm.trim()) {
+              els.searchClear.classList.remove('hidden');
+            } else {
+              els.searchClear.classList.add('hidden');
+            }
+          }
+          clearTimeout(debounceTimer);
+          debounceTimer = setTimeout(applyFilters, 100);
+        });
+      }
+
+      if (els.searchClear) {
+        els.searchClear.addEventListener('click', function () {
+          if (els.searchInput) {
+            els.searchInput.value = '';
+            searchTerm = '';
+            els.searchClear.classList.add('hidden');
+            applyFilters();
+          }
+        });
+      }
+
+      // Category Tabs
+      els.categoryPills.forEach(function (pill) {
+        pill.addEventListener('click', function () {
+          activeCategory = pill.getAttribute('data-category') || 'all';
+          syncUI();
+          applyFilters();
+        });
+      });
+
+      // Capacity Chips
+      els.capacityChips.forEach(function (chip) {
+        chip.addEventListener('click', function () {
+          activeCapacity = chip.getAttribute('data-capacity') || 'all';
+          syncUI();
+          applyFilters();
+        });
+      });
+
+      // Brand Chips
+      els.brandChips.forEach(function (chip) {
+        chip.addEventListener('click', function () {
+          activeBrand = chip.getAttribute('data-brand') || 'all';
+          syncUI();
+          applyFilters();
+        });
+      });
+
+      // Reset Buttons
+      if (els.resetBtn) els.resetBtn.addEventListener('click', resetAllFilters);
+      if (els.emptyResetBtn) els.emptyResetBtn.addEventListener('click', resetAllFilters);
+
+      // Modal Triggers via event delegation
+      document.addEventListener('click', function (e) {
+        const trigger = e.target.closest('[data-modal-target]');
+        if (trigger) {
+          const productId = trigger.getAttribute('data-modal-target');
+          if (productId) {
+            e.preventDefault();
+            openModal(productId);
+          }
+        }
+      });
+
+      const modalClose = document.getElementById('showroom-modal-close');
+      if (modalClose) {
+        modalClose.addEventListener('click', closeModal);
+      }
+
+      const dialog = document.getElementById('showroom-detail-dialog');
+      if (dialog) {
+        dialog.addEventListener('click', function (e) {
+          const rect = dialog.getBoundingClientRect();
+          const isInDialog =
+            rect.top <= e.clientY &&
+            e.clientY <= rect.top + rect.height &&
+            rect.left <= e.clientX &&
+            e.clientX <= rect.left + rect.width;
+          if (!isInDialog) {
+            closeModal();
+          }
+        });
+      }
+
+      // Handle language change event
+      window.addEventListener('languagechange', function () {
+        applyFilters();
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initShowroom);
+    } else {
+      initShowroom();
+    }
+
+    document.addEventListener('astro:page-load', initShowroom);
+  })();
+</script>

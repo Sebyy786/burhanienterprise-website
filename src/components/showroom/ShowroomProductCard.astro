@@ -1,0 +1,161 @@
+---
+import type { Product } from '../../types/product';
+import { businessProfile } from '../../data/business';
+
+interface Props {
+  product: Product;
+}
+
+const { product } = Astro.props as Props;
+const weighingPhone = businessProfile.divisionContacts.weighing.phoneDigits;
+
+// Compile searchable text
+const searchText = [
+  product.nameGu,
+  product.nameEn,
+  product.descGu,
+  product.descEn,
+  product.categoryGu,
+  product.categoryEn,
+  product.subcategory,
+  product.brand || '',
+  product.capacityEn || '',
+  product.capacityGu || '',
+  product.bestUseGu || '',
+  product.bestUseEn || '',
+  product.badgeGu,
+  product.badgeEn,
+  ...(product.capacities || []),
+].join(' ').toLowerCase();
+
+const capacityDataString = (product.capacities || []).join(',');
+---
+
+<div
+  class="showroom-card group/card flex flex-col justify-between rounded-2xl bg-gradient-to-b from-[#071330] via-[#040c22] to-[#020614] border border-primary/25 hover:border-primary/60 shadow-xl hover:shadow-[0_12px_35px_rgba(212,175,55,0.18)] transition-all duration-300 p-4 sm:p-5 font-gujarati overflow-hidden"
+  data-product-id={product.id}
+  data-category={product.category}
+  data-brand={product.brand || 'other'}
+  data-capacities={capacityDataString}
+  data-search={searchText}
+>
+  <div>
+    <!-- Top Metadata Header: Category & Brand Tag -->
+    <div class="flex items-center justify-between gap-2 mb-3">
+      <span class="text-[10px] font-mono font-semibold px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/25">
+        🏷️ {product.brand || 'Burhani'}
+      </span>
+      <span class="text-[10px] font-mono text-text-subtle truncate max-w-[140px]" title={product.categoryEn}>
+        {product.categoryGu}
+      </span>
+    </div>
+
+    <!-- Product Image Container with Quick View Hover Trigger -->
+    <div class="relative w-full aspect-[4/3] bg-[#01040f] rounded-xl overflow-hidden flex items-center justify-center p-3 mb-4 border border-border-subtle group-hover/card:border-primary/40 transition-colors">
+      <img
+        src={product.src}
+        alt={product.alt}
+        loading="lazy"
+        decoding="async"
+        class="max-w-full max-h-full object-contain transition-transform duration-300 group-hover/card:scale-105"
+      />
+
+      <!-- Capacity Tag (Top Right) -->
+      <div class="absolute top-2.5 right-2.5 z-10">
+        <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-[#020512]/90 text-primary border border-primary/40 backdrop-blur-md">
+          {product.capacityGu || product.capacityEn}
+        </span>
+      </div>
+
+      <!-- Availability / Badge (Bottom Left) -->
+      <div class="absolute bottom-2.5 left-2.5 z-10">
+        <span class="text-[9px] font-mono font-semibold px-2 py-0.5 rounded bg-[#020512]/90 text-emerald-400 border border-emerald-500/40 backdrop-blur-md">
+          {product.badgeGu}
+        </span>
+      </div>
+
+      <!-- Quick View Button Overlay -->
+      <button
+        type="button"
+        class="quick-view-btn absolute inset-0 bg-[#020614]/60 backdrop-blur-sm opacity-0 group-hover/card:opacity-100 flex items-center justify-center gap-2 text-xs font-bold text-white transition-opacity cursor-pointer z-20 focus:opacity-100 focus:outline-none"
+        data-modal-target={product.id}
+        aria-label={`View full details of ${product.nameEn}`}
+      >
+        <span class="px-3.5 py-1.5 rounded-lg bg-primary text-[#030712] font-heading font-bold shadow-lg flex items-center gap-1.5 hover:bg-primary-hover">
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+          </svg>
+          <span data-i18n-gu="ઝડપી વિગત" data-i18n-en="Quick View">ઝડપી વિગત</span>
+        </span>
+      </button>
+    </div>
+
+    <!-- Product Name & Subtitle -->
+    <h3
+      class="text-sm sm:text-base font-heading font-bold text-white mb-1.5 line-clamp-1 group-hover/card:text-primary transition-colors cursor-pointer"
+      data-modal-target={product.id}
+      data-i18n-gu={product.nameGu}
+      data-i18n-en={product.nameEn}
+    >
+      {product.nameGu}
+    </h3>
+
+    <!-- Description -->
+    <p
+      class="text-xs text-text-muted leading-relaxed line-clamp-2 mb-3 font-body"
+      data-i18n-gu={product.descGu}
+      data-i18n-en={product.descEn}
+    >
+      {product.descGu}
+    </p>
+
+    <!-- Best Use Spec (Requirement 6) -->
+    {product.bestUseGu && (
+      <div class="mb-3 p-2 rounded-lg bg-[#020512] border border-border-subtle text-[11px]">
+        <div class="text-[9px] font-mono text-text-gold font-semibold uppercase tracking-wider mb-0.5" data-i18n-gu="ઉત્તમ ઉપયોગ / Best Use" data-i18n-en="Best Application">
+          ઉત્તમ ઉપયોગ
+        </div>
+        <div class="text-text-muted leading-snug line-clamp-1" data-i18n-gu={product.bestUseGu} data-i18n-en={product.bestUseEn}>
+          {product.bestUseGu}
+        </div>
+      </div>
+    )}
+
+    <!-- Repair Availability (Requirement 6) -->
+    <div class="flex items-center gap-1.5 text-[10px] font-mono text-emerald-400 mb-3">
+      <svg class="w-3.5 h-3.5 text-emerald-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+      </svg>
+      <span data-i18n-gu="રિપેરિંગ &amp; સ્પેરપાર્ટ્સ હાજરમાં ઉપલબ્ધ" data-i18n-en="Repair &amp; Spares Available at Shop">
+        રિપેરિંગ &amp; સ્પેરપાર્ટ્સ હાજરમાં ઉપલબ્ધ
+      </span>
+    </div>
+  </div>
+
+  <!-- Bottom Actions: Details & WhatsApp Quote CTA -->
+  <div class="pt-3 border-t border-border-subtle flex items-center justify-between gap-2">
+    <button
+      type="button"
+      class="quick-view-link text-[11px] text-text-gold hover:text-white font-mono font-semibold transition-colors cursor-pointer flex items-center gap-1"
+      data-modal-target={product.id}
+    >
+      <span data-i18n-gu="વિગત જુઓ" data-i18n-en="Details">વિગત જુઓ</span>
+      <span>→</span>
+    </button>
+
+    <!-- WhatsApp CTA Button (Requirement 6) -->
+    <a
+      href={`https://wa.me/${weighingPhone}?text=${encodeURIComponent(product.whatsappMsg)}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary hover:bg-primary-hover text-[#030712] font-heading font-bold text-xs shadow-md transition-all shrink-0 active:scale-95"
+      aria-label={`Inquire about ${product.nameEn} on WhatsApp`}
+    >
+      <svg class="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24">
+        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.072-2.128-.521-1.615-.67-2.66-2.308-2.74-2.417-.08-.108-.659-.877-.659-1.672 0-.795.414-1.187.561-1.349.146-.162.32-.203.428-.203.107 0 .215.002.308.007.1.005.234-.038.366.279.136.327.464 1.132.505 1.215.041.083.068.18.012.289-.056.108-.083.177-.165.273-.082.096-.174.215-.248.289-.083.083-.17.172-.073.338.097.166.432.713.927 1.154.636.568 1.172.744 1.338.827.166.083.264.069.362-.042.098-.111.42-.489.532-.656.113-.167.225-.139.378-.083.153.056.974.459 1.141.542.167.083.278.125.32.194.041.07.041.405-.103.81zM12 2C6.477 2 2 6.477 2 12c0 1.891.526 3.662 1.442 5.179L2 22l4.981-1.306A9.957 9.957 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/>
+      </svg>
+      <span>WhatsApp</span>
+    </a>
+  </div>
+</div>

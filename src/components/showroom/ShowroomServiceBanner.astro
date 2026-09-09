@@ -1,0 +1,97 @@
+---
+import Container from '../ui/Container.astro';
+import Button from '../ui/Button.astro';
+import { businessProfile } from '../../data/business';
+import { brandLogos } from '../../data/brands';
+
+const weighingLead = businessProfile.divisionContacts.weighing;
+---
+
+<section class="py-14 sm:py-20 bg-[#01030c] border-t border-border-subtle relative overflow-hidden font-gujarati">
+  <Container size="xl" class="flex flex-col gap-12">
+    <!-- Partner Brands Strip -->
+    <div class="flex flex-col gap-4">
+      <div class="flex items-center justify-between">
+        <h3 class="text-xs sm:text-sm font-heading font-bold text-white tracking-wide" data-i18n-gu="અધિકૃત પાર્ટનર બ્રાન્ડ્સ (Authorized Scale Brands)" data-i18n-en="Authorized Partner Brands">
+          🏷️ અધિકૃત પાર્ટનર બ્રાન્ડ્સ (Authorized Scale Brands)
+        </h3>
+        <span class="text-[11px] font-mono text-text-muted">100% Genuine Certified Systems</span>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
+        {
+          brandLogos.map((b) => (
+            <div class="flex items-center gap-3 p-3 rounded-xl bg-[#03091e] border border-border-subtle hover:border-primary/40 transition-colors">
+              <img src={b.logo} alt={b.alt} class="h-8 sm:h-10 w-auto max-w-[80px] object-contain shrink-0" loading="lazy" />
+              <div class="min-w-0">
+                <div class="text-xs font-bold text-white truncate font-heading">{b.fullName}</div>
+                <div class="text-[9px] text-emerald-400 font-mono font-semibold truncate">{b.tag}</div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <!-- Direct Consultation Callout Card -->
+    <div class="rounded-2xl bg-gradient-to-r from-[#030c24] via-[#071c3d] to-[#030c24] border-2 border-primary/40 p-6 sm:p-8 lg:p-10 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8">
+      <div class="flex-1">
+        <div class="inline-flex items-center gap-2 mb-3">
+          <span class="w-2.5 h-2.5 rounded-full bg-[#25D366]"></span>
+          <span
+            class="text-xs font-mono uppercase tracking-wider text-text-gold font-semibold"
+            data-i18n-gu="ડિજિટલ વજન કાંટા &amp; વેઇબ્રિજ વિભાગ"
+            data-i18n-en="Weighing Scales &amp; Systems Division"
+          >
+            ડિજિટલ વજન કાંટા &amp; વેઇબ્રિજ વિભાગ
+          </span>
+        </div>
+
+        <h3
+          class="text-lg sm:text-2xl font-heading font-bold text-white mb-2"
+          data-i18n-gu="નવા કાંટા, રિપેરિંગ કે લીગલ મેટ્રોલોજી સ્ટેમ્પિંગ સહાય માટે સીધો સંપર્ક"
+          data-i18n-en="Direct Contact for New Scales, Repairs, and Legal Metrology Stamping Assistance"
+        >
+          નવા કાંટા, રિપેરિંગ કે લીગલ મેટ્રોલોજી સ્ટેમ્પિંગ સહાય માટે સીધો સંપર્ક
+        </h3>
+
+        <p
+          class="text-xs sm:text-sm text-text-muted leading-relaxed max-w-2xl font-body"
+          data-i18n-gu="હોઝેફા બી. રંગવાલા સાથે રૂબરૂ મુલાકાત અથવા ફોન પર વાતચીત કરો. તમારા કરિયાણા સ્ટોર, સુપરમાર્કેટ, ફેક્ટરી કે વેરહાઉસ માટે શ્રેષ્ઠ વજન કાંટો વ્યાજબી ભાવે મેળવો."
+          data-i18n-en="Speak directly with Hozefa B. Rangwala. Choose the right weighing scale for your retail shop, supermarket, godown, or factory with certified metrology stamping support."
+        >
+          હોઝેફા બી. રંગવાલા સાથે રૂબરૂ મુલાકાત અથવા ફોન પર વાતચીત કરો. તમારા કરિયાણા સ્ટોર, સુપરમાર્કેટ, ફેક્ટરી કે વેરહાઉસ માટે શ્રેષ્ઠ વજન કાંટો વ્યાજબી ભાવે મેળવો.
+        </p>
+
+        <div class="mt-4 flex flex-wrap items-center gap-2 text-[11px] font-mono text-slate-300">
+          <span class="px-2 py-0.5 rounded bg-[#020512] border border-border-subtle">📍 લોખંડ બજાર, ઉમરેઠ</span>
+          <span class="px-2 py-0.5 rounded bg-[#020512] border border-border-subtle">🕒 સોમ-શનિ ૯:૦૦ થી ૮:૩૦</span>
+          <span class="px-2 py-0.5 rounded bg-[#020512] border border-border-subtle">📞 +91 99741 64452</span>
+        </div>
+      </div>
+
+      <div class="bg-[#020512] rounded-xl p-5 border border-primary/40 shrink-0 flex flex-col gap-3 min-w-[260px] text-center sm:text-left shadow-xl">
+        <div>
+          <span class="text-[10px] font-mono uppercase text-text-subtle block" data-i18n-gu="વિભાગ વડા" data-i18n-en="Division Lead">વિભાગ વડા</span>
+          <span class="font-heading font-bold text-white text-base block">{weighingLead.name}</span>
+          <span class="text-xs text-text-gold font-mono font-semibold">{weighingLead.phone}</span>
+        </div>
+
+        <Button
+          href={weighingLead.whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          variant="primary"
+          size="md"
+          class="w-full justify-center"
+          ariaLabel="Contact Hozefa on WhatsApp"
+        >
+          <svg slot="icon-left" class="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24">
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.072-2.128-.521-1.615-.67-2.66-2.308-2.74-2.417-.08-.108-.659-.877-.659-1.672 0-.795.414-1.187.561-1.349.146-.162.32-.203.428-.203.107 0 .215.002.308.007.1.005.234-.038.366.279.136.327.464 1.132.505 1.215.041.083.068.18.012.289-.056.108-.083.177-.165.273-.082.096-.174.215-.248.289-.083.083-.17.172-.073.338.097.166.432.713.927 1.154.636.568 1.172.744 1.338.827.166.083.264.069.362-.042.098-.111.42-.489.532-.656.113-.167.225-.139.378-.083.153.056.974.459 1.141.542.167.083.278.125.32.194.041.07.041.405-.103.81zM12 2C6.477 2 2 6.477 2 12c0 1.891.526 3.662 1.442 5.179L2 22l4.981-1.306A9.957 9.957 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/>
+          </svg>
+          <span data-i18n-gu="વોટ્સએપ સંપર્ક" data-i18n-en="Chat on WhatsApp">વોટ્સએપ સંપર્ક</span>
+        </Button>
+      </div>
+    </div>
+  </Container>
+</section>

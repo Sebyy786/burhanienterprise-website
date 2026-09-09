@@ -1,0 +1,68 @@
+---
+import Container from '../ui/Container.astro';
+import ShowroomProductCard from './ShowroomProductCard.astro';
+import { weighingProducts } from '../../data/weighing';
+import { businessProfile } from '../../data/business';
+
+const weighingLead = businessProfile.divisionContacts.weighing;
+---
+
+<section class="py-10 sm:py-16 bg-[#01040f] min-h-[500px]">
+  <Container size="xl">
+    <!-- Active Product Cards Grid (1 col @ 320, 2 @ 768, 3 @ 1024, 4 @ 1440) -->
+    <div
+      id="showroom-grid"
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 sm:gap-6"
+    >
+      {weighingProducts.map((product) => <ShowroomProductCard product={product} />)}
+    </div>
+
+    <!-- Empty State (Hidden by default, shown when visibleCount === 0) -->
+    <div
+      id="showroom-empty-state"
+      class="hidden rounded-2xl bg-gradient-to-b from-[#071330] to-[#020614] border-2 border-primary/30 p-8 sm:p-12 text-center max-w-xl mx-auto my-8 font-gujarati shadow-2xl"
+    >
+      <div class="w-14 h-14 rounded-2xl bg-primary/10 border border-primary/30 flex items-center justify-center text-primary text-2xl mx-auto mb-4">
+        ⚖️
+      </div>
+
+      <h3
+        class="text-lg sm:text-xl font-heading font-bold text-white mb-2"
+        data-i18n-gu="તમારી પસંદગી માટે કોઈ વજન કાંટો મળ્યો નથી"
+        data-i18n-en="No weighing scales match your current filters"
+      >
+        તમારી પસંદગી માટે કોઈ વજન કાંટો મળ્યો નથી
+      </h3>
+
+      <p
+        class="text-xs sm:text-sm text-text-muted leading-relaxed mb-6 font-body"
+        data-i18n-gu="કૃપા કરીને અન્ય કેપેસિટી કે બ્રાન્ડ પસંદ કરો અથવા હોઝેફાભાઈ સાથે સીધો વોટ્સએપ સંપર્ક કરીને તમારી જરૂરિયાત મુજબ કાંટો મંગાવો."
+        data-i18n-en="Please try clearing some filters or contact Hozefa directly to find custom models and capacities."
+      >
+        કૃપા કરીને અન્ય કેપેસિટી કે બ્રાન્ડ પસંદ કરો અથવા હોઝેફાભાઈ સાથે સીધો વોટ્સએપ સંપર્ક કરીને તમારી જરૂરિયાત મુજબ કાંટો મંગાવો.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+        <button
+          type="button"
+          id="showroom-empty-reset-btn"
+          class="w-full sm:w-auto px-5 py-2.5 rounded-lg bg-surface-soft hover:bg-surface-card border border-primary/40 text-xs font-bold text-white transition-all cursor-pointer"
+        >
+          <span data-i18n-gu="બધા ફિલ્ટર્સ સાફ કરો" data-i18n-en="Clear All Filters">બધા ફિલ્ટર્સ સાફ કરો</span>
+        </button>
+
+        <a
+          href={weighingLead.whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-primary hover:bg-primary-hover text-[#030712] text-xs font-heading font-bold shadow-lg transition-all"
+        >
+          <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24">
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.072-2.128-.521-1.615-.67-2.66-2.308-2.74-2.417-.08-.108-.659-.877-.659-1.672 0-.795.414-1.187.561-1.349.146-.162.32-.203.428-.203.107 0 .215.002.308.007.1.005.234-.038.366.279.136.327.464 1.132.505 1.215.041.083.068.18.012.289-.056.108-.083.177-.165.273-.082.096-.174.215-.248.289-.083.083-.17.172-.073.338.097.166.432.713.927 1.154.636.568 1.172.744 1.338.827.166.083.264.069.362-.042.098-.111.42-.489.532-.656.113-.167.225-.139.378-.083.153.056.974.459 1.141.542.167.083.278.125.32.194.041.07.041.405-.103.81zM12 2C6.477 2 2 6.477 2 12c0 1.891.526 3.662 1.442 5.179L2 22l4.981-1.306A9.957 9.957 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/>
+          </svg>
+          <span data-i18n-gu="હોઝેફાભાઈને પૂછો" data-i18n-en="Ask Hozefa on WhatsApp">હોઝેફાભાઈને પૂછો</span>
+        </a>
+      </div>
+    </div>
+  </Container>
+</section>

@@ -1,0 +1,134 @@
+---
+import Container from '../ui/Container.astro';
+import Badge from '../ui/Badge.astro';
+import Button from '../ui/Button.astro';
+import GlassCard from '../ui/GlassCard.astro';
+import { businessProfile } from '../../data/business';
+
+const weighingLead = businessProfile.divisionContacts.weighing;
+const repairWhatsAppUrl = `https://wa.me/${weighingLead.phoneDigits}?text=${encodeURIComponent('નમસ્તે હોઝેફાભાઈ, મારે વજન કાંટા રિપેરિંગ / સ્પેરપાર્ટ્સ વિશે વાત કરવી છે.')}`;
+
+const repairCapabilities = [
+  {
+    icon: 'M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z',
+    titleGu: 'મધરબોર્ડ & PCB રિપેરિંગ',
+    titleEn: 'Motherboard & PCB Repair',
+    descGu: 'કોઈપણ બ્રાન્ડના કાંટાના સર્કિટ બોર્ડ, પાવર સપ્લાય અને પ્રોગામિંગ એરરનું ચોક્કસ નિવારણ.',
+    descEn: 'Component-level PCB repair, power supply fixes, and calibration error troubleshooting for all brands.',
+    badgeGu: 'ચોક્કસ નિવારણ',
+    badgeEn: 'PCB Diagnostics',
+  },
+  {
+    icon: 'M13 10V3L4 14h7v7l9-11h-7z',
+    titleGu: 'લોડ સેલ્સ રિપ્લેસમેન્ટ & કેલિબ્રેશન',
+    titleEn: 'Load Cell Sensor Replacement',
+    descGu: 'સિંગલ પોઇન્ટ, શીયર બીમ અને એસ-ટાઇપ ઓરિજિનલ લોડ સેલ્સ હાજરમાં બદલી ચોક્કસ કેલિબ્રેશન.',
+    descEn: 'High-precision load cell replacement (single point, shear beam, S-beam) with certified test weights.',
+    badgeGu: 'સેન્સર કેલિબ્રેશન',
+    badgeEn: 'Precision Sensors',
+  },
+  {
+    icon: 'M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z',
+    titleGu: 'ડિસ્પ્લે & કીપેડ બદલાવ',
+    titleEn: 'Display & Keypad Replacement',
+    descGu: 'બ્રાઇટ ગ્રીન/રેડ LED ડિસ્પ્લે, વજન ઇન્ડિકેટર અને વોટરપ્રૂફ મેમ્બ્રેન કીપેડનું ત્વરિત ફિટિંગ.',
+    descEn: 'Bright green/red LED displays, secondary pole displays, and rugged water-resistant keypads.',
+    badgeGu: 'હાઇ વિઝિબિલિટી',
+    badgeEn: 'LED Displays',
+  },
+  {
+    icon: 'M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10',
+    titleGu: 'હેવી બેટરી & ટ્રાન્સફોર્મર સ્પેર',
+    titleEn: 'Rechargeable Batteries & Transformers',
+    descGu: 'લાંબા બેકઅપ માટે ઓરિજિનલ 4V/6V બેટરી, કોપર ટ્રાન્સફોર્મર, સ્ટીલ પ્લેટર અને ચાર્જર એડેપ્ટર.',
+    descEn: 'Original 4V/6V heavy rechargeable batteries, copper wound transformers, and stainless steel pans.',
+    badgeGu: 'હાજરમાં સ્ટોક',
+    badgeEn: 'Ready Stock',
+  },
+];
+---
+
+<section class="py-16 sm:py-24 bg-[#020614] border-t border-border-subtle relative overflow-hidden font-gujarati">
+  <!-- Subtle Ambient Glow -->
+  <div
+    class="pointer-events-none absolute top-1/2 left-1/4 -translate-y-1/2 w-[600px] h-[350px] bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.06)_0%,transparent_70%)] blur-3xl -z-10"
+    aria-hidden="true"
+  ></div>
+
+  <Container size="xl" class="flex flex-col gap-12 sm:gap-16">
+    <!-- Header Block -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+      <div class="max-w-2xl">
+        <div class="mb-3">
+          <Badge variant="gold" size="sm">
+            <span data-i18n-gu="વર્કશોપ સેવા • રિપેરિંગ &amp; સ્પેરપાર્ટ્સ" data-i18n-en="Workshop Service • Repairs &amp; Spare Parts">
+              વર્કશોપ સેવા • રિપેરિંગ &amp; સ્પેરપાર્ટ્સ
+            </span>
+          </Badge>
+        </div>
+
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-heading font-bold text-white tracking-tight leading-snug sm:leading-tight mb-2">
+          <span data-i18n-gu="વજન કાંટાનું " data-i18n-en="Weighing Scale ">વજન કાંટાનું </span>
+          <span class="gold-gradient-text font-serif italic" data-i18n-gu="સંતોષકારક રિપેરિંગ" data-i18n-en="Expert Repair &amp; Spares">સંતોષકારક રિપેરિંગ</span>
+        </h2>
+
+        <p class="text-xs sm:text-sm text-text-muted leading-relaxed font-body" data-i18n-gu="ઉમરેઠ સ્થિત અમારી વર્કશોપમાં કોઈપણ બ્રાન્ડના કાઉન્ટર સ્કેલ, પ્લેટફોર્મ કાંટા, હેવી ડ્યુટી સ્કેલ અને વેઇબ્રિજ ઇન્ડિકેટર્સનું ઝડપી અને વિશ્વસનીય રિપેરિંગ. ઓરિજિનલ સ્પેરપાર્ટ્સ અને ચોક્કસ કેલિબ્રેશન સાથે સ્થળ પર સેવા." data-i18n-en="Comprehensive troubleshooting and component-level repair for retail counter scales, heavy platforms, crane scales, and weighbridge indicators in our Umreth workshop. Ready stock genuine spares and certified test weights calibration.">
+          ઉમરેઠ સ્થિત અમારી વર્કશોપમાં કોઈપણ બ્રાન્ડના કાઉન્ટર સ્કેલ, પ્લેટફોર્મ કાંટા, હેવી ડ્યુટી સ્કેલ અને વેઇબ્રિજ ઇન્ડિકેટર્સનું ઝડપી અને વિશ્વસનીય રિપેરિંગ. ઓરિજિનલ સ્પેરપાર્ટ્સ અને ચોક્કસ કેલિબ્રેશન સાથે સ્થળ પર સેવા.
+        </p>
+      </div>
+
+      <div class="shrink-0 flex items-center gap-3">
+        <Button
+          href={repairWhatsAppUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          variant="primary"
+          size="md"
+          ariaLabel="Contact for scale repair on WhatsApp"
+        >
+          <svg slot="icon-left" class="h-4 w-4 fill-current" viewBox="0 0 24 24">
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.072-2.128-.521-1.615-.67-2.66-2.308-2.74-2.417-.08-.108-.659-.877-.659-1.672 0-.795.414-1.187.561-1.349.146-.162.32-.203.428-.203.107 0 .215.002.308.007.1.005.234-.038.366.279.136.327.464 1.132.505 1.215.041.083.068.18.012.289-.056.108-.083.177-.165.273-.082.096-.174.215-.248.289-.083.083-.17.172-.073.338.097.166.432.713.927 1.154.636.568 1.172.744 1.338.827.166.083.264.069.362-.042.098-.111.42-.489.532-.656.113-.167.225-.139.378-.083.153.056.974.459 1.141.542.167.083.278.125.32.194.041.07.041.405-.103.81zM12 2C6.477 2 2 6.477 2 12c0 1.891.526 3.662 1.442 5.179L2 22l4.981-1.306A9.957 9.957 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/>
+          </svg>
+          <span data-i18n-gu="રિપેરિંગ પૂછપરછ" data-i18n-en="Inquire for Repair">રિપેરિંગ પૂછપરછ</span>
+        </Button>
+      </div>
+    </div>
+
+    <!-- 4-Card Repair Services Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+      {
+        repairCapabilities.map((srv) => (
+          <GlassCard padding="md" hoverEffect={true} class="flex flex-col justify-between border-primary/30 bg-[#03091e] group">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-[10px] font-mono text-primary bg-primary/10 px-2 py-0.5 rounded border border-primary/20 font-semibold">
+                  {srv.badgeGu}
+                </span>
+                <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+              </div>
+              <div class="w-8 h-8 rounded-lg bg-primary/10 border border-primary/30 flex items-center justify-center text-primary mb-3 group-hover:scale-110 transition-transform">
+                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d={srv.icon} />
+                </svg>
+              </div>
+              <h4 class="text-sm font-heading font-bold text-white mb-1 group-hover:text-primary transition-colors" data-i18n-gu={srv.titleGu} data-i18n-en={srv.titleEn}>
+                {srv.titleGu}
+              </h4>
+              <p class="text-[10px] text-text-gold font-mono mb-2">
+                {srv.titleEn}
+              </p>
+              <p class="text-xs text-text-muted leading-relaxed font-body" data-i18n-gu={srv.descGu} data-i18n-en={srv.descEn}>
+                {srv.descGu}
+              </p>
+            </div>
+
+            <div class="pt-3 mt-4 border-t border-border-subtle/80 flex items-center justify-between text-[11px] font-mono text-slate-300">
+              <span class="text-primary font-semibold">ઓરિજિનલ સ્પેર</span>
+              <span class="text-emerald-400 font-semibold">ઉમરેઠ &amp; આણંદ</span>
+            </div>
+          </GlassCard>
+        ))
+      }
+    </div>
+  </Container>
+</section>

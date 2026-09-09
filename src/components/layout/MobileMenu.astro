@@ -56,10 +56,50 @@ const { currentPath = '/' } = Astro.props as Props;
     </div>
 
     <!-- Navigation Links -->
-    <nav class="flex-1 py-6 space-y-1.5" aria-label="Mobile Menu Navigation">
+    <nav class="flex-1 py-6 space-y-2" aria-label="Mobile Menu Navigation">
       {
         navigationItems.map((item) => {
-          const isActive = currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href));
+          const isChildActive = item.children?.some(
+            (c) => currentPath === c.href || (c.href !== '/' && currentPath.startsWith(c.href))
+          );
+          const isActive = currentPath === item.href || isChildActive;
+
+          if (item.children && item.children.length > 0) {
+            return (
+              <div class="rounded-xl bg-[#03091e]/60 border border-border-subtle p-2 space-y-1">
+                <div class="px-3 py-1.5 text-xs font-bold text-text-gold uppercase tracking-wider font-heading flex items-center justify-between">
+                  <span data-i18n-gu={item.labelGujarati} data-i18n-en={item.labelEnglish}>{item.labelGujarati}</span>
+                  <span class="text-[10px] font-mono text-primary bg-primary/10 px-2 py-0.5 rounded border border-primary/20">શોરૂમ</span>
+                </div>
+                {item.children.map((child) => {
+                  const isCurrentChild = currentPath === child.href;
+                  return (
+                    <a
+                      href={child.href}
+                      class:list={[
+                        'flex items-center justify-between w-full py-2.5 px-3 text-sm font-medium rounded-lg transition-all font-heading',
+                        isCurrentChild
+                          ? 'bg-primary/20 text-primary border border-primary/40 font-bold'
+                          : 'text-text-muted hover:text-white hover:bg-surface-soft border border-transparent',
+                      ]}
+                    >
+                      <span
+                        class="nav-label font-gujarati"
+                        data-i18n-gu={child.labelGujarati}
+                        data-i18n-en={child.labelEnglish}
+                      >
+                        {child.labelGujarati}
+                      </span>
+                      <svg class="h-3.5 w-3.5 text-primary/70" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                      </svg>
+                    </a>
+                  );
+                })}
+              </div>
+            );
+          }
+
           return (
             <NavLink
               href={item.href}
