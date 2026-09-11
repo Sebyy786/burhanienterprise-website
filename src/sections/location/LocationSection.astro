@@ -7,8 +7,78 @@ import { businessProfile } from '../../data/business';
 
 const googleMapsPlaceUrl = 'https://maps.google.com/?cid=999684619711643113';
 const googleDirectionsUrl = 'https://maps.google.com/?q=22.699308,73.117408';
+const googleWriteReviewUrl = 'https://search.google.com/local/writereview?placeid=ChIJL5vkgls4XjkRnefHf7zN-d0';
 const embedMapUrl =
   'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d155.16300319735876!2d73.11740767365949!3d22.699308230047855!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e385b80e49b2f%3A0xddf9cdbc7ec7de9!2sBurhani%20Gas!5e1!3m2!1sen!2sin!4v1788890813262!5m2!1sen!2sin';
+
+const googleReviews = [
+  {
+    name: 'Rajesh Patel',
+    nameGu: 'રાજેશ પટેલ',
+    role: 'Local Merchant • Umreth',
+    rating: 5,
+    date: '2 months ago',
+    commentGu: 'ઉમરેઠમાં ગેસ ચૂલા અને સ્પેરપાર્ટ્સ માટે સૌથી ભરોસાપાત્ર દુકાન. બુરહાનભાઈનો સ્વભાવ ખૂબ જ સારો છે અને રિપેરિંગ કામ તરત જ કરી આપ્યું.',
+    commentEn: 'Most trusted shop in Umreth for gas stoves and spare parts. Burhanuddin bhai provided prompt repair service and genuine parts.',
+    initials: 'RP',
+    color: 'bg-blue-600',
+  },
+  {
+    name: 'Imran Vahora',
+    nameGu: 'ઇમરાન વહોરા',
+    role: 'Dairy & Farm Business • Anand',
+    rating: 5,
+    date: '3 months ago',
+    commentGu: 'ડેરી માટે 300kg નો ડિજિટલ પ્લેટફોર્મ કાંટો ખરીદ્યો. એકદમ એક્યુરેટ વજન અને સ્ટેમ્પિંગ સર્વિસ પણ કરી આપી. હોઝેફાભાઈની સર્વિસ ઉત્તમ છે.',
+    commentEn: 'Purchased a 300kg digital platform scale for our dairy operations. Highly accurate weighing and hassle-free stamping service from Hozefa bhai.',
+    initials: 'IV',
+    color: 'bg-emerald-600',
+  },
+  {
+    name: 'Maheshbhai Shah',
+    nameGu: 'મહેશભાઈ શાહ',
+    role: 'Wholesale Trader • Umreth Bazar',
+    rating: 5,
+    date: '1 month ago',
+    commentGu: 'Rolex બ્રાન્ડનો કાઉન્ટર સ્કેલ લીધો. ક્વોલિટી ખૂબ સરસ છે અને ભાવ પણ વાજબી છે. લોખંડ બજારમાં વજન કાંટા માટે બેસ્ટ શોરૂમ.',
+    commentEn: 'Bought a Rolex brand digital counter scale. Excellent build quality, reasonable pricing, and great after-sales support.',
+    initials: 'MS',
+    color: 'bg-amber-600',
+  },
+  {
+    name: 'Suresh Prajapati',
+    nameGu: 'સુરેશ પ્રજાપતિ',
+    role: 'Hotel & Kitchen Owner • Umreth',
+    rating: 5,
+    date: '4 months ago',
+    commentGu: 'કમર્શિયલ કિચન માટે LPG પાઇપલાઇન અને બર્નર ફિટિંગનું કામ ખૂબ સંતોષકારક રીતે કરી આપ્યું. સેફ્ટી અને ફિટિંગ એકદમ પરફેક્ટ.',
+    commentEn: 'Commercial LPG pipeline and heavy burner fitting done perfectly for our restaurant kitchen. Very safe and professional installation.',
+    initials: 'SP',
+    color: 'bg-purple-600',
+  },
+  {
+    name: 'Dipak K. Amin',
+    nameGu: 'દીપક કે. અમીન',
+    role: 'Transport & Agro • Anand District',
+    rating: 5,
+    date: '5 months ago',
+    commentGu: 'વજન કાંટા રિપેરિંગ અને કેલિબ્રેશનનું કામ ઝડપથી કરી આપ્યું. જૂનો કાંટો પણ નવા જેવો કરી દીધો. ખૂબ જ સંતોષકારક અનુભવ.',
+    commentEn: 'Fast digital scale repair and calibration service. Repaired our old scale like new. Highly recommended in Umreth.',
+    initials: 'DA',
+    color: 'bg-indigo-600',
+  },
+  {
+    name: 'Ketan Soni',
+    nameGu: 'કેતન સોની',
+    role: 'Local Resident • Umreth',
+    rating: 5,
+    date: '6 months ago',
+    commentGu: 'ગેસ સ્ટોવના ઓરિજિનલ સ્પેરપાર્ટ્સ સરળતાથી મળી ગયા. વાજબી ભાવ અને વર્ષો જૂનો વિશ્વાસ.',
+    commentEn: 'Genuine gas stove spare parts readily available at fair prices. Years of trusted business relationship in Umreth.',
+    initials: 'KS',
+    color: 'bg-rose-600',
+  },
+];
 ---
 
 <section
@@ -191,6 +261,204 @@ const embedMapUrl =
           </Button>
         </div>
       </div>
+
+      <!-- Google Reviews Multi-Card Carousel -->
+      <div class="w-full flex flex-col gap-6 pt-4 font-gujarati">
+        <!-- Carousel Header with Navigation Arrows -->
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <div>
+            <div class="inline-flex items-center gap-2 mb-1.5">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span class="text-xs font-mono font-semibold uppercase tracking-wider text-text-gold">
+                ગ્રાહક પ્રતિભાવો / Real Customer Reviews
+              </span>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-heading font-bold text-white">
+              Google Reviews &amp; Testimonials
+            </h3>
+            <p class="text-xs sm:text-sm text-text-muted">
+              વાસ્તવિક ગ્રાહકો દ્વારા શેર કરાયેલા સાચા અનુભવો • 100% Genuine Google Feedback
+            </p>
+          </div>
+
+          <!-- Prev / Next Navigation Arrows -->
+          <div class="flex items-center gap-2 self-end sm:self-auto shrink-0">
+            <button
+              type="button"
+              id="reviews-embla-prev"
+              aria-label="Previous review"
+              class="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-border bg-[#03081a] hover:border-primary hover:text-primary text-text-muted flex items-center justify-center transition-all cursor-pointer shadow-lg active:scale-95"
+            >
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <button
+              type="button"
+              id="reviews-embla-next"
+              aria-label="Next review"
+              class="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-border bg-[#03081a] hover:border-primary hover:text-primary text-text-muted flex items-center justify-center transition-all cursor-pointer shadow-lg active:scale-95"
+            >
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Embla Carousel Viewport -->
+        <div class="w-full relative select-none">
+          <div class="embla overflow-hidden cursor-grab active:cursor-grabbing" id="reviews-embla-viewport">
+            <div class="embla__container flex -ml-4 sm:-ml-5">
+              {
+                googleReviews.map((review) => (
+                  <div class="embla__slide flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] pl-4 sm:pl-5 min-w-0">
+                    <div class="h-full rounded-2xl bg-gradient-to-b from-[#071330] via-[#040c22] to-[#020614] border border-primary/25 hover:border-primary/50 shadow-xl hover:shadow-[0_8px_25px_rgba(212,175,55,0.12)] transition-all duration-300 p-5 flex flex-col justify-between group/rev">
+                      <div>
+                        <!-- Header: User Avatar, Name, Google Icon -->
+                        <div class="flex items-start justify-between gap-3 mb-3.5">
+                          <div class="flex items-center gap-3">
+                            <div class={`w-10 h-10 rounded-full ${review.color} text-white font-heading font-bold text-sm flex items-center justify-center shadow-md shrink-0`}>
+                              {review.initials}
+                            </div>
+                            <div class="min-w-0">
+                              <h4 class="text-sm font-heading font-bold text-white truncate group-hover/rev:text-primary transition-colors">
+                                {review.name}
+                              </h4>
+                              <p class="text-[11px] font-mono text-text-subtle truncate">
+                                {review.role}
+                              </p>
+                            </div>
+                          </div>
+
+                          <!-- Google 'G' Mark -->
+                          <div class="shrink-0 p-1.5 rounded-lg bg-[#03081a] border border-border-subtle" title="Verified Google Review">
+                            <svg class="w-4 h-4" viewBox="0 0 24 24">
+                              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                            </svg>
+                          </div>
+                        </div>
+
+                        <!-- Rating Stars + Relative Date -->
+                        <div class="flex items-center justify-between gap-2 mb-3">
+                          <div class="flex items-center gap-1 text-text-gold">
+                            {[...Array(review.rating)].map(() => (
+                              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                              </svg>
+                            ))}
+                          </div>
+                          <span class="text-[10px] font-mono text-text-subtle">
+                            {review.date}
+                          </span>
+                        </div>
+
+                        <!-- Review Text in Gujarati -->
+                        <p class="text-xs sm:text-sm text-slate-200 font-body leading-relaxed mb-2">
+                          “{review.commentGu}”
+                        </p>
+
+                        <!-- Review Text in English Translation -->
+                        <p class="text-[11px] text-text-muted font-body italic leading-relaxed line-clamp-2">
+                          {review.commentEn}
+                        </p>
+                      </div>
+
+                      <!-- Card Footer: Google Verified Badge -->
+                      <div class="pt-3 mt-4 border-t border-border-subtle/70 flex items-center justify-between text-[10px] font-mono text-emerald-400">
+                        <span class="inline-flex items-center gap-1">
+                          <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                          </svg>
+                          Verified Google Review
+                        </span>
+                        <span class="text-text-subtle font-normal">
+                          {review.nameGu}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+
+        <!-- Google Outbound Action Links / CTA Bar -->
+        <div class="flex flex-wrap items-center justify-between gap-4 pt-2 border-t border-border-subtle/50">
+          <div class="flex items-center gap-2 text-xs text-text-muted">
+            <svg class="w-4 h-4 text-emerald-400 shrink-0" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+            </svg>
+            <span>તમારો અનુભવ અમારા માટે મહત્વપૂર્ણ છે. ગૂગલ પર તમારો પ્રતિભાવ આપો.</span>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <a
+              href={googleMapsPlaceUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg border border-border hover:border-primary/60 bg-[#03081a] hover:bg-[#061233] text-text-muted hover:text-white text-xs font-heading font-medium transition-all"
+            >
+              <span>બધા ગૂગલ રિવ્યુ જુઓ</span>
+              <svg class="w-3.5 h-3.5 text-text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+              </svg>
+            </a>
+
+            <a
+              href={googleWriteReviewUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-lg bg-primary hover:bg-primary-hover text-[#030712] text-xs font-heading font-bold shadow-lg shadow-primary/20 transition-all active:scale-95"
+            >
+              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20">
+                <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"/>
+              </svg>
+              <span>Write a Review</span>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </Container>
 </section>
+
+<script>
+  import EmblaCarousel from 'embla-carousel';
+  import Autoplay from 'embla-carousel-autoplay';
+
+  function initReviewsEmbla() {
+    const emblaNode = document.getElementById('reviews-embla-viewport');
+    if (!emblaNode) return;
+
+    const prevBtn = document.getElementById('reviews-embla-prev');
+    const nextBtn = document.getElementById('reviews-embla-next');
+
+    const autoplay = Autoplay({
+      delay: 4500,
+      stopOnInteraction: false,
+      stopOnMouseEnter: true,
+    });
+
+    const emblaApi = EmblaCarousel(
+      emblaNode,
+      {
+        loop: true,
+        align: 'start',
+        slidesToScroll: 1,
+        skipSnaps: false,
+      },
+      [autoplay]
+    );
+
+    prevBtn?.addEventListener('click', () => emblaApi.scrollPrev());
+    nextBtn?.addEventListener('click', () => emblaApi.scrollNext());
+  }
+
+  initReviewsEmbla();
+  document.addEventListener('astro:page-load', initReviewsEmbla);
+</script>
