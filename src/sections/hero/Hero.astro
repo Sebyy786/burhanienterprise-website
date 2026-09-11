@@ -6,11 +6,19 @@ const bannerImages = [
     src: '/images/banner/banner-1.jpg',
     alt: 'Burhani Enterprise - Weighing Scales & Gas Stoves Showroom Board',
     title: 'Weighing Scales & Gas Solutions',
+    type: 'image',
   },
   {
     src: '/images/banner/banner-2.jpg',
-    alt: 'Burhani Enterprise - Software & AI Solutions Powered by Saifteq Technologies',
-    title: 'Software & AI Automation - Powered by Saifteq Technologies',
+    alt: 'Burhani Enterprise - AI & Software Consultant Shabbir Yahya',
+    title: 'AI & Software Consultant - Burhani Enterprise',
+    type: 'image',
+  },
+  {
+    src: '/images/banner/banner-3.jpg',
+    alt: 'Software Development Services - Powered by Saifteq Technologies',
+    title: 'Software Development Services - Powered by Saifteq Technologies',
+    type: 'interactive',
   },
 ];
 ---
@@ -58,16 +66,77 @@ const bannerImages = [
       <div class="embla overflow-hidden cursor-grab active:cursor-grabbing" id="hero-banner-viewport">
         <div class="embla__container flex">
           {
-            bannerImages.map((banner, index) => (
+            bannerImages.map((banner) => (
               <div class="embla__slide flex-[0_0_100%] min-w-0 relative">
                 <div class="relative w-full h-[240px] sm:h-[340px] md:h-[400px] lg:h-[460px] bg-[#020512] flex items-center justify-center overflow-hidden p-2 sm:p-4">
-                  <img
-                    src={banner.src}
-                    alt={banner.alt}
-                    loading={index === 0 ? 'eager' : 'lazy'}
-                    decoding="async"
-                    class="max-w-full max-h-full w-auto h-auto object-contain object-center select-none"
-                  />
+                  {banner.type === 'image' ? (
+                    <img
+                      src={banner.src}
+                      alt={banner.alt}
+                      loading="lazy"
+                      decoding="async"
+                      class="max-w-full max-h-full w-auto h-auto object-contain object-center select-none"
+                    />
+                  ) : (
+                    <!-- Interactive Slide: Software Development Services (Powered by Saifteq Technologies) -->
+                    <div class="relative w-full h-full rounded-xl overflow-hidden flex items-center justify-center bg-gradient-to-br from-[#06102b] via-[#03091e] to-[#010410] border border-indigo-500/30 p-4 sm:p-8 md:p-10">
+                      <!-- Textured backdrop -->
+                      <img
+                        src={banner.src}
+                        alt={banner.alt}
+                        loading="lazy"
+                        decoding="async"
+                        class="absolute inset-0 w-full h-full object-cover opacity-25 filter blur-[1px] select-none"
+                      />
+                      <div class="absolute inset-0 bg-gradient-to-r from-[#020617]/95 via-[#040c24]/85 to-[#020617]/90" />
+
+                      <!-- Content Overlay -->
+                      <div class="relative z-10 max-w-2xl text-center flex flex-col items-center gap-2 sm:gap-3.5 font-gujarati">
+                        <!-- Badge -->
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/20 border border-indigo-400/40 text-[11px] sm:text-xs font-mono font-semibold text-indigo-300 backdrop-blur-md shadow-lg">
+                          <span class="w-2 h-2 rounded-full bg-indigo-400 animate-pulse"></span>
+                          <span>Powered by Saifteq Technologies</span>
+                        </div>
+
+                        <!-- Heading -->
+                        <h2 class="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-white tracking-tight leading-tight">
+                          Software Development Services
+                        </h2>
+
+                        <!-- Subtitle -->
+                        <p class="text-xs sm:text-sm md:text-base text-slate-300 max-w-xl font-body leading-relaxed">
+                          Website Development • Mobile Apps • AI Automation • Custom Business Software
+                        </p>
+
+                        <!-- Buttons -->
+                        <div class="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3.5 pt-1 sm:pt-2">
+                          <a
+                            href="https://wa.me/919574713452?text=Hello%20Shabbir%2C%20I%20would%20like%20to%20request%20a%20Software%20Demo%20for%20Website%2C%20Mobile%20App%2C%20AI%20Automation%2C%20or%20Business%20Software."
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs sm:text-sm shadow-xl shadow-indigo-500/30 transition-all hover:scale-105 active:scale-95 cursor-pointer"
+                          >
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                              <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.072-2.128-.521-1.615-.67-2.66-2.308-2.74-2.417-.08-.108-.659-.877-.659-1.672 0-.795.414-1.187.561-1.349.146-.162.32-.203.428-.203.107 0 .215.002.308.007.1.005.234-.038.366.279.136.327.464 1.132.505 1.215.041.083.068.18.012.289-.056.108-.083.177-.165.273-.082.096-.174.215-.248.289-.083.083-.17.172-.073.338.097.166.432.713.927 1.154.636.568 1.172.744 1.338.827.166.083.264.069.362-.042.098-.111.42-.489.532-.656.113-.167.225-.139.378-.083.153.056.974.459 1.141.542.167.083.278.125.32.194.041.07.041.405-.103.81zM12 2C6.477 2 2 6.477 2 12c0 1.891.526 3.662 1.442 5.179L2 22l4.981-1.306A9.957 9.957 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/>
+                            </svg>
+                            <span>Request Software Demo</span>
+                          </a>
+
+                          <a
+                            href="https://saifteq.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center gap-1.5 px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl border border-indigo-400/40 bg-indigo-950/40 hover:bg-indigo-900/60 hover:border-indigo-300 text-indigo-200 hover:text-white font-semibold text-xs sm:text-sm transition-all hover:scale-105 active:scale-95 backdrop-blur-md cursor-pointer"
+                          >
+                            <span>Visit Saifteq</span>
+                            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                            </svg>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             ))
