@@ -6,6 +6,9 @@ export default defineConfig({
   output: 'static',
   site: 'https://burhanienterprise.me',
   base: '/',
+  devToolbar: {
+    enabled: false,
+  },
   vite: {
     plugins: [tailwindcss()],
   },
