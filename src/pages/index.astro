@@ -7,12 +7,218 @@ import GasSection from '../sections/gas/GasSection.astro';
 import SoftwareSection from '../sections/software/SoftwareSection.astro';
 import LocationSection from '../sections/location/LocationSection.astro';
 import Footer from '../components/layout/Footer.astro';
+
+// LocalBusiness Schema for Rich Local Search Results
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': ['LocalBusiness', 'HardwareStore', 'Store'],
+  '@id': 'https://burhanienterprise.me/#localbusiness',
+  name: 'Burhani Enterprise',
+  alternateName: ['બુરહાની એન્ટરપ્રાઈઝ', 'Burhani Gas', 'Burhani Enterprise Umreth'],
+  description:
+    'Authorized retail showroom for digital weighing scales, Legal Metrology stamping, domestic & commercial gas stove repair, original spares, LPG manifold pipelines, and software solutions in Umreth and Anand District, Gujarat.',
+  url: 'https://burhanienterprise.me',
+  telephone: '+919998450711',
+  priceRange: '₹₹',
+  currenciesAccepted: 'INR',
+  paymentAccepted: 'Cash, UPI, PhonePe, Google Pay, Bank Transfer',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '01 Vhorvad Lokhand Bazar, infront of Old Post office, Nr. kansara bazar',
+    addressLocality: 'Umreth',
+    addressRegion: 'Gujarat',
+    postalCode: '388220',
+    addressCountry: 'IN',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 22.6993228,
+    longitude: 73.1174633,
+  },
+  hasMap: 'https://maps.app.goo.gl/RFh4gTAqxjBGrsXm8',
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+      opens: '09:00',
+      closes: '20:30',
+    },
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Sunday'],
+      opens: '09:00',
+      closes: '13:30',
+    },
+  ],
+  areaServed: [
+    'Umreth',
+    'Anand',
+    'Vallabh Vidyanagar',
+    'Petlad',
+    'Borsad',
+    'Dakor',
+    'Nadiad',
+    'Anand District',
+    'Gujarat',
+  ],
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.2',
+    reviewCount: '12',
+    bestRating: '5',
+    worstRating: '1',
+  },
+  review: [
+    {
+      '@type': 'Review',
+      author: { '@type': 'Person', name: 'Rajesh Patel' },
+      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+      reviewBody: 'ઉમરેઠમાં ગેસ ચૂલા અને સ્પેરપાર્ટ્સ માટે સૌથી ભરોસાપાત્ર દુકાન. બુરહાનભાઈનો સ્વભાવ ખૂબ જ સારો છે અને રિપેરિંગ કામ તરત જ કરી આપ્યું.',
+    },
+    {
+      '@type': 'Review',
+      author: { '@type': 'Person', name: 'Imran Vahora' },
+      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+      reviewBody: 'ડેરી માટે 300kg નો ડિજિટલ પ્લેટફોર્મ કાંટો ખરીદ્યો. એકદમ એક્યુરેટ વજન અને સ્ટેમ્પિંગ સર્વિસ પણ કરી આપી. હોઝેફાભાઈની સર્વિસ ઉત્તમ છે.',
+    },
+    {
+      '@type': 'Review',
+      author: { '@type': 'Person', name: 'Maheshbhai Shah' },
+      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+      reviewBody: 'Rolex બ્રાન્ડનો કાઉન્ટર સ્કેલ લીધો. ક્વોલિટી ખૂબ સરસ છે અને ભાવ પણ વાજબી છે. લોખંડ બજારમાં વજન કાંટા માટે બેસ્ટ શોરૂમ.',
+    },
+    {
+      '@type': 'Review',
+      author: { '@type': 'Person', name: 'Suresh Prajapati' },
+      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+      reviewBody: 'કમર્શિયલ કિચન માટે LPG પાઇપલાઇન અને બર્નર ફિટિંગનું કામ ખૂબ સંતોષકારક રીતે કરી આપ્યું. સેફ્ટી અને ફિટિંગ એકદમ પરફેક્ટ.',
+    },
+    {
+      '@type': 'Review',
+      author: { '@type': 'Person', name: 'Dipak K. Amin' },
+      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+      reviewBody: 'વજન કાંટા રિપેરિંગ અને કેલિબ્રેશનનું કામ ઝડપથી કરી આપ્યું. જૂનો કાંટો પણ નવા જેવો કરી દીધો. ખૂબ જ સંતોષકારક અનુભવ.',
+    },
+    {
+      '@type': 'Review',
+      author: { '@type': 'Person', name: 'Ketan Soni' },
+      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+      reviewBody: 'ગેસ સ્ટોવના ઓરિજિનલ સ્પેરપાર્ટ્સ સરળતાથી મળી ગયા. વાજબી ભાવ અને વર્ષો જૂનો વિશ્વાસ.',
+    },
+  ],
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Burhani Enterprise Services and Products',
+    itemListElement: [
+      {
+        '@type': 'OfferCatalog',
+        name: 'Digital Weighing Scales',
+        itemListElement: [
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Digital Counter Scales' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Industrial Platform Scales' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Legal Metrology Stamping & Calibration' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Heavy Duty Weighbridges' } },
+        ],
+      },
+      {
+        '@type': 'OfferCatalog',
+        name: 'Gas Solutions & Stove Services',
+        itemListElement: [
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Domestic & Commercial Gas Stove Repair' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Original Gas Stove Spare Parts Supply' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Commercial Kitchen LPG Pipeline Manifold Installation' } },
+        ],
+      },
+      {
+        '@type': 'OfferCatalog',
+        name: 'Technology & Software Development',
+        itemListElement: [
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Website Development' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Mobile Application Development' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'AI Automation & Custom Business Software' } },
+        ],
+      },
+    ],
+  },
+  sameAs: [
+    'https://maps.app.goo.gl/RFh4gTAqxjBGrsXm8',
+    'https://maps.app.goo.gl/vPwkw5BwUv8DXLoY9',
+    'https://saifteq.com',
+  ],
+};
+
+// FAQ Schema for Google Search Rich Results
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'ઉમરેઠમાં બુરહાની એન્ટરપ્રાઈઝ ક્યાં આવેલું છે? (Where is Burhani Enterprise located?)',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'બુરહાની એન્ટરપ્રાઇઝ ઉમરેઠમાં લોખંડ બજાર, જૂની પોસ્ટ ઓફિસ સામે, કંસારા બજાર પાસે, ઉમરેઠ, આણંદ જિલ્લો, ગુજરાત (પિન: ૩૮૮૨૨૦) ખાતે આવેલું છે. (01 Vhorvad Lokhand Bazar, infront of Old Post office, Nr. Kansara Bazar, Umreth, Gujarat 388220). ફોન: +91 99984 50711.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'શું વજન કાંટાનું કેલિબ્રેશન અને સરકારી સ્ટેમ્પિંગ સર્વિસ મળે છે? (Do you provide weighing scale stamping and calibration?)',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'હા, બુરહાની એન્ટરપ્રાઇઝ તમામ પ્રકારના ડિજિટલ કાઉન્ટર સ્કેલ, પ્લેટફોર્મ કાંટા અને વેઇબ્રિજ માટે લીગલ મેટ્રોલોજી (તોલમાપ વિભાગ) સરકારી વેરિફિકેશન, સ્ટેમ્પિંગ સહાય અને ચોક્કસ કેલિબ્રેશન સેવા પૂરી પાડે છે.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'કઈ કઈ બ્રાન્ડના ડિજિટલ વજન કાંટા ઉપલબ્ધ છે? (Which weighing scale brands are available?)',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'અમે અધિકૃત ડીલર તરીકે Rolex (રોલેક્સ), Axpert (એક્સપર્ટ - ISI સર્ટિફાઇડ), Silver Eagle (સિલ્વર ઈગલ), અને Taj (તાજ) સહિતની પ્રીમિયમ બ્રાન્ડ્સના 15kg થી 1000kg સુધીના વજન કાંટા વેચાણ અને રિપેરિંગ સાથે પૂરા પાડીએ છીએ.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'ગેસ ચૂલા રિપેરિંગ અને હોટેલ LPG પાઇપલાઇનનું કામ કરી આપો છો? (Do you do gas stove repair and LPG pipelines?)',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'હા, ઘરેલુ 2/3/4 બર્નર ગેસ સ્ટવ, ગ્લાસ ટોપ, હોબ્સ, હોટેલ-રેસ્ટોરન્ટના હેવી ભઠ્ઠી બર્નર, ઓરિજિનલ સ્પેરપાર્ટ્સ તેમજ કોમર્શિયલ કિચન માટે સુરક્ષિત LPG કોપર/MS પાઇપલાઇન મેનિફોલ્ડ ફિટિંગનું કામ સંતોષકારક રીતે કરવામાં આવે છે.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'સોફ્ટવેર અને વેબસાઇટ ડેવલપમેન્ટ સેવાઓ કોણ પૂરી પાડે છે? (Who provides software and tech solutions?)',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'બુરહાની એન્ટરપ્રાઇઝના ટેક્નોલોજી પાર્ટનર Saifteq Technologies (કન્સલ્ટન્ટ: Shabbir Yahya) દ્વારા સ્થાનિક વેપારીઓ અને ઉદ્યોગો માટે મોર્ડન વેબસાઇટ્સ, મોબાઇલ એપ્લિકેશન્સ, AI ઓટોમેશન અને કસ્ટમ એકાઉન્ટિંગ/ઇન્વેન્ટરી સોફ્ટવેર ડેવલપ કરવામાં આવે છે.',
+      },
+    },
+  ],
+};
+
+// Breadcrumb Schema for Homepage
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'મુખ્ય પૃષ્ઠ (Home)',
+      item: 'https://burhanienterprise.me/',
+    },
+  ],
+};
 ---
 
 <BaseLayout
   title="બુરહાની એન્ટરપ્રાઈઝ — વજન કાંટા, ગેસ સાધનો અને સોફ્ટવેર | Burhani Enterprise"
-  description="બુરહાની એન્ટરપ્રાઇઝ: નવા ડિજિટલ વજન કાંટા, ગેસ ચૂલા, ઓરિજિનલ સ્પેરપાર્ટ્સ, રિપેરિંગ સેવાઓ અને સોફ્ટવેર ડેવલપમેન્ટ. ઉમરેઠ અને આણંદ જિલ્લો."
+  description="બુરહાની એન્ટરપ્રાઇઝ ઉમરેઠ: નવા ડિજિટલ વજન કાંટા, લીગલ મેટ્રોલોજી સ્ટેમ્પિંગ, ગેસ ચૂલા રિપેરિંગ, ઓરિજિનલ સ્પેરપાર્ટ્સ, કોમર્શિયલ LPG પાઇપલાઇન અને સોફ્ટવેર ડેવલપમેન્ટ. ઉમરેઠ અને આણંદ જિલ્લો."
+  canonical="https://burhanienterprise.me/"
 >
+  <!-- SEO Structured Data: LocalBusiness, FAQPage, BreadcrumbList -->
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   <!-- Section 1 — Hero Banner Carousel -->
   <Hero />
 

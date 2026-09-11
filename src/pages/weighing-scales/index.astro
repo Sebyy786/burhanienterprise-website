@@ -30,9 +30,22 @@ const localBusinessSchema = {
   },
   geo: {
     '@type': 'GeoCoordinates',
-    latitude: '22.6983',
-    longitude: '73.1186',
+    latitude: '22.6993228',
+    longitude: '73.1174633',
   },
+  hasMap: 'https://maps.app.goo.gl/RFh4gTAqxjBGrsXm8',
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.2',
+    reviewCount: '12',
+    bestRating: '5',
+    worstRating: '1',
+  },
+  sameAs: [
+    'https://maps.app.goo.gl/RFh4gTAqxjBGrsXm8',
+    'https://maps.app.goo.gl/vPwkw5BwUv8DXLoY9',
+    'https://saifteq.com',
+  ],
   openingHoursSpecification: [
     {
       '@type': 'OpeningHoursSpecification',
@@ -56,6 +69,26 @@ const localBusinessSchema = {
     'Borsad',
     'Dakor',
     'Nadiad',
+  ],
+};
+
+// Breadcrumb Schema
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'મુખ્ય પૃષ્ઠ (Home)',
+      item: 'https://burhanienterprise.me/',
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'ડિજિટલ વજન કાંટા શોરૂમ (Weighing Scales)',
+      item: 'https://burhanienterprise.me/weighing-scales',
+    },
   ],
 };
 
@@ -103,6 +136,7 @@ const productItemListSchema = {
   <!-- SEO Structured Data -->
   <script is:inline type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
   <script is:inline type="application/ld+json" set:html={JSON.stringify(productItemListSchema)} />
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 
   <!-- 1. Hero Section (Real local shop asset + Umreth messaging) -->
   <ShowroomHero />

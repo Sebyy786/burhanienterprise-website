@@ -7,6 +7,7 @@ interface Props {
   description?: string;
   canonical?: string;
   ogImage?: string;
+  keywords?: string;
   offsetHeader?: boolean;
 }
 
@@ -15,11 +16,87 @@ const {
   description = 'બુરહાની એન્ટરપ્રાઈઝ: ડિજિટલ વજન કાંટા, કેલિબ્રેશન અને લીગલ મેટ્રોલોજી સ્ટેમ્પિંગ સહાય, વેઇબ્રિજ, કોમર્શિયલ LPG પાઇપલાઇન, દરેક પ્રકારના ગેસ સ્ટવ, તમામ સ્પેરપાર્ટ્સ, રિપેરિંગ અને સ્થાનિક વેપાર સોફ્ટવેર. ઉમરેઠ, ગુજરાત.',
   canonical = Astro.url.href,
   ogImage = '/images/og-card.jpg',
+  keywords = 'બુરહાની એન્ટરપ્રાઈઝ, Burhani Enterprise, Burhani Gas, digital weighing scale Umreth, weighing machine Anand, platform scales Gujarat, Rolex weighing scale Umreth, gas stove repair Umreth, LPG pipeline fitting, commercial kitchen manifold, Legal Metrology stamping, weighing machine calibration, Saifteq Technologies, software development Umreth, વજન કાંટા ઉમરેઠ, ગેસ ચૂલા રિપેરિંગ, ઓરિજિનલ સ્પેરપાર્ટ્સ',
   offsetHeader = true,
 } = Astro.props as Props;
 
+const siteUrl = 'https://burhanienterprise.me';
+const fullCanonical = canonical.startsWith('http') ? canonical : `${siteUrl}${canonical}`;
+const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
 const siteTitle = title.includes('બુરહાની એન્ટરપ્રાઈઝ') || title.includes('Burhani Enterprise') ? title : `${title} | બુરહાની એન્ટરપ્રાઈઝ`;
 const currentPath = Astro.url.pathname;
+
+// Global Website Schema
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${siteUrl}/#website`,
+  url: siteUrl,
+  name: 'Burhani Enterprise',
+  alternateName: 'બુરહાની એન્ટરપ્રાઈઝ',
+  description:
+    'Authorized retail showroom for digital weighing scales, Legal Metrology stamping, gas stoves, commercial LPG pipelines, and software solutions in Umreth, Gujarat.',
+  inLanguage: ['gu-IN', 'en-IN'],
+  publisher: {
+    '@id': `${siteUrl}/#organization`,
+  },
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: `${siteUrl}/weighing-scales?q={search_term_string}`,
+    },
+    'query-input': 'required name=search_term_string',
+  },
+};
+
+// Global Organization Schema
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': `${siteUrl}/#organization`,
+  name: 'Burhani Enterprise',
+  alternateName: ['બુરહાની એન્ટરપ્રાઈઝ', 'Burhani Gas', 'Burhani Enterprise Umreth'],
+  url: siteUrl,
+  logo: `${siteUrl}/images/banner/banner-1.jpg`,
+  image: `${siteUrl}/images/og-card.jpg`,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '01 Vhorvad Lokhand Bazar, infront of Old Post office, Nr. kansara bazar',
+    addressLocality: 'Umreth',
+    addressRegion: 'Gujarat',
+    postalCode: '388220',
+    addressCountry: 'IN',
+  },
+  contactPoint: [
+    {
+      '@type': 'ContactPoint',
+      telephone: '+91-99984-50711',
+      contactType: 'sales and gas solutions',
+      areaServed: 'IN',
+      availableLanguage: ['Gujarati', 'Hindi', 'English'],
+    },
+    {
+      '@type': 'ContactPoint',
+      telephone: '+91-99741-64452',
+      contactType: 'weighing systems and calibration',
+      areaServed: 'IN',
+      availableLanguage: ['Gujarati', 'Hindi', 'English'],
+    },
+    {
+      '@type': 'ContactPoint',
+      telephone: '+91-95747-13452',
+      contactType: 'software development consultant',
+      areaServed: 'IN',
+      availableLanguage: ['Gujarati', 'Hindi', 'English'],
+    },
+  ],
+  sameAs: [
+    'https://maps.app.goo.gl/RFh4gTAqxjBGrsXm8',
+    'https://maps.app.goo.gl/vPwkw5BwUv8DXLoY9',
+    'https://saifteq.com',
+  ],
+};
 ---
 
 <!doctype html>
@@ -34,7 +111,22 @@ const currentPath = Astro.url.pathname;
     <title>{siteTitle}</title>
     <meta name="title" content={siteTitle} />
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonical} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content="Burhani Enterprise" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <link rel="canonical" href={fullCanonical} />
+
+    <!-- Language Alternates / Hreflang for SEO -->
+    <link rel="alternate" hreflang="gu" href={fullCanonical} />
+    <link rel="alternate" hreflang="en" href={fullCanonical} />
+    <link rel="alternate" hreflang="x-default" href={fullCanonical} />
+
+    <!-- Local SEO Geo Meta Tags -->
+    <meta name="geo.region" content="IN-GJ" />
+    <meta name="geo.placename" content="Umreth, Anand District, Gujarat, India" />
+    <meta name="geo.position" content="22.699323;73.117463" />
+    <meta name="ICBM" content="22.699323, 73.117463" />
 
     <!-- Google Fonts Preconnect & Stylesheet -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -48,26 +140,34 @@ const currentPath = Astro.url.pathname;
     <link rel="preload" as="image" href="/images/banner/banner-1.jpg" type="image/jpeg" />
     <link rel="preload" as="image" href="/images/scale/scale-8.webp" type="image/webp" />
 
-    <!-- Favicon Placeholder (Gold Typographic Monogram 'BE') -->
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23030712'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='46' font-weight='bold' fill='%23D4AF37'>BE</text></svg>"
-    />
+    <!-- Favicon & PWA Web App Manifest -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <link rel="manifest" href="/site.webmanifest" />
 
     <!-- Open Graph / Facebook -->
+    <meta property="og:site_name" content="Burhani Enterprise (બુરહાની એન્ટરપ્રાઈઝ)" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={canonical} />
+    <meta property="og:url" content={fullCanonical} />
     <meta property="og:title" content={siteTitle} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogImage} />
+    <meta property="og:image" content={fullOgImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Burhani Enterprise — Gas Solutions, Weighing Systems & Software, Umreth" />
+    <meta property="og:locale" content="gu_IN" />
+    <meta property="og:locale:alternate" content="en_IN" />
 
-    <!-- Twitter -->
+    <!-- Twitter / X Cards -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content={canonical} />
+    <meta name="twitter:url" content={fullCanonical} />
     <meta name="twitter:title" content={siteTitle} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image" content={fullOgImage} />
+
+    <!-- Global Structured Data (Organization & WebSite Schemas) -->
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
   </head>
 
   <body class="bg-background text-text selection:bg-primary selection:text-[#030712]">

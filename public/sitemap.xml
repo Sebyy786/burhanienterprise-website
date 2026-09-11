@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://burhanienterprise.me/</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="gu" href="https://burhanienterprise.me/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://burhanienterprise.me/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://burhanienterprise.me/" />
+    <image:image>
+      <image:loc>https://burhanienterprise.me/images/banner/banner-1.jpg</image:loc>
+      <image:title>Burhani Enterprise Umreth - Weighing Scales and Gas Solutions</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://burhanienterprise.me/images/banner/banner-2.jpg</image:loc>
+      <image:title>Burhani Enterprise Technology Partner Saifteq Technologies</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://burhanienterprise.me/images/og-card.jpg</image:loc>
+      <image:title>Burhani Enterprise - Digital Weighing Scales, Gas Stoves &amp; Software Solutions</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://burhanienterprise.me/weighing-scales</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="gu" href="https://burhanienterprise.me/weighing-scales" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://burhanienterprise.me/weighing-scales" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://burhanienterprise.me/weighing-scales" />
+    <image:image>
+      <image:loc>https://burhanienterprise.me/images/scale/scale-8.webp</image:loc>
+      <image:title>Rolex Digital Weighing Scale Showroom Umreth</image:title>
+    </image:image>
+  </url>
+</urlset>
