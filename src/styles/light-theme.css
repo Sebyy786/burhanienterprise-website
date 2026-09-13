@@ -82,7 +82,8 @@ html.light .text-text-subtle:not(footer *) {
   color: #64748b !important;
 }
 
-html.light .text-text-gold:not(footer *) {
+html.light .text-text-gold:not(footer *),
+html.light .text-text-gold:not(footer *) * {
   color: #b45309 !important;
 }
 
