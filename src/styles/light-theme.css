@@ -1059,3 +1059,29 @@ html.light footer#contact [class*="border-border-subtle"] {
   border-color: #e2e8f0 !important;
 }
 
+/* --------------------------------------------------------------------------
+   PWA Install Buttons in Light Mode
+   -------------------------------------------------------------------------- */
+html.light .pwa-install-btn {
+  background-color: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+html.light .pwa-install-btn:hover {
+  background-color: #e2e8f0 !important;
+  border-color: #b45309 !important;
+  color: #b45309 !important;
+}
+
+html.light #pwa-install-btn-drawer {
+  background-color: rgba(212, 175, 55, 0.12) !important;
+  border-color: rgba(180, 83, 9, 0.35) !important;
+  color: #92400e !important;
+}
+
+html.light #pwa-install-btn-drawer:hover {
+  background-color: rgba(212, 175, 55, 0.22) !important;
+}
+
+
