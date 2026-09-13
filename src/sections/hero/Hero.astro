@@ -229,6 +229,8 @@ const bannerImages = [
       [autoplay]
     );
 
+    (window as any).__heroEmblaApi = emblaApi;
+
     function updateDots() {
       const selectedIndex = emblaApi.selectedScrollSnap();
       dots.forEach((dot, index) => {
