@@ -107,6 +107,22 @@ const organizationSchema = {
     <meta name="theme-color" content="#030712" />
     <meta name="generator" content={Astro.generator} />
 
+    <!-- Early Synchronous Theme Bootstrapper to prevent FOUT -->
+    <script is:inline>
+      (function () {
+        try {
+          const savedTheme = localStorage.getItem('burhani_theme');
+          const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+          const theme = savedTheme === 'light' || savedTheme === 'dark' ? savedTheme : (prefersLight ? 'light' : 'dark');
+          document.documentElement.classList.toggle('dark', theme === 'dark');
+          document.documentElement.classList.toggle('light', theme === 'light');
+          document.documentElement.setAttribute('data-theme', theme);
+          const metaTheme = document.querySelector('meta[name="theme-color"]');
+          if (metaTheme) metaTheme.setAttribute('content', theme === 'dark' ? '#030712' : '#f8fafc');
+        } catch (e) {}
+      })();
+    </script>
+
     <!-- Primary Meta Tags -->
     <title>{siteTitle}</title>
     <meta name="title" content={siteTitle} />
@@ -305,6 +321,74 @@ const organizationSchema = {
           if (btn && btn.dataset.lang) {
             e.preventDefault();
             setLanguage(btn.dataset.lang);
+          }
+        });
+      })();
+    </script>
+
+    <!-- Interactive Client-Side Theme Controller -->
+    <script is:inline>
+      (function () {
+        function getTheme() {
+          return document.documentElement.classList.contains('light') ? 'light' : 'dark';
+        }
+
+        function setTheme(theme) {
+          if (theme !== 'light' && theme !== 'dark') theme = 'dark';
+          try {
+            localStorage.setItem('burhani_theme', theme);
+          } catch (e) {}
+
+          document.documentElement.classList.toggle('dark', theme === 'dark');
+          document.documentElement.classList.toggle('light', theme === 'light');
+          document.documentElement.setAttribute('data-theme', theme);
+
+          const metaTheme = document.querySelector('meta[name="theme-color"]');
+          if (metaTheme) {
+            metaTheme.setAttribute('content', theme === 'dark' ? '#030712' : '#f8fafc');
+          }
+
+          // Update theme toggle buttons aria-label and title
+          document.querySelectorAll('.theme-toggle-btn').forEach(function (btn) {
+            btn.setAttribute('aria-label', theme === 'dark' ? 'Switch to Light Theme' : 'Switch to Dark Theme');
+            btn.setAttribute('title', theme === 'dark' ? 'લાઇટ થીમ કરો / Switch to Light' : 'ડાર્ક થીમ કરો / Switch to Dark');
+          });
+
+          window.dispatchEvent(new CustomEvent('themechange', { detail: { theme: theme } }));
+        }
+
+        function toggleTheme() {
+          const current = getTheme();
+          const next = current === 'dark' ? 'light' : 'dark';
+          setTheme(next);
+        }
+
+        window.__toggleTheme = toggleTheme;
+        window.__setTheme = setTheme;
+        window.__getTheme = getTheme;
+
+        // Synchronize on load and page transitions
+        function syncTheme() {
+          const savedTheme = localStorage.getItem('burhani_theme');
+          const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+          const theme = savedTheme === 'light' || savedTheme === 'dark' ? savedTheme : (prefersLight ? 'light' : 'dark');
+          setTheme(theme);
+        }
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', syncTheme);
+        } else {
+          syncTheme();
+        }
+
+        document.addEventListener('astro:page-load', syncTheme);
+
+        // Delegated click handler for theme toggle buttons
+        document.addEventListener('click', function (e) {
+          const btn = e.target.closest('.theme-toggle-btn');
+          if (btn) {
+            e.preventDefault();
+            toggleTheme();
           }
         });
       })();

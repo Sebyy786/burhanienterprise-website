@@ -1,0 +1,596 @@
+/* ==========================================================================
+   Burhani Enterprise — Light Theme Visibility & Contrast Overrides
+   Ensures WCAG AA/AAA readability and rich aesthetics in Light Mode
+   ========================================================================== */
+
+html.light {
+  scrollbar-color: #cbd5e1 #f1f5f9;
+}
+
+html.light ::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+html.light ::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-color: #f1f5f9;
+}
+
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Theme Toggle Icon Displays */
+html.light .theme-sun-icon {
+  display: none !important;
+}
+html.light .theme-moon-icon {
+  display: block !important;
+}
+html.dark .theme-sun-icon {
+  display: block !important;
+}
+html.dark .theme-moon-icon {
+  display: none !important;
+}
+
+/* Base Body Background */
+html.light body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+/* Global Ambient Glow Overlays - Soft warm light glow */
+html.light [class*="bg-[radial-gradient(ellipse_at_top"] {
+  background: radial-gradient(ellipse at top, rgba(212, 175, 55, 0.08) 0%, transparent 60%) !important;
+  opacity: 0.6 !important;
+}
+
+html.light [class*="bg-[radial-gradient(ellipse_at_center"] {
+  background: radial-gradient(ellipse at center, rgba(180, 83, 9, 0.05) 0%, transparent 70%) !important;
+}
+
+/* --------------------------------------------------------------------------
+   Headings & Typography High-Contrast Overrides
+   -------------------------------------------------------------------------- */
+html.light h1:not([class*="gold-gradient-text"]),
+html.light h2:not([class*="gold-gradient-text"]),
+html.light h3:not([class*="gold-gradient-text"]),
+html.light h4:not([class*="gold-gradient-text"]) {
+  color: #0f172a;
+}
+
+/* Specific text color classes in light mode */
+html.light .text-white:not(.btn-text):not(.badge-text):not([class*="bg-emerald"]):not([class*="bg-primary"]):not([class*="bg-blue"]):not([class*="bg-amber"]):not([class*="bg-purple"]):not([class*="bg-indigo"]):not([class*="bg-rose"]):not([class*="bg-[#25D366]"]):not([class*="footer"]):not(footer *) {
+  color: #0f172a !important;
+}
+
+html.light .text-slate-200:not(footer *),
+html.light .text-slate-300:not(footer *) {
+  color: #1e293b !important;
+}
+
+html.light .text-slate-400:not(footer *) {
+  color: #475569 !important;
+}
+
+html.light .text-text-muted:not(footer *) {
+  color: #334155 !important;
+}
+
+html.light .text-text-subtle:not(footer *) {
+  color: #64748b !important;
+}
+
+html.light .text-text-gold:not(footer *) {
+  color: #b45309 !important;
+}
+
+/* --------------------------------------------------------------------------
+   Sections & Layout
+   -------------------------------------------------------------------------- */
+html.light #hero {
+  background-color: #ffffff !important;
+}
+
+html.light #shop-gallery {
+  background-color: #f8fafc !important;
+}
+
+html.light #scales {
+  background-color: #ffffff !important;
+}
+
+html.light #gas {
+  background-color: #f8fafc !important;
+}
+
+html.light #software {
+  background-color: #ffffff !important;
+}
+
+html.light #location {
+  background-color: #f8fafc !important;
+}
+
+html.light .border-t.border-border-subtle,
+html.light .border-b.border-border-subtle {
+  border-color: #e2e8f0 !important;
+}
+
+/* Hardcoded dark backgrounds override */
+html.light .bg-\[\#020614\],
+html.light .bg-\[\#020512\],
+html.light .bg-\[\#020617\],
+html.light .bg-\[\#030712\],
+html.light .bg-\[\#02050e\],
+html.light .bg-\[\#01040f\],
+html.light .bg-\[\#01030e\] {
+  background-color: #f8fafc !important;
+}
+
+/* --------------------------------------------------------------------------
+   Navbar & Menus
+   -------------------------------------------------------------------------- */
+html.light header nav,
+html.light [class*="bg-surface/80"] {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04) !important;
+}
+
+html.light .nav-link {
+  color: #334155 !important;
+}
+
+html.light .nav-link:hover,
+html.light .nav-link[aria-current="page"],
+html.light .nav-link.active {
+  color: #b45309 !important;
+}
+
+/* Dropdowns */
+html.light .bg-\[\#040a1c\]\/95,
+html.light .bg-\[\#040a1c\] {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.1) !important;
+}
+
+html.light .bg-\[\#040a1c\]\/95 a:hover,
+html.light .bg-\[\#040a1c\] a:hover {
+  background-color: #f8fafc !important;
+}
+
+/* Scrolled & Open Navbar States */
+html.light #navbar-header[data-state="scrolled"] {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: blur(16px) !important;
+  border-bottom-color: rgba(226, 232, 240, 0.8) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+}
+
+html.light #navbar-header[data-state="mobile-open"] {
+  background-color: #ffffff !important;
+  border-bottom-color: #e2e8f0 !important;
+}
+
+/* Theme Toggle Button */
+html.light .theme-toggle-btn {
+  background-color: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+  color: #334155 !important;
+}
+
+html.light .theme-toggle-btn:hover {
+  background-color: #e2e8f0 !important;
+  color: #b45309 !important;
+  border-color: #b45309 !important;
+}
+
+html.light .theme-toggle-btn .theme-moon-icon {
+  color: #334155 !important;
+}
+
+html.light .theme-toggle-btn:hover .theme-moon-icon {
+  color: #b45309 !important;
+}
+
+/* Mobile Hamburger Button */
+html.light #navbar-hamburger {
+  background-color: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+html.light #navbar-hamburger:hover {
+  background-color: #e2e8f0 !important;
+  color: #b45309 !important;
+  border-color: #b45309 !important;
+}
+
+/* Language Switcher in Light Mode */
+html.light .lang-btn-gu.bg-primary,
+html.light .lang-btn-en.bg-primary {
+  background-color: #d4af37 !important;
+  color: #030712 !important;
+  font-weight: 700 !important;
+}
+
+html.light .lang-btn:not(.bg-primary) {
+  color: #475569 !important;
+}
+
+html.light .lang-btn:not(.bg-primary):hover {
+  color: #0f172a !important;
+  background-color: #e2e8f0 !important;
+}
+
+/* Mobile Drawer */
+html.light #mobile-menu-panel {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+}
+
+html.light #mobile-menu-panel .bg-\[\#03091e\]\/60 {
+  background-color: #f8fafc !important;
+  border-color: #e2e8f0 !important;
+}
+
+/* --------------------------------------------------------------------------
+   Cards, Carousels & Glassmorphism
+   -------------------------------------------------------------------------- */
+html.light [class*="bg-[linear-gradient(180deg,rgba(14,26,56"],
+html.light [class*="bg-gradient-to-b from-[#071330]"],
+html.light .bg-\[\#071330\],
+html.light .bg-\[\#040c22\],
+html.light .bg-\[\#03081a\],
+html.light .bg-\[\#03091e\],
+html.light .bg-\[\#040a24\],
+html.light .bg-\[\#040c24\],
+html.light .bg-\[\#040a1d\],
+html.light .bg-\[\#050b24\] {
+  background: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Card hover states */
+html.light .hover\:border-primary\/60:hover,
+html.light .hover\:border-primary\/50:hover,
+html.light .group\/card:hover,
+html.light .group\/rev:hover {
+  border-color: rgba(180, 83, 9, 0.45) !important;
+  box-shadow: 0 10px 28px rgba(180, 83, 9, 0.12) !important;
+}
+
+/* Product & item image containers */
+html.light .aspect-\[4\/3\].bg-\[\#01040f\],
+html.light .aspect-\[4\/3\].bg-\[\#01030e\],
+html.light .aspect-\[16\/9\].bg-\[\#01040f\],
+html.light [class*="bg-[#01040f]"],
+html.light [class*="bg-[#01030e]"] {
+  background-color: #f1f5f9 !important;
+  border-color: #e2e8f0 !important;
+}
+
+/* Carousel Control Buttons (Prev / Next) */
+html.light button[id$="-embla-prev"],
+html.light button[id$="-embla-next"],
+html.light .w-9.h-9.rounded-full.border,
+html.light .w-10.h-10.rounded-full.border {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  color: #334155 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+}
+
+html.light button[id$="-embla-prev"]:hover,
+html.light button[id$="-embla-next"]:hover,
+html.light .w-9.h-9.rounded-full.border:hover,
+html.light .w-10.h-10.rounded-full.border:hover {
+  border-color: #b45309 !important;
+  color: #b45309 !important;
+  background-color: #fef3c7 !important;
+}
+
+/* --------------------------------------------------------------------------
+   Hero Software Slide (Interactive Slide 3)
+   -------------------------------------------------------------------------- */
+html.light [class*="from-[#03091e] via-[#05133d] to-[#03091e]"] {
+  background: linear-gradient(135deg, #f8faff 0%, #edf2fe 50%, #f5f8ff 100%) !important;
+  border-color: rgba(99, 102, 241, 0.25) !important;
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.08) !important;
+}
+
+html.light [class*="from-[#03091e] via-[#05133d] to-[#03091e]"] h2 {
+  color: #1e1b4b !important;
+}
+
+html.light [class*="from-[#03091e] via-[#05133d] to-[#03091e]"] p {
+  color: #3730a3 !important;
+}
+
+html.light [class*="from-[#03091e] via-[#05133d] to-[#03091e]"] span[class*="bg-[#020512]"] {
+  background-color: #ffffff !important;
+  color: #4338ca !important;
+  border-color: rgba(99, 102, 241, 0.3) !important;
+}
+
+/* --------------------------------------------------------------------------
+   Software Section & Feature Strips
+   -------------------------------------------------------------------------- */
+/* Hero Bottom Software Division Strip */
+html.light #hero .bg-\[\#03081e\]\/80,
+html.light #hero [class*="bg-[#0c1630]"],
+html.light #hero [class*="bg-[#081026]"] {
+  background-color: #f1f5f9 !important;
+  border-color: #e2e8f0 !important;
+  color: #1e293b !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+}
+
+html.light #hero .bg-\[\#03081e\]\/80 .text-indigo-400,
+html.light #hero [class*="bg-[#0c1630]"] .text-indigo-400 {
+  color: #4338ca !important;
+}
+
+html.light #hero .bg-\[\#03081e\]\/80 .text-white,
+html.light #hero [class*="bg-[#0c1630]"] .text-white {
+  color: #0f172a !important;
+}
+
+html.light #hero .bg-\[\#03081e\]\/80 .text-indigo-300,
+html.light #hero [class*="bg-[#0c1630]"] .text-indigo-300 {
+  color: #3730a3 !important;
+}
+
+html.light #hero .bg-\[\#03081e\]\/80 .text-slate-400,
+html.light #hero [class*="bg-[#0c1630]"] .text-slate-400 {
+  color: #475569 !important;
+}
+
+/* Software Section Canvas */
+html.light #software {
+  background-color: #ffffff !important;
+}
+
+/* Software Carousel Cards */
+html.light #software [class*="from-[#070e2f]"] {
+  background: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05) !important;
+}
+
+html.light #software [class*="from-[#070e2f]"]:hover {
+  border-color: rgba(99, 102, 241, 0.5) !important;
+  box-shadow: 0 10px 28px rgba(99, 102, 241, 0.12) !important;
+}
+
+html.light #software [class*="from-[#070e2f]"] h3 {
+  color: #0f172a !important;
+}
+
+html.light #software [class*="from-[#070e2f]"] p.text-indigo-400 {
+  color: #4338ca !important;
+}
+
+html.light #software [class*="from-[#070e2f]"] p.text-text-muted {
+  color: #334155 !important;
+}
+
+html.light #software [class*="from-[#070e2f]"] span.text-indigo-300 {
+  color: #4338ca !important;
+}
+
+html.light #software [class*="from-[#070e2f]"] span.text-indigo-400\/80 {
+  color: #6366f1 !important;
+}
+
+html.light #software [class*="from-[#070e2f]"] .bg-\[\#010414\]\/90 {
+  background-color: #ffffff !important;
+  color: #4338ca !important;
+  border-color: rgba(99, 102, 241, 0.3) !important;
+}
+
+/* Software Technology Partner Card */
+html.light #software [class*="from-[#070f36]"] {
+  background: linear-gradient(135deg, #f8faff 0%, #edf2fe 50%, #f8faff 100%) !important;
+  border-color: rgba(99, 102, 241, 0.3) !important;
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.08) !important;
+}
+
+html.light #software [class*="from-[#070f36]"] h3 {
+  color: #0f172a !important;
+}
+
+html.light #software [class*="from-[#070f36]"] p {
+  color: #334155 !important;
+}
+
+html.light #software [class*="from-[#070f36]"] .text-indigo-200 {
+  color: #312e81 !important;
+}
+
+html.light #software [class*="from-[#070f36]"] [class*="bg-[#020617]/70"] {
+  background-color: #ffffff !important;
+  border-color: rgba(99, 102, 241, 0.25) !important;
+  color: #1e1b4b !important;
+  box-shadow: 0 2px 6px rgba(99, 102, 241, 0.04) !important;
+}
+
+html.light #software [class*="from-[#070f36]"] [class*="bg-indigo-950/60"] {
+  background-color: #ffffff !important;
+  border-color: #c7d2fe !important;
+  color: #3730a3 !important;
+}
+
+html.light #software [class*="from-[#070f36]"] [class*="bg-indigo-950/60"]:hover {
+  background-color: #e0e7ff !important;
+}
+
+/* Software Visual Note */
+html.light #software .bg-\[\#040a24\]\/75 {
+  background-color: #f8fafc !important;
+  border-color: #e2e8f0 !important;
+  color: #475569 !important;
+}
+
+/* Software 4 Focus Areas Cards */
+html.light #software .grid .bg-\[\#040a24\] {
+  background: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
+}
+
+html.light #software .grid .bg-\[\#040a24\]:hover {
+  border-color: rgba(99, 102, 241, 0.45) !important;
+  box-shadow: 0 10px 28px rgba(99, 102, 241, 0.1) !important;
+}
+
+html.light #software .grid .bg-\[\#040a24\] h3 {
+  color: #0f172a !important;
+}
+
+html.light #software .grid .bg-\[\#040a24\] p.text-indigo-400 {
+  color: #4338ca !important;
+}
+
+html.light #software .grid .bg-\[\#040a24\] p.text-text-muted {
+  color: #334155 !important;
+}
+
+html.light #software .grid .bg-\[\#040a24\] span.text-indigo-300 {
+  color: #4338ca !important;
+}
+
+/* --------------------------------------------------------------------------
+   Location & Google Reviews
+   -------------------------------------------------------------------------- */
+html.light #location .bg-gradient-to-r.from-\[\#030a22\] {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #ffffff 100%) !important;
+  border-color: rgba(180, 83, 9, 0.3) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06) !important;
+}
+
+html.light #location .bg-\[\#020512\].border.border-primary\/40 {
+  background-color: #f8fafc !important;
+  border-color: #e2e8f0 !important;
+}
+
+html.light #location .shrink-0.p-1\.5.rounded-lg.bg-\[\#03081a\] {
+  background-color: #f1f5f9 !important;
+  border-color: #e2e8f0 !important;
+}
+
+html.light #location a[class*="bg-[#03081a]"] {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  color: #334155 !important;
+}
+
+html.light #location a[class*="bg-[#03081a]"]:hover {
+  background-color: #f8fafc !important;
+  border-color: #b45309 !important;
+  color: #0f172a !important;
+}
+
+/* --------------------------------------------------------------------------
+   Showroom Page (/weighing-scales)
+   -------------------------------------------------------------------------- */
+html.light .sticky.bg-\[\#020614\]\/95 {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-color: #e2e8f0 !important;
+}
+
+html.light #showroom-search-input {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+html.light #showroom-search-input::placeholder {
+  color: #64748b !important;
+}
+
+html.light .category-pill:not(.active),
+html.light .capacity-chip:not(.active),
+html.light .brand-chip:not(.active) {
+  background-color: #f1f5f9 !important;
+  color: #334155 !important;
+  border-color: #e2e8f0 !important;
+}
+
+html.light .category-pill:not(.active):hover,
+html.light .capacity-chip:not(.active):hover,
+html.light .brand-chip:not(.active):hover {
+  background-color: #e2e8f0 !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+html.light .category-pill.active,
+html.light .capacity-chip.active {
+  background-color: #d4af37 !important;
+  color: #030712 !important;
+  border-color: #d4af37 !important;
+}
+
+html.light .brand-chip.active {
+  background-color: rgba(212, 175, 55, 0.2) !important;
+  color: #92400e !important;
+  border-color: #b45309 !important;
+}
+
+html.light #showroom-empty-state {
+  background: #ffffff !important;
+  border-color: #e2e8f0 !important;
+}
+
+html.light dialog#showroom-detail-dialog,
+html.light #showroom-detail-dialog > div {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+}
+
+/* --------------------------------------------------------------------------
+   Badges, Chips & Highlights
+   -------------------------------------------------------------------------- */
+html.light .bg-surface-soft {
+  background-color: #f1f5f9 !important;
+}
+
+html.light .border-border-subtle {
+  border-color: #e2e8f0 !important;
+}
+
+html.light .border-border {
+  border-color: #cbd5e1 !important;
+}
+
+html.light .bg-\[\#010414\]\/90,
+html.light .bg-\[\#020512\]\/90 {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+}
+
+html.light .bg-primary\/10 {
+  background-color: rgba(212, 175, 55, 0.15) !important;
+}
+
+html.light .text-emerald-400 {
+  color: #047857 !important;
+}
+
+html.light .bg-emerald-500\/10,
+html.light .bg-emerald-500\/15 {
+  background-color: rgba(16, 185, 129, 0.12) !important;
+  border-color: rgba(16, 185, 129, 0.25) !important;
+}
+
+/* Footer in Light Mode: Dark Luxury Contrast Anchor */
+html.light footer#contact {
+  background-color: #060b1c !important;
+  border-color: rgba(212, 175, 55, 0.25) !important;
+}
+

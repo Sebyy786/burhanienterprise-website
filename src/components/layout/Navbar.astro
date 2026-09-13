@@ -5,6 +5,7 @@ import BrandWordmark from './BrandWordmark.astro';
 import NavLink from './NavLink.astro';
 import MobileMenu from './MobileMenu.astro';
 import Button from '../ui/Button.astro';
+import ThemeToggle from '../ui/ThemeToggle.astro';
 
 interface Props {
   currentPath?: string;
@@ -117,8 +118,11 @@ const { currentPath = '/' } = Astro.props as Props;
       }
     </nav>
 
-    <!-- Desktop Actions (Language Switcher & WhatsApp CTA) -->
-    <div class="hidden lg:flex items-center gap-3 xl:gap-4">
+    <!-- Desktop Actions (Theme Toggle, Language Switcher & WhatsApp CTA) -->
+    <div class="hidden lg:flex items-center gap-2.5 xl:gap-3">
+      <!-- Theme Switcher -->
+      <ThemeToggle size="sm" />
+
       <!-- Language Switcher -->
       <div
         class="inline-flex items-center rounded-[var(--radius-sm)] bg-surface-soft border border-border-subtle p-0.5 text-xs select-none"
@@ -168,8 +172,11 @@ const { currentPath = '/' } = Astro.props as Props;
       </Button>
     </div>
 
-    <!-- Mobile Hamburger Toggle Button -->
+    <!-- Mobile Actions (Theme Toggle & Hamburger Toggle Button) -->
     <div class="flex items-center gap-2 lg:hidden">
+      <!-- Theme Switcher -->
+      <ThemeToggle size="sm" />
+
       <button
         type="button"
         id="navbar-hamburger"
