@@ -1,5 +1,27 @@
+# ==============================================================================
+# Burhani Enterprise — robots.txt
+# https://burhanienterprise.me
+# ==============================================================================
+
 User-agent: *
 Allow: /
 
-# Sitemap location
+# Specifically allow crawlers to access all public media and generated static bundles
+Allow: /images/
+Allow: /icons/
+Allow: /_astro/
+
+# Google Search & Google Images Crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /images/
+Allow: /
+
+# Microsoft Bing Crawler
+User-agent: Bingbot
+Allow: /
+
+# XML Sitemap location for Google Search Console & Webmasters
 Sitemap: https://burhanienterprise.me/sitemap.xml

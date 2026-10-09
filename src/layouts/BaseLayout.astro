@@ -9,22 +9,31 @@ interface Props {
   ogImage?: string;
   keywords?: string;
   offsetHeader?: boolean;
+  googleSiteVerification?: string;
+  bingSiteVerification?: string;
 }
 
 const {
   title = 'બુરહાની એન્ટરપ્રાઈઝ — ગેસ સોલ્યુશન્સ, ડિજિટલ વજન કાંટા અને સોફ્ટવેર',
   description = 'બુરહાની એન્ટરપ્રાઈઝ: ડિજિટલ વજન કાંટા, કેલિબ્રેશન અને લીગલ મેટ્રોલોજી સ્ટેમ્પિંગ સહાય, વેઇબ્રિજ, કોમર્શિયલ LPG પાઇપલાઇન, દરેક પ્રકારના ગેસ સ્ટવ, તમામ સ્પેરપાર્ટ્સ, રિપેરિંગ અને સ્થાનિક વેપાર સોફ્ટવેર. ઉમરેઠ, ગુજરાત.',
-  canonical = Astro.url.href,
+  canonical,
   ogImage = '/images/og-card.jpg',
   keywords = 'બુરહાની એન્ટરપ્રાઈઝ, Burhani Enterprise, Burhani Gas, digital weighing scale Umreth, weighing machine Anand, platform scales Gujarat, Rolex weighing scale Umreth, gas stove repair Umreth, LPG pipeline fitting, commercial kitchen manifold, Legal Metrology stamping, weighing machine calibration, Saifteq Technologies, software development Umreth, વજન કાંટા ઉમરેઠ, ગેસ ચૂલા રિપેરિંગ, ઓરિજિનલ સ્પેરપાર્ટ્સ',
   offsetHeader = true,
+  googleSiteVerification,
+  bingSiteVerification,
 } = Astro.props as Props;
 
 const siteUrl = 'https://burhanienterprise.me';
-const fullCanonical = canonical.startsWith('http') ? canonical : `${siteUrl}${canonical}`;
+const rawPath = Astro.url.pathname.replace(/\/+$/, '') || '/';
+const fullCanonical = canonical && canonical.startsWith('http') && !canonical.includes('localhost')
+  ? canonical
+  : `${siteUrl}${rawPath === '/' ? '/' : rawPath}`;
 const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
 const siteTitle = title.includes('બુરહાની એન્ટરપ્રાઈઝ') || title.includes('Burhani Enterprise') ? title : `${title} | બુરહાની એન્ટરપ્રાઈઝ`;
 const currentPath = Astro.url.pathname;
+const googleVerification = googleSiteVerification || import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION || '';
+const bingVerification = bingSiteVerification || import.meta.env.PUBLIC_BING_SITE_VERIFICATION || '';
 
 // Global Website Schema
 const websiteSchema = {
@@ -129,13 +138,22 @@ const organizationSchema = {
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords} />
     <meta name="author" content="Burhani Enterprise" />
+
+    <!-- Search Engine Site Verification (Google Search Console & Bing Webmaster) -->
+    {googleVerification && <meta name="google-site-verification" content={googleVerification} />}
+    {bingVerification && <meta name="msvalidate.01" content={bingVerification} />}
+
+    <!-- Search Engine Robots & Crawlers -->
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <link rel="canonical" href={fullCanonical} />
 
     <!-- Language Alternates / Hreflang for SEO -->
     <link rel="alternate" hreflang="gu" href={fullCanonical} />
     <link rel="alternate" hreflang="en" href={fullCanonical} />
+    <link rel="alternate" hreflang="gu-IN" href={fullCanonical} />
+    <link rel="alternate" hreflang="en-IN" href={fullCanonical} />
     <link rel="alternate" hreflang="x-default" href={fullCanonical} />
 
     <!-- Local SEO Geo Meta Tags -->

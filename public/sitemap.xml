@@ -2,38 +2,99 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <!-- Homepage: Burhani Enterprise Umreth -->
   <url>
     <loc>https://burhanienterprise.me/</loc>
-    <lastmod>2026-09-11</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="gu" href="https://burhanienterprise.me/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://burhanienterprise.me/" />
+    <xhtml:link rel="alternate" hreflang="gu-IN" href="https://burhanienterprise.me/" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://burhanienterprise.me/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://burhanienterprise.me/" />
     <image:image>
       <image:loc>https://burhanienterprise.me/images/banner/banner-1.jpg</image:loc>
-      <image:title>Burhani Enterprise Umreth - Weighing Scales and Gas Solutions</image:title>
+      <image:title>Burhani Enterprise Umreth - Digital Weighing Scales and Gas Solutions</image:title>
+      <image:caption>Physical showroom in Lokhand Bazar, Umreth offering digital scales, Legal Metrology stamping, gas stove spares and repairs.</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://burhanienterprise.me/images/banner/banner-2.jpg</image:loc>
       <image:title>Burhani Enterprise Technology Partner Saifteq Technologies</image:title>
+      <image:caption>Software development and AI automation solutions for businesses in Umreth and Anand district.</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://burhanienterprise.me/images/og-card.jpg</image:loc>
-      <image:title>Burhani Enterprise - Digital Weighing Scales, Gas Stoves &amp; Software Solutions</image:title>
+      <image:title>Burhani Enterprise - Digital Weighing Scales, Gas Stoves and Software</image:title>
+      <image:caption>Official business card for Burhani Enterprise, Umreth, Gujarat.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://burhanienterprise.me/images/weighing-solutions.jpg</image:loc>
+      <image:title>Digital Weighing Scale Solutions and Stamping Support</image:title>
+      <image:caption>Commercial counter, platform, and industrial scales in Umreth.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://burhanienterprise.me/images/gas-solutions.jpg</image:loc>
+      <image:title>Domestic and Commercial Gas Stove Repair and LPG Pipeline</image:title>
+      <image:caption>Commercial kitchen manifold pipeline fittings and stove spare parts.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://burhanienterprise.me/images/software-solutions.jpg</image:loc>
+      <image:title>Custom Business Software and AI Automation Solutions</image:title>
+      <image:caption>Local trade automation, billing software, and custom business websites.</image:caption>
     </image:image>
   </url>
+
+  <!-- Weighing Scales Showroom Catalog Page -->
   <url>
     <loc>https://burhanienterprise.me/weighing-scales</loc>
-    <lastmod>2026-09-11</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="gu" href="https://burhanienterprise.me/weighing-scales" />
     <xhtml:link rel="alternate" hreflang="en" href="https://burhanienterprise.me/weighing-scales" />
+    <xhtml:link rel="alternate" hreflang="gu-IN" href="https://burhanienterprise.me/weighing-scales" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://burhanienterprise.me/weighing-scales" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://burhanienterprise.me/weighing-scales" />
+    <image:image>
+      <image:loc>https://burhanienterprise.me/images/scale/scale-1.jpg</image:loc>
+      <image:title>Digital Price Computing Counter Scale Taj Umreth</image:title>
+      <image:caption>Taj brand price computing grocery counter scale 15kg to 35kg capacity.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://burhanienterprise.me/images/scale/scale-2.jpg</image:loc>
+      <image:title>Waterproof Stainless Steel Counter Scale AQUA Silver Eagle</image:title>
+      <image:caption>Silver Eagle waterproof stainless steel bench scale for dairy and sweet shops.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://burhanienterprise.me/images/scale/scale-3.jpg</image:loc>
+      <image:title>Precision Compact Balance Scale for Jewellery and Laboratory</image:title>
+      <image:caption>High accuracy digital balance with wind shield for precision weighing.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://burhanienterprise.me/images/scale/scale-4.jpg</image:loc>
+      <image:title>Commercial Heavy Duty MS Platform Scale Rolex</image:title>
+      <image:caption>Rolex heavy-duty MS platform scale with red LED display, 100kg to 500kg capacity.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://burhanienterprise.me/images/scale/scale-5.jpg</image:loc>
+      <image:title>Heavy Duty Double Pipe Backrest Platform Scale Axpert</image:title>
+      <image:caption>Axpert heavy-duty backrest platform scale for warehouses and grain markets.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://burhanienterprise.me/images/scale/scale-6.jpg</image:loc>
+      <image:title>Stainless Steel Waterproof Dairy Platform Scale</image:title>
+      <image:caption>Stainless steel waterproof platform scale for milk collection centers and dairies.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://burhanienterprise.me/images/scale/scale-7.jpg</image:loc>
+      <image:title>Heavy Duty Industrial Crane and Hanging Scale</image:title>
+      <image:caption>Cast aluminum industrial crane scale with wireless remote control, 1000kg capacity.</image:caption>
+    </image:image>
     <image:image>
       <image:loc>https://burhanienterprise.me/images/scale/scale-8.webp</image:loc>
       <image:title>Rolex Digital Weighing Scale Showroom Umreth</image:title>
+      <image:caption>Authorized Rolex weighing scale showroom display in Umreth, Gujarat.</image:caption>
     </image:image>
   </url>
 </urlset>
